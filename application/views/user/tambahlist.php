@@ -121,7 +121,7 @@
                                     <span class="input-group-text">
                                         +62
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Contoh : 15000">
+                                    <input type="text" class="form-control" placeholder="852333****">
                                     <div class="input-group-append"><span class="input-group-text">
                                             <input id="negotiable" name="negotiable" type="checkbox" value="1">&nbsp;<small>Sembunyikan</small></span>
                                     </div>
