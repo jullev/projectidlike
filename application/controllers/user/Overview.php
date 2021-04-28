@@ -15,4 +15,5 @@ class Overview extends CI_Controller {
 	public function detail(){
 		$this->load->view("user/detail");
 	}
+	
 }

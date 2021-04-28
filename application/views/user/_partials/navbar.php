@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-expand-sm fixed-top bg-white text-monospace shadow-lg navigation-clean">
+<nav class="navbar navbar-light navbar-expand-sm fixed-top bg-white text-monospace shadow-sm navigation-clean">
   <div class="container"><a class="navbar-brand" href="#">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
     <div class="collapse navbar-collapse" id="navcol-1">
       <button class="btn btn-outline-primary ml-auto" data-target="#signIn" data-toggle="modal">
@@ -53,9 +53,11 @@
             </div>
           </div>
           <!-- Tetap Login -->
-          <div class="form-group form-check mb-2">
-            <input type="checkbox" class="form-check-input" id="rememberme">
-            <label class="form-check-label" for="rememberme">Tetap Masuk</label>
+          <div class="form-group form-check pl-0">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="rememberme">
+              <label class="custom-control-label" for="rememberme">Tetap Masuk</label>
+            </div>
           </div>
           <!-- Lupa Pass -->
           <a href="">Lupa Password?</a>
