@@ -15,5 +15,14 @@ class Overview extends CI_Controller {
 	public function detail(){
 		$this->load->view("user/detail");
 	}
+
+	public function search()
+	{
+		$this->load->view('user/search');
+	}
 	
+	public function register()
+	{
+		$this->load->view('user/register');
+	}
 }

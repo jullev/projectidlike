@@ -1,10 +1,10 @@
 <nav class="navbar navbar-light navbar-expand-sm fixed-top bg-white text-monospace shadow-sm navigation-clean">
-  <div class="container"><a class="navbar-brand" href="#">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
+  <div class="container"><a class="navbar-brand" href="<?php echo site_url('/') ?>">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
     <div class="collapse navbar-collapse" id="navcol-1">
       <button class="btn btn-outline-primary ml-auto" data-target="#signIn" data-toggle="modal">
         <i class="bi-person"></i> Masuk
       </button>
-      <a href="" class="btn btn-outline-primary ml-3" role="button">
+      <a href="<?php echo site_url('register') ?>" class="btn btn-outline-primary ml-3" role="button">
         <i class="bi-person-plus"></i> Daftar
       </a>
       <a href="" class="btn btn-warning ml-3" role="button">

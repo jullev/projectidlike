@@ -19,36 +19,49 @@
                             <form action="">
                                 <!-- Nama -->
                                 <div class="form-group row">
-                                    <label for="name" class="col-md-2 col-form-label">Nama <sup style="color: red;">*</sup></label>
+                                    <label for="name" class="col-md-3 col-form-label">Nama <sup style="color: red;">*</sup></label>
                                     <div class="col-md-8">
                                         <input type="text" id="name" name="name" class="form-control" placeholder="Nama Lengkap" required>
                                     </div>
                                 </div>
                                 <!-- Username -->
                                 <div class="form-group row">
-                                    <label for="username" class="col-md-2 col-form-label">Username <sup style="color: red;">*</sup></label>
+                                    <label for="username" class="col-md-3 col-form-label">Username <sup style="color: red;">*</sup></label>
                                     <div class="col-md-8">
                                         <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
                                     </div>
                                 </div>
                                 <!-- Email -->
                                 <div class="form-group row">
-                                    <label for="email" class="col-md-2 col-form-label">Email <sup style="color: red;">*</sup></label>
+                                    <label for="email" class="col-md-3 col-form-label">Email <sup style="color: red;">*</sup></label>
                                     <div class="col-md-8">
                                         <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" required>
                                     </div>
                                 </div>
+                                <!-- Tangga Lahir -->
+                                <div class="form-group row">
+                                    <label for="birthdate" class="col-md-3 col-form-label">Tanggal Lahir <sup style="color: red;">*</sup></label>
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
                                 <!-- No Hp -->
                                 <div class="form-group row">
-                                    <label for="phone" class="col-md-2 col-form-label">Telepon <sup style="color: red;">*</sup></label>
-                                    <div class="col-md-8">
+                                    <label for="phone" class="col-md-3 col-form-label">Telepon <sup style="color: red;">*</sup></label>
+                                    <div class="input-group col-md-8">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">+62</span>
+                                        </div>
                                         <input type="text" class="form-control" name="phone" placeholder="Nomor Telepon" required>
                                     </div>
-                                    <div class="col-md-2"></div>
+                                    <div class="col-md-1"></div>
                                 </div>
                                 <!-- Password -->
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-2 col-form-label">Password <sup style="color: red;">*</sup></label>
+                                    <label for="password" class="col-md-3 col-form-label">Password <sup style="color: red;">*</sup></label>
                                     <div class="col-md-8">
                                         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                                         <input type="password" id="password_confirm" name="password_confirm" class="form-control mt-3" placeholder="Konfirmasi Password" required>
@@ -56,20 +69,20 @@
                                 </div>
                                 <!-- Term -->
                                 <div class="form-group row">
-                                    <div class="col-md-2"></div>
+                                    <div class="col-md-3"></div>
                                     <div class="col-md-8 form-check">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="term" required>
                                             <label class="custom-control-label" for="term">Saya telah membaca dan menyetujui <a href="">Syarat dan Ketentuan</a></label>
                                         </div>
                                     </div>
-                                    <div class="col-md-2"></div>
+                                    <div class="col-md-1"></div>
                                 </div>
                                 <!-- Button -->
                                 <div class="form-group row">
-                                    <div class="col-md-2"></div>
+                                    <div class="col-md-3"></div>
                                     <div class="col-md-8"><button type="submit" class="btn btn-primary btn-lg btn-block mt-3">Daftar</button></div>
-                                    <div class="col-md-2"></div>
+                                    <div class="col-md-1"></div>
                                 </div>
                             </form>
                         </div>
@@ -103,5 +116,10 @@
     </body>
 
     <?php $this->load->view('user/_partials/footer.php'); ?>
-
+    <script >
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '-3d'
+        });
+    </script>
 </html>
