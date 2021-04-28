@@ -117,13 +117,15 @@
                             </div>
                             <div class="form-group row">
                                 <label for="telp" class="col-md-3 col-form-label">Nomor Telepon</label>
-                                <div class="input-group-prepend mb-3 col-md-8">
-                                    <span class="input-group-text">
-                                        +62
-                                    </span>
-                                    <input type="text" class="form-control" placeholder="852333****">
-                                    <div class="input-group-append"><span class="input-group-text">
-                                            <input id="negotiable" name="negotiable" type="checkbox" value="1">&nbsp;<small>Sembunyikan</small></span>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            +62
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="852333****">
+                                        <div class="input-group-append"><span class="input-group-text">
+                                                <input id="negotiable" name="negotiable" type="checkbox" value="1">&nbsp;<small>Sembunyikan</small></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -141,6 +143,16 @@
     <?php $this->load->view('user/_partials/footer.php'); ?>
 
 </body>
-
+<script src="[ckeditor-build-path]/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 
 </html>
