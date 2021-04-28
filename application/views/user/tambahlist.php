@@ -70,12 +70,15 @@
                             </div>
                             <div class="form-group row">
                                 <label for="price" class="col-md-3 col-form-label">Harga</label>
-                                <div class="input-group-prepend mb-3 col-md-8">
-                                    <span class="input-group-text">RP</span>
+                                <div class="input-group mb-3 col-md-8">
+                                    <div class="input-group-prepend ">
+                                        <span class="input-group-text">RP</span>
+                                    </div>
                                     <input type="text" class="form-control" placeholder="Contoh : 15000">
                                     <div class="input-group-append"><span class="input-group-text">
                                             <input id="negotiable" name="negotiable" type="checkbox" value="1"><small>&nbsp;Nego</small></span>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -110,28 +113,36 @@
                             </div>
                             <div class="form-group row">
                                 <label for="email" class="col-md-3 col-form-label">Email<sup style="color:tomato">*</sup></label>
-                                <div class="input-group-prepend mb-3 col-md-8">
-                                    <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                                <div class="input-group mb-3 col-md-8">
+                                    <div class="input-group-prepend ">
+                                        <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                                    </div>
                                     <input type="email" class="form-control" placeholder="Email">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="telp" class="col-md-3 col-form-label">Nomor Telepon</label>
-                                <div class="input-group">
+                                <div class="input-group mb-3 col-md-8">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            +62
-                                        </span>
-                                        <input type="text" class="form-control" placeholder="852333****">
-                                        <div class="input-group-append"><span class="input-group-text">
-                                                <input id="negotiable" name="negotiable" type="checkbox" value="1">&nbsp;<small>Sembunyikan</small></span>
-                                        </div>
+                                        <span class="input-group-text">+62</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="852333****" aria-describedby="telp-add">
+                                    <div class="input-group-append"><span class="input-group-text">
+                                            <input id="negotiable" name="negotiable" type="checkbox" value="1">&nbsp;<small>Sembunyikan</small></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <div class="col-md-8">
+                                    <input type="checkbox" id="verify" value="1" name="verify">
+                                    <small class="md-2"><strong>I want to register by submmiting this ad</strong></small>
+                                    <br>
+                                    <small>You will receive your authentication information by email.</small>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <div class="col-md-12">
-                                    <button class="btn btn-primary" type="submit">Lanjut</button>
+                                    <button class="btn btn-block btn-primary" type="submit">Lanjut</button>
                                 </div>
                             </div>
                         </form>
