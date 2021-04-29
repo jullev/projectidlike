@@ -16,7 +16,7 @@
                         </div>
                         <!-- Form Daftar -->
                         <div class="card-body py-5 px-5">
-                            <form action="">
+                            <form action="C_Register/prosesTambah">
                                 <!-- Nama -->
                                 <div class="form-group row">
                                     <label for="name" class="col-md-3 col-form-label">Nama <sup style="color: red;">*</sup></label>
