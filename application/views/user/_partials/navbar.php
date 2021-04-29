@@ -7,7 +7,7 @@
       <a href="<?php echo site_url('register') ?>" class="btn btn-outline-primary ml-3" role="button">
         <i class="bi-person-plus"></i> Daftar
       </a>
-      <a href="" class="btn btn-warning ml-3" role="button">
+      <a href="<?php echo site_url('tambahlist') ?>" class="btn btn-warning ml-3" role="button">
         <i class="bi bi-plus-circle-fill"></i> Tambahkan List
       </a>
     </div>

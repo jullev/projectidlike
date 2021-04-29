@@ -141,6 +141,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <div class="col-md-8">
+                                    <div class="g-recaptcha" data-sitekey="6LfcdL4aAAAAAJhUJSD1sa-1dW8AsrIjQ7rj_zj9"></div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <div class="col-md-12">
                                     <button class="btn btn-block btn-primary" type="submit">Lanjut</button>
                                 </div>
@@ -149,12 +154,40 @@
                     </div>
                 </div>
             </div>
+            <!-- Register Sidebar -->
+            <div class="col-sm-4 reg-sidebar">
+                <div class="reg-sidebar-inner text-center">
+                    <div class="reg-text-box p-3">
+                        <i class="bi-images" style="color: #b19cd9; font-size: 2em;"></i>
+                        <h6>Pasang Iklan Gratis</h6>
+                        <p style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis mollitia non odit distinctio a nam dignissimos placeat dolorum incidunt commodi, pariatur omnis. Nemo laborum explicabo assumenda iste nihil quasi vel?</p>
+                    </div>
+                    <div class="reg-text-box p-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6><strong>bagaimana menjual agar cepat laku?</strong></h6>
+                            </div>
+                            <div class="card-body text-left">
+                                <ul>
+                                    <li><small>Gunkan judul yang singkat dan deskripsi item tersebut</small></li>
+                                    <li><small>Pastikan Anda mempostin di kategori yang tepat</small> </li>
+                                    <li><small>Tambahkan foto/gambar yang baik pada iklan Anda</small></li>
+                                    <li><small>Berikan harga yang wajar</small></li>
+                                    <li><small> Periksa item sebelum ditayangkan</small></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
     <?php $this->load->view('user/_partials/footer.php'); ?>
 
 </body>
 <script src="[ckeditor-build-path]/ckeditor.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
     ClassicEditor
         .create(document.querySelector('#editor'))

@@ -24,9 +24,6 @@ class Welcome extends CI_Controller
 		$this->load->view('user/Overview');
 	}
 
-	public function list()
-	{
-		$this->load->view('user/tambahlist');
-	}
+	
 
 }
