@@ -60,9 +60,11 @@ class M_Register extends CI_Model {
 
 	public function insert($data) {
 		$id = md5(DATE('ymdhms').rand());
+		echo implode($data);
 		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir,role_idrole) 
-		VALUES('" .$data['name'] ."','" .$data['telp'] ."',
-		" .$data['kota'] ."," .$data['jk'] ."," .$data['posisi'] .",1)";
+		VALUES('" .$data['username'] ."','" .$data['email'] ."',
+		md5('" .$data['password'] ."'),'" .$data['name'] ."','" .$data['birthdate'] ."',1)";
+		echo $sql;
 
 		$this->db->query($sql);
 

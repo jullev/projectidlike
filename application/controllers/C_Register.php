@@ -27,6 +27,11 @@ class C_Register extends CI_Controller {
 		$this->load->view('pasien/list_data', $data);
 	}
 
+	public function loginData($data) {
+		$data['dataPasien'] = $this->M_pasien->select_all_pasien();
+		$this->load->view('pasien/list_data', $data);
+	}
+
 	public function prosesTambah() {
 		$data = $this->input->post();
 		$result = $this->M_Register->insert($data);
