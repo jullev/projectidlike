@@ -8,18 +8,8 @@ class C_Register extends CI_Controller {
 	}
 
 	public function index() {
-		$data['userdata'] = $this->userdata;
-		$data['dataPasien'] = $this->M_pasien->select_all_pasien();
-		$data['dataPosisi'] = $this->M_posisi->select_all();
-		$data['dataKota'] = $this->M_kota->select_all();
-
-		$data['page'] = "Pasien";
-		$data['judul'] = "Data Pasien";
-		$data['deskripsi'] = "Manage Data Pasien";
-
-		$data['modal_tambah_pegawai'] = show_my_modal('modals/modal_tambah_pasien', 'tambah-pasien', $data);
-		// echo json_encode($data['dataPasien']);
-		$this->template->views('pasien/home', $data);
+		
+		$this->load->views('tambahlist', $data);
 	}
 
 	public function tampil() {
@@ -30,7 +20,7 @@ class C_Register extends CI_Controller {
 	public function loginData() {
 		$data = $this->input->post();
 		print_r($data);
-		$hasil['dataPasien'] = $this->M_Register->Select_Login($data);
+		$hasil['dataUser'] = $this->M_Register->Select_Login($data);
 		// $this->load->view('pasien/list_data', $hasil);
 	
 	}
@@ -40,8 +30,7 @@ class C_Register extends CI_Controller {
 		$result = $this->M_Register->insert($data);
 
 			if ($result > 0) {
-				$out['status'] = '';
-				$out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
+				$this->load->view('user/Overview', $result);
 			} else {
 				$out['status'] = '';
 				$out['msg'] = show_err_msg('Data Pegawai Gagal ditambahkan', '20px');

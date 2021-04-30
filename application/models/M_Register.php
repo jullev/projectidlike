@@ -69,6 +69,7 @@ class M_Register extends CI_Model {
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
+		
 	}
 
 	public function insert_batch($data) {
