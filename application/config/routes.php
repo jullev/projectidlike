@@ -59,3 +59,4 @@ $route['search'] = 'user/Overview/search';
 $route['tambahiklan'] = 'user/Overview/list';
 $route['adminlist'] = 'admin/Overview/adminlist';
 $route['tambahadmin'] = 'admin/Overview/tambahadmin';
+$route['dashboard'] = 'user/Overview/dashboard';
