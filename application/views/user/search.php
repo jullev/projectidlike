@@ -74,12 +74,32 @@
                             </ul>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <div class="row listing-filter pb-3 mb-3">
+                                <div class="float-sm-left col-sm-6 text-left">
+                                    Semua iklan dalam
+                                </div>
+                                <div class="float-sm-right col-sm-6 text-right">
+                                    <i class="bi-grid"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-md-3 border p-3">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ullam nam repudiandae maiores recusandae corrupti quos molestias deleniti! Voluptate veritatis quos error neque totam magni, quibusdam cumque mollitia. Commodi, nulla.
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 border p-3">
+                                    sdfgh
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 border p-3">
+                                    sdfgh
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-3 border p-3">
+                                    sdfgh
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- End of Content -->
             </div>
         </div>
     </div>
