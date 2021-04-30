@@ -16,6 +16,9 @@
         color: #0c5460;
         background-color: #bee5eb;
     }
+    .listing-filter {
+      border-bottom: 1px #ddd solid;
+    }
   </style>
   
   <!-- Font Awesome -->

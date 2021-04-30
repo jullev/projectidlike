@@ -16,7 +16,7 @@
                         </div>
                         <!-- Form Daftar -->
                         <div class="card-body py-5 px-5">
-                            <form action="C_Register/prosesTambah">
+                            <form action="C_Register/prosesTambah" method="POST">
                                 <!-- Nama -->
                                 <div class="form-group row">
                                     <label for="name" class="col-md-3 col-form-label">Nama <sup style="color: red;">*</sup></label>
@@ -47,6 +47,17 @@
                                         </div>
                                     </div>
                                     <div class="col-md-1"></div>
+                                </div>
+                                <!-- Jenis Kelamin -->
+                                <div class="form-group row">
+                                    <label for="gender" class="col-md-3 col-form-label">Jenis Kelamin <sup style="color: red;">*</sup></label>
+                                    <div class="col-md-8">
+                                        <select class="custom-select" id="gender" required>
+                                            <option selected>Jenis Kelamin</option>
+                                            <option value="Laki - Laki">Laki - Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <!-- No Hp -->
                                 <div class="form-group row">

@@ -1,17 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Register extends CI_Model {
-	public function select_all_user() {
-		$sql = "SELECT * FROM user";
+class M_TambahIklan extends CI_Model {
+	public function select_all_iklan() {
+		$sql = "SELECT * FROM kerjaan";
 
 		$data = $this->db->query($sql);
 
 		return $data->result();
 	}
 
-	public function select_all() {
-		$sql = " SELECT pegawai.id AS id, pegawai.nama AS pegawai, pegawai.telp AS telp, kota.nama AS kota, kelamin.nama AS kelamin, posisi.nama AS posisi FROM pegawai, kota, kelamin, posisi WHERE pegawai.id_kelamin = kelamin.id AND pegawai.id_posisi = posisi.id AND pegawai.id_kota = kota.id";
+	public function select_all_kategory() {
+		$sql = " SELECT * from kategory";
 
 		$data = $this->db->query($sql);
 
@@ -59,11 +59,10 @@ class M_Register extends CI_Model {
 	}
 
 	public function insert($data) {
-		$id = md5(DATE('ymdhms').rand());
 		echo implode($data);
-		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir,role_idrole) 
-		VALUES('" .$data['username'] ."','" .$data['email'] ."',
-		md5('" .$data['password'] ."'),'" .$data['name'] ."','" .$data['birthdate'] ."',1)";
+		$sql = "INSERT INTO kerjaan(judul_kerjaan,deskripsi,tanggal_submit,deadline,kabupaten_idkabupaten,harga,kategori_idkategori) 
+		VALUES('" .$data['judul'] ."','" .$data['contents'] ."',
+		now(),'" .$data['deadline'] ."','" .$data['kota'] ."','" .$data['negotiable'] ."','" .$data['kategori'] ."')";
 		echo $sql;
 
 		$this->db->query($sql);
