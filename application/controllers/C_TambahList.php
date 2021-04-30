@@ -37,7 +37,7 @@ class C_TambahList extends CI_Controller {
 
 	public function prosesTambah() {
 		$data = $this->input->post();
-		$result = $this->M_Register->insert($data);
+		$result = $this->M_TambahIklan->insert($data);
 
 			if ($result > 0) {
 				$out['status'] = '';
