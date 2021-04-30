@@ -30,7 +30,9 @@ class C_Register extends CI_Controller {
 		$result = $this->M_Register->insert($data);
 
 			if ($result > 0) {
-				$this->load->view('user/Overview', $result);
+				$out['status'] = '';
+				$out['msg'] = 'Data Pegawai Berhasil ditambahkan';
+				$this->load->view('user/register', $out);
 			} else {
 				$out['status'] = '';
 				$out['msg'] = show_err_msg('Data Pegawai Gagal ditambahkan', '20px');

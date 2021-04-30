@@ -17,6 +17,14 @@
                         <!-- Form Daftar -->
                         <div class="card-body py-5 px-5">
                             <form action="C_Register/prosesTambah" method="POST">
+                                <?php 
+                                    if(isset($msg)){
+                                    ?>
+                                        <div class="alert alert-success"><?php echo $msg ?></div>
+                                    <?php
+                                    }
+                                
+                                ?>
                                 <!-- Nama -->
                                 <div class="form-group row">
                                     <label for="name" class="col-md-3 col-form-label">Nama <sup style="color: red;">*</sup></label>

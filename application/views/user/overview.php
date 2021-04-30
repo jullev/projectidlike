@@ -19,14 +19,21 @@
             Mudah, Cepat, Efisien
           </h3>
         </div>
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        <div class="col-md-10 col-lg-8 col-xl-8 mx-auto">
           <form>
             <div class="form-row">
-              <div class="col">
-                <div class="input-group">
-                  <div class="input-group-prepend"></div><input class="form-control" type="text" placeholder="Apa ?"><input class="form-control" type="text" placeholder="Dimana ?">
-                  <div class="input-group-append"><button class="btn btn-primary text-left" type="button">Go!<i class="fa fa-search float-left d-xl-flex justify-content-xl-center align-items-xl-center"
-                        style="transform: translate(-2px) translateX(-2px) translateY(3px);"></i></button></div>
+              <div class="col card rounded-pill">
+                <div class="input-group mx-4 my-2">
+                  <select class="custom-select mr-1" style="border-top: none !important;border-bottom: none !important;border-left: none !important;" id="inputGroupSelect01">
+                    <option selected>Semua Kategori</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                  <input class="form-control mr-1" style="border-top: none !important;border-bottom: none !important;border-left: none !important;" type="text" placeholder="Apa ?">
+                  <input class="form-control" style="border: none !important;" type="text" placeholder="Dimana ?">
+                  <button type="submit">Search</button>
+                  </div>
                 </div>
               </div>
             </div>

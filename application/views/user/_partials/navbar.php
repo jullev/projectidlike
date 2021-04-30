@@ -1,12 +1,39 @@
 <nav class="navbar navbar-light navbar-expand-sm fixed-top bg-white text-monospace shadow-sm navigation-clean">
-  <div class="container"><a class="navbar-brand" href="<?php echo site_url('/') ?>">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
+  <div class="container">
+    <!-- Nama Website -->
+    <a class="navbar-brand" href="<?php echo site_url('/') ?>">Brand</a>
+    <!-- Collapse Button -->
+    <button data-toggle="collapse" class="navbar-toggler mb-2" data-target="#navcol-1">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Masuk, Daftar, Akun, Tambah Iklan -->
     <div class="collapse navbar-collapse" id="navcol-1">
-      <button class="btn btn-outline-primary ml-auto" data-target="#signIn" data-toggle="modal">
-        <i class="bi-person"></i> Masuk
-      </button>
-      <a href="<?php echo site_url('register') ?>" class="btn btn-primary ml-3" role="button">
-        <i class="bi-person-plus"></i> Daftar
-      </a>
+      <!-- Untuk yang belum login -->
+          <!-- Tombol Masuk -->
+          <!-- <button class="btn btn-outline-primary ml-auto" data-target="#signIn" data-toggle="modal">
+            <i class="bi-person"></i> Masuk
+          </button> -->
+          <!-- Tombol Daftar -->
+          <!-- <a href="<?php //echo site_url('register') ?>" class="btn btn-outline-primary ml-3" role="button">
+            <i class="bi-person-plus"></i> Daftar
+          </a> -->
+      
+      <!-- Untuk yang sudah login -->
+          <!-- Akun -->
+          <div class="btn-group ml-auto">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="bi-person-fill mr-1"></i> Akhmad Nur Hidayatulloh
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="<?php echo site_url('dashboard'); ?>"><i class="bi-house mr-1"></i> Dashboard</a>
+              <a class="dropdown-item" href="<?php echo site_url('admin'); ?>"><i class="bi-speedometer2 mr-1"></i> Admin</a>
+              <a class="dropdown-item" href="#"><i class="bi-badge-ad mr-1"></i> Iklan Saya</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#"><i class="bi-box-arrow-right mr-1"></i> Logout</a>
+            </div>
+          </div>
+
+      <!-- Tombol Tambah Iklan -->
       <a href="<?php echo site_url('tambahlist') ?>" class="btn btn-warning ml-3" role="button">
         <i class="bi bi-plus-circle-fill"></i> Buat Iklan
       </a>

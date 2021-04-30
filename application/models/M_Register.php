@@ -36,7 +36,7 @@ class M_Register extends CI_Model {
 
 	public function Select_Login($data) {
 		$sql = "SELECT * FROM user WHERE username = '" .$data['username'] ."' and password = md5('" .$data['password'] ."')";
-		echo $sql;
+		//echo $sql;
 		$data = $this->db->query($sql);
 
 		return $data->row();
@@ -60,11 +60,11 @@ class M_Register extends CI_Model {
 
 	public function insert($data) {
 		$id = md5(DATE('ymdhms').rand());
-		echo implode($data);
+		//echo implode($data);
 		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir,role_idrole) 
 		VALUES('" .$data['username'] ."','" .$data['email'] ."',
 		md5('" .$data['password'] ."'),'" .$data['name'] ."','" .$data['birthdate'] ."',1)";
-		echo $sql;
+		// echo $sql;
 
 		$this->db->query($sql);
 
