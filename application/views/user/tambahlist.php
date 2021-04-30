@@ -15,12 +15,12 @@
                     </div>
                     <div class="card-body py-5 px-5">
                         <!-- form tambah list -->
-                        <form action="POST">
+                        <form action="C_TambahList/prosesTambah" method="Post">
                             <div class="form-group row">
                                 <!-- kategori form -->
                                 <label for="kategori" class="col-md-3 col-form-label">Kategori <sup style="color:tomato">*</sup></label>
                                 <div class="col-md-8">
-                                    <select class="custom-select">
+                                    <select class="custom-select" name="kategori">
                                         <option selected>Pilih Kategori</option>
                                         <option value="1">Cari Investor</option>
                                         <option value="2">Bisnis Dijual</option>
@@ -56,7 +56,7 @@
                             <div class="form-group row">
                                 <label for="judul" class="col-md-3 col-form-label">Judul <sup style="color:tomato">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="judul" placeholder="Judul Iklan">
+                                    <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul Iklan">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -74,17 +74,27 @@
                                     <div class="input-group-prepend ">
                                         <span class="input-group-text">RP</span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Contoh : 15000">
+                                    <input type="text" class="form-control" placeholder="Contoh : 15000" name="negotiable">
                                     <div class="input-group-append"><span class="input-group-text">
-                                            <input id="negotiable" name="negotiable" type="checkbox" value="1"><small>&nbsp;Nego</small></span>
+                                            <input id="negotiable" type="checkbox" value="1"><small>&nbsp;Nego</small></span>
                                     </div>
 
                                 </div>
                             </div>
+							<!-- Tangga Lahir -->
+							<div class="form-group row">
+								<label for="birthdate" class="col-md-3 col-form-label">Deadline <sup style="color: red;">*</sup></label>
+								<div class="col-md-8">
+									<div class="input-group">
+										<input type="date" class="form-control" id="deadline" name="deadline" required>
+									</div>
+								</div>
+								<div class="col-md-1"></div>
+							</div>
                             <div class="form-group row">
                                 <label for="kota" class="col-md-3 col-form-label">Kota <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <select class="custom-select">
+                                    <select class="custom-select" name="kota">
                                         <option selected>Pilih Kota</option>
                                         <option value="1">Bondowoso</option>
                                     </select>

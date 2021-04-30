@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_TambahIklan extends CI_Model {
 	public function select_all_iklan() {
-		$sql = "SELECT * FROM user";
+		$sql = "SELECT * FROM kerjaan";
 
 		$data = $this->db->query($sql);
 
@@ -59,11 +59,10 @@ class M_TambahIklan extends CI_Model {
 	}
 
 	public function insert($data) {
-		$id = md5(DATE('ymdhms').rand());
 		echo implode($data);
-		$sql = "INSERT INTO kerjaan(judul_kerjaan,deskripsi,tanggal_submit,deadline,kabupaten_idkabupaten,harga) 
-		VALUES('" .$data['username'] ."','" .$data['email'] ."',
-		md5('" .$data['password'] ."'),'" .$data['name'] ."','" .$data['birthdate'] ."',1)";
+		$sql = "INSERT INTO kerjaan(judul_kerjaan,deskripsi,tanggal_submit,deadline,kabupaten_idkabupaten,harga,kategori_idkategori) 
+		VALUES('" .$data['judul'] ."','" .$data['contents'] ."',
+		now(),'" .$data['deadline'] ."','" .$data['kota'] ."','" .$data['negotiable'] ."','" .$data['kategori'] ."')";
 		echo $sql;
 
 		$this->db->query($sql);
