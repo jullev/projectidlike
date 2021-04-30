@@ -1,25 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Register extends CI_Controller {
+class C_TambahList extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('M_Register');
+		$this->load->model('M_TambahIklan');
 	}
 
 	public function index() {
 		$data['userdata'] = $this->userdata;
-		$data['dataPasien'] = $this->M_pasien->select_all_pasien();
+		$data['dataKategory'] = $this->M_TambahIklan->select_all_Kategory();
 		$data['dataPosisi'] = $this->M_posisi->select_all();
 		$data['dataKota'] = $this->M_kota->select_all();
 
-		$data['page'] = "Pasien";
-		$data['judul'] = "Data Pasien";
+		$data['page'] = "TambahIklan";
+		$data['judul'] = "Tambah Iklan";
 		$data['deskripsi'] = "Manage Data Pasien";
 
-		$data['modal_tambah_pegawai'] = show_my_modal('modals/modal_tambah_pasien', 'tambah-pasien', $data);
+		// $data['modal_tambah_pegawai'] = show_my_modal('modals/modal_tambah_pasien', 'tambah-pasien', $data);
 		// echo json_encode($data['dataPasien']);
-		$this->template->views('pasien/home', $data);
+		$this->template->views('tambahlist', $data);
 	}
 
 	public function tampil() {

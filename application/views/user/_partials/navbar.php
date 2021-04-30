@@ -27,7 +27,7 @@
       <div class="modal-body">
         <h3 class="modal-title mb-4" id="signInLabel"><i class="bi-box-arrow-in-right mr-2" style="color: black;"></i> Masuk</h3>
 
-        <form action="">
+        <form action="C_Register/loginData" method="POST">
           <!-- Username -->
           <div class="form-group mb-3">
             <label for="username">Username</label>
@@ -37,7 +37,7 @@
                   <i class="bi-person-fill"></i>
                 </span>
               </div>
-              <input type="text" class="form-control" id="username" placeholder="Username" aria-describedby="username-addon">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="username-addon">
             </div>
           </div>
           <!-- Password -->
@@ -49,7 +49,7 @@
                   <i class="bi-key-fill"></i>
                 </span>
               </div>
-              <input type="password" class="form-control" id="password" placeholder="Password" aria-describedby="password-addon">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" aria-describedby="password-addon">
             </div>
           </div>
           <!-- Tetap Login -->
