@@ -11,7 +11,7 @@
             <div class="col-sm-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3><i class="bi bi-files"></i> <strong>Pasang Iklan Gratis</strong></h3>
+                        <h3><i class="bi bi-files"></i> <strong>Buat Iklan</strong></h3>
                     </div>
                     <div class="card-body py-5 px-5">
                         <!-- form tambah list -->
@@ -69,35 +69,47 @@
                                 <small class="col-md-10">Deskripsikan apa yang membuat iklan anda menarik dan unik</small>
                             </div>
                             <div class="form-group row">
+                                <label for="deskripsi" class="col-md-3 col-form-label">Uplade Gambar</label>
+                                <div class="col-md-8">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                        <label class="custom-file-label" for="inputGroupFile01"> Masukkan Foto </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="price" class="col-md-3 col-form-label">Harga</label>
                                 <div class="input-group mb-3 col-md-8">
                                     <div class="input-group-prepend ">
                                         <span class="input-group-text">RP</span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Contoh : 15000" name="negotiable">
-                                    <div class="input-group-append"><span class="input-group-text">
-                                            <input id="negotiable" type="checkbox" value="1"><small>&nbsp;Nego</small></span>
-                                    </div>
-
                                 </div>
                             </div>
-							<!-- Tangga Lahir -->
-							<div class="form-group row">
-								<label for="birthdate" class="col-md-3 col-form-label">Deadline <sup style="color: red;">*</sup></label>
-								<div class="col-md-8">
-									<div class="input-group">
-										<input type="date" class="form-control" id="deadline" name="deadline" required>
-									</div>
-								</div>
-								<div class="col-md-1"></div>
-							</div>
+                            <!-- Tangga Lahir -->
+                            <div class="form-group row">
+                                <label for="birthdate" class="col-md-3 col-form-label">Deadline <sup style="color: red;">*</sup></label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" id="deadline" name="deadline" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
                             <div class="form-group row">
                                 <label for="kota" class="col-md-3 col-form-label">Kota <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <select class="custom-select" name="kota">
-                                        <option selected>Pilih Kota</option>
-                                        <option value="1">Bondowoso</option>
-                                    </select>
+                                    <div class="control">
+                                        <select class="custom-select" name="kota">
+                                            <option value="" placeo>--Pilih Kota--</option>
+                                            <?php
+                                            foreach ($dt_kabupaten as $row) {
+                                                echo "<option value='" . $row->id_kabupaten . "'>" . $row->nama_kabupaten . "</option>";
+                                            }
+                                            echo "
+                                        </select>"
+                                            ?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">

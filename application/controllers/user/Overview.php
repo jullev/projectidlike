@@ -29,6 +29,6 @@ class Overview extends CI_Controller
 	}
 	public function list()
 	{
-		$this->load->view('user/tambahlist');
+		$this->load->view('user/tambahiklan');
 	}
 }

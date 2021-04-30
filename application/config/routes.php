@@ -56,4 +56,4 @@ $route['admin'] = 'admin/overview';
 $route['user'] = 'user/overview';
 $route['register'] = 'user/Overview/register';
 $route['search'] = 'user/Overview/search';
-$route['tambahlist'] = 'user/Overview/list';
+$route['tambahiklan'] = 'user/Overview/list';

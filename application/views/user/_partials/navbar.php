@@ -4,11 +4,11 @@
       <button class="btn btn-outline-primary ml-auto" data-target="#signIn" data-toggle="modal">
         <i class="bi-person"></i> Masuk
       </button>
-      <a href="<?php echo site_url('register') ?>" class="btn btn-outline-primary ml-3" role="button">
+      <a href="<?php echo site_url('register') ?>" class="btn btn-primary ml-3" role="button">
         <i class="bi-person-plus"></i> Daftar
       </a>
       <a href="<?php echo site_url('tambahlist') ?>" class="btn btn-warning ml-3" role="button">
-        <i class="bi bi-plus-circle-fill"></i> Tambahkan List
+        <i class="bi bi-plus-circle-fill"></i> Buat Iklan
       </a>
     </div>
 
