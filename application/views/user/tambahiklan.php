@@ -69,11 +69,11 @@
                                 <small class="col-md-10">Deskripsikan apa yang membuat iklan anda menarik dan unik</small>
                             </div>
                             <div class="form-group row">
-                                <label for="deskripsi" class="col-md-3 col-form-label">Uplade Gambar</label>
+                                <label for="deskripsi" class="col-md-3 col-form-label">Upload Gambar</label>
                                 <div class="col-md-8">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="inputGroupFile01"> Masukkan Foto </label>
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                     </div>
                                 </div>
                             </div>

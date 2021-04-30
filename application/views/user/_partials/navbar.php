@@ -9,18 +9,19 @@
     <!-- Masuk, Daftar, Akun, Tambah Iklan -->
     <div class="collapse navbar-collapse" id="navcol-1">
       <!-- Untuk yang belum login -->
-          <!-- Tombol Masuk -->
-          <!-- <button class="btn btn-outline-primary ml-auto" data-target="#signIn" data-toggle="modal">
-            <i class="bi-person"></i> Masuk
-          </button> -->
-          <!-- Tombol Daftar -->
-          <!-- <a href="<?php //echo site_url('register') ?>" class="btn btn-outline-primary ml-3" role="button">
-            <i class="bi-person-plus"></i> Daftar
-          </a> -->
-      
+      <!-- Tombol Masuk -->
+      <button class="btn btn-outline-primary ml-auto" data-target="#signIn" data-toggle="modal">
+        <i class="bi-person"></i> Masuk
+      </button>
+      <!-- Tombol Daftar -->
+      <a href="<?php //echo site_url('register') 
+                ?>" class="btn btn-outline-primary ml-3" role="button">
+        <i class="bi-person-plus"></i> Daftar
+      </a>
+
       <!-- Untuk yang sudah login -->
-          <!-- Akun -->
-          <div class="btn-group ml-auto">
+      <!-- Akun -->
+      <!-- <div class="btn-group ml-auto">
             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="bi-person-fill mr-1"></i> Akhmad Nur Hidayatulloh
             </button>
@@ -31,7 +32,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#"><i class="bi-box-arrow-right mr-1"></i> Logout</a>
             </div>
-          </div>
+          </div> -->
 
       <!-- Tombol Tambah Iklan -->
       <a href="<?php echo site_url('tambahlist') ?>" class="btn btn-warning ml-3" role="button">
