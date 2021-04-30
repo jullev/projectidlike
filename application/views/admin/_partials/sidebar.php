@@ -31,6 +31,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link">
+             <i class="nav-icon bi bi-people-fill"></i>
+              <p>
+                Admin
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

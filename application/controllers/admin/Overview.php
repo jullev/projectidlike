@@ -17,4 +17,14 @@ class Overview extends CI_Controller {
     // code...
     echo "coba";
   }
+
+  public function adminlist()
+  {
+    $this->load->view('admin/adminlist');
+  }
+
+  public function tambahadmin()
+  {
+    $this->load->view('admin/tambahadmin');
+  }
 }
