@@ -36,9 +36,23 @@ class M_Register extends CI_Model {
 
 	public function Select_Login($data) {
 		$sql = "SELECT * FROM user WHERE username = '" .$data['username'] ."' and password = md5('" .$data['password'] ."')";
-		//echo $sql;
-		$data = $this->db->query($sql);
+		echo $sql;
+		$data_query= $this->db->query($sql);
+//		print_r($data_query);
+		if($data_query->num_rows() > 0)
+        {
+                $this->session->set_userdata('username',$data_query->row()->username);
+				$this->session->set_userdata('nama',$data_query->row()->nama_user);
+				$this->session->set_userdata('id',$data_query->row()->iduser);
+				$this->session->set_userdata('is_login',TRUE);
+                return TRUE;
 
+        }
+        else
+        {
+			echo "password salah";
+            return FALSE;
+        }
 		return $data->row();
 	}
 

@@ -5,6 +5,7 @@ class C_Register extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_Register');
+		$this->load->library('session');
 	}
 
 	public function index() {
@@ -20,7 +21,11 @@ class C_Register extends CI_Controller {
 	public function loginData() {
 		$data = $this->input->post();
 		print_r($data);
-		$hasil['dataUser'] = $this->M_Register->Select_Login($data);
+		$hasil = $this->M_Register->Select_Login($data);
+		echo $hasil;
+		if($hasil){
+			$this->load->view('user/Overview', $hasil);
+		}
 		// $this->load->view('pasien/list_data', $hasil);
 	
 	}

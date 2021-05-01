@@ -14,7 +14,7 @@
         <i class="bi-person"></i> Masuk
       </button>
       <!-- Tombol Daftar -->
-      <a href="<?php //echo site_url('register') 
+      <a href="<?php echo site_url('register') 
                 ?>" class="btn btn-outline-primary ml-3" role="button">
         <i class="bi-person-plus"></i> Daftar
       </a>
@@ -35,7 +35,7 @@
           </div> -->
 
       <!-- Tombol Tambah Iklan -->
-      <a href="<?php echo site_url('tambahlist') ?>" class="btn btn-warning ml-3" role="button">
+      <a href="<?php echo site_url('tambahiklan') ?>" class="btn btn-warning ml-3" role="button">
         <i class="bi bi-plus-circle-fill"></i> Buat Iklan
       </a>
     </div>
