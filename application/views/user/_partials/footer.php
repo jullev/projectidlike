@@ -25,3 +25,14 @@
 </footer>
 <!-- <script src="<?php //echo base_url('assets/assets/js/jquery.min.js')?>"></script> -->
 <script src="<?php echo base_url('assets/assets/bootstrap/js/bootstrap.min.js')?>"></script>
+<script>
+    // Input Only Number
+    function isInputNumber(evt) {
+      var ch = String.fromCharCode(evt.which);
+
+      if (!(/[0-9]/.test(ch))) {
+        evt.preventDefault();
+      }
+    }
+    // Input Only Number End
+</script>

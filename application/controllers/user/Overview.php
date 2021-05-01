@@ -24,7 +24,7 @@ class Overview extends CI_Controller
 
 	public function search()
 	{
-		$this->load->view('user/search');
+		$this->load->view('user/search/index');
 	}
 
 	public function register()

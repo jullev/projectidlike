@@ -45,19 +45,16 @@
                 </ol>
             </nav>
         </div>
-
+        <!-- End Breadcrumb -->
+        <!-- Content -->
         <div class="container">
             <div class="row">
                 <!-- Sidebar -->
                 <div class="col-md-3">
-                    <div class="card mb-4">
-                        <div class="card-header has-arrow">qwertyu</div>
-                        <div class="card-body">asdfg</div>
-                        <div class="card-header">qwerty</div>
-                        <div class="card-body">asdfg</div>
-                    </div>
+                    <?php $this->load->view('user/search/sidebar'); ?>
                 </div>
-                <!-- Content -->
+                <!-- End Sidebar -->
+                <!-- Search Result -->
                 <div class="col-md-9">
                     <div class="card text-center">
                         <div class="card-header">
@@ -82,51 +79,17 @@
                                     <i class="bi-grid"></i>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-10 col-sm-6 col-md-6 col-lg-4 mx-auto">
-                                    <div class="card mb-3">
-                                        <img src="https://placeimg.com/640/480/any" alt="" class="card-img-top">
-                                        <div class="card-body text-left">
-                                            <h5 class="card-title">Ini Judul</h5>
-                                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, incidunt. Facilis ea animi perspiciatis pariatur numquam, voluptatibus dolorum alias? .</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-10 col-sm-6 col-md-6 col-lg-4 mx-auto">
-                                    <div class="card mb-3">
-                                        <img src="https://placeimg.com/640/480/any" alt="" class="card-img-top">
-                                        <div class="card-body text-left">
-                                            <h5 class="card-title">Ini Judul</h5>
-                                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, incidunt. Facilis ea animi perspiciatis pariatur numquam, voluptatibus dolorum alias? .</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-10 col-sm-6 col-md-6 col-lg-4 mx-auto">
-                                    <div class="card mb-3">
-                                        <img src="https://placeimg.com/640/480/any" alt="" class="card-img-top">
-                                        <div class="card-body text-left">
-                                            <h5 class="card-title">Ini Judul</h5>
-                                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, incidunt. Facilis ea animi perspiciatis pariatur numquam, voluptatibus dolorum alias? .</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-10 col-sm-6 col-md-6 col-lg-4 mx-auto">
-                                    <div class="card mb-3">
-                                        <img src="https://placeimg.com/640/480/any" alt="" class="card-img-top">
-                                        <div class="card-body text-left">
-                                            <h5 class="card-title">Ini Judul</h5>
-                                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, incidunt. Facilis ea animi perspiciatis pariatur numquam, voluptatibus dolorum alias? .</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- View Hasil -->
+                            <?php $this->load->view('user/search/results'); ?>
                         </div>
                     </div>
                 </div>
-                <!-- End of Content -->
-            </div>
-        </div>
-    </div>
+                <!-- End of Search Result -->
+            </div> <!-- Row -->
+        </div> <!-- Container -->
+        <!-- End of Content -->
+
+    </div> <!-- Main Container -->
     <?php $this->load->view('user/_partials/footer.php'); ?>
 </body>
 </html>
