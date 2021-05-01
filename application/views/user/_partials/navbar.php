@@ -14,8 +14,7 @@
         <i class="bi-person"></i> Masuk
       </button>
       <!-- Tombol Daftar -->
-      <a href="<?php echo site_url('register') 
-                ?>" class="btn btn-outline-primary ml-3" role="button">
+      <a href="<?php echo site_url('register') ?>" class="btn btn-outline-primary ml-3" role="button">
         <i class="bi-person-plus"></i> Daftar
       </a>
 
@@ -26,8 +25,8 @@
               <i class="bi-person-fill mr-1"></i> Akhmad Nur Hidayatulloh
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="<?php echo site_url('dashboard'); ?>"><i class="bi-house mr-1"></i> Dashboard</a>
-              <a class="dropdown-item" href="<?php echo site_url('admin'); ?>"><i class="bi-speedometer2 mr-1"></i> Admin</a>
+              <a class="dropdown-item" href="<?php //echo site_url('dashboard'); ?>"><i class="bi-house mr-1"></i> Dashboard</a>
+              <a class="dropdown-item" href="<?php //echo site_url('admin'); ?>"><i class="bi-speedometer2 mr-1"></i> Admin</a>
               <a class="dropdown-item" href="#"><i class="bi-badge-ad mr-1"></i> Iklan Saya</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#"><i class="bi-box-arrow-right mr-1"></i> Logout</a>
