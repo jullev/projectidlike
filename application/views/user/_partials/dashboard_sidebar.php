@@ -12,7 +12,7 @@
                 </a>
             </div>
         </div>
-        <div class="collapse show" id="myAccount"> 
+        <div class="collapse show" id="myAccount">
             <div class="list-group" style="font-size: 12px;">
                 <a href="#" class="list-group-item list-group-item-action">
                     <i class="bi bi-house-fill"></i> Beranda Saya
