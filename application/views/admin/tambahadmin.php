@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php $this->load->view("admin/_partials/head.php")?>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-collapse sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <?php $this->load->view("admin/_partials/navbar.php")?>
