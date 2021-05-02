@@ -27,4 +27,9 @@ class Overview extends CI_Controller {
   {
     $this->load->view('admin/tambahadmin');
   }
+
+  public function editadmin()
+  {
+    $this->load->view('admin/editadmin');
+  }
 }
