@@ -89,7 +89,7 @@
             </div>
         </div>
         
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary">Simpan Perubahan</button>
     </form>
     </section>
     <!-- /.content -->
