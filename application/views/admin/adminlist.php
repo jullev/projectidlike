@@ -42,12 +42,14 @@
             <tr>
                 <th scope="row">1</th>
                 <td>Mark</td>
+                <td>
+                  <button type="button" class="btn btn-warning">Edit</button>
+                  <button type="button" class="btn btn-danger">Hapus</button>
+                </td>
             </tr>
         </tbody>
     </table>
     <button type="button" class="btn btn-primary">Tambah Admin</button>
-    <button type="button" class="btn btn-warning">Edit Admin</button>
-    <button type="button" class="btn btn-danger">Hapus Admin</button>
     </section>
     <!-- /.content -->
   </div>
