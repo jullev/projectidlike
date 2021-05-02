@@ -10,7 +10,7 @@ class C_Register extends CI_Controller {
 
 	public function index() {
 		
-		$this->load->views('tambahlist', $data);
+		$this->load->views('tambahlist');
 	}
 
 	public function tampil() {
