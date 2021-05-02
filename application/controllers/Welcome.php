@@ -21,7 +21,7 @@ class Welcome extends CI_Controller
 	 */
 	public function index()
 	{
-		$this->load->view('user/overview');
+		$this->load->view('overview_landing');
 	}
 
 	
