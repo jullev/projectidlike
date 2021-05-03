@@ -6,7 +6,7 @@
   </a>
 
   <!-- Sidebar -->
-  <div class="sidebar nav-collapse">
+  <div class="sidebar nav">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">

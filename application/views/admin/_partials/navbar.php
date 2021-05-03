@@ -1,16 +1,11 @@
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-  <!-- Left navbar links -->
-  <ul class="navbar-nav">
-    <!-- Icon sidebar -->
-    <!-- <li class="nav-item">
+  <!-- <ul class="navbar-nav"> -->
+  <!-- Icon sidebar -->
+  <!-- <li class="nav-item">
       <a class="nav-link" data-widget="pushmenu" data-toggle="collapse" href="#sidebar" aria-expanded="false" aria-controls="sidebar" role="button"><i class="fas fa-bars"></i></a>
-    </li> -->
-    <li class="nav-item d-none d-sm-inline-block">
-      <a href="<?php echo site_url('sidebar') ?>" class="nav-link"><i class="bi bi-border-width"></i></a>
     </li>
-  </ul>
-
+  </ul> -->
   <!-- SEARCH FORM -->
   <form class="form-inline ml-3">
     <div class="input-group input-group-sm">
@@ -23,10 +18,11 @@
     </div>
   </form>
 
-  <div class="col-md-3">
-    <button class="btn btn-outline-primary ml-auto right " data-target="#signIn" data-toggle="modal">
+  <div class="offset-sm-12 col-sm-5">
+    <button class="btn btn-outline-primary ml-auto text-right " data-target="#signIn" data-toggle="modal">
       <i class="bi-person"></i> Masuk
     </button>
   </div>
+  <!-- Left navbar links -->
 </nav>
 <!-- /.navbar -->

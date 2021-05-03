@@ -101,8 +101,9 @@
       </section>
       <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-    <?php $this->load->view("admin/_partials/footer.php") ?>
+  </div>
+  <!-- /.content-wrapper -->
+  <?php $this->load->view("admin/_partials/footer.php") ?>
 </body>
 
 </html>
