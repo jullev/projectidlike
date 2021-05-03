@@ -1,4 +1,22 @@
 <!-- Card -->
+<style>
+    .icon-rotate{
+        transition: all 0.2s linear;
+    }
+    .icon-rotate.rotate{
+        transform: rotate(90deg);
+    }
+</style>
+<script>
+    function rotateIcon(id){
+        let icon = document.getElementById(id);
+        if(!icon.classList.contains("rotate")){
+            icon.classList.add("rotate");
+        }else{
+            icon.classList.remove("rotate");
+        }
+    }
+</script>
 <div class="card">
     <div class="card-body bg-light">
         <!-- My Account -->
@@ -8,7 +26,7 @@
             </div>
             <div class="col text-right">
                 <a href="#myAccount" role="button" aria-expanded="false" aria-controls="myAccount" data-toggle="collapse">
-                    <i class="bi bi-caret-right-fill"></i>
+                    <i class="fa fa-chevron-down icon-rotate" onclick="rotateIcon('myAccountIcon')" id="myAccountIcon"></i>
                 </a>
             </div>
         </div>
@@ -27,7 +45,7 @@
             </div>
             <div class="col text-right">
                 <a href="#myAds" role="button" aria-expanded="false" aria-controls="myAds" data-toggle="collapse">
-                    <i class="bi bi-caret-right-fill rotate-icon"></i>
+                    <i class="fa fa-chevron-down icon-rotate" onclick="rotateIcon('myAdsIcon')" id="myAdsIcon"></i>
                 </a>
             </div>
         </div>
