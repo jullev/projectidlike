@@ -28,9 +28,13 @@ class C_Register extends CI_Controller
 		$data = $this->input->post();
 		//print_r($data);
 		$hasil = $this->M_Register->Select_Login($data);
-		//echo $hasil;
-		if ($hasil) {
+//		print_r( $hasil->role_idrole);
+		print_r( $this->session->userdata('role'));
+		if ($this->session->userdata('role')) {
 			$this->load->view('user/Overview', $hasil);
+		}
+		else {
+			$this->load->view('admin/Overview', $hasil);
 		}
 		// $this->load->view('pasien/list_data', $hasil);
 
@@ -38,14 +42,6 @@ class C_Register extends CI_Controller
 
 	public function prosesTambah()
 	{
-		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
-			'is_unique' => 'Email ini sudah terdaftar!'
-		]);
-		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|matches[confirm_password]', [
-			'matches' => 'Konfirmasi password tidak sama!',
-			'min_length' => 'Password kurang dari 8!'
-		]);
-		$this->form_validation->set_rules('confirm_password', 'Password', 'required|trim|matches[password]');
 
 		$data = $this->input->post();
 		if ($this->form_validation->run() == true) {
