@@ -27,17 +27,23 @@ class C_Register extends CI_Controller
 	{
 		$data = $this->input->post();
 		//print_r($data);
-		$hasil = $this->M_Register->Select_Login($data);
+		$this->M_Register->Select_Login($data);
 //		print_r( $hasil->role_idrole);
-		print_r( $this->session->userdata('role'));
-		if ($this->session->userdata('role')) {
-			$this->load->view('user/Overview', $hasil);
+//		print_r( $this->session->userdata('role'));
+		if ($this->session->userdata('role') != 1) {
+			redirect("user");
+//			$this->load->view('user/overview', $hasil);
 		}
 		else {
-			$this->load->view('admin/Overview', $hasil);
+//			$this->load->view('admin/overview', $hasil);
+			redirect("admin");
 		}
-		// $this->load->view('pasien/list_data', $hasil);
 
+	}
+
+	public function logout(){
+		$this->M_Register->logout();
+		redirect("user");
 	}
 
 	public function prosesTambah()
