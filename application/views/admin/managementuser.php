@@ -49,7 +49,7 @@
                                 <thead class="thead-dark text-center">
                                     <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">Nama Pengunggah</th>
+                                        <th scope="col left">Nama Pengunggah</th>
                                         <th scope="col">Riwayat Unggah Iklan</th>
                                         <th scope="col">Detail User</th>
                                     </tr>
