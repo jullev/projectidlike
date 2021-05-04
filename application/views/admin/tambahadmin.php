@@ -49,7 +49,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="namaadmis" placeholder="Tuliskan Nama Lengkap Anda">
+                                            <input type="text" class="form-control" id="namaadmin" placeholder="Tuliskan Nama Lengkap Anda">
                                         </div>
                                     </div>
                                     <!-- username -->
