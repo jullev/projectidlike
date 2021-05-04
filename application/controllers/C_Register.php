@@ -1,38 +1,55 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class C_Register extends CI_Controller {
-	public function __construct() {
+class C_Register extends CI_Controller
+{
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('M_Register');
 		$this->load->library('session');
+		$this->load->library('form_validation');
 	}
 
-	public function index() {
-		
+	public function index()
+	{
+
 		$this->load->views('tambahlist');
 	}
 
-	public function tampil() {
+	public function tampil()
+	{
 		$data['dataPasien'] = $this->M_pasien->select_all_pasien();
 		$this->load->view('pasien/list_data', $data);
 	}
 
-	public function loginData() {
+	public function loginData()
+	{
 		$data = $this->input->post();
-		print_r($data);
+		//print_r($data);
 		$hasil = $this->M_Register->Select_Login($data);
-		echo $hasil;
-		if($hasil){
+		//echo $hasil;
+		if ($hasil) {
 			$this->load->view('user/Overview', $hasil);
 		}
 		// $this->load->view('pasien/list_data', $hasil);
-	
+
 	}
 
-	public function prosesTambah() {
+	public function prosesTambah()
+	{
+		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+			'is_unique' => 'Email ini sudah terdaftar!'
+		]);
+		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|matches[confirm_password]', [
+			'matches' => 'Konfirmasi password tidak sama!',
+			'min_length' => 'Password kurang dari 8!'
+		]);
+		$this->form_validation->set_rules('confirm_password', 'Password', 'required|trim|matches[password]');
+
 		$data = $this->input->post();
-		$result = $this->M_Register->insert($data);
+		if ($this->form_validation->run() == true) {
+			$result = $this->M_Register->insert($data);
 
 			if ($result > 0) {
 				$out['status'] = '';
@@ -42,12 +59,18 @@ class C_Register extends CI_Controller {
 				$out['status'] = '';
 				$out['msg'] = show_err_msg('Data Pegawai Gagal ditambahkan', '20px');
 			}
-		
+		} else {
+			$out['status'] = '';
+			$out['msg'] = validation_errors();
+			$this->load->view('user/register', $out);
+		}
 
-		echo json_encode($result);
+
+		//echo json_encode($result);
 	}
 
-	public function update() {
+	public function update()
+	{
 		$id = trim($_POST['id']);
 
 		$data['dataPasien'] = $this->M_pasien->select_by_id($id);
@@ -57,7 +80,8 @@ class C_Register extends CI_Controller {
 		echo show_my_modal('modals/modal_update_pasien', 'update-pasien', $data);
 	}
 
-	public function prosesUpdate() {
+	public function prosesUpdate()
+	{
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
 		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'trim|required');
 		$this->form_validation->set_rules('umur', 'umur', 'trim|required');
@@ -81,7 +105,8 @@ class C_Register extends CI_Controller {
 		echo json_encode($out);
 	}
 
-	public function delete() {
+	public function delete()
+	{
 		$id = $_POST['id'];
 		$result = $this->M_pasien->delete($id);
 

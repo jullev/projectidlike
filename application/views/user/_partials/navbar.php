@@ -1,14 +1,3 @@
-<!-- First include jquery js -->
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript">
-	$(window).load(function(){
-		$('#signIn').modal('show');
-	});
-</script>
-<!-- Then include bootstrap js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
 <nav class="navbar navbar-light navbar-expand-sm fixed-top bg-white text-monospace shadow-sm navigation-clean">
   <div class="container">
     <!-- Nama Website -->
@@ -19,6 +8,22 @@
     </button>
     <!-- Masuk, Daftar, Akun, Tambah Iklan -->
     <div class="collapse navbar-collapse" id="navcol-1">
+
+      <!-- Untuk yang sudah login -->
+      <!-- Akun -->
+      <!-- <div class="btn-group ml-auto">
+        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="bi-person-fill mr-1"></i> Akhmad Nur Hidayatulloh
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="<?php //echo site_url('dashboard');?>"><i class="bi-house mr-1"></i> Dashboard</a>
+          <a class="dropdown-item" href="<?php //echo site_url('admin');?>"><i class="bi-speedometer2 mr-1"></i> Admin</a>
+          <a class="dropdown-item" href="#"><i class="bi-badge-ad mr-1"></i> Iklan Saya</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><i class="bi-box-arrow-right mr-1"></i> Logout</a>
+        </div>
+      </div> -->
+
       <!-- Untuk yang belum login -->
       <!-- Tombol Masuk -->
       <button class="btn btn-outline-primary ml-auto" data-target='#signIn' data-toggle="modal">
@@ -29,20 +34,6 @@
         <i class="bi-person-plus"></i> Daftar
       </a>
 
-      <!-- Untuk yang sudah login -->
-      <!-- Akun -->
-      <!-- <div class="btn-group ml-auto">
-            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="bi-person-fill mr-1"></i> Akhmad Nur Hidayatulloh
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="<?php //echo site_url('dashboard'); ?>"><i class="bi-house mr-1"></i> Dashboard</a>
-              <a class="dropdown-item" href="<?php //echo site_url('admin'); ?>"><i class="bi-speedometer2 mr-1"></i> Admin</a>
-              <a class="dropdown-item" href="#"><i class="bi-badge-ad mr-1"></i> Iklan Saya</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#"><i class="bi-box-arrow-right mr-1"></i> Logout</a>
-            </div>
-          </div> -->
 
       <!-- Tombol Tambah Iklan -->
       <a href="<?php echo site_url('tambahiklan') ?>" class="btn btn-warning ml-3" role="button">
