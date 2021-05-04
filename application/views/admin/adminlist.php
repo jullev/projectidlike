@@ -16,74 +16,58 @@
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
-          <div class="container-fluid">
-            <div class="row mb-2">
-              <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Daftar Admin</h1>
-                <a href="<?php echo site_url('tambahadmin'); ?>" class="btn btn-primary">Tambah Admin</a>
-              </div><!-- /.col -->
-              <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Daftar Admin</li>
-                </ol>
-              </div><!-- /.col -->
-            </div><!-- /.row -->
-          </div><!-- /.container-fluid -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <ol class="breadcrumb float-sm-left">
+                                    <li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Home</a></li>
+                                    <li class="breadcrumb-item active">List Admin</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
       <!-- Main content -->
-      <div class="card">
-        <div class="card-body">
-        <section class="content">
-        <table class="table table">
-          <thead>
-              <tr>
-                <th scope="col">no</th>
-                <th scope="col">Nama Admin</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>
-                  <a href="<?php echo site_url('editadmin'); ?>" class="btn btn-warning">Edit</a>
-                  <button type="button" class="btn btn-danger">Hapus</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-        </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
-      <?php $this->load->view("admin/_partials/footer.php") ?>
-=======
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>
-                <a href="<?php echo site_url('editadmin'); ?>" class="btn btn-warning">Edit</a>
-                <button type="button" class="btn btn-danger">Hapus</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <a href="<?php echo site_url('tambahadmin'); ?>" class="btn btn-primary">Tambah Admin</a>
-      </section>
+      <section class="content container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="card">
+              <div class="card-body">
+                <section class="content">
+                <table class="table table">
+                  <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Nama Admin</th>
+                        <th scope="col">Manajemen Admin</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>
+                          <a href="<?php echo site_url('editadmin'); ?>" class="btn btn-warning">Edit</a>
+                          <button type="button" class="btn btn-danger">Hapus</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </section>
+              </div>
+              <!-- /.content -->
+            </div>
+          </div>
         </div>
-      </div>
-     
-      <!-- /.content -->
+      </section>
+      <!-- /.content-wrapper -->
     </div>
-    <!-- /.content-wrapper -->
-    <?php $this->load->view("admin/_partials/footer.php")?>
->>>>>>> Stashed changes
+      <?php $this->load->view("admin/_partials/footer.php") ?>
   </body>
 
   </html>

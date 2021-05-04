@@ -92,9 +92,9 @@
       </div>
     </section>
   </div>
-  
+  <!-- footer -->
   <?php $this->load->view('user/_partials/footer.php'); ?>
-
+  <!-- /footer -->
 </body>
 
 </html>
