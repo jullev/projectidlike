@@ -20,7 +20,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <li class="nav-item menu-open">
                 <a href="<?php echo site_url('tambahadmin') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tambah Admin</p>
@@ -54,7 +54,9 @@
               <li class="nav-item">
                 <a href="<?php echo site_url('') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pengajuan</p>
+                  <p>Pengajuan
+                    <span class="right badge badge-info">6</span>
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
@@ -72,7 +74,7 @@
               <li class="nav-item">
                 <a href="<?php echo site_url('') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Riwayat</p>
+                  <p>Semua</p>
                 </a>
               </li>
             </ul>

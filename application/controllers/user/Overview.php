@@ -13,7 +13,8 @@ class Overview extends CI_Controller
 		$this->load->view("user/overview");
 	}
 
-	public function dashboard(){
+	public function dashboard()
+	{
 		$this->load->view("user/dashboard");
 	}
 
@@ -35,5 +36,10 @@ class Overview extends CI_Controller
 
 	{
 		$this->load->view('user/tambahiklan');
+	}
+	public function ajaxsearch()
+
+	{
+		$this->load->view('user/ajaxsearch');
 	}
 }
