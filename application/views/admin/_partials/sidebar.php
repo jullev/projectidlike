@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4 " id="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-3 " id="sidebar">
   <!-- Brand Logo -->
   <a href="<?php echo site_url('admin') ?>" class="brand-link">
     <img src="<?php echo base_url('assets/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">

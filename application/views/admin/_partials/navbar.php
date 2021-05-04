@@ -1,6 +1,6 @@
 <!-- navbar  -->
 <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
-  <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#sidebar"><i class="fas fa-bars"></i></button>
+  <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" data-widget="pushmenu" href="#sidebar"><i class="fas fa-bars"></i></button>
   <a class="navbar-brand" href="<?php echo site_url('admin') ?>"><?php echo SITE_NAME ?></a>
   <!-- Navbar Search-->
   <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
