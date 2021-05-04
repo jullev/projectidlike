@@ -62,3 +62,4 @@ $route['tambahadmin'] = 'admin/Overview/tambahadmin';
 $route['dashboard'] = 'user/Overview/dashboard';
 $route['editadmin'] = 'admin/Overview/editadmin';
 $route['login'] = 'admin/Overview/loginadmin';
+$route['managementuser'] = 'admin/Overview/managementuser';

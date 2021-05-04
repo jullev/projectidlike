@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" id="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 " id="sidebar">
   <!-- Brand Logo -->
   <a href="<?php echo site_url('admin') ?>" class="brand-link">
     <img src="<?php echo base_url('assets/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -21,11 +21,12 @@
         </div>
       </div>
       <div class="collapse" id="myadmin">
-        <div role="tabpanel" style="color:black">
+        <div role="tabpanel" style="color:black !important">
           <!-- List group -->
           <div class="list-group" id="myList" role="tablist">
-            <a class="list-group-item list-group-item-action" href="<?php echo site_url('tambahadmin') ?>" role="tab">Tambah Admin</a>
-            <a class="list-group-item list-group-item-action" href="<?php echo site_url('adminlist') ?>" role="tab">List Admin</a>
+            <a class="list-group-item list-group-item-action text-dark" href="<?php echo site_url('tambahadmin') ?>" role="tab">Tambah Admin</a>
+            <a class="list-group-item list-group-item-action text-dark" href="<?php echo site_url('adminlist') ?>" role="tab">List Admin</a>
+            <a class="list-group-item list-group-item-action text-dark" href="<?php echo site_url('#') ?>" role="tab">Management User</a>
           </div>
         </div>
       </div>
@@ -34,7 +35,7 @@
           <div class="info">
             <a href="#myAds" role="button" aria-expanded="false" aria-controls="myAds" data-toggle="collapse">
               <i class="bi bi-chat-right-text-fill"></i>&nbsp;&nbsp;<strong>
-                LIST IZIN IKLAN
+                MANAGEMENT IKLAN
               </strong><i class="bi bi-chevron-double-right"></i>
             </a>
           </div>
@@ -44,10 +45,10 @@
         <div role="tabpanel" style="color:black">
           <!-- List group -->
           <div class="list-group" id="myList2" role="tablist">
-            <a class="list-group-item list-group-item-action" href="#home" role="tab">Pengajuan</a>
-            <a class="list-group-item list-group-item-action" href="#profile" role="tab">Disetujui</a>
-            <a class="list-group-item list-group-item-action" href="#profile" role="tab">Dibatalkan</a>
-            <a class="list-group-item list-group-item-action" href="#profile" role="tab">Riwayat</a>
+            <a class="list-group-item list-group-item-action text-dark" href="#home" role="tab">Pengajuan</a>
+            <a class="list-group-item list-group-item-action text-dark" href="#profile" role="tab">Disetujui</a>
+            <a class="list-group-item list-group-item-action text-dark" href="#profile" role="tab">Dibatalkan</a>
+            <a class="list-group-item list-group-item-action text-dark" href="#profile" role="tab">Riwayat</a>
           </div>
         </div>
       </div>
