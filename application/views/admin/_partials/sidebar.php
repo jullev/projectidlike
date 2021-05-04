@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-3 " id="sidebar">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 " id="sidebar">
   <!-- Brand Logo -->
   <a href="<?php echo site_url('admin') ?>" class="brand-link">
     <img src="<?php echo base_url('assets/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -6,53 +6,81 @@
   </a>
 
   <!-- Sidebar -->
-  <div class="sidebar nav">
+  <div class="sidebar">
     <!-- Sidebar Menu -->
-    <div class="sidebar nav-collapse">
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="col text-left">
-          <div class="info">
-            <a href="#myadmin" role="button" aria-expanded="false" aria-controls="myAds" data-toggle="collapse">
-              <i class="bi bi-person-lines-fill"></i>&nbsp;&nbsp;<strong>
-                ADMINISTRATOR
-              </strong><i class="bi bi-chevron-double-right"></i>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Sidebar Administrator -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon bi bi-person-lines-fill align-middle"></i>
+              <p>
+                Administrator
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
-          </div>
-        </div>
-      </div>
-      <div class="collapse" id="myadmin">
-        <div role="tabpanel" style="color:black !important">
-          <!-- List group -->
-          <div class="list-group" id="myList" role="tablist">
-            <a class="list-group-item list-group-item-action text-dark" href="<?php echo site_url('tambahadmin') ?>" role="tab">Tambah Admin</a>
-            <a class="list-group-item list-group-item-action text-dark" href="<?php echo site_url('adminlist') ?>" role="tab">List Admin</a>
-            <a class="list-group-item list-group-item-action text-dark" href="<?php echo site_url('#') ?>" role="tab">Management User</a>
-          </div>
-        </div>
-      </div>
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="col text-left">
-          <div class="info">
-            <a href="#myAds" role="button" aria-expanded="false" aria-controls="myAds" data-toggle="collapse">
-              <i class="bi bi-chat-right-text-fill"></i>&nbsp;&nbsp;<strong>
-                MANAGEMENT IKLAN
-              </strong><i class="bi bi-chevron-double-right"></i>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url('tambahadmin') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tambah Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('adminlist') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('managementuser') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Management User</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- End Sidebar Administrator -->
+          <!-- Sidebar Management Iklan -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon bi-chat-right-text-fill align-middle"></i>
+              <p>
+                Management Iklan
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
-          </div>
-        </div>
-      </div>
-      <div class="collapse" id="myAds">
-        <div role="tabpanel" style="color:black">
-          <!-- List group -->
-          <div class="list-group" id="myList2" role="tablist">
-            <a class="list-group-item list-group-item-action text-dark" href="#home" role="tab">Pengajuan</a>
-            <a class="list-group-item list-group-item-action text-dark" href="#profile" role="tab">Disetujui</a>
-            <a class="list-group-item list-group-item-action text-dark" href="#profile" role="tab">Dibatalkan</a>
-            <a class="list-group-item list-group-item-action text-dark" href="#profile" role="tab">Riwayat</a>
-          </div>
-        </div>
-      </div>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo site_url('') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pengajuan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Disetujui</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dibatalkan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo site_url('') ?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Riwayat</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- End Sidebar Management Iklan -->
+        </ul>
+      </nav>
       <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
+  </div>
+  <!-- /.sidebar -->
 </aside>
