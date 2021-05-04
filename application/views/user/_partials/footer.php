@@ -23,7 +23,7 @@
     </div>
   </div>
 </footer>
-<script src="<?php echo base_url('assets/assets/js/jquery.min.js')?>"></script>
+<script src="<?php //echo base_url('assets/assets/js/jquery.min.js')?>"></script>
 <script src="<?php echo base_url('assets/assets/bootstrap/js/bootstrap.min.js')?>"></script>
 <script>
     // Input Only Number

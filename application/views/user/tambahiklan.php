@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php $this->load->view('user/_partials/head.php'); ?>
-<link rel="stylesheet" type="text/css" href="[style path]/simditor.css" />
+
 
 <body>
     <?php $this->load->view('user/_partials/navbar.php'); ?>
@@ -48,7 +48,7 @@
                                         <label class="form-check-label" for="private">Private</label>
                                     </div>
                                     <div class="form-check form-check-inline pt-2">
-                                        <input class="form-check-input" type="radio" name="professional" id="private" value="professional">
+                                        <input class="form-check-input" type="radio" name="professional" id="professional" value="professional">
                                         <label class="form-check-label" for="professional">Professional</label>
                                     </div>
                                 </div>
@@ -99,17 +99,21 @@
                             <div class="form-group row">
                                 <label for="kota" class="col-md-3 col-form-label">Kota <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <div class="control">
-                                        <select class="custom-select" name="kota">
-                                            <option value="" placeo>--Pilih Kota--</option>
-                                            <?php
-                                            foreach ($dt_kabupaten as $row) {
-                                                echo "<option value='" . $row->id_kabupaten . "'>" . $row->nama_kabupaten . "</option>";
-                                            }
-                                            echo "
-                                        </select>"
-                                            ?>
-                                    </div>
+
+                                        <select class="custom-select pilih-kota" name="kota" id="kota">
+                                            <option value=""></option>
+                                            <option value="ACEH">ACEH</option>
+                                            <option value="RIAU">RIAU</option>
+                                            <option value="JAMBI">JAMBI</option>
+                                            <option value="SUMATERA UTARA">SUMATERA UTARA</option>
+                                            <option value="BENGKULU">BENGKULU</option>
+                                            <option value="LAMPUNG">LAMPUNG</option>
+                                            <option value="DKI JAKARTA">DKI JAKARTA</option>
+                                            <option value="JAWA BARAT">JAWA BARAT</option>
+                                            <option value="JAWA TENGAH">JAWA TENGAH</option>
+                                            <option value="JAWA TIMUR">JAWA TIMUR</option>
+                                        </select>
+
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -211,14 +215,13 @@
 <script src="[ckeditor-build-path]/ckeditor.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+
+    $(document).ready(function() {
+     $('.pilih-kota').select2({
+      placeholder: 'Pilih Kota',
+      allowClear: true
+     });
+ });
 </script>
 
 </html>
