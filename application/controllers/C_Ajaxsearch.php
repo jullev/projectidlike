@@ -19,26 +19,27 @@ class Ajaxsearch extends CI_Controller
 		}
 		$data = $this->ajaxsearch_model->fetch_data($query);
 		$output .= '
-		<div class="table-responsive">
-					<table class="table table-bordered table-striped">
-						<tr>
-							<th>Customer Name</th>
-							<th>Address</th>
-							<th>City</th>
-							<th>Postal Code</th>
-							<th>Country</th>
-						</tr>
+		// <div class="table-responsive">
+		// 			<table class="table table-bordered table-striped">
+		// 				<tr>
+		// 					<th>Customer Name</th>
+		// 					<th>Address</th>
+		// 					<th>City</th>
+		// 					<th>Postal Code</th>
+		// 					<th>Country</th>
+		// 				</tr>
 		';
 		if ($data->num_rows() > 0) {
 			foreach ($data->result() as $row) {
 				$output .= '
-						<tr>
-							<td>' . $row->CustomerName . '</td>
-							<td>' . $row->Address . '</td>
-							<td>' . $row->City . '</td>
-							<td>' . $row->PostalCode . '</td>
-							<td>' . $row->Country . '</td>
-						</tr>
+						<option value="' . $row->nama_kabupaten . '"></option>
+						// <tr>
+						// 	<td>' . $row->CustomerName . '</td>
+						// 	<td>' . $row->Address . '</td>
+						// 	<td>' . $row->City . '</td>
+						// 	<td>' . $row->PostalCode . '</td>
+						// 	<td>' . $row->Country . '</td>
+						// </tr>
 				';
 			}
 		} else {
