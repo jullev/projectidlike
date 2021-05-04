@@ -38,7 +38,7 @@ class M_Register extends CI_Model {
 		$sql = "SELECT * FROM user WHERE username = '" .$data['username'] ."' and password = md5('" .$data['password'] ."')";
 //		echo $sql;
 		$data_query= $this->db->query($sql);
-		print_r($data_query->result());
+//		print_r($data_query->result());
 		if($data_query->num_rows() > 0)
         {
                 $this->session->set_userdata('username',$data_query->row()->username);
@@ -56,6 +56,12 @@ class M_Register extends CI_Model {
             return FALSE;
         }
 		return $data_query->result();
+	}
+
+	public function logout(){
+//		$this->session->unset_userdata(array("username", "nama", "id", "role"));
+//		$this->session->set_userdata("is_login", false);
+		$this->session->sess_destroy();
 	}
 
 	public function update($data) {

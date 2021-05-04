@@ -56,7 +56,7 @@
       <div class="modal-body">
         <h3 class="modal-title mb-4" id="signInLabel"><i class="bi-box-arrow-in-right mr-2" style="color: black;"></i> Masuk</h3>
 
-        <form action="C_Register/loginData" method="POST">
+        <form action="<?php echo site_url('login') ?>" method="POST">
           <!-- Username -->
           <div class="form-group mb-3">
             <label for="username">Username</label>
