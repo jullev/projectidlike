@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Apr 2021 pada 09.40
+-- Waktu pembuatan: 04 Bulan Mei 2021 pada 18.32
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
@@ -73,6 +73,14 @@ CREATE TABLE `role` (
   `nama_role` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `role`
+--
+
+INSERT INTO `role` (`idrole`, `nama_role`) VALUES
+(1, 'admin'),
+(2, 'user');
+
 -- --------------------------------------------------------
 
 --
@@ -99,9 +107,18 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `nama_user` varchar(45) NOT NULL,
   `tanggal_lahir` date NOT NULL,
+  `no_hp` varchar(15) NOT NULL,
   `foto_profil` varchar(45) NOT NULL,
   `role_idrole` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `nama_user`, `tanggal_lahir`, `no_hp`, `foto_profil`, `role_idrole`) VALUES
+(1, 'user', 'user@test.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'User', '2021-01-12', '6285233039160', 'picture.png', 2),
+(2, 'admin', 'admin@test.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '2021-01-12', '6285233039160', 'picture.png', 1);
 
 -- --------------------------------------------------------
 
@@ -697,7 +714,7 @@ ALTER TABLE `star_point`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
