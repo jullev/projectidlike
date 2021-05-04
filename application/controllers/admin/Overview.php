@@ -41,4 +41,8 @@ class Overview extends CI_Controller
   {
     $this->load->view('admin/managementuser');
   }
+  public function searchtest()
+  {
+    $this->load->view('admin/searchtest');
+  }
 }
