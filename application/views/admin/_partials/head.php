@@ -26,4 +26,12 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Bootstrap Icon -->
   <link rel="stylesheet" href="<?php echo base_url('assets/assets/bootstrap-icons/font/bootstrap-icons.css') ?>">
+
+	<!-- Cek apakah sudah login dan role adalah admin -->
+	<?php
+		if(!$this->session->userdata("is_login") || ($this->session->userdata("is_login") == false) || ($this->session->userdata('role') != 1)){
+			redirect('user');
+		}
+	?>
+
 </head>
