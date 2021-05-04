@@ -44,7 +44,7 @@
               <th scope="row">1</th>
               <td>Mark</td>
               <td>
-                <button type="button" class="btn btn-warning">Edit</button>
+                <a href="<?php echo site_url('editadmin'); ?>" class="btn btn-warning">Edit</a>
                 <button type="button" class="btn btn-danger">Hapus</button>
               </td>
             </tr>
