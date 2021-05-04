@@ -19,9 +19,26 @@ class Welcome extends CI_Controller
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('M_Register');
+		$this->load->library('session');
+		$this->load->library('form_validation');
+	}
 	public function index()
 	{
-		$this->load->view('overview_landing');
+//		echo $this->session->userdata('role');
+		if ($this->session->userdata('role')==1) {
+			$this->load->view('admin/Overview');
+		}
+		else if($this->session->userdata('role')==2){
+			$this->load->view('user/Overview');
+		}
+		else{
+			$this->load->view('overview_landing');
+		}
 	}
 
 	

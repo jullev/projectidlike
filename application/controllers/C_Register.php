@@ -29,14 +29,27 @@ class C_Register extends CI_Controller
 		//print_r($data);
 		$hasil = $this->M_Register->Select_Login($data);
 //		print_r( $hasil->role_idrole);
-		print_r( $this->session->userdata('role'));
-		if ($this->session->userdata('role')) {
-			$this->load->view('user/Overview', $hasil);
-		}
-		else {
+//		print_r( $this->session->userdata('role'));
+		if ($this->session->userdata('role')==1) {
 			$this->load->view('admin/Overview', $hasil);
 		}
-		// $this->load->view('pasien/list_data', $hasil);
+		else if ($this->session->userdata('role')==2){
+			$this->load->view('user/Overview', $hasil);
+		}
+	}
+	public function logOut()
+	{
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('nama');
+		$this->session->unset_userdata('id');
+		$this->session->unset_userdata('role');
+		$this->session->unset_userdata('is_login');
+		$logout = $this->session->sess_destroy();
+		if($logout){
+			redirect('view/overview_landing','refresh');
+		}else{
+
+		}
 
 	}
 
