@@ -32,14 +32,16 @@
           </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-
-        <!-- Main content -->
+      <!-- Main content -->
+      <div class="card">
+        <div class="card-body">
         <section class="content">
-          <table class="table table-striped">
-            <thead>
+        <table class="table table">
+          <thead>
               <tr>
                 <th scope="col">no</th>
                 <th scope="col">Nama Admin</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -59,6 +61,29 @@
       </div>
       <!-- /.content-wrapper -->
       <?php $this->load->view("admin/_partials/footer.php") ?>
+=======
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>
+                <a href="<?php echo site_url('editadmin'); ?>" class="btn btn-warning">Edit</a>
+                <button type="button" class="btn btn-danger">Hapus</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="<?php echo site_url('tambahadmin'); ?>" class="btn btn-primary">Tambah Admin</a>
+      </section>
+        </div>
+      </div>
+     
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <?php $this->load->view("admin/_partials/footer.php")?>
+>>>>>>> Stashed changes
   </body>
 
   </html>
