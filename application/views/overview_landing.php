@@ -146,6 +146,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 	<!-- footer -->
 	<?php $this->load->view('user/_partials/footer.php'); ?>
 	<!-- /footer  -->
