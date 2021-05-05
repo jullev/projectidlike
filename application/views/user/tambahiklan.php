@@ -81,7 +81,7 @@
                                 <label for="price" class="col-md-3 col-form-label">Harga</label>
                                 <div class="input-group mb-3 col-md-8">
                                     <div class="input-group-prepend ">
-                                        <span class="input-group-text">RP</span>
+                                        <span class="input-group-text">Rp.</span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Contoh : 15000" name="negotiable">
                                 </div>
