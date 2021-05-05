@@ -99,10 +99,10 @@
                             <div class="form-group row">
                                 <label for="kota" class="col-md-3 col-form-label">Kota <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-
-                                    <select class="custom-select pilih-kota" name="kota" id="kota">
+                                    <input type="text" name="nama_kabupaten" placeholder="Nama kabupaten atau kota" class="form-control">
+                                    <!-- <select class="custom-select pilih-kota" name="kota" id="kota">
                                         <option value=""></option>
-                                    </select>
+                                    </select> -->
 
                                 </div>
                             </div>
@@ -204,39 +204,14 @@
 </body>
 <script src="[ckeditor-build-path]/ckeditor.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-<script>
-    $(document).ready(function() {
-        $('.pilih-kota').select2({
-            placeholder: 'Pilih Kota',
-            allowClear: true
-        });
-    });
-</script>
 
 <script>
     $(document).ready(function() {
+        $("#title").ajaxsearch({
+            source: "<?php echo site_url('C_searchajax/get_ajaxsearch') ?>",
 
-        load_data();
-
-        function load_data(query) {
-            $.ajax({
-                url: "<?php echo base_url(); ?>ajaxsearch/fetch",
-                method: "POST",
-                data: {
-                    query: query
-                },
-                success: function(data) {
-                    $('#result').html(data);
-                }
-            })
-        }
-
-        $('#kota').keyup(function() {
-            var search = $(this).val();
-            if (search != '') {
-                load_data(search);
-            } else {
-                load_data();
+            select: function(event, ui) {
+                $('[name="title"]').val(ui.item.nama_kabupaten);
             }
         });
     });
