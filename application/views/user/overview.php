@@ -91,6 +91,50 @@
         </div>
       </div>
     </section>
+	  <div class="container" style="padding: 20px;">
+		  <div class="card">
+			  <div class="card-header">
+				  <span style="font-weight: bold;">Iklan</span>
+				  <span>Terbaru</span>
+			  </div>
+			  <div class="card-body">
+				  <div class="row" style="padding-left: 10px; padding-right: 10px;">
+					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
+						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
+						  <div class="card-body">
+							  <h5 class="card-title">Card title</h5>
+							  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							  <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+					  </div>
+					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
+						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
+						  <div class="card-body">
+							  <h5 class="card-title">Card title</h5>
+							  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							  <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+					  </div>
+					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
+						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
+						  <div class="card-body">
+							  <h5 class="card-title">Card title</h5>
+							  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							  <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+					  </div>
+					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
+						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
+						  <div class="card-body">
+							  <h5 class="card-title">Card title</h5>
+							  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							  <a href="#" class="btn btn-primary">Go somewhere</a>
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
   </div>
   <!-- footer -->
   <?php $this->load->view('user/_partials/footer.php'); ?>
