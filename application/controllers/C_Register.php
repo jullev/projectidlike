@@ -61,7 +61,7 @@ class C_Register extends CI_Controller
 		}
 	}
 
-	
+
 
 	public function prosesTambah()
 	{

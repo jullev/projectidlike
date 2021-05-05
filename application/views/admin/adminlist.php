@@ -44,18 +44,33 @@
                       <tr>
                         <th scope="col">No.</th>
                         <th scope="col">Nama Admin</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">No Handphone</th>
                         <th scope="col">Manajemen Admin</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>
-                          <a href="<?php echo site_url('editadmin'); ?>" class="btn btn-warning">Edit</a>
-                          <button type="button" class="btn btn-danger">Hapus</button>
-                        </td>
-                      </tr>
+					<?php
+					//				var_dump(@$kegiatan);
+					foreach (@$alladmin as $value) {?>
+						<tr>
+							<td><?php echo $value->iduser?></td>
+							<td><?php echo $value->nama_user ?></td>
+							<td><b><?php echo $value->email?></b><br>
+							<td><b><?php echo $value->no_hp?></b><br>
+							<td>
+								<a href="<?php echo base_url()?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip" data-placement="top" style="margin:5px;" data-original-title="EDIT">
+									<i class="bi bi-person-lines-fill"></i>
+
+									<a href="<?php echo base_url()?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip" data-placement="top" style="margin:5px;" data-original-title="EDIT">
+										<i class="bi bi-x-circle"></i>
+							</td>
+
+						</tr>
+						<?php
+//					$total_dana+=$value->total;
+					}
+					?>
                     </tbody>
                   </table>
                 </section>

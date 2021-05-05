@@ -44,26 +44,47 @@
                                 </span>
                             </div>
                             <div class="card-body p-5 bg-light">
-                                <form>
+                                <form action="updateadmin" method="post">
+									<!-- user id -->
+									<div class="form-group row">
+										<label class="col-sm-3 col-form-label">Id Admin</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="idadmin" placeholder="Tuliskan id admin anda" disabled="tru"
+												   value="<?php
+												   echo @$detailuser[0]->iduser;
+												   ?>">
+										</div>
+									</div>
                                     <!-- nama -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="namaadmin" placeholder="Tuliskan Nama Lengkap Anda">
+                                            <input type="text" class="form-control" id="namaadmin" placeholder="Tuliskan Nama Lengkap Anda"
+											value="<?php
+											echo @$detailuser[0]->nama_user;
+											?>">
                                         </div>
                                     </div>
                                     <!-- username -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Username</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="useradmin" placeholder="Username">
+                                            <input type="text" class="form-control" id="useradmin" placeholder="Username"
+												   value="<?php
+												   echo @$detailuser[0]->username;
+												   ?>"
+											>
                                         </div>
                                     </div>
                                     <!-- email -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Email</label>
                                         <div class="col-sm-8">
-                                            <input type="email" class="form-control" id="emailadmin" placeholder="Masukkan email anda">
+                                            <input type="email" class="form-control" id="emailadmin" placeholder="Masukkan email anda" name="emailadmin"
+												   value="<?php
+												   echo @$detailuser[0]->email;
+												   ?>"
+											>
                                         </div>
                                     </div>
                                     <!-- password -->
@@ -84,7 +105,11 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                         <div class="col-sm-8">
-                                            <input type="date" class="form-control" id="lahir admin" name="lahiradmin">
+                                            <input type="date" class="form-control" id="lahir admin" name="lahiradmin"
+												   value="<?php
+												   echo @$detailuser[0]->tanggal_lahir;
+												   ?>"
+											>
                                         </div>
                                     </div>
                                     <!-- Jenis Kelamin -->
@@ -105,7 +130,11 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">+62</span>
                                             </div>
-                                            <input type="text" class="form-control" name="phone" placeholder="Nomor Telepon" required>
+                                            <input type="text" class="form-control" name="phone" placeholder="Nomor Telepon" required
+												   value="<?php
+												   echo @$detailuser[0]->no_hp;
+												   ?>">
+											>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -120,7 +149,7 @@
                                     <!-- button -->
                                     <div class="form-group row">
                                         <div class="input-group offset-sm-10 col-sm-4">
-                                            <button type="button" class="btn btn-primary">Simpan</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
                                     </div>
                                 </form>
