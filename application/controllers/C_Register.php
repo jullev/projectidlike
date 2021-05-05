@@ -32,10 +32,10 @@ class C_Register extends CI_Controller
 //		print_r( $this->session->userdata('role'));
 
 		if ($this->session->userdata('role')==1) {
-			$this->load->view('admin/Overview');
+			$this->load->view('admin/overview');
 		}
 		else if ($this->session->userdata('role')==2){
-			$this->load->view('user/Overview');
+			$this->load->view('user/overview');
 		}
 	}
 	public function logOut()
