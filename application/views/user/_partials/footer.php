@@ -23,16 +23,19 @@
     </div>
   </div>
 </footer>
-<script src="<?php //echo base_url('assets/assets/js/jquery.min.js')?>"></script>
-<script src="<?php echo base_url('assets/assets/bootstrap/js/bootstrap.min.js')?>"></script>
+<script src="<?php //echo base_url('assets/assets/js/jquery.min.js')
+              ?>"></script>
+<script src="<?php echo base_url('assets/assets/bootstrap/js/bootstrap.min.js') ?>"></script>
+<!-- bootsrap select search js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js" integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg==" crossorigin="anonymous"></script>
 <script>
-    // Input Only Number
-    function isInputNumber(evt) {
-      var ch = String.fromCharCode(evt.which);
+  // Input Only Number
+  function isInputNumber(evt) {
+    var ch = String.fromCharCode(evt.which);
 
-      if (!(/[0-9]/.test(ch))) {
-        evt.preventDefault();
-      }
+    if (!(/[0-9]/.test(ch))) {
+      evt.preventDefault();
     }
-    // Input Only Number End
+  }
+  // Input Only Number End
 </script>

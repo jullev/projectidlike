@@ -99,10 +99,20 @@
                             <div class="form-group row">
                                 <label for="kota" class="col-md-3 col-form-label">Kota <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="nama_kabupaten" placeholder="Nama kabupaten atau kota" class="form-control">
-                                    <!-- <select class="custom-select pilih-kota" name="kota" id="kota">
-                                        <option value=""></option>
-                                    </select> -->
+                                    <!-- <input type="text" name="nama_kabupaten" placeholder="Nama kabupaten atau kota" class="form-control"> -->
+                                    <select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
+                                        <option value="">--pilih kota--</option>
+                                        <option value="b">a</option>
+                                        <option value="">b</option>
+                                        <option value="">c</option>
+                                        <option value="">d</option>
+                                        <option value="">e</option>
+                                        <option value="">f</option>
+                                        <option value="">g</option>
+                                        <option value="">h</option>
+                                        <option value="">i</option>
+                                        <option value="">j</option>
+                                    </select>
 
                                 </div>
                             </div>
@@ -211,7 +221,7 @@
             source: "<?php echo site_url('C_searchajax/get_ajaxsearch') ?>",
 
             select: function(event, ui) {
-                $('[name="title"]').val(ui.item.nama_kabupaten);
+                $('[name="nama_kabupaten"]').val(ui.item.title);
             }
         });
     });
