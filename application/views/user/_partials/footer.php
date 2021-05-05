@@ -15,9 +15,9 @@
       </div>
       <div class="col-lg-6 text-center text-lg-right my-auto h-100">
         <ul class="list-inline mb-0">
-          <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
-          <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
-          <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="bi-facebook" style="color: primary;font-size:2rem"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="bi-twitter" style="color: primary;font-size:2rem"></i></a></li>
+          <li class="list-inline-item"><a href="#"><i class="bi-instagram" style="color: primary;font-size:2rem"></i></a></li>
         </ul>
       </div>
     </div>

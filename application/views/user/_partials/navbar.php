@@ -16,9 +16,7 @@
 				<!-- Untuk yang sudah login -->
 				<!-- Akun -->
 				<div class="btn-group ml-auto">
-					<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
-							aria-haspopup="true"
-							aria-expanded="false">
+					<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="bi-person-fill mr-1"></i><?php echo $this->session->userdata("nama") ?>
 					</button>
 					<div class="dropdown-menu">
@@ -66,21 +64,20 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<h3 class="modal-title mb-4" id="signInLabel"><i class="bi-box-arrow-in-right mr-2"
-																 style="color: black;"></i> Masuk</h3>
-
+				<h3 class="modal-title mb-4" id="signInLabel">
+					<i class="bi-box-arrow-in-right mr-2" style="color: black;"></i> Masuk
+				</h3>
 				<form action="<?php echo site_url('login') ?>" method="POST">
 					<!-- Username -->
 					<div class="form-group mb-3">
 						<label for="username">Username</label>
 						<div class="input-group">
 							<div class="input-group-prepend">
-                <span class="input-group-text" id="username-addon">
-                  <i class="bi-person-fill"></i>
-                </span>
+                				<span class="input-group-text" id="username-addon">
+                  					<i class="bi-person-fill"></i>
+                				</span>
 							</div>
-							<input type="text" class="form-control" id="username" name="username" placeholder="Username"
-								   aria-describedby="username-addon">
+							<input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="username-addon">
 						</div>
 					</div>
 					<!-- Password -->
@@ -88,12 +85,11 @@
 						<label for="password">Password</label>
 						<div class="input-group">
 							<div class="input-group-prepend">
-                <span class="input-group-text" id="password-addon">
-                  <i class="bi-key-fill"></i>
-                </span>
+                				<span class="input-group-text" id="password-addon">
+                  					<i class="bi-key-fill"></i>
+                				</span>
 							</div>
-							<input type="password" class="form-control" id="password" name="password"
-								   placeholder="Password" aria-describedby="password-addon">
+							<input type="password" class="form-control" id="password" name="password" placeholder="Password" aria-describedby="password-addon">
 						</div>
 					</div>
 					<!-- Tetap Login -->

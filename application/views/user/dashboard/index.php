@@ -6,41 +6,45 @@
     <!-- Navbar -->
     <?php $this->load->view("user/_partials/navbar") ?>
     
-    <main class="container mb-4" style="margin-top: 70px;">
+    <main class="container mb-4" style="margin-top: 100px;">
       <div class="row">
-        <div class="col-md-3 mb-3">
+        <div class="col-sm-10 col-md-5 col-lg-3 mb-3">
           <!-- Sidebar -->
-          <?php $this->load->view("user/_partials/dashboard_sidebar") ?>
+          <?php $this->load->view("user/dashboard/sidebar") ?>
         </div>
 
         <!-- Col 2 - Main content -->
-        <div class="col-md-9">
-          <!-- Summary
-          <div class="card">
-            <div class="card-body p-3 bg-light">
+        <div class="col-sm-10 col-md-7 col-lg-9">
+          <!-- Account Management -->
+          <!-- Ringkasan -->
+          <div class="card mb-3">
+            <div class="card-body">
               <div class="row">
-                <div class="col-md-10">
-                  <a href="">
-                    <img src="https://placeimg.com/50/50/people" alt="" style="width: 65px; border: solid 2px #ddd; padding: 2px; vertical-align: middle">
-                    <span style="font-size: 18px;" class="ml-1">Akhmad Nur Hidayatulloh</span>
-                  </a>
+                <div class="align-middle col-6">
+                  <img src="https://placeimg.com/50/50/people" alt="" class="rounded-circle mr-3" style="">
+                  <strong>Dayat</strong>
                 </div>
-                <div class="col-md-2 text-right" style="display: inline-block">
-                  <div id="col-left">
-                    <i class="bi bi-badge-ad-fill" style="font-size: 3rem"></i>
-                  </div>
-                  <div id="col-right">
-                  0
-                    <em>Iklan</em>
+                <div class="col-6 ml-auto">
+                  <div>
+                    <div class="float-start">
+                      <i class="bi-envelope-fill"></i>
+                    </div>
+                    <div class="float-end">
+                      <a href="#">
+                        0
+                        <em>Mail</em>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div> -->
-          <!-- Account Management -->
+          </div>
+          <!-- Ringkasan End -->
+          
           <div class="card">
             <div class="card-body p-3 bg-light">
-              <h4>Halo, Akhmad Nur Hidayatulloh</h4>
+              <h4 class="mb-3">Halo, Akhmad Nur Hidayatulloh</h4>
               <!-- Avatar -->
               <div class="card mt-2">
                 <a href="#avatarCollapse" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="avatarCollapse" class="list-group-item-action">
@@ -60,6 +64,8 @@
                   </div>
                 </div>
               </div>
+              <!-- Avatar End -->
+
               <!-- Account Details -->
               <div class="card mt-3">
                 <a href="#accountCollapse" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="accountCollapse" class="list-group-item-action">
@@ -70,14 +76,9 @@
                 <div class="collapse show" id="accountCollapse">
                   <div class="card-body" style="padding: 45px;">
                     <form action="#" method="POST">
-                      <!-- <div class="form-group row">
-                        <div class="col-md-9">
-                          <input type="file" name="avatar" id="avatar" class="form-control">
-                        </div>
-                      </div> -->
                       <div class="form-group row">
-                        <label for="avatar" class="col-sm-3 col-form-label">Photo or Avatar</label>
-                        <div class="col-sm-9">
+                        <label for="avatar" class="col-md-3 col-form-label">Photo or Avatar</label>
+                        <div class="col-md-9">
                           <div class="custom-file">
                             <input type="file" name="avatar" id="avatar" class="custom-file-input">
                             <label for="avatar" class="custom-file-label">Photo or Avatar</label>
@@ -86,14 +87,14 @@
                       </div>
                       
                       <div class="form-group row">
-                        <label for="nama" class="col-sm-3 col-form-label">Nama<sup style="color: tomato" >*</sup></label>
-                        <div class="col-sm-9">
+                        <label for="nama" class="col-md-3 col-form-label">Nama<sup style="color: tomato" >*</sup></label>
+                        <div class="col-md-9">
                           <input type="text" name="nama" id="nama" placeholder="Nama Lengkap" class="form-control" value="<?php echo 'Akhmad Nur Hidayatulloh' ?>" required>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="gender" class="col-sm-3 col-form-label">Jenis Kelamin<sup style="color: tomato" >*</sup></label>
-                        <div class="col-sm-9">
+                        <label for="gender" class="col-md-3 col-form-label">Jenis Kelamin<sup style="color: tomato" >*</sup></label>
+                        <div class="col-md-9">
                           <div class="form-check form-check-inline">
                             <input type="radio" name="gender" id="gender1" class="form-check-input" value="Laki-Laki" checked>
                             <label for="gender1" class="form-check-label">Laki-Laki</label>
@@ -105,14 +106,14 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="email" class="col-sm-3 col-form-label">Email<sup style="color: tomato" >*</sup></label>
-                        <div class="col-sm-9">
+                        <label for="email" class="col-md-3 col-form-label">Email<sup style="color: tomato" >*</sup></label>
+                        <div class="col-md-9">
                           <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo 'aaa@gmail.com' ?>" required >
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="telp" class="col-sm-3 col-form-label">Telepon<sup style="color: tomato" >*</sup></label>
-                        <div class="col-sm-9">
+                        <label for="telp" class="col-md-3 col-form-label">Telepon<sup style="color: tomato" >*</sup></label>
+                        <div class="col-md-9">
                           <input type="text" name="telp" id="telp" class="form-control" placeholder="Nomor Telepon" value="<?php echo '088888888' ?>" required>
                         </div>
                       </div>
@@ -123,6 +124,8 @@
                   </div>
                 </div>
               </div>
+              <!-- Account Details End -->
+
               <!-- Pengaturan -->
               <div class="card mt-3">
                 <a href="#settingCollapse" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="settingCollapse" class="list-group-item-action">
@@ -152,24 +155,15 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+              <!-- Pengaturan End -->
 
-    <!-- Optional JavaScript; choose one of the two! -->
+            </div> <!-- Card Body -->
+          </div> <!-- Card -->
+        </div> <!-- Col for Main Content -->
+      </div> <!-- Row -->
+    </main> <!-- Container -->
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    -->
     <!-- Footer -->
     <?php $this->load->view('user/_partials/footer.php') ?>
   </body>
