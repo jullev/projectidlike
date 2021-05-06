@@ -7,7 +7,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<!-- Masuk, Daftar, Akun, Tambah Iklan -->
-		<div class="collapse navbar-collapse" id="navcol-1">
+		<div class="collapse navbar-collapse py-2 py-md-0 justify-content-center justify-content-md-start" id="navcol-1">
 
 
 			<?php
@@ -20,9 +20,7 @@
 						<i class="bi-person-fill mr-1"></i><?php echo $this->session->userdata("nama") ?>
 					</button>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="<?php echo site_url('dashboard');
-														?>"><i class="bi-house mr-1"></i>
-							Dashboard</a>
+						<a class="dropdown-item" href="<?php echo site_url('dashboard');?>"><i class="bi-house mr-1"></i> Dashboard</a>
 						<a class="dropdown-item" href="#"><i class="bi-badge-ad mr-1"></i> Iklan Saya</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="<?php echo site_url('logout') ?>"><i class="bi-box-arrow-right mr-1"></i> Logout</a>
@@ -33,11 +31,11 @@
 			?>
 				<!-- Untuk yang belum login -->
 				<!-- Tombol Masuk -->
-				<button class="btn btn-outline-primary ml-auto" data-target='#signIn' data-toggle="modal">
+				<button class="btn btn-outline-primary ml-md-auto" data-target='#signIn' data-toggle="modal">
 					<i class="bi-person"></i> Masuk
 				</button>
 				<!-- Tombol Daftar -->
-				<a href="<?php echo site_url('register') ?>" class="btn btn-outline-primary ml-3" role="button">
+				<a href="<?php echo site_url('register') ?>" class="btn btn-outline-primary ml-2 ml-sm-3" role="button">
 					<i class="bi-person-plus"></i> Daftar
 				</a>
 			<?php
@@ -46,7 +44,7 @@
 
 
 			<!-- Tombol Tambah Iklan -->
-			<a href="<?php echo site_url('tambahiklan') ?>" class="btn btn-warning ml-3" role="button">
+			<a href="<?php echo site_url('tambahiklan') ?>" class="btn btn-warning ml-2 ml-sm-3" role="button">
 				<i class="bi bi-plus-circle"></i></i> Buat Iklan
 			</a>
 		</div>
