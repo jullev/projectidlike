@@ -36,34 +36,23 @@ class C_Overview extends CI_Controller
 	}
 	public function updateDataAdmin()
 	{
-		try {
-		$id = $this->input->post('idadmin');
-		echo $id;
-		$data = array(
+//		$data = $this->input->post();
+//		$result = $this->M_ManageAdmin->update_admin($data);
+		$data['alladmin']=$this->M_ManageAdmin->select_all_admin();
+		$this->load->view('admin/adminlist',$data);
 
-			'email' => $this->input->post('emailadmin'),
-			'username' => $this->input->post('useradmin'),
-			'password' => $this->input->post('password'),
-			'nama_user' => $this->input->post('namaadmin'),
-			'tanggal_lahir' => $this->input->post('lahiradmin'),
-			'no_hp' => $this->input->post('phone'),
-
-		);
-		$this->db->where('iduser',$id);
-//		$hasil = $this->db->update('user',$data);
-//		var_dump($hasil);
-//		redirect('adminlist');
-			$db_error = $this->db->error();
-			if (!empty($db_error)) {
-				throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
-				return false; // unreachable retrun statement !!!
-			}
-			return TRUE;
-		} catch (Exception $e) {
-			// this will not catch DB related errors. But it will include them, because this is more general.
-			log_message('error: ',$e->getMessage());
-			return;
+/*
+		if ($result > 0) {
+			$out['status'] = '';
+			$out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
+		} else {
+			$out['status'] = '';
+			$out['msg'] = show_err_msg('Data Pegawai Gagal ditambahkan', '20px');
 		}
+*/
+
+//		echo json_encode($result);
+
 	}
 
   public function tambahadmin()

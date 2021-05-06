@@ -15,7 +15,7 @@
                     </div>
                     <div class="card-body py-5 px-5">
                         <!-- form tambah list -->
-                        <form action="C_TambahList/prosesTambah" method="Post">
+                        <form action="insertIklan" method="Post">
                             <div class="form-group row">
                                 <!-- kategori form -->
                                 <label for="kategori" class="col-md-3 col-form-label">Kategori <sup style="color:tomato">*</sup></label>
@@ -206,7 +206,7 @@
     <?php $this->load->view('user/_partials/footer.php'); ?>
 </body>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-<<<<<<< HEAD <script>
+<script>
     $(document).ready(function() {
     $("#title").ajaxsearch({
     source: "<?php echo site_url('C_searchajax/get_ajaxsearch') ?>",
@@ -219,7 +219,3 @@
     </script>
 
 </html>
-=======
-
-</html>
->>>>>>> 724484567ff10510976dc670bf22891435f4ff25

@@ -17,21 +17,16 @@ class M_ManageAdmin extends CI_Model
 
 		return $data->result();
 	}
-	public function update_admin(){
-		$id = $this->input->post('idadmin');
-		$data = array(
+	public function update_admin($data){
+		var_dump($data);
+		/*$sql = "INSERT INTO kerjaan(judul_kerjaan,deskripsi,tanggal_submit,deadline,kabupaten_idkabupaten,harga,kategori_idkategori)
+		VALUES('" . $data['judul'] . "','" . $data['contents'] . "',
+		now(),'" . $data['deadline'] . "','" . $data['kota'] . "','" . $data['negotiable'] . "','" . $data['kategori'] . "')";
+		echo $sql;
 
-			'email' => $this->input->post('emailadmin'),
-			'username' => $this->input->post('useradmin'),
-			'password' => $this->input->post('password'),
-			'nama_user' => $this->input->post('namaadmin'),
-			'tanggal_lahir' => $this->input->post('lahiradmin'),
-			'no_hp' => $this->input->post('phone'),
-
-		);
-		$this->db->where('iduser',$id);
-		$this->db->update('user',$data);
-		redirect('sumberdana');
+		$this->db->query($sql);
+*/
+//		return $this->db->affected_rows();
 
 	}
 }

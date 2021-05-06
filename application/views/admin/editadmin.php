@@ -44,8 +44,7 @@
                                 </span>
                             </div>
                             <div class="card-body p-5 bg-light">
-                                <form action="updateadmin" method="post">
-									<!-- user id -->
+								<form action="updateadmin" method="POST">
 									<div class="form-group row">
 										<label class="col-sm-3 col-form-label">Id Admin</label>
 										<div class="col-sm-8">
@@ -133,7 +132,7 @@
                                             <input type="text" class="form-control" name="phone" placeholder="Nomor Telepon" required
 												   value="<?php
 												   echo @$detailuser[0]->no_hp;
-												   ?>">
+												   ?>"
 											>
                                         </div>
                                     </div>
