@@ -5,6 +5,7 @@ class Overview extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model("M_TambahIklan");
 	}
 
 	public function index()
@@ -32,14 +33,10 @@ class Overview extends CI_Controller
 	{
 		$this->load->view('user/register');
 	}
-	public function list()
 
+	public function listIklan()
 	{
-		$this->load->view('user/tambahiklan');
-	}
-	public function ajaxsearch()
-
-	{
-		$this->load->view('user/ajaxsearch');
+		$data['iklan'] = $this->M_TambahIklan->getIklan();
+		$this->load->view('user/tambahiklan', $data);
 	}
 }

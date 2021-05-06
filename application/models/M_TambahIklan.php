@@ -101,9 +101,9 @@ class M_TambahIklan extends CI_Model
 		return $data->num_rows();
 	}
 
-	function get()
+	function getIklan()
 	{
-		$query = $this->db->query('SELECT*FROM wilayah_kabupaten');
+		$query = $this->db->query('SELECT * FROM wilayah_kabupaten');
 		return $query->result();
 	}
 }

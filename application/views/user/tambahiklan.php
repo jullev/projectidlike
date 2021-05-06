@@ -44,11 +44,11 @@
                                 <label for="tipe" class="col-md-3 col-form-label">Tipe <sup style="color:tomato">*</sup></label>
                                 <div class="col-md-8 ">
                                     <div class="form-check form-check-inline pt-2">
-                                        <input class="form-check-input" type="radio" name="private" id="private" value="private">
+                                        <input class="form-check-input" type="radio" name="tipe" id="private" value="private">
                                         <label class="form-check-label" for="private">Private</label>
                                     </div>
                                     <div class="form-check form-check-inline pt-2">
-                                        <input class="form-check-input" type="radio" name="professional" id="professional" value="professional">
+                                        <input class="form-check-input" type="radio" name="tipe" id="professional" value="professional">
                                         <label class="form-check-label" for="professional">Professional</label>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                 <label for="price" class="col-md-3 col-form-label">Harga</label>
                                 <div class="input-group mb-3 col-md-8">
                                     <div class="input-group-prepend ">
-                                        <span class="input-group-text">RP</span>
+                                        <span class="input-group-text">Rp.</span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Contoh : 15000" name="negotiable">
                                 </div>
@@ -99,10 +99,16 @@
                             <div class="form-group row">
                                 <label for="kota" class="col-md-3 col-form-label">Kota <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="nama_kabupaten" placeholder="Nama kabupaten atau kota" class="form-control">
-                                    <!-- <select class="custom-select pilih-kota" name="kota" id="kota">
-                                        <option value=""></option>
-                                    </select> -->
+                                    <select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
+                                        <option value="#">-- Pilih Kota/Kabupaten --</option>
+                                        <?php
+                                        foreach ($iklan as $ad) {
+                                        ?>
+                                            <option value="<?php echo $ad->id_kabupaten ?>"><?php echo $ad->nama_kabupaten ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
 
                                 </div>
                             </div>
@@ -143,9 +149,6 @@
                                         <span class="input-group-text">+62</span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="852333****" aria-describedby="telp-add">
-                                    <div class="input-group-append"><span class="input-group-text">
-                                            <input id="negotiable" name="negotiable" type="checkbox" value="1">&nbsp;<small>Sembunyikan</small></span>
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -176,7 +179,9 @@
                     <div class="reg-text-box p-3">
                         <i class="bi-images" style="color: #b19cd9; font-size: 2em;"></i>
                         <h6>Pasang Iklan Gratis</h6>
-                        <p style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis mollitia non odit distinctio a nam dignissimos placeat dolorum incidunt commodi, pariatur omnis. Nemo laborum explicabo assumenda iste nihil quasi vel?</p>
+                        <p style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+                            mollitia non odit distinctio a nam dignissimos placeat dolorum incidunt commodi, pariatur omnis.
+                            Nemo laborum explicabo assumenda iste nihil quasi vel?</p>
                     </div>
                     <div class="reg-text-box p-3">
                         <div class="card">
@@ -186,7 +191,7 @@
                             <div class="card-body text-left">
                                 <ul>
                                     <li><small>Gunkan judul yang singkat dan deskripsi item tersebut</small></li>
-                                    <li><small>Pastikan Anda mempostin di kategori yang tepat</small> </li>
+                                    <li><small>Pastikan Anda mempostin di kategori yang tepat</small></li>
                                     <li><small>Tambahkan foto/gambar yang baik pada iklan Anda</small></li>
                                     <li><small>Berikan harga yang wajar</small></li>
                                     <li><small> Periksa item sebelum ditayangkan</small></li>
@@ -198,23 +203,23 @@
             </div>
         </div>
     </div>
-
     <?php $this->load->view('user/_partials/footer.php'); ?>
-
 </body>
-<script src="[ckeditor-build-path]/ckeditor.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-
-<script>
+<<<<<<< HEAD <script>
     $(document).ready(function() {
-        $("#title").ajaxsearch({
-            source: "<?php echo site_url('C_searchajax/get_ajaxsearch') ?>",
+    $("#title").ajaxsearch({
+    source: "<?php echo site_url('C_searchajax/get_ajaxsearch') ?>",
 
-            select: function(event, ui) {
-                $('[name="nama_kabupaten"]').val(ui.item.nama_kabupaten);
-            }
-        });
+    select: function(event, ui) {
+    $('[name="nama_kabupaten"]').val(ui.item.nama_kabupaten);
+    }
     });
-</script>
+    });
+    </script>
 
 </html>
+=======
+
+</html>
+>>>>>>> 724484567ff10510976dc670bf22891435f4ff25
