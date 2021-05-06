@@ -12,7 +12,7 @@
 
 			<?php
 			if (($this->session->userdata("is_login") !== null) && ($this->session->userdata('is_login') == true)) {
-				?>
+			?>
 				<!-- Untuk yang sudah login -->
 				<!-- Akun -->
 				<div class="btn-group ml-auto">
@@ -21,16 +21,16 @@
 					</button>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="<?php echo site_url('dashboard');
-						?>"><i class="bi-house mr-1"></i>
+														?>"><i class="bi-house mr-1"></i>
 							Dashboard</a>
 						<a class="dropdown-item" href="#"><i class="bi-badge-ad mr-1"></i> Iklan Saya</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="<?php echo site_url('logout') ?>"><i class="bi-box-arrow-right mr-1"></i> Logout</a>
 					</div>
 				</div>
-				<?php
+			<?php
 			} else {
-				?>
+			?>
 				<!-- Untuk yang belum login -->
 				<!-- Tombol Masuk -->
 				<button class="btn btn-outline-primary ml-auto" data-target='#signIn' data-toggle="modal">
@@ -40,14 +40,14 @@
 				<a href="<?php echo site_url('register') ?>" class="btn btn-outline-primary ml-3" role="button">
 					<i class="bi-person-plus"></i> Daftar
 				</a>
-				<?php
+			<?php
 			}
 			?>
 
 
 			<!-- Tombol Tambah Iklan -->
 			<a href="<?php echo site_url('tambahiklan') ?>" class="btn btn-warning ml-3" role="button">
-				<i class="bi bi-plus-circle-fill"></i> Buat Iklan
+				<i class="bi bi-plus-circle"></i></i> Buat Iklan
 			</a>
 		</div>
 
@@ -73,9 +73,9 @@
 						<label for="username">Username</label>
 						<div class="input-group">
 							<div class="input-group-prepend">
-                				<span class="input-group-text" id="username-addon">
-                  					<i class="bi-person-fill"></i>
-                				</span>
+								<span class="input-group-text" id="username-addon">
+									<i class="bi-person-fill"></i>
+								</span>
 							</div>
 							<input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="username-addon">
 						</div>
@@ -85,9 +85,9 @@
 						<label for="password">Password</label>
 						<div class="input-group">
 							<div class="input-group-prepend">
-                				<span class="input-group-text" id="password-addon">
-                  					<i class="bi-key-fill"></i>
-                				</span>
+								<span class="input-group-text" id="password-addon">
+									<i class="bi-key-fill"></i>
+								</span>
 							</div>
 							<input type="password" class="form-control" id="password" name="password" placeholder="Password" aria-describedby="password-addon">
 						</div>
