@@ -66,3 +66,4 @@ $route['login'] = 'C_Register/loginData';
 $route['logout'] = 'C_Register/logout';
 $route['managementuser'] = 'admin/C_Overview/managementuser';
 $route['searchtest'] = 'admin/Overview/searchtest';
+$route['detail'] = "user/Overview/detail";

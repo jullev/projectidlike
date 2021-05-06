@@ -16,12 +16,14 @@
                     <h2>JUDUL PEKERJAAN</h2>
                     <hr>
                     <span id="info-row">
-                      <span>1 hari yang lalu</span>
-                      <span> - </span>
-                      <span>Jakarta</span>
+                      <i class="fas fa-home"></i>
+						<span>/</span>
+						<span>Detail Iklan</span>
                     </span>
 
                     <!-- Images -->
+					  <br>
+					  <br>
                     <img src="https://placeimg.com/640/480/any" alt="" style="width:100%">
 
                     <!-- Details -->
