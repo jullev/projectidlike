@@ -26,6 +26,20 @@
     .listing-filter {
       border-bottom: 1px #ddd solid;
     }
+
+    .sumdata {
+      width: 85px;
+      margin-right: 15px;
+      display: inline;
+    }
+    .sdata-left {
+      float: left;
+      width: 48%;
+    }
+    .sdata-right {
+      float: right;
+      width: 48%;
+    }
   </style>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">

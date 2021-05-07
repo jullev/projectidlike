@@ -68,7 +68,7 @@ class M_TambahIklan extends CI_Model
 
 	public function insert($data)
 	{
-		echo implode($data);
+//		echo implode($data);
 		$sql = "INSERT INTO kerjaan(judul_kerjaan,deskripsi,tanggal_submit,deadline,kabupaten_idkabupaten,harga,kategori_idkategori) 
 		VALUES('" . $data['judul'] . "','" . $data['contents'] . "',
 		now(),'" . $data['deadline'] . "','" . $data['kota'] . "','" . $data['negotiable'] . "','" . $data['kategori'] . "')";
