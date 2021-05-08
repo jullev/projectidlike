@@ -52,7 +52,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo site_url('') ?>" class="nav-link">
+                <a href="<?php echo site_url('iklanbaru') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pengajuan
                     <span class="right badge badge-info">6</span>
@@ -60,7 +60,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo site_url('') ?>" class="nav-link">
+                <a href="<?php echo site_url('iklandisetujui') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Disetujui</p>
                 </a>
@@ -72,7 +72,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo site_url('') ?>" class="nav-link">
+                <a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Semua</p>
                 </a>

@@ -7,6 +7,7 @@ class C_Iklan extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_Register');
+		$this->load->model('M_Iklan');
 		$this->load->library('session');
 		$this->load->library('form_validation');
 	}
@@ -16,11 +17,39 @@ class C_Iklan extends CI_Controller
 
 		$this->load->views('tambahlist');
 	}
+	public function index_pengajuan()
+	{
+		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_baru();
+		var_dump($data);
+		$this->load->view('admin/iklanbaru',$data);
+	}
+	public function index_pengajuan_diterima()
+	{
+		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
+		var_dump($data);
+		$this->load->view('admin/iklandisetujui',$data);
+	}
+	public function terimaiklan()
+	{
+		$id =  $this->uri->segment(2);
+//  	var_dump("data ",$id);
+		$data['detailuser']=$this->M_Iklan->terima_iklan($id);
+//  	var_dump($data);
+		$this->load->view('admin/editadmin',$data);
+	}
 
 	public function tampil()
 	{
-		$data['dataPasien'] = $this->M_pasien->select_all_pasien();
-		$this->load->view('pasien/list_data', $data);
+		$data['dataIklan'] = $this->M_Iklan->select_all_iklan();
+		$this->load->view('admin/semuaiklan', $data);
+	}
+	public function detailhit()
+	{
+		$id =  $this->uri->segment(2);
+//  	var_dump("data ",$id);
+		$data['detailuser']=$this->M_Iklan->select_admin_id($id);
+//  	var_dump($data);
+		$this->load->view('admin/detailhit',$data);
 	}
 
 	public function loginData()
