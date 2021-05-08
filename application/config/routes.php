@@ -68,3 +68,8 @@ $route['logout'] = 'C_Register/logout';
 $route['managementuser'] = 'C_Overview/managementuser';
 $route['searchtest'] = 'C_Overview/searchtest';
 $route['detail'] = "user/Overview/detail";
+//iklan
+$route['iklanbaru'] = 'C_Iklan/index_pengajuan';
+$route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';
+$route['semuaiklan'] = 'C_Iklan/tampil';
+$route['terimaiklan/(:any)'] = 'C_Iklan/terimaiklan/$1';

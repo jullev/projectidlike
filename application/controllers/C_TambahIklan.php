@@ -7,6 +7,7 @@ class C_TambahIklan extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_TambahIklan');
+		$this->load->model('M_Iklan');
 	}
 
 	public function index()
@@ -19,6 +20,12 @@ class C_TambahIklan extends CI_Controller
 		// $data['modal_tambah_pegawai'] = show_my_modal('modals/modal_tambah_pasien', 'tambah-pasien', $data);
 		// echo json_encode($data['dataPasien']);
 		$this->template->views('tambahiklan', $data);
+	}
+	public function index_pengajuan()
+	{
+		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_baru();
+		var_dump($data);
+		$this->load->views('admin/overview',$data);
 	}
 
 	public function prosesTambah()
