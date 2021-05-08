@@ -73,3 +73,5 @@ $route['iklanbaru'] = 'C_Iklan/index_pengajuan';
 $route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';
 $route['semuaiklan'] = 'C_Iklan/tampil';
 $route['terimaiklan/(:any)'] = 'C_Iklan/terimaiklan/$1';
+$route['tambahuser'] = 'C_Overview/tambahuser';
+$route['detailuser'] = 'C_Overview/detailuser';

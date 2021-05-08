@@ -61,12 +61,13 @@
                             </div>
                             <div class="form-group row">
                                 <label for="deskripsi" class="col-md-3 col-form-label">Deskripsi <sup style="color: tomato">*</sup></label>
-                                <div class="col-md-12">
+                                <div class="col-md-8">
                                     <div id="summernote">
-                                        <textarea name="contents" id="summernote" rows="4" cols="70"></textarea>
+                                        <textarea class="form-control" name="contents" id="summernote" rows="6" cols="10"></textarea>
                                     </div>
+                                    <small>Deskripsikan apa yang membuat iklan anda menarik dan unik</small>
                                 </div>
-                                <small class="col-md-10">Deskripsikan apa yang membuat iklan anda menarik dan unik</small>
+
                             </div>
                             <div class="form-group row">
                                 <label for="deskripsi" class="col-md-3 col-form-label">Upload Gambar</label>
@@ -206,4 +207,5 @@
     <?php $this->load->view('user/_partials/footer.php'); ?>
 </body>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+
 </html>
