@@ -206,16 +206,4 @@
     <?php $this->load->view('user/_partials/footer.php'); ?>
 </body>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-<script>
-    $(document).ready(function() {
-    $("#title").ajaxsearch({
-    source: "<?php echo site_url('C_searchajax/get_ajaxsearch') ?>",
-
-    select: function(event, ui) {
-    $('[name="nama_kabupaten"]').val(ui.item.nama_kabupaten);
-    }
-    });
-    });
-    </script>
-
 </html>
