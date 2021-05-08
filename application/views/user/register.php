@@ -16,42 +16,43 @@
                     </div>
                     <!-- Form Daftar -->
                     <div class="card-body py-5 px-5">
-                        <form action="C_Register/prosesTambah" method="POST">
-                            <?php
-                            if (isset($msg)) {
-                            ?>
-                                <div class="alert alert-info"><?php echo $msg ?></div>
-                            <?php
-                            }
-
-                            ?>
+                        <form action='C_Register/prosesTambah' onsubmit="return validation()" method="POST" id="register_form">
+							<div id="alert_msg">
+								<?php
+								if (isset($msg)) {
+								?>
+									<div class="alert alert-info"><?php echo $msg ?></div>
+								<?php
+								}
+								?>
+							</div>
                             <!-- Nama -->
                             <div class="form-group row">
                                 <label for="name" class="col-md-3 col-form-label">Nama <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Nama Lengkap" required>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Nama Lengkap" maxlength="45" onfocus="removeAlert()" required>
                                 </div>
                             </div>
                             <!-- Username -->
                             <div class="form-group row">
                                 <label for="username" class="col-md-3 col-form-label">Username <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+                                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" maxlength="45" onfocus="removeAlert()" required>
                                 </div>
                             </div>
                             <!-- Email -->
                             <div class="form-group row">
                                 <label for="email" class="col-md-3 col-form-label">Email <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" required>
+                                    <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" maxlength="45" onfocus="removeAlert()" required>
                                 </div>
                             </div>
-                            <!-- Tangga Lahir -->
+                            <!-- Tanggal Lahir -->
                             <div class="form-group row">
                                 <label for="birthdate" class="col-md-3 col-form-label">Tanggal Lahir <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                                        <input type="date" class="form-control" id="birthdate" name="birthdate" onfocus="removeAlert()" required>
                                     </div>
                                 </div>
                                 <div class="col-md-1"></div>
@@ -60,10 +61,10 @@
                             <div class="form-group row">
                                 <label for="gender" class="col-md-3 col-form-label">Jenis Kelamin <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <select class="custom-select" id="gender" required>
-                                        <option selected>Jenis Kelamin</option>
-                                        <option value="Laki - Laki">Laki - Laki</option>
-                                        <option value="Perempuan">Perempuan</option>
+                                    <select class="custom-select" id="gender" onfocus="removeAlert()" required>
+                                        <option value="#" selected>-- Jenis Kelamin --</option>
+                                        <option value="L">Laki - Laki</option>
+                                        <option value="P">Perempuan</option>
                                     </select>
                                 </div>
                             </div>
@@ -74,16 +75,23 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">+62</span>
                                     </div>
-                                    <input type="text" class="form-control" name="phone" placeholder="Nomor Telepon" required>
+                                    <input type="tel" class="form-control" pattern="[0-9]{11}" name="phone" id="phone" placeholder="8xxxxxxxxxx" maxlength="15" onfocus="removeAlert()" required>
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>
+							<!-- No Hp -->
+							<div class="form-group row">
+								<label for="phone" class="col-md-3 col-form-label">Alamat <sup style="color: red;">*</sup></label>
+								<div class="input-group col-md-8">
+									<textarea name="alamat" class="form-control" id="alamat" cols="50" rows="10" style="resize: none"  placeholder="Alamat domisili"  onfocus="removeAlert()" required></textarea>
+								</div>
+							</div>
                             <!-- Password -->
                             <div class="form-group row">
                                 <label for="password" class="col-md-3 col-form-label">Password <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-                                    <input type="password" id="password_confirm" name="password_confirm" class="form-control mt-3" placeholder="Konfirmasi Password" required>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" maxlength="255" onfocus="removeAlert()" required>
+                                    <input type="password" id="password_confirm" name="password_confirm" class="form-control mt-3" placeholder="Konfirmasi Password" maxlength="255" onfocus="removeAlert()" required>
                                 </div>
                             </div>
                             <!-- Term -->
@@ -131,7 +139,34 @@
             </div>
         </div> <!-- Row -->
     </div> <!-- Container -->
+	<script>
+		// Get id alert
+		const alert = document.getElementById("alert_msg")
 
+		// Form Validation for gender, password
+		const validation = () => {
+			const gender = document.forms["register_form"]["gender"].value
+			const pwd = document.forms["register_form"]["password"].value
+			const pwd_confirm = document.forms["register_form"]["password_confirm"].value
+
+			// Jenis Kelamin
+			if(gender === "#"){
+				alert.innerHTML = "<div class='alert alert-danger'>Mohon isi jenis kelamin anda</div>"
+				return false
+			}
+
+			// Password
+			if(pwd !== pwd_confirm){
+				alert.innerHTML = "<div class='alert alert-danger'>Password tidak valid, harap ulangi lagi!</div>"
+				return false
+			}
+		}
+
+		// Menghapus alert
+		const removeAlert = () => {
+			alert.innerHTML = ""
+		}
+	</script>
 </body>
 
 <?php $this->load->view('user/_partials/footer.php'); ?>
