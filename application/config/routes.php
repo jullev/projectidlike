@@ -64,6 +64,7 @@ $route['tambahuser'] = 'C_Overview/tambahuser';
 $route['detailuser'] = 'C_Overview/detailuser';
 //$route['updateadmin'] = 'C_Overview/updateDataAdmin';
 $route['dashboard'] = 'user/Overview/dashboard';
+$route['iklansaya'] = 'user/Overview/iklansaya';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
 $route['login'] = 'C_Register/loginData';
 $route['logout'] = 'C_Register/logout';
