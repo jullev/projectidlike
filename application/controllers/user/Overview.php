@@ -19,6 +19,12 @@ class Overview extends CI_Controller
 		$this->load->view("user/dashboard/index");
 	}
 
+	public function iklansaya()
+	{
+		$this->load->view("user/iklansaya");
+	}
+
+
 	public function detail()
 	{
 		$this->load->view("user/detail");
