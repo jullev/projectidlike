@@ -60,6 +60,8 @@ $route['tambahiklan'] = 'user/Overview/listIklan';
 $route['insertIklan'] = 'C_TambahIklan/prosesTambah';
 $route['adminlist'] = 'C_Overview/adminlist';
 $route['tambahadmin'] = 'C_Overview/tambahadmin';
+$route['tambahuser'] = 'C_Overview/tambahuser';
+$route['detailuser'] = 'C_Overview/detailuser';
 //$route['updateadmin'] = 'C_Overview/updateDataAdmin';
 $route['dashboard'] = 'user/Overview/dashboard';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
@@ -76,3 +78,4 @@ $route['terimaiklan/(:any)'] = 'C_Iklan/terimaiklan/$1';
 $route['hit/(:any)'] = 'C_Iklan/detailhit/$1';
 //terima iklan $1 id hitter $2
 $route['terimahitter/(:any)/(:any)'] = 'C_Iklan/terimahitter/$1/$2';
+

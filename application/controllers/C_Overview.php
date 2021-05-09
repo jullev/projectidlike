@@ -5,11 +5,11 @@ class C_Overview extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-	  $this->load->model('M_Register');
-	  $this->load->model('M_ManageAdmin');
-	  $this->load->model('M_ManageUser');
-	  $this->load->library('session');
-	  $this->load->library('form_validation');
+    $this->load->model('M_Register');
+    $this->load->model('M_ManageAdmin');
+    $this->load->model('M_ManageUser');
+    $this->load->library('session');
+    $this->load->library('form_validation');
   }
 
   public function index()
@@ -26,22 +26,22 @@ class C_Overview extends CI_Controller
 
   public function adminlist()
   {
-	  $data['alladmin']=$this->M_ManageAdmin->select_all_admin();
-    $this->load->view('admin/adminlist',$data);
+    $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    $this->load->view('admin/adminlist', $data);
   }
-	public function userlist()
-	{
-		$data['alladmin']=$this->M_ManageAdmin->select_all_admin();
-		$this->load->view('admin/adminlist',$data);
-	}
-	public function updateDataAdmin()
-	{
-//		$data = $this->input->post();
-//		$result = $this->M_ManageAdmin->update_admin($data);
-		$data['alladmin']=$this->M_ManageAdmin->select_all_admin();
-		$this->load->view('admin/adminlist',$data);
+  public function userlist()
+  {
+    $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    $this->load->view('admin/adminlist', $data);
+  }
+  public function updateDataAdmin()
+  {
+    //		$data = $this->input->post();
+    //		$result = $this->M_ManageAdmin->update_admin($data);
+    $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    $this->load->view('admin/adminlist', $data);
 
-/*
+    /*
 		if ($result > 0) {
 			$out['status'] = '';
 			$out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
@@ -51,9 +51,9 @@ class C_Overview extends CI_Controller
 		}
 */
 
-//		echo json_encode($result);
+    //		echo json_encode($result);
 
-	}
+  }
 
   public function tambahadmin()
   {
@@ -62,11 +62,11 @@ class C_Overview extends CI_Controller
 
   public function editAdmin()
   {
-  	$id =  $this->uri->segment(2);
-//  	var_dump("data ",$id);
-  	$data['detailuser']=$this->M_ManageAdmin->select_admin_id($id);
-//  	var_dump($data);
-    $this->load->view('admin/editadmin',$data);
+    $id =  $this->uri->segment(2);
+    //  	var_dump("data ",$id);
+    $data['detailuser'] = $this->M_ManageAdmin->select_admin_id($id);
+    //  	var_dump($data);
+    $this->load->view('admin/editadmin', $data);
   }
   public function loginadmin()
   {
@@ -79,5 +79,13 @@ class C_Overview extends CI_Controller
   public function searchtest()
   {
     $this->load->view('admin/searchtest');
+  }
+  public function tambahuser()
+  {
+    $this->load->view('admin/tambahuser');
+  }
+  public function detailuser()
+  {
+    $this->load->view('admin/detailuser');
   }
 }

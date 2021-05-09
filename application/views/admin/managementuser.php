@@ -51,7 +51,8 @@
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col left">Nama Pengunggah</th>
-                                        <th scope="col">Riwayat Unggah Iklan</th>
+                                        <th scope="col">No Telepon</th>
+                                        <th scope="col">Star Point</th>
                                         <th scope="col">Detail User</th>
                                     </tr>
                                 </thead>
@@ -59,9 +60,14 @@
                                     <tr>
                                         <th scope="row" class="text-center">1</th>
                                         <td>Mark</td>
-                                        <td class="text-center">12 Unggahan</td>
+                                        <td class="text-center">0854-3323-3444</td>
+                                        <td class="text-center">12 star</td>
                                         <td>
-                                            <center><button type="button" class="btn btn-primary"><i class="bi bi-person-lines-fill"></i></button></center>
+                                            <center>
+                                                <a type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit User"><i class="bi bi-pencil-fill"></i></a>
+                                                <a type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail User" href="<?php echo site_url('detailuser') ?>"><i class="bi bi-person-lines-fill"></i></a>
+                                                <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus User"><i class="bi bi-trash-fill"></i></button>
+                                            </center>
                                         </td>
                                     </tr>
                                 </tbody>
