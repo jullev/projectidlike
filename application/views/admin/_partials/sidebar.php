@@ -51,8 +51,6 @@
 								<p>Management User</p>
 							</a>
 						</li>
-					</ul>
-					<ul class="nav nav-treeview">
 						<li class="nav-item">
 							<a href="<?php echo site_url('tambahuser') ?>" class="nav-link">
 								<i class="bi bi-person-plus-fill nav-icon"></i>
