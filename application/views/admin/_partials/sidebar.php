@@ -20,16 +20,16 @@
 						</p>
 					</a>
 					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="<?php echo site_url('adminlist') ?>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Management Admin</p>
+							</a>
+						</li>
 						<li class="nav-item menu-open">
 							<a href="<?php echo site_url('tambahadmin') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Tambah Admin</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo site_url('adminlist') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>List Admin</p>
 							</a>
 						</li>
 					</ul>
@@ -47,14 +47,14 @@
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
 							<a href="<?php echo site_url('managementuser') ?>" class="nav-link">
-								<i class="bi bi-person-fill nav-icon"></i>
+								<i class="far fa-circle nav-icon"></i>
 								<p>Management User</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="<?php echo site_url('tambahuser') ?>" class="nav-link">
-								<i class="bi bi-person-plus-fill nav-icon"></i>
-								<p>Tambahkan User</p>
+								<i class="far fa-circle nav-icon"></i>
+								<p>Tambah User</p>
 							</a>
 						</li>
 					</ul>
@@ -65,7 +65,7 @@
 					<a href="#" class="nav-link">
 						<i class="nav-icon bi-chat-right-text-fill align-middle"></i>
 						<p>
-							Management Iklan
+							Iklan
 							<i class="right fas fa-angle-left"></i>
 						</p>
 					</a>

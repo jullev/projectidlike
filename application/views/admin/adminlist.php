@@ -19,7 +19,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="card">
+							<div class="card shadow">
 								<div class="card-header">
 									<ol class="breadcrumb float-sm-left">
 										<li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Home</a></li>
@@ -34,7 +34,7 @@
 		<!-- /.content-header -->
 		<!-- Main content -->
 		<section class="content container">
-			<div class="card">
+			<div class="card shadow">
 				<div class="card-header">
 					<h3><strong>List Admin</strong></h3>
 				</div>
@@ -46,9 +46,9 @@
 									<thead class="thead-dark">
 										<tr>
 											<th scope="col">No.</th>
-											<th scope="col">Nama Admin</th>
+											<th scope="col">Nama</th>
 											<th scope="col">Email</th>
-											<th scope="col">No Handphone</th>
+											<th scope="col">No. Hp</th>
 											<th scope="col">Action</th>
 										</tr>
 									</thead>
