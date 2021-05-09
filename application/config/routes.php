@@ -77,5 +77,5 @@ $route['semuaiklan'] = 'C_Iklan/tampil';
 $route['terimaiklan/(:any)'] = 'C_Iklan/terimaiklan/$1';
 $route['hit/(:any)'] = 'C_Iklan/detailhit/$1';
 //terima iklan $1 id hitter $2
-$route['terimahitter/(:any)/(:any)'] = 'C_Iklan/terimahitter/$1/$2';
+$route['terimahitter/(:any)'] = 'C_Iklan/terimahitter/$1';
 

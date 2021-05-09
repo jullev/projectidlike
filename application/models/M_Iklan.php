@@ -14,17 +14,24 @@ class M_Iklan extends CI_Model
 
 	public function terima_iklan($id)
 	{
-		$sql = "update kerjaan set id_status=2 where idkerjaan='$id' ";
-
+		$sql = "update kerjaan set id_status=2 where idkerjaan='$id'";
+		echo $sql;
 		$data = $this->db->query($sql);
-
-		return $data->result();
+		var_dump($data);
+		if($data->affected_rows() == 1)
+			return true;
+		else
+			return false;
 	}
 	public function terima_hit($id)
 	{
-		$sql = "update hit set id_status=1 where idhit='$id' ";
+		$sql = "update hit set id_status=3 where idhit='$id' ";
 
 		$data = $this->db->query($sql);
+		if($data==true)
+			return true;
+		else
+			return false;
 
 		return $data->result();
 	}
@@ -50,7 +57,7 @@ class M_Iklan extends CI_Model
 	public function select_hit_periklan($id)
 	{
 		$sql = "SELECT hit.idhit,user.iduser,user.nama_user,user.no_hp,sum(star_point.star_point) as star_point, 
-       			kerjaan.judul_kerjaan,kerjaan.deadline 
+       			kerjaan.judul_kerjaan,kerjaan.deadline,hit.id_status 
 				FROM hit, user,star_point,kerjaan
 				WHERE hit.user_iduser=user.iduser and user.iduser=star_point.user_iduser 
 				  and kerjaan.idkerjaan=hit.kerjaan_idkerjaan and hit.kerjaan_idkerjaan='$id'";
