@@ -47,7 +47,15 @@ class C_Iklan extends CI_Controller
 	{
 		$id =  $this->uri->segment(2);
 //  	var_dump("data ",$id);
-		$data['detailuser']=$this->M_Iklan->select_admin_id($id);
+		$data['detailhit']=$this->M_Iklan->select_hit_periklan($id);
+//  	var_dump($data);
+		$this->load->view('admin/detailhit',$data);
+	}
+	public function terimahitter()
+	{
+		$id =  $this->uri->segment(2);
+//  	var_dump("data ",$id);
+		$data['detailhit']=$this->M_Iklan->select_hit_periklan($id);
 //  	var_dump($data);
 		$this->load->view('admin/detailhit',$data);
 	}

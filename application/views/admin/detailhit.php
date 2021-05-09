@@ -23,7 +23,7 @@
 							<div class="card-header">
 								<ol class="breadcrumb float-sm-left">
 									<li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Home</a></li>
-									<li class="breadcrumb-item active">List Iklan Status DIsetujui</li>
+									<li class="breadcrumb-item active">List Hitter </li>
 								</ol>
 							</div>
 						</div>
@@ -43,34 +43,41 @@
 									<thead class="thead-dark">
 									<tr>
 										<th scope="col">No.</th>
-										<th scope="col">Nama Pekerjaan</th>
-										<th scope="col">Detail</th>
-										<th scope="col">Tanggal Posting</th>
+										<th scope="col">Judul Kerjaan</th>
 										<th scope="col">Deadline</th>
-										<th scope="col">Harga</th>
-										<th scope="col">Jumlah Hit</th>
+										<th scope="col">Nama Hitter</th>
+										<th scope="col">No Hp</th>
+										<th scope="col">star point</th>
 										<th scope="col">Aksi</th>
 									</tr>
 									</thead>
 									<tbody>
 									<?php
 									//				var_dump(@$kegiatan);
-									foreach (@$dataIklan as $value) { ?>
+									foreach (@$detailhit as $value) { ?>
 										<tr>
-											<td><?php echo $value->idkerjaan ?></td>
+											<td><?php echo $value->idhit ?></td>
 											<td><?php echo $value->judul_kerjaan ?></td>
-											<td><b><?php echo $value->deskripsi ?></b><br>
-											<td><b><?php echo $value->tanggal_submit ?></b><br>
-											<td><b><?php echo $value->deadline ?></b><br>
-											<td><b><?php echo $value->harga ?></b><br>
-											<td><b><?php echo $value->hit ?></b><br>
+											<td><b><?php echo $value->deadline  ?></b><br>
+											<td><b><?php echo $value->nama_user ?></b><br>
+											<td><b><?php echo $value->no_hp ?></b><br>
+											<td><b><?php
+													if($value->star_point>1){
+														echo $value->star_point;
+													}
+													else {
+														echo 0;
+													}
+													?></b><br>
+
+
 											<td>
-												<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
+												<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->iduser  ?>"
 												   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
 												   data-placement="top" style="margin:5px;" data-original-title="EDIT">
 													<i class="bi bi-bar-chart-fill"></i>
 
-													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
+													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->iduser  ?>"
 													   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
 													   data-placement="top" style="margin:5px;"
 													   data-original-title="EDIT">

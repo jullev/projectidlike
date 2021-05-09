@@ -34,6 +34,8 @@ CREATE TABLE `hit` (
   `kerjaan_idkerjaan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+ALTER TABLE `hit` ADD `id_status` INT(5) NOT NULL AFTER `kerjaan_idkerjaan`;
+
 CREATE TABLE `projectidlike`.`tmst_status`
 ( `id_status` INT(5) NULL AUTO_INCREMENT ,
 `status` VARCHAR(50) NOT NULL , PRIMARY KEY (`id_status`)) ENGINE = InnoDB;

@@ -65,7 +65,7 @@
 											<td><b><?php echo $value->harga ?></b><br>
 											<td><b><?php echo $value->hit ?></b><br>
 											<td>
-												<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
+												<a href="<?php echo base_url() ?>hit/<?php echo $value->idkerjaan ?>"
 												   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
 												   data-placement="top" style="margin:5px;" data-original-title="EDIT">
 													<i class="bi bi-bar-chart-fill"></i>
