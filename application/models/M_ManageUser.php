@@ -10,4 +10,10 @@ class M_ManageUser extends CI_Model
 
 		return $data->result();
 	}
+	public function select_user_id($id) {
+		$sql = "SELECT * FROM user where role_idrole=2 and iduser ='$id'";
+		$data = $this->db->query($sql);
+
+		return $data->result();
+	}
 }

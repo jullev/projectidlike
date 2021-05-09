@@ -31,8 +31,8 @@ class C_Overview extends CI_Controller
   }
   public function userlist()
   {
-    $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
-    $this->load->view('admin/adminlist', $data);
+    $data['alluser'] = $this->M_ManageUser->select_all_user();
+    $this->load->view('admin/userlist', $data);
   }
   public function updateDataAdmin()
   {
@@ -71,10 +71,6 @@ class C_Overview extends CI_Controller
   public function loginadmin()
   {
     $this->load->view('admin/login');
-  }
-  public function managementuser()
-  {
-    $this->load->view('admin/managementuser');
   }
   public function searchtest()
   {

@@ -46,7 +46,7 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="<?php echo site_url('managementuser') ?>" class="nav-link">
+							<a href="<?php echo site_url('userlist') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Management User</p>
 							</a>
@@ -81,13 +81,17 @@
 						<li class="nav-item">
 							<a href="<?php echo site_url('iklandisetujui') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Disetujui</p>
+								<p>Disetujui
+									<span class="right badge badge-success">1</span>
+								</p>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a href="<?php echo site_url('') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Dibatalkan</p>
+								<p>Dibatalkan
+									<span class="right badge badge-danger">9</span>
+								</p>
 							</a>
 						</li>
 						<li class="nav-item">

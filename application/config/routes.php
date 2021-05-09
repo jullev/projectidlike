@@ -67,7 +67,7 @@ $route['dashboard'] = 'user/Overview/dashboard';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
 $route['login'] = 'C_Register/loginData';
 $route['logout'] = 'C_Register/logout';
-$route['managementuser'] = 'C_Overview/managementuser';
+$route['userlist'] = 'C_Overview/userlist';
 $route['searchtest'] = 'C_Overview/searchtest';
 $route['detail'] = "user/Overview/detail";
 //iklan

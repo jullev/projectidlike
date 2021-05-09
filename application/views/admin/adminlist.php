@@ -19,7 +19,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="card shadow">
+							<div class="card">
 								<div class="card-header">
 									<ol class="breadcrumb float-sm-left">
 										<li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Home</a></li>
@@ -34,9 +34,9 @@
 		<!-- /.content-header -->
 		<!-- Main content -->
 		<section class="content container">
-			<div class="card shadow">
+			<div class="card">
 				<div class="card-header">
-					<h3><strong>List Admin</strong></h3>
+					<h3><strong>Management Admin</strong></h3>
 				</div>
 				<div class="card-body">
 					<div id="adminlist_wrapper">
@@ -58,13 +58,13 @@
 											<tr>
 												<td><?php echo $value->iduser ?></td>
 												<td><?php echo $value->nama_user ?></td>
-												<td><b><?php echo $value->email ?></b>
-												<td><b><?php echo $value->no_hp ?></b>
+												<td><?php echo $value->email ?>
+												<td><?php echo $value->no_hp ?>
 												<td>
-													<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-primary mr-2" data-toggle="tooltip" data-placement="top" data-original-title="EDIT">
+													<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-primary mr-2" data-toggle="tooltip" data-placement="bottom" title="Edit">
 														<i class="bi bi-pencil-square"></i>
 
-														<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-danger" data-toggle="tooltip" data-placement="top" data-original-title="DELETE">
+														<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
 															<i class="bi bi-trash"></i>
 												</td>
 

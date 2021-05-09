@@ -17,6 +17,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <!-- Bootstrap Select Search -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" />
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/summernote/summernote-bs4.min.css') ?>">
+  <!-- SimpleMDE -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/simplemde/simplemde.min.css') ?>">
   <style>
     .badge-info-light {
       color: #0c5460;
