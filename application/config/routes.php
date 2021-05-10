@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'C_Overview';
 $route['user'] = 'user/overview';
 $route['register'] = 'user/Overview/register';
+$route['registercheck'] = 'C_Register/uniqueDataCheck';
 $route['search'] = 'user/Overview/search';
 $route['tambahiklan'] = 'user/Overview/listIklan';
 $route['insertIklan'] = 'C_TambahIklan/prosesTambah';
@@ -79,4 +80,5 @@ $route['terimaiklan/(:any)'] = 'C_Iklan/terimaiklan/$1';
 $route['hit/(:any)'] = 'C_Iklan/detailhit/$1';
 //terima iklan $1 id hitter $2
 $route['terimahitter/(:any)'] = 'C_Iklan/terimahitter/$1';
+$route['tolakhit/(:any)'] = 'C_Iklan/tolakhitter/$1';
 

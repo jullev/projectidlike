@@ -37,6 +37,15 @@ class Overview extends CI_Controller
 
 	public function register()
 	{
+		if($this->session->flashdata('name') == ""){
+			$this->session->set_flashdata('name', '');
+			$this->session->set_flashdata('username_register', '');
+			$this->session->set_flashdata('email_register', '');
+			$this->session->set_flashdata('birthdate', '');
+			$this->session->set_flashdata('phone', '');
+			$this->session->set_flashdata('alamat', '');
+			$this->session->set_flashdata('gender', '');
+		}
 		$this->load->view('user/register');
 	}
 
