@@ -76,9 +76,12 @@
 												<?php
 												if($value->id_status ==3)  {
 													echo "<b>Iklan Sedang DIkerjakan</b>";
-												} else{
-													echo "<b> Iklan DItawarkan </b>";
+												} else if($value->id_status ==4){
+													echo "<b> Iklan Ditolak </b>";
 													}
+												else{
+													echo "<b> Iklan Ditawarkan </b>";
+												}
 												?>
 											</td>
 											<td>
@@ -86,13 +89,13 @@
 
 												echo base_url() ?>terimahitter/<?php echo $value->idhit  ?>"
 												   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
-												   data-placement="top" style="margin:5px;" data-original-title="EDIT">
+												   data-placement="top" style="margin:5px;" data-original-title="Terima Hit">
 													<i class="bi bi-bar-chart-fill"></i>
 
-													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idhit  ?>"
+													<a href="<?php echo base_url() ?>tolakhit/<?php echo $value->idhit  ?>"
 													   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
 													   data-placement="top" style="margin:5px;"
-													   data-original-title="EDIT">
+													   data-original-title="Tolak Hit">
 														<i class="bi bi-x-circle"></i>
 												<?php ?>
 											</td>

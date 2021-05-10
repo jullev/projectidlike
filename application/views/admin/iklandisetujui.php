@@ -67,13 +67,13 @@
 											<td>
 												<a href="<?php echo base_url() ?>hit/<?php echo $value->idkerjaan ?>"
 												   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
-												   data-placement="top" style="margin:5px;" data-original-title="EDIT">
+												   data-placement="top" style="margin:5px;" data-original-title="Detail Hit">
 													<i class="bi bi-bar-chart-fill"></i>
 
 													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
 													   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
 													   data-placement="top" style="margin:5px;"
-													   data-original-title="EDIT">
+													   data-original-title="Ditolak">
 														<i class="bi bi-x-circle"></i>
 											</td>
 

@@ -5,7 +5,9 @@ class M_Iklan extends CI_Model
 {
 	public function select_all_iklan()
 	{
-		$sql = "SELECT * FROM kerjaan order by tanggal_submit asc ";
+		$sql = "SELECT kerjaan.*,hit.id_status FROM kerjaan,hit
+		WHERE kerjaan.idkerjaan=hit.kerjaan_idkerjaan and hit.id_status=3
+		order by tanggal_submit asc ";
 
 		$data = $this->db->query($sql);
 
@@ -26,6 +28,18 @@ class M_Iklan extends CI_Model
 	public function terima_hit($id)
 	{
 		$sql = "update hit set id_status=3 where idhit='$id' ";
+
+		$data = $this->db->query($sql);
+		if($data==true)
+			return true;
+		else
+			return false;
+
+		return $data->result();
+	}
+	public function tolak_hit($id)
+	{
+		$sql = "update hit set id_status=4 where idhit='$id' ";
 
 		$data = $this->db->query($sql);
 		if($data==true)

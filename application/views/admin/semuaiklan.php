@@ -49,6 +49,7 @@
 										<th scope="col">Deadline</th>
 										<th scope="col">Harga</th>
 										<th scope="col">Status</th>
+										<th scope="col">Aksi</th>
 									</tr>
 									</thead>
 									<tbody>
@@ -62,6 +63,23 @@
 											<td><b><?php echo $value->tanggal_submit ?></b><br>
 											<td><b><?php echo $value->deadline ?></b><br>
 											<td><b><?php echo $value->harga ?></b><br>
+											<td><b><?php
+													if($value->id_status=1){
+														echo "<b>Pengajuan Baru</b>";
+													}
+													else if($value->id_status=2){
+														echo "<b>Proses Review</b>";
+													}
+													else if($value->id_status=3){
+														echo "<b>Sedang Dikerjakan</b>";
+													}
+													else if($value->id_status=4){
+														echo "<b>Iklan Ditolak</b>";
+													}else if($value->id_status=5){
+														echo "<b>Iklan Selesai Dikerjakan</b>";
+													}
+
+													?></b><br>
 											<td>
 												<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
 												   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
