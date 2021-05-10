@@ -25,6 +25,18 @@
 					<br>
 					<br>
 					<img src="https://placeimg.com/640/480/any" alt="" style="width:100%">
+					<br>
+					<br>
+					<center>
+						<div class="product-viewer-thumb-wrapper">
+							<ul class="product-view-thumb m-3">
+								<img src="https://placeimg.com/640/480/any" alt="" style="width:20%;">
+								<img src="https://placeimg.com/640/480/any" alt="" style="width:20%;">
+								<img src="https://placeimg.com/640/480/any" alt="" style="width:20%;">
+								<img src="https://placeimg.com/640/480/any" alt="" style="width:20%;">
+							</ul>
+						</div>
+					</center>
 
 					<!-- Details -->
 					<div id="detail" class="mt-4">
@@ -81,12 +93,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="card-footer">
-					<button class="btn btn-success">
-						<i class="fas fa-phone"></i>
-						<span>+628********</span>
-					</button>
 				</div>
 			</div>
 		</div>
