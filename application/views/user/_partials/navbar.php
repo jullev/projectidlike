@@ -32,7 +32,7 @@
 			?>
 				<!-- Untuk yang belum login -->
 				<!-- Tombol Masuk -->
-				<button class="btn btn-outline-primary ml-md-auto" data-target='#signIn' data-toggle="modal">
+				<button class="btn btn-outline-primary ml-md-auto" data-target='#signIn' data-toggle="modal" >
 					<i class="bi-person"></i> Masuk
 				</button>
 				<!-- Tombol Daftar -->
@@ -42,12 +42,10 @@
 			<?php
 			}
 			?>
-
-
 			<!-- Tombol Tambah Iklan -->
-			<a href="<?php echo site_url('tambahiklan') ?>" class="btn btn-warning ml-2 ml-sm-3" role="button">
+			<button class="btn btn-warning ml-2 ml-sm-3" id="btnTambahIklan" onmouseover="login_check(<?php echo $this->session->userdata('is_login') ?>)">
 				<i class="bi bi-plus-circle"></i></i> Buat Iklan
-			</a>
+			</button>
 		</div>
 
 	</div>
@@ -113,3 +111,18 @@
 	</div><!-- Modal Dialog -->
 </div><!-- Modal -->
 <!-- End Modal -->
+<script>
+	const login_check = (status) => {
+		const is_login = status
+		const btn_tambahiklan = document.getElementById('btnTambahIklan')
+
+		if(is_login === undefined || is_login === null){
+			btn_tambahiklan.dataset.target = '#signIn'
+			btn_tambahiklan.dataset.toggle = 'modal'
+		}else{
+			btn_tambahiklan.addEventListener('click', () => {
+				location.href = 'tambahiklan'
+			})
+		}
+	}
+</script>

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php $this->load->view('user/_partials/head.php'); ?>
-
+<?php
+if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login") == false)) {
+	redirect('/');
+}
+?>
 
 <body>
     <?php $this->load->view('user/_partials/navbar.php'); ?>
@@ -66,7 +70,6 @@
                                         <small>Deskripsikan apa yang membuat iklan anda menarik dan unik.</small>
                                     </textarea>
                                 </div>
-
                             </div>
                             <div class="form-group row">
                                 <label for="deskripsi" class="col-md-3 col-form-label">Upload Gambar</label>

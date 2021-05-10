@@ -31,10 +31,10 @@ class Welcome extends CI_Controller
 	{
 //		echo $this->session->userdata('role');
 		if ($this->session->userdata('role')==1) {
-			$this->load->view('admin/Overview');
+			$this->load->view('admin/overview');
 		}
 		else if($this->session->userdata('role')==2){
-			$this->load->view('user/Overview');
+			$this->load->view('user/overview');
 		}
 		else{
 			$this->load->view('overview_landing');
