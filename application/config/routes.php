@@ -65,14 +65,16 @@ $route['tambahuser'] = 'C_Overview/tambahuser';
 $route['admin/deleteuser'] = 'C_Overview/deleteuser';
 $route['admin/detailuser'] = 'C_Overview/detailuser';
 //$route['updateadmin'] = 'C_Overview/updateDataAdmin';
-$route['dashboard'] = 'user/Overview/dashboard';
-$route['iklansaya'] = 'user/Overview/iklansaya';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
 $route['login'] = 'C_Register/loginData';
 $route['logout'] = 'C_Register/logout';
 $route['userlist'] = 'C_Overview/userlist';
 $route['searchtest'] = 'C_Overview/searchtest';
 $route['detail'] = "user/Overview/detail";
+//user has login
+$route['dashboard'] = 'user/Overview/dashboard';
+$route['iklansaya'] = 'user/Overview/iklansaya';
+$route['hitproject'] = 'user/Overview/hitproject';
 //iklan
 $route['iklanbaru'] = 'C_Iklan/index_pengajuan';
 $route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';

@@ -24,6 +24,10 @@ class Overview extends CI_Controller
 		$this->load->view("user/iklansaya");
 	}
 
+	public function hitproject()
+	{
+		$this->load->view("user/hitproject");
+	}
 
 	public function detail()
 	{

@@ -21,7 +21,8 @@
 					</button>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="<?php echo site_url('dashboard');?>"><i class="bi-house mr-1"></i> Dashboard</a>
-						<a class="dropdown-item" href="#"><i class="bi-badge-ad mr-1"></i> Iklan Saya</a>
+						<a class="dropdown-item" href="<?php echo site_url('iklansaya');?>"><i class="bi-badge-ad mr-1"></i> Iklan Saya</a>
+						<a class="dropdown-item" href="<?php echo site_url('#');?>"><i class="bi-hand-index-thumb mr-1"></i> Hit Project</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="<?php echo site_url('logout') ?>"><i class="bi-box-arrow-right mr-1"></i> Logout</a>
 					</div>
