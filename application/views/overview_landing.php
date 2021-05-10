@@ -6,10 +6,24 @@
 <body>
 
 <?php $this->load->view('user/_partials/navbar.php'); ?>
-
 <header class="text-center text-white masthead"
 		style="background: url(<?php echo base_url('assets/assets/img/1-11.jpg') ?>) top / cover;">
 	<div class="d-inline-block overlay" style="background: rgb(55,100,146);"></div>
+	<div id="alert_msg" style="position: absolute; top: 40px; width: 100%">
+		<?php
+		if ($this->session->flashdata('msg') !== null) {
+			$this->session->sess_destroy();
+			?>
+			<div class="alert alert-success alert-dismissible" role="alert">
+				<?php echo $this->session->flashdata('msg') ?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<?php
+		}
+		?>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-9 mx-auto">
@@ -92,7 +106,8 @@
 										</ul>
 									</div>
 									<div class="col-md-3 col-xl-3" style="transform: translateX(164px);">
-										<img src="<?php echo base_url('assets/assets/img/c12261c78e0a35b60cceb2315d3a277b.png') ?>" width="300px" style="transform: translateX(-197px);">
+										<img src="<?php echo base_url('assets/assets/img/c12261c78e0a35b60cceb2315d3a277b.png') ?>"
+											 width="300px" style="transform: translateX(-197px);">
 									</div>
 								</div>
 							</form>
@@ -114,32 +129,36 @@
 						<img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="<?php echo site_url("detail");?>" class="btn btn-primary">Go somewhere</a>
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk
+								of the card's content.</p>
+							<a href="<?php echo site_url("detail"); ?>" class="btn btn-primary">Go somewhere</a>
 						</div>
 					</div>
 					<div class="card col-sm-3" style="width: 18rem; padding: 10px;">
 						<img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="<?php echo site_url("detail");?>" class="btn btn-primary">Go somewhere</a>
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk
+								of the card's content.</p>
+							<a href="<?php echo site_url("detail"); ?>" class="btn btn-primary">Go somewhere</a>
 						</div>
 					</div>
 					<div class="card col-sm-3" style="width: 18rem; padding: 10px;">
 						<img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="<?php echo site_url("detail");?>" class="btn btn-primary">Go somewhere</a>
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk
+								of the card's content.</p>
+							<a href="<?php echo site_url("detail"); ?>" class="btn btn-primary">Go somewhere</a>
 						</div>
 					</div>
 					<div class="card col-sm-3" style="width: 18rem; padding: 10px;">
 						<img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
 						<div class="card-body">
 							<h5 class="card-title">Card title</h5>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							<a href="<?php echo site_url("detail");?>" class="btn btn-primary">Go somewhere</a>
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk
+								of the card's content.</p>
+							<a href="<?php echo site_url("detail"); ?>" class="btn btn-primary">Go somewhere</a>
 						</div>
 					</div>
 				</div>
@@ -147,9 +166,9 @@
 		</div>
 	</div>
 </div>
-	<!-- footer -->
-	<?php $this->load->view('user/_partials/footer.php'); ?>
-	<!-- /footer  -->
+<!-- footer -->
+<?php $this->load->view('user/_partials/footer.php'); ?>
+<!-- /footer  -->
 </body>
 
 </html>

@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'C_Overview';
 $route['user'] = 'user/overview';
 $route['register'] = 'user/Overview/register';
+$route['registercheck'] = 'C_Register/uniqueDataCheck';
 $route['search'] = 'user/Overview/search';
 $route['tambahiklan'] = 'user/Overview/listIklan';
 $route['insertIklan'] = 'C_TambahIklan/prosesTambah';

@@ -19,9 +19,9 @@
                         <form action='C_Register/prosesTambah' onsubmit="return validation()" method="POST" id="register_form">
 							<div id="alert_msg">
 								<?php
-								if (isset($msg)) {
+								if ($this->session->flashdata('msg') !== null) {
 								?>
-									<div class="alert alert-info"><?php echo $msg ?></div>
+									<div class="alert alert-info"><?php echo $this->session->flashdata('msg') ?></div>
 								<?php
 								}
 								?>
@@ -30,21 +30,21 @@
                             <div class="form-group row">
                                 <label for="name" class="col-md-3 col-form-label">Nama <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="text" id="name" name="name" class="form-control" placeholder="Nama Lengkap" maxlength="45" onfocus="removeAlert()" required>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Nama Lengkap" value="<?php echo $this->session->flashdata('name') ?>" maxlength="45" onfocus="removeAlert()" required>
                                 </div>
                             </div>
                             <!-- Username -->
                             <div class="form-group row">
                                 <label for="username" class="col-md-3 col-form-label">Username <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" maxlength="45" onfocus="removeAlert()" required>
+                                    <input type="text" id="username_register" name="username_register" class="form-control" placeholder="Username" value="<?php echo $this->session->flashdata('username_register') ?>" maxlength="45" onfocus="removeAlert()" required>
                                 </div>
                             </div>
                             <!-- Email -->
                             <div class="form-group row">
                                 <label for="email" class="col-md-3 col-form-label">Email <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" maxlength="45" onfocus="removeAlert()" required>
+                                    <input type="email" id="email_register" name="email_register" class="form-control" aria-describedby="emailHelp" value="<?php echo $this->session->flashdata('email_register') ?>" placeholder="Email" maxlength="45" onfocus="removeAlert()" required>
                                 </div>
                             </div>
                             <!-- Tanggal Lahir -->
@@ -52,7 +52,7 @@
                                 <label for="birthdate" class="col-md-3 col-form-label">Tanggal Lahir <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        <input type="date" class="form-control" id="birthdate" name="birthdate" onfocus="removeAlert()" required>
+                                        <input type="date" class="form-control" id="birthdate" name="birthdate" value="<?php echo $this->session->flashdata('birthdate') ?>" onfocus="removeAlert()" required>
                                     </div>
                                 </div>
                                 <div class="col-md-1"></div>
@@ -61,10 +61,10 @@
                             <div class="form-group row">
                                 <label for="gender" class="col-md-3 col-form-label">Jenis Kelamin <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <select class="custom-select" id="gender" onfocus="removeAlert()" required>
-                                        <option value="#" selected>-- Jenis Kelamin --</option>
-                                        <option value="L">Laki - Laki</option>
-                                        <option value="P">Perempuan</option>
+                                    <select class="custom-select" id="gender" name="gender" onfocus="removeAlert()" required>
+                                        <option value="#" <?php echo $this->session->flashdata('gender') == '#' ? 'selected' : '' ?>>-- Jenis Kelamin --</option>
+                                        <option value="L" <?php echo $this->session->flashdata('gender') == 'L' ? 'selected' : '' ?>>Laki - Laki</option>
+                                        <option value="P" <?php echo $this->session->flashdata('gender') == 'P' ? 'selected' : '' ?>>Perempuan</option>
                                     </select>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">+62</span>
                                     </div>
-                                    <input type="tel" class="form-control" pattern="[0-9]{11}" name="phone" id="phone" placeholder="8xxxxxxxxxx" maxlength="15" onfocus="removeAlert()" required>
+                                    <input type="tel" class="form-control" pattern="[0-9]{11}" name="phone" id="phone" value="<?php echo $this->session->flashdata('phone') ?>" placeholder="8xxxxxxxxxx" maxlength="15" onfocus="removeAlert()" required>
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>
@@ -83,15 +83,15 @@
 							<div class="form-group row">
 								<label for="phone" class="col-md-3 col-form-label">Alamat <sup style="color: red;">*</sup></label>
 								<div class="input-group col-md-8">
-									<textarea name="alamat" class="form-control" id="alamat" cols="50" rows="10" style="resize: none"  placeholder="Alamat domisili"  onfocus="removeAlert()" required></textarea>
+									<textarea name="alamat" class="form-control" id="alamat" cols="50" rows="10" style="resize: none"  placeholder="Alamat domisili"  onfocus="removeAlert()" required><?php echo $this->session->flashdata('alamat') ?></textarea>
 								</div>
 							</div>
                             <!-- Password -->
                             <div class="form-group row">
                                 <label for="password" class="col-md-3 col-form-label">Password <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
-                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" maxlength="255" onfocus="removeAlert()" required>
-                                    <input type="password" id="password_confirm" name="password_confirm" class="form-control mt-3" placeholder="Konfirmasi Password" maxlength="255" onfocus="removeAlert()" required>
+                                    <input type="password" id="password_register" name="password_register" class="form-control" placeholder="Password" maxlength="255" onfocus="removeAlert()" required>
+                                    <input type="password" id="password_register_confirm" name="password_register_confirm" class="form-control mt-3" placeholder="Konfirmasi Password" maxlength="255" onfocus="removeAlert()" required>
                                 </div>
                             </div>
                             <!-- Term -->
@@ -146,8 +146,9 @@
 		// Form Validation for gender, password
 		const validation = () => {
 			const gender = document.forms["register_form"]["gender"].value
-			const pwd = document.forms["register_form"]["password"].value
-			const pwd_confirm = document.forms["register_form"]["password_confirm"].value
+			const pwd = document.forms["register_form"]["password_register"].value
+			const pwd_confirm = document.forms["register_form"]["password_register_confirm"].value
+
 
 			// Jenis Kelamin
 			if(gender === "#"){
@@ -160,6 +161,8 @@
 				alert.innerHTML = "<div class='alert alert-danger'>Password tidak valid, harap ulangi lagi!</div>"
 				return false
 			}
+
+
 		}
 
 		// Menghapus alert
