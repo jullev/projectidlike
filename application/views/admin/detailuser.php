@@ -66,20 +66,6 @@
                                             <input type="email" class="form-control" id="emailadmin" placeholder="Masukkan email anda" disabled>
                                         </div>
                                     </div>
-                                    <!-- password -->
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Password</label>
-                                        <div class="col-sm-8">
-                                            <input type="password" class="form-control" id="passadmin" placeholder="password" disabled>
-                                        </div>
-                                    </div>
-                                    <!-- Konfirm Password -->
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Konfirmasi Password</label>
-                                        <div class="col-sm-8">
-                                            <input type="password" class="form-control" id="passadmin" placeholder="konfirmasi password" disabled>
-                                        </div>
-                                    </div>
                                     <!-- tanggal lahir -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Tanggal Lahir</label>

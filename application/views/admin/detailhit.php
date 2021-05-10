@@ -48,6 +48,7 @@
 										<th scope="col">Nama Hitter</th>
 										<th scope="col">No Hp</th>
 										<th scope="col">star point</th>
+										<th scope="col">Status</th>
 										<th scope="col">Aksi</th>
 									</tr>
 									</thead>
@@ -62,26 +63,38 @@
 											<td><b><?php echo $value->nama_user ?></b><br>
 											<td><b><?php echo $value->no_hp ?></b><br>
 											<td><b><?php
-													if($value->star_point>1){
-														echo $value->star_point;
-													}
-													else {
-														echo 0;
-													}
-													?></b><br>
 
-
+														if ($value->star_point > 1) {
+															echo $value->star_point;
+														} else {
+															echo 0;
+														}
+														?></b><br>
+											</td>
 											<td>
-												<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->iduser  ?>"
+
+												<?php
+												if($value->id_status ==3)  {
+													echo "<b>Iklan Sedang DIkerjakan</b>";
+												} else{
+													echo "<b> Iklan DItawarkan </b>";
+													}
+												?>
+											</td>
+											<td>
+												<a href="<?php
+
+												echo base_url() ?>terimahitter/<?php echo $value->idhit  ?>"
 												   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
 												   data-placement="top" style="margin:5px;" data-original-title="EDIT">
 													<i class="bi bi-bar-chart-fill"></i>
 
-													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->iduser  ?>"
+													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idhit  ?>"
 													   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
 													   data-placement="top" style="margin:5px;"
 													   data-original-title="EDIT">
 														<i class="bi bi-x-circle"></i>
+												<?php ?>
 											</td>
 
 										</tr>

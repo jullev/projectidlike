@@ -28,6 +28,8 @@
 <script src="<?php echo base_url('assets/assets/bootstrap/js/bootstrap.min.js') ?>"></script>
 <!-- bootsrap select search js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js" integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg==" crossorigin="anonymous"></script>
+<!-- Summernote -->
+<script src="<?php echo base_url('assets/plugins/summernote/summernote-bs4.min.js') ?>"></script>
 <script>
   // Input Only Number
   function isInputNumber(evt) {

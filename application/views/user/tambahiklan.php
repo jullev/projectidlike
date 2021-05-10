@@ -19,7 +19,7 @@
                             <div class="form-group row">
                                 <!-- kategori form -->
                                 <label for="kategori" class="col-md-3 col-form-label">Kategori <sup style="color:tomato">*</sup></label>
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <select class="custom-select" name="kategori">
                                         <option selected>Pilih Kategori</option>
                                         <option value="1">Cari Investor</option>
@@ -42,7 +42,7 @@
                             <!-- Tipe form -->
                             <div class="form-group row">
                                 <label for="tipe" class="col-md-3 col-form-label">Tipe <sup style="color:tomato">*</sup></label>
-                                <div class="col-md-8 ">
+                                <div class="col-md-9 ">
                                     <div class="form-check form-check-inline pt-2">
                                         <input class="form-check-input" type="radio" name="tipe" id="private" value="private">
                                         <label class="form-check-label" for="private">Private</label>
@@ -55,23 +55,22 @@
                             </div>
                             <div class="form-group row">
                                 <label for="judul" class="col-md-3 col-form-label">Judul <sup style="color:tomato">*</sup></label>
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul Iklan">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="deskripsi" class="col-md-3 col-form-label">Deskripsi <sup style="color: tomato">*</sup></label>
-                                <div class="col-md-8">
-                                    <div id="summernote">
-                                        <textarea class="form-control" name="contents" id="summernote" rows="6" cols="10"></textarea>
-                                    </div>
-                                    <small>Deskripsikan apa yang membuat iklan anda menarik dan unik</small>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="contents" id="summernote">
+                                        <small>Deskripsikan apa yang membuat iklan anda menarik dan unik.</small>
+                                    </textarea>
                                 </div>
 
                             </div>
                             <div class="form-group row">
                                 <label for="deskripsi" class="col-md-3 col-form-label">Upload Gambar</label>
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
@@ -80,7 +79,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="price" class="col-md-3 col-form-label">Harga</label>
-                                <div class="input-group mb-3 col-md-8">
+                                <div class="input-group mb-3 col-md-9">
                                     <div class="input-group-prepend ">
                                         <span class="input-group-text">Rp.</span>
                                     </div>
@@ -90,16 +89,15 @@
                             <!-- Tangga Lahir -->
                             <div class="form-group row">
                                 <label for="birthdate" class="col-md-3 col-form-label">Deadline <sup style="color: red;">*</sup></label>
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <div class="input-group">
                                         <input type="date" class="form-control" id="deadline" name="deadline" required>
                                     </div>
                                 </div>
-                                <div class="col-md-1"></div>
                             </div>
                             <div class="form-group row">
                                 <label for="kota" class="col-md-3 col-form-label">Kota <sup style="color: red;">*</sup></label>
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
                                         <option value="#">-- Pilih Kota/Kabupaten --</option>
                                         <?php
@@ -115,9 +113,9 @@
                             </div>
                             <div class="form-group row">
                                 <label for="tag" class="col-md-3 col-form-label">Tag</label>
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <input type="text" class="form-control" id="tag" placeholder="Masukkan Tag">
-                                    <small class="col-md-8">masukkan Tag dipisah dengan koma</small>
+                                    <small class="col-md-9">masukkan Tag dipisah dengan koma</small>
                                 </div>
                             </div>
                             <br>
@@ -130,13 +128,13 @@
                             <br>
                             <div class="form-group row">
                                 <label for="nama" class="col-md-3 col-form-label">Nama Anda<sup style="color:tomato">*</sup></label>
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <input type="text" class="form-control" id="nama" placeholder="Judul Iklan">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="email" class="col-md-3 col-form-label">Email<sup style="color:tomato">*</sup></label>
-                                <div class="input-group mb-3 col-md-8">
+                                <div class="input-group mb-3 col-md-9">
                                     <div class="input-group-prepend ">
                                         <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
                                     </div>
@@ -145,7 +143,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="telp" class="col-md-3 col-form-label">Nomor Telepon</label>
-                                <div class="input-group mb-3 col-md-8">
+                                <div class="input-group mb-3 col-md-9">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">+62</span>
                                     </div>
@@ -153,7 +151,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <input type="checkbox" id="verify" value="1" name="verify">
                                     <small class="md-2"><strong>I want to register by submmiting this ad</strong></small>
                                     <br>
@@ -161,7 +159,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <div class="g-recaptcha" data-sitekey="6LfcdL4aAAAAAJhUJSD1sa-1dW8AsrIjQ7rj_zj9"></div>
                                 </div>
                             </div>
@@ -207,5 +205,12 @@
     <?php $this->load->view('user/_partials/footer.php'); ?>
 </body>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-
+<script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote({
+        height: 200
+    });
+  })
+</script>
 </html>
