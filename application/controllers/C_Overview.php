@@ -82,6 +82,7 @@ class C_Overview extends CI_Controller
   }
   public function detailuser()
   {
-    $this->load->view('admin/detailuser');
+    $data['alluser'] = $this->M_ManageUser->select_all_user();
+    $this->load->view('admin/detailuser', $data);
   }
 }
