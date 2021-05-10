@@ -72,12 +72,12 @@
                                                         <i class="bi-star-half text-warning"></i>
                                                     </td>
                                                     <td>
-                                                        <a type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('admin/detailuser/' . $value->iduser) ?>">
+                                                        <a type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('admin/detailuser') . '?id=' . $value->iduser ?>">
                                                             <i class="bi bi-eye-fill"></i>
                                                         </a>
-                                                        <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
+                                                        <a type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus" href="<?php echo site_url('admin/deleteuser') . '?id=' . $value->iduser ?>">
                                                             <i class="bi bi-trash-fill"></i>
-                                                        </button>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>

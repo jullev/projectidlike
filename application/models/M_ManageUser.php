@@ -17,7 +17,7 @@ class M_ManageUser extends CI_Model
 		$sql = "SELECT * FROM user where role_idrole=2 and iduser ='$id'";
 		$data = $this->db->query($sql);
 
-		return $data->result();
+		return $data->row();
 	}
 
 	public function save()
@@ -26,7 +26,7 @@ class M_ManageUser extends CI_Model
 
 	public function delete($id)
 	{
-		$sql = "DELETE FROM user WHERE id='" . $id . "'";
+		$sql = "DELETE FROM user WHERE iduser='" . $id . "'";
 
 		$this->db->query($sql);
 

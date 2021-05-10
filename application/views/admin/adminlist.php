@@ -31,56 +31,56 @@
 					</div>
 				</div>
 			</div>
-		<!-- /.content-header -->
-		<!-- Main content -->
-		<section class="content container">
-			<div class="card">
-				<div class="card-header">
-					<h3><strong>Management Admin</strong></h3>
-				</div>
-				<div class="card-body">
-					<div id="adminlist_wrapper">
-						<div class="row">
-							<div class="col-12">
-								<table class="table table-striped dataTable dtr-inline" aria-describedby="adminlist_info" role="grid" id="adminlist">
-									<thead class="thead-dark">
-										<tr>
-											<th scope="col">No.</th>
-											<th scope="col">Nama</th>
-											<th scope="col">Email</th>
-											<th scope="col">No. Hp</th>
-											<th scope="col">Action</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php
-										foreach (@$alladmin as $value) { ?>
+			<!-- /.content-header -->
+			<!-- Main content -->
+			<section class="content container">
+				<div class="card">
+					<div class="card-header">
+						<h3><strong>Management Admin</strong></h3>
+					</div>
+					<div class="card-body">
+						<div id="adminlist_wrapper">
+							<div class="row">
+								<div class="col-12">
+									<table class="table table-striped dataTable dtr-inline" aria-describedby="adminlist_info" role="grid" id="adminlist">
+										<thead class="thead-dark">
 											<tr>
-												<td><?php echo $value->iduser ?></td>
-												<td><?php echo $value->nama_user ?></td>
-												<td><?php echo $value->email ?>
-												<td><?php echo $value->no_hp ?>
-												<td>
-													<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-primary mr-2" data-toggle="tooltip" data-placement="bottom" title="Edit">
-														<i class="bi bi-pencil-square"></i>
-
-														<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
-															<i class="bi bi-trash"></i>
-												</td>
-
+												<th scope="col">No.</th>
+												<th scope="col">Nama</th>
+												<th scope="col">Email</th>
+												<th scope="col">No. Hp</th>
+												<th scope="col">Action</th>
 											</tr>
-										<?php
-										}
-										?>
-									</tbody>
-								</table>
+										</thead>
+										<tbody>
+											<?php
+											foreach (@$alladmin as $value) { ?>
+												<tr>
+													<td><?php echo $value->iduser ?></td>
+													<td><?php echo $value->nama_user ?></td>
+													<td><?php echo $value->email ?>
+													<td><?php echo $value->no_hp ?>
+													<td>
+														<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-primary mr-2" data-toggle="tooltip" data-placement="bottom" title="Edit">
+															<i class="bi bi-pencil-square"></i>
+
+															<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
+																<i class="bi bi-trash"></i>
+													</td>
+
+												</tr>
+											<?php
+											}
+											?>
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
+					<!-- /.content -->
 				</div>
-				<!-- /.content -->
-			</div>
-		</section>
+			</section>
 		</div>
 		<!-- /.content-wrapper -->
 	</div>
