@@ -43,36 +43,36 @@
                         <!-- card body -->
                         <div class="card-body">
                             <div id="usermanage_wrapper">
-                            <div class="col-12">
-                                <!-- table management user -->
-                                <table class="table table-striped" id="usermanage">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th scope="col">No.</th>
-                                            <th scope="col">Nama</th>
-                                            <th scope="col">No. Hp</th>
-                                            <th scope="col">Star Point</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>0854-3323-3444</td>
-                                            <td>12 star</td>
-                                            <td>
-                                                <a type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit User"><i class="bi bi-pencil-fill"></i></a>
-                                                <a type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail User" href="<?php echo site_url('detailuser') ?>"><i class="bi bi-person-lines-fill"></i></a>
-                                                <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus User"><i class="bi bi-trash-fill"></i></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                <div class="col-12">
+                                    <!-- table management user -->
+                                    <table class="table table-striped" id="usermanage">
+                                        <thead class="thead-dark text-center">
+                                            <tr>
+                                                <th scope="col">No.</th>
+                                                <th scope="col">Nama</th>
+                                                <th scope="col">No. Hp</th>
+                                                <th scope="col">Star Point</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Mark</td>
+                                                <td>0854-3323-3444</td>
+                                                <td>12 star</td>
+                                                <td>
+                                                    <a type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit User"><i class="bi bi-pencil-fill"></i></a>
+                                                    <a type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detail User" href="<?php echo site_url('detailuser') ?>"><i class="bi bi-person-lines-fill"></i></a>
+                                                    <a type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus User"><i class="bi bi-trash-fill"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -81,15 +81,15 @@
 
     <?php $this->load->view("admin/_partials/footer.php") ?>
     <script>
-		$(function() {
-			$("#usermanage").DataTable({
-				"responsive": true,
-				"lengthChange": false,
-				"autoWidth": false,
-				//"buttons": [ "excel", "pdf", "print"]
-			}).buttons().container().appendTo('#usermanage_wrapper .col-md-6:eq(0)');
-		});
-	</script>
+        $(function() {
+            $("#usermanage").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                //"buttons": [ "excel", "pdf", "print"]
+            }).buttons().container().appendTo('#usermanage_wrapper .col-md-6:eq(0)');
+        });
+    </script>
 </body>
 
 </html>
