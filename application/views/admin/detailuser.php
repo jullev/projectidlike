@@ -112,7 +112,7 @@
                                     </div>
                                     <!-- button -->
                                     <div class="form-group row">
-                                        <button type="button" class="btn btn-success btn-lg btn-block">Hubungi User</button>
+                                        <a type="button" class="btn btn-success btn-lg btn-block text-white"><i class="bi bi-whatsapp"> </i>Hubungi User Melalui Whatsapp</a>
                                     </div>
                                 </form>
                             </div>
