@@ -35,6 +35,15 @@
             <section class="content container">
                 <div class="row">
                     <div class="col-sm-12">
+                        <div id="alert_msg">
+                            <?php
+                            if ($this->session->flashdata('msg') !== null) {
+                            ?>
+                                <div class="alert alert-warning"><?php echo $this->session->flashdata('msg') ?></div>
+                            <?php
+                            }
+                            ?>
+                        </div>
                         <div class="card">
                             <div class="card-header">
                                 <span>
@@ -45,15 +54,7 @@
                             </div>
                             <div class="card-body p-5 bg-light">
                                 <form action="C_Register/prosesTambahUser" onsubmit=" return validation()" method="POST" id="register_form">
-                                    <div id="alert_msg">
-                                        <?php
-                                        if ($this->session->flashdata('msg') !== null) {
-                                        ?>
-                                            <div class="alert alert-info"><?php echo $this->session->flashdata('msg') ?></div>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
+
                                     <!-- nama -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama Lengkap</label>
