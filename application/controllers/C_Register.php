@@ -28,13 +28,12 @@ class C_Register extends CI_Controller
 		$data = $this->input->post();
 		//print_r($data);
 		$this->M_Register->Select_Login($data);
-//		print_r( $hasil->role_idrole);
-//		print_r( $this->session->userdata('role'));
+		//		print_r( $hasil->role_idrole);
+		//		print_r( $this->session->userdata('role'));
 
-		if ($this->session->userdata('role')==1) {
+		if ($this->session->userdata('role') == 1) {
 			$this->load->view('admin/overview');
-		}
-		else if ($this->session->userdata('role')==2){
+		} else if ($this->session->userdata('role') == 2) {
 			$this->load->view('user/dashboard/index');
 		}
 	}
@@ -52,16 +51,16 @@ class C_Register extends CI_Controller
 
 			if ($this->session->userdata('role') != 1) {
 				redirect("user");
-//			$this->load->view('user/overview', $hasil);
+				//			$this->load->view('user/overview', $hasil);
 			} else {
-//			$this->load->view('admin/overview', $hasil);
+				//			$this->load->view('admin/overview', $hasil);
 				redirect("admin");
 			}
-
 		}
 	}
 
-	public function uniqueDataCheck(){
+	public function uniqueDataCheck()
+	{
 		$data = $this->input->get();
 		$this->M_Register->uniqueDataCheck($data);
 	}
@@ -94,19 +93,63 @@ class C_Register extends CI_Controller
 			if ($result == "success") {
 				$this->session->set_flashdata('msg', 'Pendaftaran berhasil! Silakan login menggunakan akun anda.');
 				redirect("/");
-			} elseif($result == "failed") {
+			} elseif ($result == "failed") {
 				$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
 				redirect("register");
-			} elseif($result == "email-error"){
+			} elseif ($result == "email-error") {
 				$this->session->set_flashdata('msg', 'Email sudah pernah terdaftar!');
 				redirect("register");
-			} elseif ($result == "username-error"){
+			} elseif ($result == "username-error") {
 				$this->session->set_flashdata('msg', 'Username tidak tersedia! Coba username lain.');
 				redirect("register");
 			}
 		} else {
 			$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
 			redirect("register");
+		}
+	}
+
+	public function prosesTambahUser()
+	{
+
+		$data = $this->input->post();
+		$validation = $this->form_validation;
+
+		$validation->set_rules("username", "username_register", "required|trim|is_unique['user.username']");
+		$validation->set_rules("nama_user", "name", "required|trim");
+		$validation->set_rules("email", "email_register", "required|trim|valid_email|is_unique['user.email']");
+		$validation->set_rules("tanggal_lahir", "birthdate", "required");
+		$validation->set_rules("gender", "gender", "required");
+		$validation->set_rules("no_hp", "phone", "required");
+		$validation->set_rules("password", "password_register", "required");
+
+		$this->session->set_flashdata('name', $data['name']);
+		$this->session->set_flashdata('username_register', $data['username_register']);
+		$this->session->set_flashdata('email_register', $data['email_register']);
+		$this->session->set_flashdata('birthdate', $data['birthdate']);
+		$this->session->set_flashdata('alamat', $data['alamat']);
+		$this->session->set_flashdata('phone', $data['phone']);
+		$this->session->set_flashdata('gender', $data['gender']);
+
+
+		if ($validation == true) {
+			$result = $this->M_Register->insert($data);
+			if ($result == "success") {
+				$this->session->set_flashdata('msg', 'Pendaftaran berhasil! Silakan login menggunakan akun anda.');
+				redirect("tambahuser");
+			} elseif ($result == "failed") {
+				$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
+				redirect("tambahuser");
+			} elseif ($result == "email-error") {
+				$this->session->set_flashdata('msg', 'Email sudah pernah terdaftar!');
+				redirect("tambahuser");
+			} elseif ($result == "username-error") {
+				$this->session->set_flashdata('msg', 'Username tidak tersedia! Coba username lain.');
+				redirect("tambahuser");
+			}
+		} else {
+			$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
+			redirect("tambahuser");
 		}
 	}
 
