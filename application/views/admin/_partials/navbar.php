@@ -22,7 +22,7 @@
 				<a class="dropdown-item" href="#">Settings</a>
 				<a class="dropdown-item" href="#">Activity Log</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="C_Register/logOut">Logout</a>
+				<a class="dropdown-item" href="<?php echo site_url('logout') ?>">Logout</a>
 
 			</div>
 		</li>

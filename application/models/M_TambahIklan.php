@@ -101,11 +101,6 @@ class M_TambahIklan extends CI_Model
 		return $data->num_rows();
 	}
 
-	function getIklan()
-	{
-		$query = $this->db->query('SELECT * FROM wilayah_kabupaten');
-		return $query->result();
-	}
 }
 
 /* End of file M_pegawai.php */
