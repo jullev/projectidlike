@@ -57,7 +57,7 @@ $route['user'] = 'user/overview';
 $route['register'] = 'user/Overview/register';
 $route['registercheck'] = 'C_Register/uniqueDataCheck';
 $route['search'] = 'user/Overview/search';
-$route['insertIklan'] = 'C_TambahIklan/prosesTambah';
+//$route['insertIklan'] = 'C_TambahIklan/prosesTambah';
 $route['adminlist'] = 'C_Overview/adminlist';
 $route['tambahadmin'] = 'C_Overview/tambahadmin';
 $route['tambahuser'] = 'C_Overview/tambahuser';
@@ -76,6 +76,7 @@ $route['iklansaya'] = 'user/Overview/iklansaya';
 $route['hitproject'] = 'user/Overview/hitproject';
 //iklan
 $route['tambahiklan'] = 'C_Iklan/tambahIklan';
+$route['simpaniklan'] = 'C_Iklan/simpanIklan';
 $route['iklanbaru'] = 'C_Iklan/index_pengajuan';
 $route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';
 $route['semuaiklan'] = 'C_Iklan/tampil';

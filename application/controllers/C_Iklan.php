@@ -70,11 +70,27 @@ class C_Iklan extends CI_Controller
 	}
 
 	public function tambahIklan(){
+		$inputGet = $this->input->get();
+
+		if(isset($inputGet['msg'])){
+			$data['status'] = $inputGet['msg'];
+			$data['msg'] = $inputGet['msg'] == 'success' ? 'Berhasil menambahkan iklan' : 'Iklan gagal ditambahkan, ulangi lagi.';
+		}
+
 		$data['kategori'] = $this->M_Iklan->getAllCategory();
 		$data['kabupaten'] = $this->M_Iklan->getAllKab();
 		$this->load->view("user/tambahiklan", $data);
 	}
 
+	public function simpanIklan(){
+		$input = $this->input->post();
+		$result = $this->M_Iklan->saveIklan($input);
+		if($result > 0){
+			redirect('tambahiklan?msg=success');
+		}else{
+			redirect('tambahiklan?msg=error');
+		}
+	}
 	public function loginData()
 	{
 		$data = $this->input->post();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 10 Bulan Mei 2021 pada 15.21
+-- Waktu pembuatan: 11 Bulan Mei 2021 pada 19.48
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -45,6 +45,25 @@ CREATE TABLE `kategori` (
   `nama_kategori` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `kategori`
+--
+
+INSERT INTO `kategori` (`idkategori`, `nama_kategori`) VALUES
+(1, 'Cari Investor'),
+(2, 'Bisnis Dijual'),
+(3, 'Properti'),
+(4, 'Kendaraan'),
+(5, 'Produk'),
+(6, 'Jasa'),
+(7, 'Industri'),
+(8, 'Online'),
+(9, 'Makanan & Minuman'),
+(10, 'Busana'),
+(11, 'Hobi'),
+(12, 'Lowongan'),
+(13, 'Properti');
+
 -- --------------------------------------------------------
 
 --
@@ -53,13 +72,16 @@ CREATE TABLE `kategori` (
 
 CREATE TABLE `kerjaan` (
   `idkerjaan` int(11) NOT NULL,
+  `user_iduser` int(11) NOT NULL,
   `judul_kerjaan` varchar(45) NOT NULL,
   `deskripsi` text NOT NULL,
+  `gambar_kerjaan` varchar(50) NOT NULL,
   `tanggal_submit` date NOT NULL,
   `deadline` date NOT NULL,
   `kategori_idkategori` int(11) NOT NULL,
   `kabupaten_idkabupaten` int(11) NOT NULL,
-  `harga` int(7) NOT NULL
+  `harga` int(7) NOT NULL,
+  `status_kerjaan` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -662,7 +684,8 @@ ALTER TABLE `kategori`
 ALTER TABLE `kerjaan`
   ADD PRIMARY KEY (`idkerjaan`),
   ADD KEY `kategori_idkategori` (`kategori_idkategori`),
-  ADD KEY `kabupaten_idkabupaten` (`kabupaten_idkabupaten`);
+  ADD KEY `kabupaten_idkabupaten` (`kabupaten_idkabupaten`),
+  ADD KEY `user_iduser` (`user_iduser`);
 
 --
 -- Indeks untuk tabel `role`
@@ -704,7 +727,13 @@ ALTER TABLE `hit`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT untuk tabel `kerjaan`
+--
+ALTER TABLE `kerjaan`
+  MODIFY `idkerjaan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `star_point`
@@ -716,7 +745,7 @@ ALTER TABLE `star_point`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -726,15 +755,16 @@ ALTER TABLE `user`
 -- Ketidakleluasaan untuk tabel `hit`
 --
 ALTER TABLE `hit`
-  ADD CONSTRAINT `hit_ibfk_1` FOREIGN KEY (`kerjaan_idkerjaan`) REFERENCES `kerjaan` (`idkerjaan`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `hit_ibfk_2` FOREIGN KEY (`user_iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `hit_ibfk_2` FOREIGN KEY (`user_iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `hit_ibfk_3` FOREIGN KEY (`kerjaan_idkerjaan`) REFERENCES `kerjaan` (`idkerjaan`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `kerjaan`
 --
 ALTER TABLE `kerjaan`
   ADD CONSTRAINT `kerjaan_ibfk_1` FOREIGN KEY (`kategori_idkategori`) REFERENCES `kategori` (`idkategori`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `kerjaan_ibfk_2` FOREIGN KEY (`kabupaten_idkabupaten`) REFERENCES `wilayah_kabupaten` (`id_kabupaten`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `kerjaan_ibfk_2` FOREIGN KEY (`kabupaten_idkabupaten`) REFERENCES `wilayah_kabupaten` (`id_kabupaten`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `kerjaan_ibfk_3` FOREIGN KEY (`user_iduser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `star_point`

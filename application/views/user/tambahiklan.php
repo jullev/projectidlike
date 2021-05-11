@@ -19,9 +19,23 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
                     </div>
                     <div class="card-body py-5 px-5">
                         <!-- form tambah list -->
-                        <form action="insertIklan" method="POST" onsubmit="return validation()" onclick="removeAlert()" name="insert-iklan">
+                        <form action="<?php echo site_url('simpaniklan') ?>" method="POST" onsubmit="return validation()" onclick="removeAlert()" name="insert-iklan">
 							<!-- Tampilkan alert -->
-							<div id="alert"></div>
+							<div id="alert">
+								<?php
+									if(isset($status)){
+										if($status == 'success'){
+								?>
+											<div class="alert alert-success"><?php echo $msg ?></div>
+								<?php
+										}else{
+								?>
+											<div class="alert alert-danger"><?php echo $msg ?></div>
+								<?php
+										}
+									}
+								?>
+							</div>
                             <div class="form-group row">
                                 <!-- kategori form -->
                                 <label for="kategori" class="col-md-3 col-form-label">Kategori <sup style="color:tomato">*</sup></label>
@@ -40,19 +54,6 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
                                 </div>
                             </div>
                             <!-- Tipe form -->
-                            <div class="form-group row">
-                                <label for="tipe" class="col-md-3 col-form-label">Tipe <sup style="color:tomato">*</sup></label>
-                                <div class="col-md-9 ">
-                                    <div class="form-check form-check-inline pt-2">
-                                        <input class="form-check-input" type="radio" name="tipe" id="private" value="private" required>
-                                        <label class="form-check-label" for="private">Private</label>
-                                    </div>
-                                    <div class="form-check form-check-inline pt-2">
-                                        <input class="form-check-input" type="radio" name="tipe" id="professional" value="professional">
-                                        <label class="form-check-label" for="professional">Professional</label>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="form-group row">
                                 <label for="judul" class="col-md-3 col-form-label">Judul <sup style="color:tomato">*</sup></label>
                                 <div class="col-md-9">

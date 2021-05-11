@@ -20,29 +20,31 @@ class M_Iklan extends CI_Model
 		echo $sql;
 		$data = $this->db->query($sql);
 		var_dump($data);
-		if($data->affected_rows() == 1)
+		if ($data->affected_rows() == 1)
 			return true;
 		else
 			return false;
 	}
+
 	public function terima_hit($id)
 	{
 		$sql = "update hit set id_status=3 where idhit='$id' ";
 
 		$data = $this->db->query($sql);
-		if($data==true)
+		if ($data == true)
 			return true;
 		else
 			return false;
 
 		return $data->result();
 	}
+
 	public function tolak_hit($id)
 	{
 		$sql = "update hit set id_status=4 where idhit='$id' ";
 
 		$data = $this->db->query($sql);
-		if($data==true)
+		if ($data == true)
 			return true;
 		else
 			return false;
@@ -81,14 +83,24 @@ class M_Iklan extends CI_Model
 		return $data->result();
 	}
 
-	public function getAllCategory(){
+	public function getAllCategory()
+	{
 		$sql = "SELECT * FROM kategori";
 		$data = $this->db->query($sql);
 		return $data->result();
 	}
 
-	public function getAllKab(){
+	public function getAllKab()
+	{
 		$data = $this->db->query('SELECT * FROM wilayah_kabupaten');
 		return $data->result();
+	}
+
+	public function saveIklan($data)
+	{
+		$sql = "INSERT INTO kerjaan VALUES(NULL,'".$this->session->userdata('id')."' ,'".$data['judul']."', '".$data['contents']."',' ', CURRENT_DATE(), '".$data['deadline']."', '".$data['kategori']."','".$data['kota']."','".$data['harga']."','menunggu')";
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
 	}
 }
