@@ -9,22 +9,36 @@
 <!-- Navbar -->
 <?php $this->load->view("user/_partials/navbar.php") ?>
 <main role="main" class="container" style="margin-top:70px; margin-bottom: 30px;">
+	<span id="info-row">
+		<i class="fas fa-home" style="color: grey;"></i>
+		<span>/</span>
+		<span style="color: grey;">Detail Iklan</span>
+	</span>
+	<br>
+	<br>
 	<div class="row">
 		<div class="col-lg-9 mb-3">
 			<div class="card">
 				<div class="card-body bg-light">
 					<h2>JUDUL PEKERJAAN</h2>
 					<hr>
-					<span id="info-row">
-                      <i class="fas fa-home"></i>
-						<span>/</span>
-						<span>Detail Iklan</span>
-                    </span>
+					<span class="info-row" style="color: grey;">
+						<i class="far fa-clock"></i>
+						<span>1 tahun yang lalu</span>
+						-&nbsp;
+						<i class="fas fa-map-marker-alt"></i>
+						<span>Jember</span>
+						-&nbsp;
+						<i class="fas fa-eye"></i>
+						<span>500x dilihat</span>
+					</span>
 
 					<!-- Images -->
 					<br>
 					<br>
-					<img src="https://placeimg.com/640/480/any" alt="" style="width:100%">
+					<center>
+						<img src="https://placeimg.com/640/480/any" alt="" style="width:95%">
+					</center>
 					<br>
 					<br>
 					<center>
