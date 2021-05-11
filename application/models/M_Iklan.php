@@ -80,4 +80,15 @@ class M_Iklan extends CI_Model
 
 		return $data->result();
 	}
+
+	public function getAllCategory(){
+		$sql = "SELECT * FROM kategori";
+		$data = $this->db->query($sql);
+		return $data->result();
+	}
+
+	public function getAllKab(){
+		$data = $this->db->query('SELECT * FROM wilayah_kabupaten');
+		return $data->result();
+	}
 }
