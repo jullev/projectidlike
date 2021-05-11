@@ -6,12 +6,15 @@ class Overview extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model("M_TambahIklan");
+		$this->load->model("M_Iklan");
 	}
 
 	public function index()
 	{
 		// load view admin/overview.php
-		$this->load->view("user/overview");
+		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
+		var_dump($data);
+		$this->load->view("user/overview",$data);
 	}
 
 	public function dashboard()
