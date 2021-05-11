@@ -81,17 +81,49 @@ class M_Register extends CI_Model {
 	}
 
 	public function insert($data) {
-		$id = md5(DATE('ymdhms').rand());
-		//echo implode($data);
-		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir,role_idrole) 
-		VALUES('" .$data['username'] ."','" .$data['email'] ."',
-		md5('" .$data['password'] ."'),'" .$data['name'] ."','" .$data['birthdate'] ."',1)";
-		// echo $sql;
+		// Cek data unik pada username dan email
+		$validation = $this->uniqueDataCheck($data);
+		if($validation == "username-error"){
+			return "username-error";
+		}elseif ($validation == "email-error"){
+			return "email-error";
+		}
+
+		// Menambahkan string 62 di depan input phone
+		$data['phone'] = "62".$data['phone'];
+
+		// Penambahan data
+		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir,gender, no_hp, role_idrole) 
+		VALUES('" .$data['username_register']."', '" .$data['email_register']."', 
+		md5('" .$data['password_register'] ."'), '".$data['name']."', '".$data['birthdate']."', '".$data['gender']."', '".$data['phone']."', 2)";
 
 		$this->db->query($sql);
 
-		return $this->db->affected_rows();
-		
+		if($this->db->affected_rows() > 0){
+			return "success";
+		}else {
+			return "failed";
+		}
+	}
+
+	public function uniqueDataCheck($data){
+		// Username check
+		$sql = "SELECT COUNT(username) as user_count FROM user where username='".$data['username_register']."'";
+		$query = $this->db->query($sql);
+		if($query->row()->user_count > 0){
+			return "username-error";
+		}
+
+		// Email check
+		$sql = "SELECT COUNT(email) as email_count FROM user where email='".$data['email_register']."'";
+		$query = $this->db->query($sql);
+		if($query->row()->email_count > 0){
+			return "email-error";
+		}else{
+			return 0;
+		}
+
+
 	}
 
 	public function insert_batch($data) {

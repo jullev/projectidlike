@@ -59,34 +59,34 @@
                                         <tbody>
                                             <?php
                                             foreach (@$alluser as $value) { ?>
-                                            <tr>
-                                                <td><?php echo $value->iduser ?></td>
-                                                <td><?php echo $value->nama_user ?></td>
-                                                <td><?php echo $value->email ?></td>
-                                                <td><?php echo $value->no_hp ?></td>
-                                                <td>
-                                                    <i class="bi-star-fill text-warning"></i>
-                                                    <i class="bi-star-fill text-warning"></i>
-                                                    <i class="bi-star-fill text-warning"></i>
-                                                    <i class="bi-star-fill text-warning"></i>
-                                                    <i class="bi-star-half text-warning"></i>
-                                                </td>
-                                                <td>
-                                                    <a type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('detailuser') ?>">
-                                                        <i class="bi bi-eye-fill"></i>
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
-                                                        <i class="bi bi-trash-fill"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td><?php echo $value->iduser ?></td>
+                                                    <td><?php echo $value->nama_user ?></td>
+                                                    <td><?php echo $value->email ?></td>
+                                                    <td><?php echo $value->no_hp ?></td>
+                                                    <td>
+                                                        <i class="bi-star-fill text-warning"></i>
+                                                        <i class="bi-star-fill text-warning"></i>
+                                                        <i class="bi-star-fill text-warning"></i>
+                                                        <i class="bi-star-fill text-warning"></i>
+                                                        <i class="bi-star-half text-warning"></i>
+                                                    </td>
+                                                    <td>
+                                                        <a type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('admin/detailuser') . '?id=' . $value->iduser ?>">
+                                                            <i class="bi bi-eye-fill"></i>
+                                                        </a>
+                                                        <a type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus" href="<?php echo site_url('admin/deleteuser') . '?id=' . $value->iduser ?>">
+                                                            <i class="bi bi-trash-fill"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                             <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -95,15 +95,15 @@
 
     <?php $this->load->view("admin/_partials/footer.php") ?>
     <script>
-		$(function() {
-			$("#usermanage").DataTable({
-				"responsive": true,
-				"lengthChange": false,
-				"autoWidth": false,
-				//"buttons": [ "excel", "pdf", "print"]
-			}).buttons().container().appendTo('#usermanage_wrapper .col-md-6:eq(0)');
-		});
-	</script>
+        $(function() {
+            $("#usermanage").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                //"buttons": [ "excel", "pdf", "print"]
+            }).buttons().container().appendTo('#usermanage_wrapper .col-md-6:eq(0)');
+        });
+    </script>
 </body>
 
 </html>

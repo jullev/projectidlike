@@ -44,43 +44,43 @@
                                 </span>
                             </div>
                             <div class="card-body p-5 bg-light">
-                                <form>
+                                <form action="<?php echo base_url('admin/detailuser') ?>">
                                     <!-- nama -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="namaadmin" placeholder="Tuliskan Nama Lengkap Anda" disabled>
+                                            <input type="text" class="form-control" placeholder="Tuliskan Nama Lengkap Anda" value="<?php echo $nama_user ?>" disabled>
                                         </div>
                                     </div>
                                     <!-- username -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Username</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="useradmin" placeholder="Username" disabled>
+                                            <input type="text" class="form-control" placeholder="Username" value="<?php echo $username ?>" disabled>
                                         </div>
                                     </div>
                                     <!-- email -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Email</label>
                                         <div class="col-sm-8">
-                                            <input type="email" class="form-control" id="emailadmin" placeholder="Masukkan email anda" disabled>
+                                            <input type="email" class="form-control" placeholder="Masukkan email anda" value="<?php echo $email ?>" disabled>
                                         </div>
                                     </div>
                                     <!-- tanggal lahir -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                         <div class="col-sm-8">
-                                            <input type="date" class="form-control" id="lahir admin" name="lahiradmin" disabled>
+                                            <input type="date" class="form-control" name="lahiradmin" value="<?php echo $tanggal_lahir ?>" disabled>
                                         </div>
                                     </div>
                                     <!-- Jenis Kelamin -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
                                         <div class="col-sm-8">
-                                            <select class="custom-select" id="gender" required disabled>
-                                                <option selected>Jenis Kelamin</option>
-                                                <option value="Laki - Laki">Laki - Laki</option>
-                                                <option value="Perempuan">Perempuan</option>
+                                            <select class="custom-select" name="gender" required disabled>
+                                                <option value="#" <?php echo $gender == '#' ? 'selected' : '' ?>>-- Jenis Kelamin --</option>
+                                                <option value="L" <?php echo $gender == 'L' ? 'selected' : '' ?>>Laki - Laki</option>
+                                                <option value="P" <?php echo $gender == 'P' ? 'selected' : '' ?>>Perempuan</option>
                                             </select>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">+62</span>
                                             </div>
-                                            <input type="text" class="form-control" name="phone" placeholder="Nomor Telepon" required disabled>
+                                            <input type="text" class="form-control" name="phone" placeholder="Nomor Telepon" value="<?php echo $no_hp ?>" required disabled>
                                         </div>
                                     </div>
                                     <!-- Alamat Lengkap -->
@@ -99,7 +99,7 @@
                                         <label class="col-sm-3 col-form-label">Alamat Lengkap</label>
                                         <div class="input-group col-sm-8">
                                             <div class="input-group">
-                                                <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" placeholder="tuliskan alamat lengkap anda" disabled></textarea>
+                                                <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" placeholder="tuliskan alamat lengkap anda" disabled><?php echo $alamat ?></textarea>
                                             </div>
                                         </div>
                                     </div>

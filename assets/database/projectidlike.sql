@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 04 Bulan Mei 2021 pada 18.32
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 8.0.0
+-- Host: localhost
+-- Waktu pembuatan: 10 Bulan Mei 2021 pada 15.21
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,13 +33,6 @@ CREATE TABLE `hit` (
   `user_iduser` int(11) NOT NULL,
   `kerjaan_idkerjaan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-ALTER TABLE `hit` ADD `id_status` INT(5) NOT NULL AFTER `kerjaan_idkerjaan`;
-
-CREATE TABLE `projectidlike`.`tmst_status`
-( `id_status` INT(5) NULL AUTO_INCREMENT ,
-`status` VARCHAR(50) NOT NULL , PRIMARY KEY (`id_status`)) ENGINE = InnoDB;
-
 
 -- --------------------------------------------------------
 
@@ -114,8 +107,10 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `nama_user` varchar(45) NOT NULL,
   `tanggal_lahir` date NOT NULL,
+  `gender` char(1) NOT NULL,
   `no_hp` varchar(15) NOT NULL,
-  `foto_profil` varchar(45) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `foto_profil` varchar(45) DEFAULT NULL,
   `role_idrole` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -123,21 +118,10 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `nama_user`, `tanggal_lahir`, `no_hp`, `foto_profil`, `role_idrole`) VALUES
-(1, 'user', 'user@test.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'User', '2021-01-12', '6285233039160', 'picture.png', 2),
-(2, 'admin', 'admin@test.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '2021-01-12', '6285233039160', 'picture.png', 1);
--- fungsi untuk menghitung hit user
+INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `nama_user`, `tanggal_lahir`, `gender`, `no_hp`, `alamat`, `foto_profil`, `role_idrole`) VALUES
+(1, 'user', 'user@test.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'User', '2021-01-12', 'L', '6285233039160', '', 'picture.png', 2),
+(2, 'admin', 'admin@test.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '2021-01-12', 'P', '6285233039160', '', 'picture.png', 1);
 
-DELIMITER $$
-CREATE FUNCTION F_hitunghit (x1 int)
-    RETURNS int
-    DETERMINISTIC
-BEGIN
-  DECLARE dist int;
-select count(*) into dist from hit where hit.kerjaan_idkerjaan=x1;
-RETURN dist;
-END$$
-DELIMITER ;
 -- --------------------------------------------------------
 
 --

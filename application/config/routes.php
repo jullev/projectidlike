@@ -55,22 +55,26 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'C_Overview';
 $route['user'] = 'user/overview';
 $route['register'] = 'user/Overview/register';
+$route['registercheck'] = 'C_Register/uniqueDataCheck';
 $route['search'] = 'user/Overview/search';
 $route['tambahiklan'] = 'user/Overview/listIklan';
 $route['insertIklan'] = 'C_TambahIklan/prosesTambah';
 $route['adminlist'] = 'C_Overview/adminlist';
 $route['tambahadmin'] = 'C_Overview/tambahadmin';
 $route['tambahuser'] = 'C_Overview/tambahuser';
-$route['detailuser'] = 'C_Overview/detailuser';
+$route['admin/deleteuser'] = 'C_Overview/deleteuser';
+$route['admin/detailuser'] = 'C_Overview/detailuser';
 //$route['updateadmin'] = 'C_Overview/updateDataAdmin';
-$route['dashboard'] = 'user/Overview/dashboard';
-$route['iklansaya'] = 'user/Overview/iklansaya';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
 $route['login'] = 'C_Register/loginData';
 $route['logout'] = 'C_Register/logout';
 $route['userlist'] = 'C_Overview/userlist';
 $route['searchtest'] = 'C_Overview/searchtest';
 $route['detail'] = "user/Overview/detail";
+//user has login
+$route['dashboard'] = 'user/Overview/dashboard';
+$route['iklansaya'] = 'user/Overview/iklansaya';
+$route['hitproject'] = 'user/Overview/hitproject';
 //iklan
 $route['iklanbaru'] = 'C_Iklan/index_pengajuan';
 $route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';
@@ -80,4 +84,3 @@ $route['hit/(:any)'] = 'C_Iklan/detailhit/$1';
 //terima iklan $1 id hitter $2
 $route['terimahitter/(:any)'] = 'C_Iklan/terimahitter/$1';
 $route['tolakhit/(:any)'] = 'C_Iklan/tolakhitter/$1';
-

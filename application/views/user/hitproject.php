@@ -19,11 +19,11 @@
             <div class="col-sm-12 col-md-12 col-lg-9">
                 <div class="card">
                     <div class="card-header">
-                        <h3><i class="bi-badge-ad-fill"></i> Iklan Saya</h3>
+                        <h3><i class="bi-hand-index-thumb-fill mr-1"></i> Hit Project</h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12 col-lg-6">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                 <div class="form-group form-inline">
                                     <div class="form-check">
                                         <div class="custom-control custom-checkbox">
@@ -43,27 +43,27 @@
                                     <tr>
                                         <th width="5%">No.</th>
                                         <th>Judul</th>
-                                        <th width="30%">Hitter</th>
+                                        <th width="30%">Publisher</th>
                                         <th width="20%">Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1.</td>
-                                        <td><a href="#">Kacang Godok</a></td>
+                                        <td><a href="#">Ini Judul 1</a></td>
                                         <td class="text-center">Anggito Suryo</td>
                                         <td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
                                     </tr>
                                     <tr>
                                         <td>2.</td>
-                                        <td><a href="#">Tape Khas Bondowoso</a></td>
+                                        <td><a href="#">Ini Judul 2</a></td>
+                                        <td class="text-center">Nur Hidayatulloh</td>
                                         <td class="text-center"><span class="btn list-group-item-info">Menunggu</span></td>
-                                        <td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
                                     </tr>
                                     <tr>
                                         <td>3.</td>
-                                        <td>Nasi Goreng</td>
-                                        <td></td>
+                                        <td><a href="#">Ini Judul 3</a></td>
+                                        <td class="text-center">Akhmad</td>
                                         <td class="text-center"><span class="btn list-group-item-danger">Ditolak</span></td>
                                     </tr>
                                 </tbody>

@@ -34,6 +34,15 @@ class C_Overview extends CI_Controller
     $data['alluser'] = $this->M_ManageUser->select_all_user();
     $this->load->view('admin/userlist', $data);
   }
+
+  public function deleteuser()
+  {
+    $input = $this->input->get();
+    $id = $input['id'];
+    $data = $this->M_ManageUser->delete($id);
+    $this->load->view('admin/userlist', $data);
+  }
+
   public function updateDataAdmin()
   {
     //		$data = $this->input->post();
@@ -82,6 +91,9 @@ class C_Overview extends CI_Controller
   }
   public function detailuser()
   {
-    $this->load->view('admin/detailuser');
+    $input = $this->input->get();
+    $id = $input['id'];
+    $data = $this->M_ManageUser->select_user_id($id);
+    $this->load->view('admin/detailuser', $data);
   }
 }

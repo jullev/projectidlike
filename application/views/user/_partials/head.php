@@ -21,6 +21,10 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/summernote/summernote-bs4.min.css') ?>">
   <!-- SimpleMDE -->
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/simplemde/simplemde.min.css') ?>">
+  <!-- DataTables -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
   <style>
     .badge-info-light {
       color: #0c5460;

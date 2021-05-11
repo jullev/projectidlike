@@ -15,11 +15,6 @@
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container">
-                    <?php if ($this->session->flashdata('success')) : ?>
-                        <div class="alert alert-success" role="alert">
-                            <?php echo $this->session->flashdata('success'); ?>
-                        </div>
-                    <?php endif; ?>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card">
@@ -49,15 +44,12 @@
                                 </span>
                             </div>
                             <div class="card-body p-5 bg-light">
-                                <form action="<?php base_url('admin/C_ManagementUser/add') ?>">
+                                <form action="">
                                     <!-- nama -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                         <div class="col-sm-8">
                                             <input type="text" name="nama_user" class="form-control <?php echo form_error('nama_user') ? 'is-invalid' : '' ?>" id="nama_user" placeholder="Tuliskan Nama Lengkap Anda">
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('nama_user') ?>
                                         </div>
                                     </div>
                                     <!-- username -->
@@ -66,9 +58,7 @@
                                         <div class="col-sm-8">
                                             <input type="text" name="username" class="form-control <?php echo form_error('username') ? 'is-invalid' : '' ?>" id="username" placeholder="Username">
                                         </div>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('username') ?>
-                                        </div>
+
                                     </div>
                                     <!-- email -->
                                     <div class="form-group row">
@@ -76,9 +66,7 @@
                                         <div class="col-sm-8">
                                             <input type="email" name="email" class="form-control <?php echo form_error('email') ? 'is-invalid' : '' ?>" id="email" placeholder="Masukkan email anda">
                                         </div>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('email') ?>
-                                        </div>
+
                                     </div>
                                     <!-- password -->
                                     <div class="form-group row">
@@ -86,9 +74,7 @@
                                         <div class="col-sm-8">
                                             <input type="password" name="password" class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" id="password" placeholder="password">
                                         </div>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('password') ?>
-                                        </div>
+
                                     </div>
                                     <!-- Konfirm Password -->
                                     <div class="form-group row">
@@ -104,9 +90,7 @@
                                         <div class="col-sm-8">
                                             <input type="date" name="tanggal_lahir" class="form-control <?php echo form_error('password') ? 'is-invalid' : '' ?>" id="lahir admin" name="lahiradmin">
                                         </div>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('tanggal_lahir') ?>
-                                        </div>
+
                                     </div>
                                     <!-- Jenis Kelamin -->
                                     <div class="form-group row">
@@ -118,9 +102,7 @@
                                                 <option value="P">Perempuan</option>
                                             </select>
                                         </div>
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('gender') ?>
-                                        </div>
+
                                     </div>
                                     <!-- Nomer Telepon -->
                                     <div class="form-group row">
@@ -139,9 +121,7 @@
                                             <div class="input-group">
                                                 <textarea class="form-control <?php echo form_error('alamat') ? 'is-invalid' : '' ?>" name="alamat" id="alamat" cols="30" rows="5" placeholder="tuliskan alamat lengkap anda"></textarea>
                                             </div>
-                                            <div class="invalid-feedback">
-                                                <?php echo form_error('alamat') ?>
-                                            </div>
+
                                         </div>
                                     </div>
                                     <!-- Foto Profile -->
@@ -152,9 +132,7 @@
                                                 <input type="file" name="foto_profil" class="custom-file-input <?php echo form_error('foto_profil') ? 'is-invalid' : '' ?>" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                             </div>
-                                            <div class="invalid-feedback">
-                                                <?php echo form_error('foto_profil') ?>
-                                            </div>
+
                                         </div>
                                     </div>
                                     <!-- button -->

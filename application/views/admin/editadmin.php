@@ -132,8 +132,7 @@
                                             <input type="text" class="form-control" name="phone" placeholder="Nomor Telepon" required
 												   value="<?php
 												   echo @$detailuser[0]->no_hp;
-												   ?>"
-											>
+												   ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
