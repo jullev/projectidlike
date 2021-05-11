@@ -100,7 +100,7 @@ class C_Register extends CI_Controller
 				$this->session->set_flashdata('msg', 'Email sudah pernah terdaftar!');
 				redirect("register");
 			} elseif ($result == "username-error") {
-				$this->session->set_flashdata('msg', 'Username tidak tersedia! Coba username lain.');
+				$this->session->set_flashdata('msg', 'Username sudah tersedia! Coba username lain.');
 				redirect("register");
 			}
 		} else {
@@ -144,7 +144,7 @@ class C_Register extends CI_Controller
 				$this->session->set_flashdata('msg', 'Email sudah pernah terdaftar!');
 				redirect("tambahuser");
 			} elseif ($result == "username-error") {
-				$this->session->set_flashdata('msg', 'Username tidak tersedia! Coba username lain.');
+				$this->session->set_flashdata('msg', 'Username sudah tersedia! Coba username lain.');
 				redirect("tambahuser");
 			}
 		} else {
@@ -164,6 +164,7 @@ class C_Register extends CI_Controller
 		echo show_my_modal('modals/modal_update_pasien', 'update-pasien', $data);
 	}
 
+
 	public function prosesUpdate()
 	{
 		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
@@ -176,7 +177,7 @@ class C_Register extends CI_Controller
 
 			if ($result > 0) {
 				$out['status'] = '';
-				$out['msg'] = show_succ_msg('Data Pasien Berhasil diupdate', '20px');
+				$out['msg'] = show_source('Data Pasien Berhasil diupdate', '20px');
 			} else {
 				$out['status'] = '';
 				$out['msg'] = show_succ_msg('Data Pasien Gagal diupdate', '20px');
@@ -191,13 +192,14 @@ class C_Register extends CI_Controller
 
 	public function delete()
 	{
-		$id = $_POST['id'];
-		$result = $this->M_pasien->delete($id);
+		$data = $this->input->get();
+		$id = $data['id'];
+		$result = $this->M_Register->delete($id);
 
 		if ($result > 0) {
-			echo show_succ_msg('Data Pasien Berhasil dihapus', '20px');
+			echo ('Data User Berhasil dihapus');
 		} else {
-			echo show_err_msg('Data Pasien Gagal dihapus ', '20px');
+			echo ('Data User Gagal dihapus ');
 		}
 	}
 }
