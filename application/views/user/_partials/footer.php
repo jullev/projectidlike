@@ -52,4 +52,13 @@
     }
   }
   // Input Only Number End
+  
+  //Data Tooltip
+  $(document).ready(function() {
+      $('body').tooltip({
+          selector: "[data-tooltip=tooltip]",
+          container: "body"
+      });
+  });
+  //Data Tooltip End
 </script>

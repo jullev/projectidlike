@@ -74,6 +74,7 @@ $route['detail/(:any)'] = "user/Overview/detail_iklan/$1";
 $route['dashboard'] = 'user/Overview/dashboard';
 $route['iklansaya'] = 'user/Overview/iklansaya';
 $route['hitproject'] = 'user/Overview/hitproject';
+$route['menunggu-persetujuan'] = 'user/Overview/menunggupersetujuan';
 //iklan
 $route['tambahiklan'] = 'C_Iklan/tambahIklan';
 $route['simpaniklan'] = 'C_Iklan/simpanIklan';

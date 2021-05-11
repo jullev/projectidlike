@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-12 col-lg-6 mx-md-auto mx-lg-0 mt-3 mt-md-3 mt-lg-0 d-inline-flex">
                   <!-- Mail -->
-                  <div class="card mr-2" style="max-width: 100px;max-height: 50px;">
+                  <!-- <div class="card mr-2" style="max-width: 100px;max-height: 50px;">
                     <div class="row no-gutters align-items-center">
                       <div class="col-6 text-center px-2">
                         <i class="bi-envelope-fill" style="font-size: 2rem;"></i>
@@ -37,10 +37,10 @@
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- Mail End -->
                   <!-- Visit -->
-                  <div class="card mr-2" style="max-width: 100px;max-height: 50px;">
+                  <!-- <div class="card mr-2" style="max-width: 100px;max-height: 50px;">
                     <div class="row no-gutters align-items-center">
                       <div class="col-6 text-center px-2">
                         <i class="bi-eye-fill" style="font-size: 2rem;"></i>
@@ -51,10 +51,10 @@
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- Visit End -->
                   <!-- Iklan -->
-                  <div class="card mr-2" style="max-width: 100px;max-height: 50px;">
+                  <!-- <div class="card mr-2" style="max-width: 100px;max-height: 50px;">
                     <div class="row no-gutters align-items-center">
                       <div class="col-6 text-center px-2">
                         <i class="bi-badge-ad" style="font-size: 2rem;"></i>
@@ -65,10 +65,10 @@
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- Iklan End -->
                   <!-- Fav -->
-                  <div class="card mr-2" style="max-width: 100px;max-height: 50px;">
+                  <!-- <div class="card mr-2" style="max-width: 100px;max-height: 50px;">
                     <div class="row no-gutters align-items-center">
                       <div class="col-6 text-center px-2">
                         <i class="bi-heart-fill" style="font-size: 2rem;"></i>
@@ -79,7 +79,7 @@
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <!-- Fav End -->
                 </div>
               </div>

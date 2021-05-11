@@ -19,7 +19,7 @@
             <div class="col-sm-12 col-md-12 col-lg-9">
                 <div class="card">
                     <div class="card-header">
-                        <h3><i class="bi-badge-ad-fill mr-1"></i> Iklan Saya</h3>
+                        <h3><i class="bi-clock-fill mr-1"></i> Menunggu Persetujuan</h3>
                     </div>
                     <div class="card-body">
                         <div id="myadstb_wrapper">
@@ -28,9 +28,7 @@
                                     <tr>
                                         <th width="5%">No.</th>
                                         <th>Judul</th>
-                                        <th width="17%">Hitter</th>
-                                        <th width="13%">Tanggal Submit</th>
-                                        <th width="20%">Status</th>
+                                        <th>Tanggal Submit</th>
                                         <th width="15%">Action</th>
                                     </tr>
                                 </thead>
@@ -38,9 +36,7 @@
                                     <tr>
                                         <td>1.</td>
                                         <td><a href="#">Kacang Godok</a></td>
-                                        <td class="text-center">Anggito Suryo</td>
                                         <td class="text-center">03 Mei 2021</td>
-                                        <td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
                                         <td class="text-center">
                                             <button class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Edit Iklan">
                                                 <i class="bi-pencil-square"></i>
@@ -53,24 +49,7 @@
                                     <tr>
                                         <td>2.</td>
                                         <td><a href="#">Tape Khas Bondowoso</a></td>
-                                        <td class="text-center"><span class="btn list-group-item-info">Menunggu</span></td>
                                         <td class="text-center">17 Mei 2021</td>
-                                        <td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
-                                        <td class="text-center">
-                                            <button class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Edit Iklan">
-                                                <i class="bi-pencil-square"></i>
-                                            </button>
-                                            <button class="btn btn-danger" data-toggle="modal" data-target="#delete" data-tooltip="tooltip" data-placement="bottom" title="Hapus Iklan">
-                                                <i class="bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3.</td>
-                                        <td>Nasi Goreng</td>
-                                        <td></td>
-                                        <td class="text-center">10 Mei 2021</td>
-                                        <td class="text-center"><span class="btn list-group-item-danger">Ditolak</span></td>
                                         <td class="text-center">
                                             <button class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Edit Iklan">
                                                 <i class="bi-pencil-square"></i>

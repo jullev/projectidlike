@@ -50,7 +50,7 @@
                     </div>
                     <span class="badge badge-secondary">12</span>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between">
+                <a href="<?php echo site_url('menunggu-persetujuan') ?>" class="list-group-item list-group-item-action d-flex justify-content-between">
                     <div>
                         <i class="bi bi-clock"></i> Menunggu Persetujuan 
                     </div>

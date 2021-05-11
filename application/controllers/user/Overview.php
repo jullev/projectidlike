@@ -40,6 +40,11 @@ class Overview extends CI_Controller
 		$this->load->view("user/hitproject");
 	}
 
+	public function menunggupersetujuan()
+	{
+		$this->load->view('user/iklanmenunggu');
+	}
+	
 	public function detail_iklan()
 	{
 		$id =  $this->uri->segment(2);

@@ -22,29 +22,16 @@
                         <h3><i class="bi-hand-index-thumb-fill mr-1"></i> Hit Project</h3>
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                                <div class="form-group form-inline">
-                                    <div class="form-check">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="pickall">
-                                            <label for="pickall" class="custom-control-label">Pilih Semua</label>
-                                        </div>
-                                    </div>
-                                    <button class="ml-2 btn btn-light"><i class="bi-trash"></i>Hapus</button>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-lg-6">
-                            </div>
-                        </div>
                         <div id="myadstb_wrapper">
                             <table class="table table-striped table-bordered mt-3" aria-describedby="myadstb_info" role="grid" id="myadstb">
                                 <thead class="thead-light">
                                     <tr>
                                         <th width="5%">No.</th>
                                         <th>Judul</th>
-                                        <th width="30%">Publisher</th>
+                                        <th width="20%">Publisher</th>
+                                        <th width="10%">Deadline</th>
                                         <th width="20%">Status</th>
+                                        <th width="10%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,19 +39,37 @@
                                         <td>1.</td>
                                         <td><a href="#">Ini Judul 1</a></td>
                                         <td class="text-center">Anggito Suryo</td>
+                                        <td class="text-center">22 Juni 2021</td>
                                         <td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" data-toggle="modal" data-target="#cancel" data-tooltip="tooltip" data-placement="bottom" title="Batalkan">
+                                                <i class="bi-x"></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>2.</td>
                                         <td><a href="#">Ini Judul 2</a></td>
                                         <td class="text-center">Nur Hidayatulloh</td>
+                                        <td class="text-center">05 Juni 2021</td>
                                         <td class="text-center"><span class="btn list-group-item-info">Menunggu</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" data-toggle="modal" data-target="#cancel" data-tooltip="tooltip" data-placement="bottom" title="Batalkan">
+                                                <i class="bi-x"></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>3.</td>
                                         <td><a href="#">Ini Judul 3</a></td>
                                         <td class="text-center">Akhmad</td>
+                                        <td class="text-center">03 Oktober 2021</td>
                                         <td class="text-center"><span class="btn list-group-item-danger">Ditolak</span></td>
+                                        <td class="text-center">
+                                            <button class="btn btn-danger" data-toggle="modal" data-target="#cancel" data-tooltip="tooltip" data-placement="bottom" title="Batalkan">
+                                                <i class="bi-x"></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>                        
@@ -75,6 +80,26 @@
         </div> <!-- Row End -->
     </div> <!-- Container End -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="cancel" tabindex="-1" aria-labelledby="cancelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelLabel">Batalkan Hit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Anda yakin ingin membatalkan hit project ini?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Iya</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+            </div>
+        </div>
+    </div>
+    </div>
     <!-- Footer -->
     <?php $this->load->view("user/_partials/footer") ?>
     <script>
