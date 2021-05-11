@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>
-							<!-- No Hp -->
+							<!-- Alamat -->
 							<div class="form-group row">
 								<label for="phone" class="col-md-3 col-form-label">Alamat <sup style="color: red;">*</sup></label>
 								<div class="input-group col-md-8">
