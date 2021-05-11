@@ -82,6 +82,14 @@ class M_Iklan extends CI_Model
 
 		return $data->result();
 	}
+	public function select_iklan($id)
+	{
+		$sql = "SELECT * From kerjaan where idkerjaan=$id";
+
+		$data = $this->db->query($sql);
+
+		return $data->row();
+	}
 
 	public function getAllCategory()
 	{

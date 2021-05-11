@@ -98,15 +98,25 @@
 				  <span>Terbaru</span>
 			  </div>
 			  <div class="card-body">
+				  <?php
+//				  var_dump(@$dataIklan);
+				  foreach (@$dataIklan as $value) {
+				  	?>
 				  <div class="row" style="padding-left: 10px; padding-right: 10px;">
 					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
+
 						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
 						  <div class="card-body">
-							  <h5 class="card-title">Card title</h5>
-							  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							  <a href="<?php echo site_url("detail");?>" class="btn btn-primary">Go somewhere</a>
+							  <h5 class="card-title"><?php echo $value->judul_kerjaan?></h5>
+							  <p class="card-text"><?php echo $value->deskripsi?></p>
+							  <a href="<?php echo base_url() ?>detail/<?php echo $value->idkerjaan ?>" class="btn btn-primary">Go somewhere</a>
 						  </div>
 					  </div>
+					  <?php
+					  }
+					  ?>
+
+
 					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
 						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
 						  <div class="card-body">
@@ -114,22 +124,57 @@
 							  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 							  <a href="<?php echo site_url("detail");?>" class="btn btn-primary">Go somewhere</a>
 						  </div>
-					  </div>
-					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
-						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
-						  <div class="card-body">
-							  <h5 class="card-title">Card title</h5>
-							  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							  <a href="<?php echo site_url("detail");?>" class="btn btn-primary">Go somewhere</a>
-						  </div>
-					  </div>
-					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
-						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
-						  <div class="card-body">
-							  <h5 class="card-title">Card title</h5>
-							  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							  <a href="<?php echo site_url("detail");?>" class="btn btn-primary">Go somewhere</a>
-						  </div>
+
+                  <img class="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap">
+                  <div class="card-body">
+                    <center>
+                    <span class="card-title" style="font-weight: bold; color: grey;">Card Title</span>
+                    </center>
+                    <center>
+                    <a href="<?php echo site_url("detail"); ?>" class="btn btn-link">Rp.5000&nbsp;-&nbsp;10000</a>
+                    </center>
+                  </div>
+                </div>
+              </a>
+              <a href="<?php echo site_url("detail"); ?>">
+                <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
+                  <img class="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap">
+                  <div class="card-body">
+                    <center>
+                    <span class="card-title" style="font-weight: bold; color: grey;">Card Title</span>
+                    </center>
+                    <center>
+                    <a href="<?php echo site_url("detail"); ?>" class="btn btn-link">Rp.5000&nbsp;-&nbsp;10000</a>
+                    </center>
+                  </div>
+                </div>
+              </a>
+              <a href="<?php echo site_url("detail"); ?>">
+                <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
+                  <img class="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap">
+                  <div class="card-body">
+                    <center>
+                    <span class="card-title" style="font-weight: bold; color: grey;">Card Title</span>
+                    </center>
+                    <center>
+                    <a href="<?php echo site_url("detail"); ?>" class="btn btn-link">Rp.5000&nbsp;-&nbsp;10000</a>
+                    </center>
+                  </div>
+                </div>
+              </a>
+              <a href="<?php echo site_url("detail"); ?>">
+                <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
+                  <img class="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap">
+                  <div class="card-body">
+                    <center>
+                    <span class="card-title" style="font-weight: bold; color: grey;">Card Title</span>
+                    </center>
+                    <center>
+                    <a href="<?php echo site_url("detail"); ?>" class="btn btn-link">Rp.5000&nbsp;-&nbsp;10000</a>
+                    </center>
+                  </div>
+                </div>
+              </a>
 					  </div>
 				  </div>
 			  </div>

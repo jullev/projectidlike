@@ -6,12 +6,23 @@ class Overview extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model("M_TambahIklan");
+		$this->load->library('session');
+		$this->load->model("M_Iklan");
 	}
 
+	public function index2()
+	{
+		// load view admin/overview.php
+		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
+//		var_dump($data);
+		$this->load->view("user/overview",$data);
+	}
 	public function index()
 	{
 		// load view admin/overview.php
-		$this->load->view("user/overview");
+		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
+//		echo ($data);
+		$this->load->view("user/overview",$data);
 	}
 
 	public function dashboard()
@@ -29,9 +40,22 @@ class Overview extends CI_Controller
 		$this->load->view("user/hitproject");
 	}
 
-	public function detail()
+	public function detail_iklan()
 	{
-		$this->load->view("user/detail");
+		$id =  $this->uri->segment(2);
+		$data['dataIklan'] = $this->M_Iklan->select_iklan($id);
+		$data['userid'] = $this->session->userdata('id');
+//		var_dump($data);
+		$this->load->view("user/detail",$data);
+	}
+	public function hit_iklan()
+	{
+		$id =  $this->uri->segment(2);
+		$id_user =  $this->uri->segment(3);
+		$data['dataIklan'] = $this->M_Iklan->select_iklan($id);
+		$data['userid'] = $this->session->userdata('id');
+//		var_dump($data);
+		$this->load->view("user/detail",$data);
 	}
 
 	public function search()
