@@ -53,7 +53,7 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'C_Overview';
-$route['user'] = 'user/Overview';
+$route['user'] = 'user/Overview/index';
 $route['register'] = 'user/Overview/register';
 $route['registercheck'] = 'C_Register/uniqueDataCheck';
 $route['search'] = 'user/Overview/search';
@@ -69,7 +69,7 @@ $route['login'] = 'C_Register/loginData';
 $route['logout'] = 'C_Register/logout';
 $route['userlist'] = 'C_Overview/userlist';
 $route['searchtest'] = 'C_Overview/searchtest';
-$route['detail'] = "user/Overview/detail";
+$route['detail/(:any)'] = "user/Overview/detail_iklan/$1";
 //user has login
 $route['dashboard'] = 'user/Overview/dashboard';
 $route['iklansaya'] = 'user/Overview/iklansaya';
@@ -81,6 +81,7 @@ $route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';
 $route['semuaiklan'] = 'C_Iklan/tampil';
 $route['terimaiklan/(:any)'] = 'C_Iklan/terimaiklan/$1';
 $route['hit/(:any)'] = 'C_Iklan/detailhit/$1';
+$route['hitiklan/(:any)/(:any)'] = 'user/Overview/hit_iklan/$1/$2';
 //terima iklan $1 id hitter $2
 $route['terimahitter/(:any)'] = 'C_Iklan/terimahitter/$1';
 $route['tolakhit/(:any)'] = 'C_Iklan/tolakhitter/$1';

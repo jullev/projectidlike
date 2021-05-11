@@ -26,6 +26,7 @@ class Welcome extends CI_Controller
 		$this->load->model('M_Register');
 		$this->load->library('session');
 		$this->load->library('form_validation');
+		$this->load->model("M_Iklan");
 	}
 	public function index()
 	{
@@ -34,7 +35,8 @@ class Welcome extends CI_Controller
 			$this->load->view('admin/overview');
 		}
 		else if($this->session->userdata('role')==2){
-			$this->load->view('user/overview');
+			$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
+			$this->load->view('user/overview',$data);
 		}
 		else{
 			$this->load->view('overview_landing');

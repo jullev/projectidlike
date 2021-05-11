@@ -69,6 +69,7 @@ class C_Iklan extends CI_Controller
 		$this->load->view('admin/detailhit',$data);
 	}
 
+
 	public function tambahIklan(){
 		$data['kategori'] = $this->M_Iklan->getAllCategory();
 		$data['kabupaten'] = $this->M_Iklan->getAllKab();

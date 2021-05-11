@@ -12,8 +12,11 @@
 	<div class="row">
 		<div class="col-lg-9 mb-3">
 			<div class="card">
+				<?php
+				var_dump(@$dataIklan);
+				$judul = @$dataIklan->judul_kerjaan; ?>
 				<div class="card-body bg-light">
-					<h2>JUDUL PEKERJAAN</h2>
+					<h2><?php echo $judul?></h2>
 					<hr>
 					<span id="info-row">
                       <i class="fas fa-home"></i>
@@ -52,15 +55,15 @@
 									<span>Jakarta</span>
 								</div>
 								<div class="col-md-6 text-right">
-									<span><strong>Harga:</strong> Rp 100.000.000</span>
+									<span><strong>Harga:</strong> Rp <?php echo @$dataIklan->harga; ?></span>
 								</div>
 							</div>
 							<hr>
 							<div class="row">
 								<div class="col-md-12">
-									MAJENE.COM - Domain for Sale !! <br>
+									<?php echo @$dataIklan->deskripsi; ?> <br>
 
-									Only USD 32.000 - Negotiable <br>
+									Deadline pengerjaan hingga tanggal <?php echo @$dataIklan->deadline; ?> <br>
 
 									Please visit http://majene.com <br>
 
@@ -126,8 +129,9 @@
 						</div>
 					</li>
 					<li class="list-group-item">
-						<button class="btn btn-warning mb-1" style="width:100%;">
+						<button class="btn btn-warning mb-1" style="width:100%;" >
 							<i class="far fa-hand-point-up"></i>
+							<a href="<?php echo base_url() ?>hitiklan/<?php echo @$dataIklan->id_kerjaan; ?>/<?php echo @$userid->id ?>"
 							<span>Hit</span>
 						</button>
 						<button class="btn btn-success" style="width:100%;">
