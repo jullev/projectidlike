@@ -197,9 +197,10 @@ class C_Register extends CI_Controller
 		$result = $this->M_Register->delete($id);
 
 		if ($result > 0) {
-			echo ('Data User Berhasil dihapus');
+
+			redirect('userlist?msg=success');
 		} else {
-			echo ('Data User Gagal dihapus ');
+			redirect('userlist?msg=error');
 		}
 	}
 }

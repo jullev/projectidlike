@@ -33,6 +33,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                    <?php
+                    if (isset($status)) {
+                        if ($status == "success") {
+                    ?>
+                            <div class="alert alert-success"><?php echo $msg ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button></div>
+                        <?php
+                        } else {
+                        ?>
+                            <div class="alert alert-danger"><?php echo $msg ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button></div>
+                    <?php
+                        }
+                    }
+                    ?>
                     <div class="card">
                         <!-- card header -->
                         <div class="card-header">
@@ -76,7 +93,7 @@
                                                         <a type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('admin/detailuser') . '?id=' . $value->iduser ?>">
                                                             <i class="bi bi-eye-fill"></i>
                                                         </a>
-                                                        <a type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus" href="<?php echo site_url('deleteuser') . '?id=' . $value->iduser ?>">
+                                                        <a type="button" class="btn btn-danger" data-target="#deleteModal" role="button" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="userdelete(<?php echo $value->iduser ?>)">
                                                             <i class="bi bi-trash-fill"></i>
                                                         </a>
                                                     </td>
@@ -89,8 +106,28 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal delete -->
+    <div class="modal fade" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Yakin kah anda ingin menghilangkan user ini dari dunia?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="deleteButton">Delete</button>
                 </div>
             </div>
         </div>
@@ -106,7 +143,15 @@
                 //"buttons": [ "excel", "pdf", "print"]
             }).buttons().container().appendTo('#usermanage_wrapper .col-md-6:eq(0)');
         });
+
+        const userdelete = (id) => {
+            const delete_button = document.getElementById('deleteButton')
+            delete_button.addEventListener('click', () => {
+                location.href = 'deleteuser?id=' + id
+            })
+        }
     </script>
+
 </body>
 
 </html>

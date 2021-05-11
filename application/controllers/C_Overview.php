@@ -31,6 +31,12 @@ class C_Overview extends CI_Controller
   }
   public function userlist()
   {
+    $input = $this->input->get();
+    if (isset($input['msg'])) {
+      $msg = $input['msg'];
+      $data['status'] = $msg;
+      $data['msg'] = $msg == 'success' ? 'Data berhasil di buang ' : 'Data gagal di buang';
+    }
     $data['alluser'] = $this->M_ManageUser->select_all_user();
     $this->load->view('admin/userlist', $data);
   }
