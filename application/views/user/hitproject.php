@@ -35,18 +35,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+								<?php
+								//				var_dump(@$kegiatan);
+								$count=0;
+								foreach (@$dataIklan as $value) {
+									$count++;
+								?>
                                     <tr>
-                                        <td>1.</td>
-                                        <td><a href="#">Ini Judul 1</a></td>
+                                        <td><?php echo $count ?></td>
+                                        <td><a href="#"><?php echo $value->judul_kerjaan ?></a></td>
                                         <td class="text-center">Anggito Suryo</td>
-                                        <td class="text-center">22 Juni 2021</td>
-                                        <td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
+                                        <td class="text-center"><?php echo $value->deadline ?></td>
+										<?php
+                                        if($value->status=="hit baru"){ ?>
+											<td class="text-center"><span class="btn list-group-item-info">Menunggu</span></td>
+										<?php } else{ ?>
+											<td class="text-center"><span class="btn list-group-item-info">Disetujui</span></td>
+										<?php }
+                                        ?>
                                         <td class="text-center">
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#cancel" data-tooltip="tooltip" data-placement="bottom" title="Batalkan">
                                                 <i class="bi-x"></i>
                                             </button>
                                         </td>
                                     </tr>
+								<?php } ?>
                                     <tr>
                                         <td>2.</td>
                                         <td><a href="#">Ini Judul 2</a></td>

@@ -111,4 +111,21 @@ class M_Iklan extends CI_Model
 
 		return $this->db->affected_rows();
 	}
+	public function allHit()
+	{
+		$iduser = $this->session->userdata('id');
+		$data = $this->db->query("SELECT kerjaan.judul_kerjaan,kerjaan.deadline,tmst_status.status 
+		FROM hit,kerjaan,tmst_status where hit.kerjaan_idkerjaan=kerjaan.idkerjaan 
+		and hit.id_status=tmst_status.id_status and hit.user_iduser=$iduser");
+		return $data->result();
+
+		return $this->db->affected_rows();
+	}
+	public function HitKerjaan($idkerjaan)
+	{
+		$sql = "INSERT INTO hit VALUES(NULL,current_date(),'".$this->session->userdata('id')."' ,'".$idkerjaan."','7')";
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
+	}
 }

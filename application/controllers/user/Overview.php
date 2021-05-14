@@ -37,7 +37,9 @@ class Overview extends CI_Controller
 
 	public function hitproject()
 	{
-		$this->load->view("user/hitproject");
+		$data['dataIklan'] = $this->M_Iklan->allHit();
+//		echo ($data);
+		$this->load->view("user/hitproject",$data);
 	}
 
 	public function menunggupersetujuan()
@@ -56,11 +58,10 @@ class Overview extends CI_Controller
 	public function hit_iklan()
 	{
 		$id =  $this->uri->segment(2);
-		$id_user =  $this->uri->segment(3);
-		$data['dataIklan'] = $this->M_Iklan->select_iklan($id);
-		$data['userid'] = $this->session->userdata('id');
-//		var_dump($data);
-		$this->load->view("user/detail",$data);
+		$data['hit'] = $this->M_Iklan->HitKerjaan($id);
+		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
+////		echo ($data);
+		$this->load->view("user/overview",$data);
 	}
 
 	public function search()

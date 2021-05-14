@@ -83,7 +83,7 @@ $route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';
 $route['semuaiklan'] = 'C_Iklan/tampil';
 $route['terimaiklan/(:any)'] = 'C_Iklan/terimaiklan/$1';
 $route['hit/(:any)'] = 'C_Iklan/detailhit/$1';
-$route['hitiklan/(:any)/(:any)'] = 'user/Overview/hit_iklan/$1/$2';
+$route['hitiklan/(:any)'] = 'user/Overview/hit_iklan/$1';
 //terima iklan $1 id hitter $2
 $route['terimahitter/(:any)'] = 'C_Iklan/terimahitter/$1';
 $route['tolakhit/(:any)'] = 'C_Iklan/tolakhitter/$1';
