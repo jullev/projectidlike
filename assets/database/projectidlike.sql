@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 11 Bulan Mei 2021 pada 19.48
+-- Waktu pembuatan: 15 Bulan Mei 2021 pada 12.36
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.3
 
@@ -21,6 +21,18 @@ SET time_zone = "+00:00";
 -- Database: `projectidlike`
 --
 
+DELIMITER $$
+--
+-- Fungsi
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `F_hitunghit` (`x1` INT) RETURNS INT(11) BEGIN
+  DECLARE dist int;
+select count(*) into dist from hit where hit.kerjaan_idkerjaan=x1;
+RETURN dist;
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -31,7 +43,8 @@ CREATE TABLE `hit` (
   `idhit` int(11) NOT NULL,
   `tgl_hit` date NOT NULL,
   `user_iduser` int(11) NOT NULL,
-  `kerjaan_idkerjaan` int(11) NOT NULL
+  `kerjaan_idkerjaan` int(11) NOT NULL,
+  `id_status` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -119,6 +132,17 @@ CREATE TABLE `star_point` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tmst_status`
+--
+
+CREATE TABLE `tmst_status` (
+  `id_status` int(5) NOT NULL,
+  `status` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -131,7 +155,7 @@ CREATE TABLE `user` (
   `tanggal_lahir` date NOT NULL,
   `gender` char(1) NOT NULL,
   `no_hp` varchar(15) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
   `foto_profil` varchar(45) DEFAULT NULL,
   `role_idrole` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -141,8 +165,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `nama_user`, `tanggal_lahir`, `gender`, `no_hp`, `alamat`, `foto_profil`, `role_idrole`) VALUES
-(1, 'user', 'user@test.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'User', '2021-01-12', 'L', '6285233039160', '', 'picture.png', 2),
-(2, 'admin', 'admin@test.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '2021-01-12', 'P', '6285233039160', '', 'picture.png', 1);
+(1, 'user', 'user@test.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'User', '2021-01-12', '', '6285233039160', '', 'picture.png', 2),
+(2, 'admin', 'admin@test.com', '21232f297a57a5a743894a0e4a801fc3', 'Admin', '2021-01-12', '', '6285233039160', '', 'picture.png', 1);
 
 -- --------------------------------------------------------
 
@@ -701,6 +725,12 @@ ALTER TABLE `star_point`
   ADD KEY `user_iduser` (`user_iduser`);
 
 --
+-- Indeks untuk tabel `tmst_status`
+--
+ALTER TABLE `tmst_status`
+  ADD PRIMARY KEY (`id_status`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -742,10 +772,16 @@ ALTER TABLE `star_point`
   MODIFY `idstar_point` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `tmst_status`
+--
+ALTER TABLE `tmst_status`
+  MODIFY `id_status` int(5) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -756,7 +792,7 @@ ALTER TABLE `user`
 --
 ALTER TABLE `hit`
   ADD CONSTRAINT `hit_ibfk_2` FOREIGN KEY (`user_iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `hit_ibfk_3` FOREIGN KEY (`kerjaan_idkerjaan`) REFERENCES `kerjaan` (`idkerjaan`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `hit_ibfk_3` FOREIGN KEY (`kerjaan_idkerjaan`) REFERENCES `kerjaan` (`idkerjaan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `kerjaan`
@@ -764,7 +800,7 @@ ALTER TABLE `hit`
 ALTER TABLE `kerjaan`
   ADD CONSTRAINT `kerjaan_ibfk_1` FOREIGN KEY (`kategori_idkategori`) REFERENCES `kategori` (`idkategori`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `kerjaan_ibfk_2` FOREIGN KEY (`kabupaten_idkabupaten`) REFERENCES `wilayah_kabupaten` (`id_kabupaten`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `kerjaan_ibfk_3` FOREIGN KEY (`user_iduser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `kerjaan_ibfk_3` FOREIGN KEY (`user_iduser`) REFERENCES `user` (`iduser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `star_point`
