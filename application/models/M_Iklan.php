@@ -84,11 +84,12 @@ class M_Iklan extends CI_Model
 	}
 	public function select_iklan($id)
 	{
-		$sql = "SELECT * From kerjaan where idkerjaan=$id";
+		$sql = "SELECT *,wilayah_kabupaten.nama_kabupaten From kerjaan,wilayah_kabupaten 
+		where wilayah_kabupaten.id_kabupaten=kerjaan.kabupaten_idkabupaten and idkerjaan=$id";
 
 		$data = $this->db->query($sql);
 
-		return $data->row();
+		return $data->result();
 	}
 
 	public function getAllCategory()

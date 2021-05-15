@@ -30,12 +30,15 @@
 			<div class="col-md-12 col-lg-9 pr-lg-2 mb-3 mb-lg-0">
 				<div class="card">
 					<div class="card-body bg-light">
-						<h3>Ini Judul Ini Judul Ini Judul Ini Judul Ini Judul Ini Judul Ini Judul Ini Judul</h3>
+						<?php
+						var_dump(@$dataIklan);
+						foreach (@$dataIklan as $value) { ?>
+						<h3><?php echo $value->judul_kerjaan; ?></h3>
 						<hr>
 						<span class="text-muted small">
 							<i class="bi-clock mr-1"></i> 1 Minggu yang lalu
 							- Kategori
-							- <i class="fas fa-map-marker-alt ml-1 mr-1"></i> Bondowoso
+							- <i class="fas fa-map-marker-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten; ?>
 							- <i class="bi-eye-fill ml-1 mr-1"></i> 50x dilihat
 						</span>
 						<center>
@@ -53,10 +56,11 @@
 							</li>
 						</ul>
 						<div class="tab-content bg-white p-3" style="border: 1px solid #dee2e6; border-top: none;">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam autem officia vel doloremque tempora id impedit eum repellat. Nulla non qui quam et eos, maiores soluta sit ea nisi. Corporis!
+							<?php echo $value->deskripsi; ?>
 						</div>
 					</div>
 				</div>
+				<?php } ?>
 			</div>
 			<!-- Main Content End -->
 
@@ -88,7 +92,16 @@
 										<span class="text-muted">Lokasi</span>
 									</div>
 									<div class="col-6 text-right">
-										<a href="#">Bondowoso</a>
+										<a href="#"><?php echo $value->nama_kabupaten; ?></a>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-6">
+										<i class="fas fa-money-bill-alt mr-2"></i>
+										<span class="text-muted">Penawaran</span>
+									</div>
+									<div class="col-6 text-right">
+										<a href="#">Rp. <?php echo number_format($value->harga,2); ?></a>
 									</div>
 								</div>
 							</li>
