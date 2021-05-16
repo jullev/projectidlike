@@ -108,7 +108,7 @@
 							<!-- Lokasi End -->
 							<!-- Button -->
 							<li class="list-group-item">
-								<button class="btn btn-warning btn-block"><i class="bi-hand-index-thumb-fill mr-1"></i> Hit</button>
+								<button class="btn btn-warning btn-block" onclick="window.location='<?php echo site_url("hitiklan/$value->idkerjaan");?>'"><i class="bi-hand-index-thumb-fill mr-1"></i> Hit</button>
 								<button class="btn btn-success btn-block"><i class="bi-telephone-fill mr-1"></i> +62xxxxxxxxxxx</button>
 							</li>
 							<!-- Button End -->
