@@ -38,8 +38,8 @@
 						<span class="text-muted small">
 							<i class="bi-clock mr-1"></i> 1 Minggu yang lalu
 							- Kategori
-							- <i class="fas fa-map-marker-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten; ?>
-							- <i class="bi-eye-fill ml-1 mr-1"></i> 50x dilihat
+							- <i class="bi-geo-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten; ?>
+							- <i class="bi-eye ml-1 mr-1"></i> 50x dilihat
 						</span>
 						<center>
 							<img src="https://placeimg.com/640/480/arch" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
@@ -50,13 +50,37 @@
 								<img src="https://placeimg.com/640/480/arch" alt="Ini foto 1" title="ini foto 1" style="width: 15%;">
 							</ul>
 						</center>
+						<!-- Detail -->
 						<ul class="nav nav-tabs">
 							<li class="nav-item">
-								<span class="nav-link active"><strong>Detail</strong></span>
+								<span class="nav-link active"><strong>Detail Iklan</strong></span>
 							</li>
 						</ul>
 						<div class="tab-content bg-white p-3" style="border: 1px solid #dee2e6; border-top: none;">
+							<div class="row" style="font-size: 120%;">
+								<div class="col-12 col-lg-6 text-lg-left text-left">
+									<i class="bi-geo-alt-fill mr-2"></i> 
+									<strong>Lokasi: </strong><a href=""><?php echo $value->nama_kabupaten; ?></a>
+								</div>
+								<div class="col-12 col-lg-6 text-lg-right text-left mt-2 mt-lg-0">
+									<i class="bi-tag-fill mr-2"></i>
+									<strong>Penawaran: </strong>Rp. <?php echo number_format($value->harga,2); ?>
+								</div>
+							</div>
+							<hr>
 							<?php echo $value->deskripsi; ?>
+							<!-- Tombol -->
+							<div class="row text-center mt-5 mb-2">
+								<div class="col-sm-12 col-md-4">
+									<button class="btn btn-outline-success btn-lg"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
+								</div>
+								<div class="col-sm-12 col-md-4 mt-3 mt-md-0">
+									<button class="btn btn-outline-warning btn-lg"><i class="bi-hand-index-thumb-fill mr-1"></i> Hit</button>
+								</div>
+								<div class="col-sm-12 col-md-4 mt-3 mt-md-0">
+									<button class="btn btn-outline-info btn-lg"><i class="bi-info-circle-fill mr-1"></i> Laporkan Iklan</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -77,39 +101,43 @@
 									</div>
 									<div class="col-lg-8 col-md-10 col-9 pl-0">
 										<div class="row">
-											<div class="col-12 text-muted">Posted by</div>
+											<div class="col-12 text-muted small">Posted by</div>
 											<div class="col-12">Anggito Suryo Baskoro Kuncoro Santoso</div>
 										</div>
 									</div>
 								</div>					
 							</li>
 							<!-- Posted by End -->
-							<!-- Lokasi -->
-							<li class="list-group-item">
-								<div class="row">
-									<div class="col-6">
-										<i class="fas fa-map-marker-alt mr-2"></i>
+							<!-- Lokasi & Penawaran -->
+							<li class="list-group-item small">
+								<div class="row px-2">
+									<!-- Lokasi -->
+									<div class="col-1 p-0">
+										<i class="bi-geo-alt-fill mr-2"></i>
+									</div>
+									<div class="col-5 p-0">
 										<span class="text-muted">Lokasi</span>
 									</div>
-									<div class="col-6 text-right">
+									<div class="col-6 p-0 text-right mb-2">
 										<a href="#"><?php echo $value->nama_kabupaten; ?></a>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-6">
-										<i class="fas fa-money-bill-alt mr-2"></i>
+									<!-- Penawaran -->
+									<div class="col-1 p-0">
+										<i class="bi-tag-fill mr-2"></i>									
+									</div>
+									<div class="col-5 p-0">
 										<span class="text-muted">Penawaran</span>
 									</div>
-									<div class="col-6 text-right">
-										<a href="#">Rp. <?php echo number_format($value->harga,2); ?></a>
+									<div class="col-6 p-0 text-right">
+										Rp. <?php echo number_format($value->harga,2); ?>
 									</div>
 								</div>
 							</li>
-							<!-- Lokasi End -->
+							<!-- Lokasi & Penawaran End -->
 							<!-- Button -->
 							<li class="list-group-item">
 								<button class="btn btn-warning btn-block" onclick="window.location='<?php echo site_url("hitiklan/$value->idkerjaan");?>'"><i class="bi-hand-index-thumb-fill mr-1"></i> Hit</button>
-								<button class="btn btn-success btn-block"><i class="bi-telephone-fill mr-1"></i> +62xxxxxxxxxxx</button>
+								<button class="btn btn-success btn-block"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
 							</li>
 							<!-- Button End -->
 						</ul> <!-- UL End -->
