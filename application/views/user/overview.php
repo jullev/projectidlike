@@ -1,49 +1,138 @@
 <!DOCTYPE html>
 <html>
 
+<!-- Head -->
 <?php $this->load->view('user/_partials/head.php'); ?>
+<!-- Style -->
+<style>
+  @media (max-width: 576px) {
+    .rounded-search {
+      border-radius: 1rem;
+    }
+    .custom-select {
+      border-radius: 0px !important;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .form-control {
+      border-radius: 0px !important;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+  }
+  @media (min-width: 576px) {
+    .rounded-search {
+      border-radius: 1rem;
+    }
+    .custom-select {
+      border-radius: 0px !important;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .form-control {
+      border-radius: 0px !important;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+  }
+  @media (min-width: 768px) {
+    .rounded-search {
+      border-radius: 1rem;
+    }
+    .custom-select {
+      border-radius: 0px !important;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .form-control {
+      border-radius: 0px !important;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+  }
+  @media (min-width: 992px) {
+    .rounded-search {
+      border-radius: 50rem;
+    }
+    .custom-select {
+      border-radius: 0px !important;
+      border-top: none;
+      border-bottom: none;
+      border-right: none;
+      border-left: none;
+    }
+    .form-control {
+      border-radius: 0px !important;
+      border-top: none;
+      border-bottom: none;
+      border-right: none;
+      border-left: 1px solid #dee2e6!important;
+    }
+  }
+  
+</style>
 
 <body>
 
+  <!-- Navbar -->
   <?php $this->load->view('user/_partials/navbar.php'); ?>
 
+  <!-- Header -->
   <header class="text-center text-white masthead" style="background: url(&quot;<?php echo base_url('assets/assets/img/1-11.jpg')?>&quot;) top / cover;">
-    <div class="d-inline-block overlay" style="background: rgb(55,100,146);"></div>
+    <div class="d-inline-block overlay" style="background: rgb(55, 100, 146);"></div>
     <div class="container">
+      <!-- Pasang nego beres -->
       <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <h1 class=" text-center mb-0">
-            PASANG-NEGO-BERES
-          </h1>
-          <h3 class="text-center">
-            Mudah, Cepat, Efisien
-          </h3>
+        <div class="col-9 mx-auto">
+          <h1 class="text-center">PASANG-NEGO-BERES</h1>
+          <h3 class="text-center">Mudah, Cepat, Efisien</h3>
         </div>
-        <div class="col-md-10 col-lg-8 col-xl-8 mx-auto mt-2">
-          <form>
-            <div class="form-row card mx-auto rounded-pill">
-              <div class="col">
-                <div class="input-group ml-3 my-2">
-                  <select class="custom-select mr-1" style="border-top: none !important;border-bottom: none !important;border-left: none !important;" id="inputGroupSelect01">
+      </div>
+      <!-- Pasang nego beres end -->
+      <!-- Search -->
+      <div class="col-12 col-sm-12 col-md-11 col-lg-10 mx-auto mt-2">
+        <div class="card rounded-search mx-auto shadow-sm">
+          <form action="#">
+            <div class="form-row align-items-center mx-2 my-3 my-lg-0 mx-lg-2">
+              <div class="col-lg-4 d-flex form-group align-items-center mb-3 my-lg-3">
+                <div class="input-group">
+                  <select name="kategori" id="kategori" class="custom-select">
                     <option selected>Kategori</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
-                  <input class="form-control mr-1" style="border-top: none !important;border-bottom: none !important;border-left: none !important;" type="text" placeholder="Apa ?">
-                  <input class="form-control mr-1" style="border: none !important;" type="text" placeholder="Dimana ?">
-                  <button type="submit" class="btn btn-primary rounded-pill mr-4"><i class="bi-search"></i> Cari!</button>
                 </div>
+              </div>
+              <div class="col-lg-3 d-flex align-items-center form-group mb-3 my-lg-3">
+                <div class="input-group">
+                  <input type="text" placeholder="Apa?" class="form-control">
+                </div>
+              </div>
+              <div class="col-lg-3 d-flex align-items-center form-group my-lg-3">
+                <div class="input-group"><input type="text" placeholder="Dimana?" class="form-control"></div>
+              </div>
+              <div class="col-lg-2">
+                <button class="btn btn-primary btn-block rounded-pill" type="submit">Search</button>
               </div>
             </div>
           </form>
         </div>
       </div>
+      <!-- Search End -->
     </div>
   </header>
-  <div class="container">
-    <section style="background: #e9ecef;margin: 10px;padding: 10px;border-style: none;border-radius: 5px;box-shadow: 0px 0px 0px rgb(27,30,33);">
-      <div class="container-lg" style="margin: 10px;">
+  <!-- Header End -->
+
+  <!-- Pilih Daerah -->
+  <div class="container my-3">
+    <section style="background: #e9ecef;padding: 10px;border-style: none;border-radius: 5px;box-shadow: 0px 0px 0px rgb(27,30,33);">
         <div class="row">
           <div class="col">
             <h1>Pilih kota atau daerah</h1>
@@ -51,8 +140,6 @@
         </div>
         <div class="row">
           <div class="col">
-            <div class="row">
-              <div class="col">
                 <form>
                   <div class="form-row">
                     <div class="col-md-3">
@@ -82,105 +169,56 @@
                         <li>Kota Lainnya</li>
                       </ul>
                     </div>
-                    <div class="col-md-3 col-xl-3" style="transform: translateX(164px);"><img src="<?php echo base_url('assets/assets/img/c12261c78e0a35b60cceb2315d3a277b.png')?>" width="300px" style="transform: translateX(-197px);"></div>
                   </div>
                 </form>
+          </div>
+        </div>
+    </section>
+	</div> <!-- /container -->
+  <!-- Pilih Daerah End -->
+
+  <!-- Iklan Terbaru -->
+  <div class="container mb-5">
+    <div class="card">
+      <div class="card-header">
+        <span style="font-weight: bold;">Iklan</span>
+        <span>Terbaru</span>
+      </div>
+      <div class="card-body">
+        <div class="row">
+        <?php
+        //var_dump(@$dataIklan);
+        foreach (@$dataIklan as $value) {
+          ?>
+          <div class="col-lg-3 col-md-6 col-sm-10 px-2 mb-3">
+            <div class="card">
+              <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="<?php echo $value->judul_kerjaan; ?>" title="<?php echo $value->judul_kerjaan; ?>">
+              <div class="card-body" style="height: 16rem;overflow: hidden;">
+                <h5 class="card-title text-capitalize">
+                  <a href="<?php echo base_url() ?>detail/<?php echo $value->idkerjaan; ?>"><?php echo $value->judul_kerjaan; ?></a>
+                </h5>
+                <p class="card-text">
+                  <span class="text-muted small">
+                    <i class="bi-clock mr-1"></i> 1 Minggu yang lalu
+                    - <i class="bi-grid ml-1 mr-1"></i> Kategori
+                    - <i class="bi-geo-alt ml-1 mr-1"></i> Kota
+                  </span>
+                  <div class="text-right">
+                    <h5>Rp. <?php echo number_format($value->harga,2); ?></h5>
+                  </div>
+                </p>
               </div>
             </div>
           </div>
+          <?php
+          }
+          ?>
         </div>
-      </div>
-    </section>
-	  <div class="container" style="padding: 20px;">
-		  <div class="card">
-			  <div class="card-header">
-				  <span style="font-weight: bold;">Iklan</span>
-				  <span>Terbaru</span>
-			  </div>
-			  <div class="card-body">
-				  <?php
-//				  var_dump(@$dataIklan);
-				  foreach (@$dataIklan as $value) {
-				  	?>
-				  <div class="row" style="padding-left: 10px; padding-right: 10px;">
-					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
+      </div> <!-- /Card Body -->
+    </div> <!-- /Card -->
+  </div> <!-- /Container -->
+  <!-- Iklan Terbaru End -->
 
-						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
-						  <div class="card-body">
-							  <h5 class="card-title"><?php echo $value->judul_kerjaan?></h5>
-							  <p class="card-text"><?php echo $value->deskripsi?></p>
-							  <a href="<?php echo base_url() ?>detail/<?php echo $value->idkerjaan ?>" class="btn btn-primary">Go somewhere</a>
-						  </div>
-					  </div>
-					  <?php
-					  }
-					  ?>
-
-
-					  <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
-						  <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="Card image cap">
-						  <div class="card-body">
-							  <h5 class="card-title">Card title</h5>
-							  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							  <a href="<?php echo site_url("detail");?>" class="btn btn-primary">Go somewhere</a>
-						  </div>
-
-                  <img class="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap">
-                  <div class="card-body">
-                    <center>
-                    <span class="card-title" style="font-weight: bold; color: grey;">Card Title</span>
-                    </center>
-                    <center>
-                    <a href="<?php echo site_url("detail"); ?>" class="btn btn-link">Rp.5000&nbsp;-&nbsp;10000</a>
-                    </center>
-                  </div>
-                </div>
-              </a>
-              <a href="<?php echo site_url("detail"); ?>">
-                <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
-                  <img class="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap">
-                  <div class="card-body">
-                    <center>
-                    <span class="card-title" style="font-weight: bold; color: grey;">Card Title</span>
-                    </center>
-                    <center>
-                    <a href="<?php echo site_url("detail"); ?>" class="btn btn-link">Rp.5000&nbsp;-&nbsp;10000</a>
-                    </center>
-                  </div>
-                </div>
-              </a>
-              <a href="<?php echo site_url("detail"); ?>">
-                <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
-                  <img class="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap">
-                  <div class="card-body">
-                    <center>
-                    <span class="card-title" style="font-weight: bold; color: grey;">Card Title</span>
-                    </center>
-                    <center>
-                    <a href="<?php echo site_url("detail"); ?>" class="btn btn-link">Rp.5000&nbsp;-&nbsp;10000</a>
-                    </center>
-                  </div>
-                </div>
-              </a>
-              <a href="<?php echo site_url("detail"); ?>">
-                <div class="card col-sm-3" style="width: 18rem; padding: 10px;">
-                  <img class="card-img-top" src="https://placeimg.com/640/480/any" alt="Card image cap">
-                  <div class="card-body">
-                    <center>
-                    <span class="card-title" style="font-weight: bold; color: grey;">Card Title</span>
-                    </center>
-                    <center>
-                    <a href="<?php echo site_url("detail"); ?>" class="btn btn-link">Rp.5000&nbsp;-&nbsp;10000</a>
-                    </center>
-                  </div>
-                </div>
-              </a>
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-	  </div>
-  </div>
   <!-- footer -->
   <?php $this->load->view('user/_partials/footer.php'); ?>
   <!-- /footer -->

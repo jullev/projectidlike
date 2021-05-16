@@ -50,7 +50,7 @@
                                         if($value->status=="hit baru"){ ?>
 											<td class="text-center"><span class="btn list-group-item-info">Menunggu</span></td>
 										<?php } else{ ?>
-											<td class="text-center"><span class="btn list-group-item-info">Disetujui</span></td>
+											<td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
 										<?php }
                                         ?>
                                         <td class="text-center">

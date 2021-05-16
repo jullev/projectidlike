@@ -39,7 +39,8 @@ class Welcome extends CI_Controller
 			$this->load->view('user/overview',$data);
 		}
 		else{
-			$this->load->view('overview_landing');
+			$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
+			$this->load->view('user/overview',$data);
 		}
 	}
 

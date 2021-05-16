@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light navbar-expand-sm fixed-top bg-white text-monospace shadow-sm navigation-clean">
+<nav class="navbar navbar-light navbar-expand-sm fixed-top bg-white shadow-sm navigation-clean">
 	<div class="container">
 		<!-- Nama Website -->
 		<a class="navbar-brand" href="<?php echo site_url('/') ?>">Brand</a>
