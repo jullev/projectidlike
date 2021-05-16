@@ -60,30 +60,7 @@
                                         </td>
                                     </tr>
 								<?php } ?>
-                                    <tr>
-                                        <td>2.</td>
-                                        <td><a href="#">Ini Judul 2</a></td>
-                                        <td class="text-center">Nur Hidayatulloh</td>
-                                        <td class="text-center">05 Juni 2021</td>
-                                        <td class="text-center"><span class="btn list-group-item-info">Menunggu</span></td>
-                                        <td class="text-center">
-                                            <button class="btn btn-danger" data-toggle="modal" data-target="#cancel" data-tooltip="tooltip" data-placement="bottom" title="Batalkan">
-                                                <i class="bi-x"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3.</td>
-                                        <td><a href="#">Ini Judul 3</a></td>
-                                        <td class="text-center">Akhmad</td>
-                                        <td class="text-center">03 Oktober 2021</td>
-                                        <td class="text-center"><span class="btn list-group-item-danger">Ditolak</span></td>
-                                        <td class="text-center">
-                                            <button class="btn btn-danger" data-toggle="modal" data-target="#cancel" data-tooltip="tooltip" data-placement="bottom" title="Batalkan">
-                                                <i class="bi-x"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+
                                 </tbody>
                             </table>                        
                         </div>
