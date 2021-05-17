@@ -39,7 +39,8 @@
 						<!-- small box -->
 						<div class="small-box bg-info">
 							<div class="inner">
-								<h3>150</h3>
+								<?php var_dump(@$allcount); ?>
+								<h3><?php echo @$allcount->pengajuan_baru;?></h3>
 
 								<p>Permohonon Iklan</p>
 							</div>

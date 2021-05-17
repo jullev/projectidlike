@@ -8,14 +8,15 @@ class C_Overview extends CI_Controller
     $this->load->model('M_Register');
     $this->load->model('M_ManageAdmin');
     $this->load->model('M_ManageUser');
+    $this->load->model('M_Iklan');
     $this->load->library('session');
     $this->load->library('form_validation');
   }
 
   public function index()
   {
-
-    $this->load->view("admin/overview");
+	  $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view("admin/overview",$data);
   }
 
   public function coba()
