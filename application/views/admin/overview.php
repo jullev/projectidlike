@@ -62,7 +62,7 @@
 							<div class="icon">
 								<i class="fas fa-users"></i>
 							</div>
-							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+							<a href="<?php echo site_url('userlist') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 					<!-- ./col -->
@@ -77,7 +77,7 @@
 							<div class="icon">
 								<i class="fab fa-adversal"></i>
 							</div>
-							<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+							<a href="<?php echo site_url('semuaiklan') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
 					<!-- ./col -->
