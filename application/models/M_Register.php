@@ -112,6 +112,33 @@ class M_Register extends CI_Model
 		}
 	}
 
+	public function insertAdmin($data)
+	{
+		// Cek data unik pada username dan email
+		$validation = $this->uniqueDataCheck($data);
+		if ($validation == "username-error") {
+			return "username-error";
+		} elseif ($validation == "email-error") {
+			return "email-error";
+		}
+
+		// Menambahkan string 62 di depan input phone
+		$data['phone'] = "62" . $data['phone'];
+
+		// Penambahan data
+		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir,gender, no_hp, role_idrole) 
+		VALUES('" . $data['username_register'] . "', '" . $data['email_register'] . "', 
+		md5('" . $data['password_register'] . "'), '" . $data['name'] . "', '" . $data['birthdate'] . "', '" . $data['gender'] . "', '" . $data['phone'] . "', 1)";
+
+		$this->db->query($sql);
+
+		if ($this->db->affected_rows() > 0) {
+			return "success";
+		} else {
+			return "failed";
+		}
+	}
+
 	public function uniqueDataCheck($data)
 	{
 		// Username check

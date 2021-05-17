@@ -15,8 +15,8 @@ class C_Overview extends CI_Controller
 
   public function index()
   {
-	  $data['allcount'] = $this->M_Iklan->show_allcount();
-    $this->load->view("admin/overview",$data);
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view("admin/overview", $data);
   }
 
   public function coba()
@@ -73,6 +73,15 @@ class C_Overview extends CI_Controller
 
   public function tambahadmin()
   {
+    if ($this->session->flashdata('name_admin') == "") {
+      $this->session->set_flashdata('name_admin', '');
+      $this->session->set_flashdata('username_admin', '');
+      $this->session->set_flashdata('email_admin', '');
+      $this->session->set_flashdata('birthdate', '');
+      $this->session->set_flashdata('nomor_telp', '');
+      $this->session->set_flashdata('alamat', '');
+      $this->session->set_flashdata('gender', '');
+    }
     $this->load->view('admin/tambahadmin');
   }
 
