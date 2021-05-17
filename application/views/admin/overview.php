@@ -34,13 +34,16 @@
 		<section class="content">
 			<div class="container-fluid">
 				<!-- Small boxes (Stat box) -->
+				<?php
+//				var_dump(@$allcount);
+				foreach (@$allcount as $value) { ?>
 				<div class="row">
 					<div class="col-lg-3 col-6">
 						<!-- small box -->
 						<div class="small-box bg-info">
 							<div class="inner">
-								<?php var_dump(@$allcount); ?>
-								<h3><?php echo @$allcount->pengajuan_baru;?></h3>
+
+								<h3><?php echo $value->pengajuan_baru;?></h3>
 
 								<p>Permohonon Iklan</p>
 							</div>
@@ -68,9 +71,12 @@
 					<!-- ./col -->
 					<div class="col-lg-3 col-6">
 						<!-- small box -->
+
 						<div class="small-box bg-warning">
 							<div class="inner">
-								<h3>44</h3>
+								<h3><?php
+									echo $value->total_kerjaan;
+									?></h3>
 
 								<p>Total Iklan</p>
 							</div>
@@ -80,12 +86,15 @@
 							<a href="<?php echo site_url('semuaiklan') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
+					<?php } ?>
 					<!-- ./col -->
 					<div class="col-lg-3 col-6">
 						<!-- small box -->
 						<div class="small-box bg-danger">
 							<div class="inner">
-								<h3>65</h3>
+								<h3><?php
+
+									echo $value->total_hit;?></h3>
 
 								<p>Total Hit</p>
 							</div>

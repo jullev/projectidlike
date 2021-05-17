@@ -28,6 +28,7 @@ class C_Overview extends CI_Controller
   public function adminlist()
   {
     $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/adminlist', $data);
   }
   public function userlist()
@@ -39,6 +40,7 @@ class C_Overview extends CI_Controller
       $data['msg'] = $msg == 'success' ? 'Data berhasil di buang ' : 'Data gagal di buang';
     }
     $data['alluser'] = $this->M_ManageUser->select_all_user();
+    $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/userlist', $data);
   }
 
@@ -55,6 +57,7 @@ class C_Overview extends CI_Controller
     //		$data = $this->input->post();
     //		$result = $this->M_ManageAdmin->update_admin($data);
     $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/adminlist', $data);
 
     /*
@@ -90,6 +93,7 @@ class C_Overview extends CI_Controller
     $id =  $this->uri->segment(2);
     //  	var_dump("data ",$id);
     $data['detailuser'] = $this->M_ManageAdmin->select_admin_id($id);
+	  $data['allcount'] = $this->M_Iklan->show_allcount();
     //  	var_dump($data);
     $this->load->view('admin/editadmin', $data);
   }
@@ -99,17 +103,20 @@ class C_Overview extends CI_Controller
   }
   public function searchtest()
   {
-    $this->load->view('admin/searchtest');
+	  $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/searchtest',$data);
   }
   public function tambahuser()
   {
-    $this->load->view('admin/tambahuser');
+	  $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/tambahuser',$data);
   }
   public function detailuser()
   {
     $input = $this->input->get();
     $id = $input['id'];
     $data = $this->M_ManageUser->select_user_id($id);
+	  $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/detailuser', $data);
   }
 }

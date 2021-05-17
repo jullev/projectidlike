@@ -15,7 +15,11 @@ class M_Iklan extends CI_Model
 	}
 	public function show_allcount()
 	{
-		$sql = "SELECT DISTINCT(select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=1) as pengajuan_baru,(select COUNT(kerjaan.judul_kerjaan) from kerjaan ) as total_kerjaan,(SELECT COUNT(hit.idhit) from hit) as total_hit  FROM kerjaan ";
+		$sql = "SELECT DISTINCT(select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=1) as pengajuan_baru,
+                (select COUNT(kerjaan.judul_kerjaan) from kerjaan ) as total_kerjaan,
+                (select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=2) as disetujui,
+                (select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=4) as ditolak,                
+                (SELECT COUNT(hit.idhit) from hit) as total_hit  FROM kerjaan ";
 
 		$data = $this->db->query($sql);
 

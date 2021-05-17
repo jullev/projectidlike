@@ -32,7 +32,8 @@ class Welcome extends CI_Controller
 	{
 //		echo $this->session->userdata('role');
 		if ($this->session->userdata('role')==1) {
-			$this->load->view('admin/overview');
+			$data['allcount'] = $this->M_Iklan->show_allcount();
+			$this->load->view('admin/overview',$data);
 		}
 		else if($this->session->userdata('role')==2){
 			$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();

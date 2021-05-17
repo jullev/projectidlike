@@ -4,6 +4,9 @@
 		<img src="<?php echo base_url('assets/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
 		<span class="brand-text font-weight-light"><strong>TEMANTUMBUH</strong></span>
 	</a>
+	<?php
+//	var_dump(@$allcount);
+	foreach (@$allcount as $value) { ?>
 
 	<!-- Sidebar -->
 	<div class="sidebar">
@@ -74,7 +77,7 @@
 							<a href="<?php echo site_url('iklanbaru') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Pengajuan
-									<span class="right badge badge-info">6</span>
+									<span class="right badge badge-info"><?php echo $value->pengajuan_baru;?></span>
 								</p>
 							</a>
 						</li>
@@ -82,7 +85,7 @@
 							<a href="<?php echo site_url('iklandisetujui') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Disetujui
-									<span class="right badge badge-success">1</span>
+									<span class="right badge badge-success"><?php echo $value->disetujui;?></span>
 								</p>
 							</a>
 						</li>
@@ -90,7 +93,7 @@
 							<a href="<?php echo site_url('') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Dibatalkan
-									<span class="right badge badge-danger">9</span>
+									<span class="right badge badge-danger"><?php echo $value->ditolak;?></span>
 								</p>
 							</a>
 						</li>
@@ -98,6 +101,7 @@
 							<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Semua</p>
+								<span class="right badge badge-success"><?php echo $value->total_kerjaan;?></span>
 							</a>
 						</li>
 					</ul>
@@ -108,4 +112,7 @@
 		<!-- /.sidebar-menu -->
 	</div>
 	<!-- /.sidebar -->
+	<?php
+	}
+	?>
 </aside>
