@@ -61,10 +61,10 @@
 													<td><?php echo $value->email ?>
 													<td><?php echo $value->no_hp ?>
 													<td>
-														<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-primary mr-2" data-toggle="tooltip" data-placement="bottom" title="Edit">
+														<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-primary mr-2" data-tooltip="tooltip" data-placement="bottom" title="Edit">
 															<i class="bi bi-pencil-square"></i>
 
-															<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus">
+															<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-danger" data-tooltip="tooltip" data-placement="bottom" title="Hapus">
 																<i class="bi bi-trash"></i>
 													</td>
 

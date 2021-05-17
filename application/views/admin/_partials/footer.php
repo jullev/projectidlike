@@ -21,8 +21,11 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+  $(document).ready(function() {
+      $('body').tooltip({
+          selector: "[data-tooltip=tooltip]",
+          container: "body"
+      });
   });
 </script>
 <!-- Bootstrap 4 -->

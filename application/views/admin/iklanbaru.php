@@ -64,12 +64,12 @@
 											<td><b><?php echo $value->harga ?></b><br>
 											<td>
 												<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
-												   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
+												   class=" btn btn-warning btn-sm btn-3d" data-tooltip="tooltip"
 												   data-placement="top" style="margin:5px;" data-original-title="EDIT">
 													<i class="bi bi-person-lines-fill"></i>
 
 													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
-													   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
+													   class=" btn btn-warning btn-sm btn-3d" data-tooltip="tooltip"
 													   data-placement="top" style="margin:5px;"
 													   data-original-title="EDIT">
 														<i class="bi bi-x-circle"></i>

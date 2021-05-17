@@ -37,54 +37,58 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="card">
+						<div class="card-header">
+							<h3><strong>Iklan Disetujui</strong></h3>
+						</div>
 						<div class="card-body">
-							<section class="content">
-								<table class="table table">
+							<div id="adsAccepted_wrapper">
+								<table class="table table-striped" id="adsAccepted">
 									<thead class="thead-dark">
-									<tr>
-										<th scope="col">No.</th>
-										<th scope="col">Nama Pekerjaan</th>
-										<th scope="col">Detail</th>
-										<th scope="col">Tanggal Posting</th>
-										<th scope="col">Deadline</th>
-										<th scope="col">Harga</th>
-										<th scope="col">Jumlah Hit</th>
-										<th scope="col">Aksi</th>
-									</tr>
+										<tr>
+											<th scope="col" class="align-top">No.</th>
+											<th scope="col" class="align-top">Nama Pekerjaan</th>
+											<th scope="col" class="align-top">Detail</th>
+											<th scope="col" class="align-top">Tanggal Posting</th>
+											<th scope="col" class="align-top">Deadline</th>
+											<th scope="col" class="align-top">Harga</th>
+											<th scope="col" class="align-top">Jumlah Hit</th>
+											<th scope="col" class="align-top">Aksi</th>
+										</tr>
 									</thead>
 									<tbody>
-									<?php
-									//				var_dump(@$kegiatan);
-									foreach (@$dataIklan as $value) { ?>
-										<tr>
-											<td><?php echo $value->idkerjaan ?></td>
-											<td><?php echo $value->judul_kerjaan ?></td>
-											<td><b><?php echo $value->deskripsi ?></b><br>
-											<td><b><?php echo $value->tanggal_submit ?></b><br>
-											<td><b><?php echo $value->deadline ?></b><br>
-											<td><b><?php echo $value->harga ?></b><br>
-											<td><b><?php echo $value->hit ?></b><br>
-											<td>
-												<a href="<?php echo base_url() ?>hit/<?php echo $value->idkerjaan ?>"
-												   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
-												   data-placement="top" style="margin:5px;" data-original-title="Detail Hit">
-													<i class="bi bi-bar-chart-fill"></i>
+										<?php
+										//var_dump(@$kegiatan);
+										foreach (@$dataIklan as $value) { ?>
+											<tr>
+												<td><?php echo $value->idkerjaan ?></td>
+												<td><?php echo $value->judul_kerjaan ?></td>
+												<td><b><?php echo $value->deskripsi ?></b><br>
+												<td><b><?php echo $value->tanggal_submit ?></b><br>
+												<td><b><?php echo $value->deadline ?></b><br>
+												<td><b><?php echo $value->harga ?></b><br>
+												<td><b><?php echo $value->hit ?></b><br>
+												<td>
+													<a href="<?php echo base_url() ?>hit/<?php echo $value->idkerjaan ?>"
+													class="btn btn-primary btn-lg m-1" data-tooltip="tooltip"
+													data-placement="bottom" data-original-title="Detail Hit">
+														<i class="bi bi-file-earmark-medical"></i>
+													</a>
 
 													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
-													   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
-													   data-placement="top" style="margin:5px;"
-													   data-original-title="Ditolak">
+													class="btn btn-danger btn-lg m-1" data-tooltip="tooltip"
+													data-placement="bottom" data-original-title="Tolak">
 														<i class="bi bi-x-circle"></i>
-											</td>
+													</a>
+												</td>
 
-										</tr>
+											</tr>
 										<?php
-//					$total_dana+=$value->total;
-									}
-									?>
+										//$total_dana+=$value->total;
+										}
+										?>
 									</tbody>
 								</table>
-							</section>
+							</div>
 						</div>
 						<!-- /.content -->
 					</div>
@@ -93,7 +97,19 @@
 		</section>
 		<!-- /.content-wrapper -->
 	</div>
+
+	<!-- Footer -->
 	<?php $this->load->view("admin/_partials/footer.php") ?>
+	<script>
+		$(function() {
+            $("#adsAccepted").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                //"buttons": [ "excel", "pdf", "print"]
+            }).buttons().container().appendTo('#adsAccepted_wrapper .col-md-6:eq(0)');
+        });
+	</script>
 </body>
 
 </html>

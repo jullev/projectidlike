@@ -53,9 +53,7 @@
                     <div class="card">
                         <!-- card header -->
                         <div class="card-header">
-                            <span>
-                                <h3><strong>Management User</strong></h3>
-                            </span>
+                            <h3><strong>Management User</strong></h3>
                         </div>
                         <!-- card body -->
                         <div class="card-body">
@@ -90,10 +88,10 @@
                                                         <i class="bi-star-half text-warning"></i>
                                                     </td>
                                                     <td>
-                                                        <a type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('admin/detailuser') . '?id=' . $value->iduser ?>">
+                                                        <a type="button" class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('admin/detailuser') . '?id=' . $value->iduser ?>">
                                                             <i class="bi bi-eye-fill"></i>
                                                         </a>
-                                                        <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="userdelete(<?php echo $value->iduser ?>)">
+                                                        <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-tooltip="tooltip" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="userdelete(<?php echo $value->iduser ?>)">
                                                             <i class="bi bi-trash-fill"></i>
                                                         </a>
                                                     </td>

@@ -9,13 +9,13 @@
     .rounded-search {
       border-radius: 1rem;
     }
-    .custom-select {
+    .form-row > .form-group > .input-group > .custom-select {
       border-radius: 0px !important;
       border-top: none;
       border-left: none;
       border-right: none;
     }
-    .form-control {
+    .form-row > .form-group > .input-group > .form-control {
       border-radius: 0px !important;
       border-top: none;
       border-left: none;
@@ -26,13 +26,13 @@
     .rounded-search {
       border-radius: 1rem;
     }
-    .custom-select {
+    .form-row > .form-group > .input-group > .custom-select {
       border-radius: 0px !important;
       border-top: none;
       border-left: none;
       border-right: none;
     }
-    .form-control {
+    .form-row > .form-group > .input-group > .form-control {
       border-radius: 0px !important;
       border-top: none;
       border-left: none;
@@ -43,13 +43,13 @@
     .rounded-search {
       border-radius: 1rem;
     }
-    .custom-select {
+    .form-row > .form-group > .input-group > .custom-select {
       border-radius: 0px !important;
       border-top: none;
       border-left: none;
       border-right: none;
     }
-    .form-control {
+    .form-row > .form-group > .input-group > .form-control {
       border-radius: 0px !important;
       border-top: none;
       border-left: none;
@@ -60,19 +60,26 @@
     .rounded-search {
       border-radius: 50rem;
     }
-    .custom-select {
+    .form-row > .form-group > .input-group > .custom-select {
       border-radius: 0px !important;
       border-top: none;
       border-bottom: none;
       border-right: none;
       border-left: none;
     }
-    .form-control {
+    .form-row > .form-group > .input-group > .custom-select:focus {
+      box-shadow: none;
+      background-color: #f8f9fa;
+    }
+    .form-row > .form-group > .input-group > .form-control {
       border-radius: 0px !important;
       border-top: none;
       border-bottom: none;
       border-right: none;
       border-left: 1px solid #dee2e6!important;
+    }
+    .form-row > .form-group > .input-group > .form-control:focus {
+      box-shadow: none;
     }
   }
   
@@ -119,7 +126,7 @@
                 <div class="input-group"><input type="text" placeholder="Dimana?" class="form-control"></div>
               </div>
               <div class="col-lg-2">
-                <button class="btn btn-primary btn-block rounded-pill" type="submit">Search</button>
+                <button class="btn btn-primary btn-block rounded-pill" type="submit"><i class="bi-search mr-1"></i> Search</button>
               </div>
             </div>
           </form>

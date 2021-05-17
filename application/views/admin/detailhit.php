@@ -37,9 +37,12 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="card">
+						<div class="card-header">
+							<h3>Hit: <strong>Judul Project</strong></h3>
+						</div>
 						<div class="card-body">
-							<section class="content">
-								<table class="table table">
+							<div id="detailHit_wrapper">
+								<table class="table" id="detailHit">
 									<thead class="thead-dark">
 									<tr>
 										<th scope="col">No.</th>
@@ -85,29 +88,27 @@
 												?>
 											</td>
 											<td>
-												<a href="<?php
+												<a href="<?php echo base_url() ?>terimahitter/<?php echo $value->idhit  ?>"
+												   class=" btn btn-primary" data-tooltip="tooltip"
+												   data-placement="bottom" data-original-title="Terima Hit">
+													<i class="bi-check-circle"></i>
+												</a>
 
-												echo base_url() ?>terimahitter/<?php echo $value->idhit  ?>"
-												   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
-												   data-placement="top" style="margin:5px;" data-original-title="Terima Hit">
-													<i class="bi bi-bar-chart-fill"></i>
-
-													<a href="<?php echo base_url() ?>tolakhit/<?php echo $value->idhit  ?>"
-													   class=" btn btn-warning btn-sm btn-3d" data-toggle="tooltip"
-													   data-placement="top" style="margin:5px;"
-													   data-original-title="Tolak Hit">
-														<i class="bi bi-x-circle"></i>
-												<?php ?>
+												<a href="<?php echo base_url() ?>tolakhit/<?php echo $value->idhit  ?>"
+													class=" btn btn-danger" data-tooltip="tooltip"
+													data-placement="bottom" data-original-title="Tolak Hit">
+													<i class="bi bi-x-circle"></i>
+												</a>
 											</td>
 
 										</tr>
 										<?php
-//					$total_dana+=$value->total;
+									//$total_dana+=$value->total;
 									}
 									?>
 									</tbody>
 								</table>
-							</section>
+							</div>
 						</div>
 						<!-- /.content -->
 					</div>
@@ -116,7 +117,19 @@
 		</section>
 		<!-- /.content-wrapper -->
 	</div>
+
+	<!-- footer -->
 	<?php $this->load->view("admin/_partials/footer.php") ?>
+	<script>
+		$(function() {
+            $("#detailHit").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                //"buttons": [ "excel", "pdf", "print"]
+            }).buttons().container().appendTo('#detailHit_wrapper .col-md-6:eq(0)');
+        });
+	</script>
 </body>
 
 </html>
