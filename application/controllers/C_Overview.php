@@ -27,9 +27,16 @@ class C_Overview extends CI_Controller
 
   public function adminlist()
   {
+    $input = $this->input->get();
+    if (isset($input['msg'])) {
+      $msg = $input['msg'];
+      $data['status'] = $msg;
+      $data['msg'] = $msg == 'success' ? 'Data berhasil di buang ' : 'Data gagal di buang';
+    }
     $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
     $this->load->view('admin/adminlist', $data);
   }
+
   public function userlist()
   {
     $input = $this->input->get();
@@ -48,6 +55,14 @@ class C_Overview extends CI_Controller
     $id = $input['id'];
     $data = $this->M_ManageUser->delete($id);
     $this->load->view('admin/userlist', $data);
+  }
+
+  public function deleteadmin()
+  {
+    $input = $this->input->get();
+    $id = $input['id'];
+    $data = $this->M_ManageUser->delete($id);
+    $this->load->view('admin/adminlist', $data);
   }
 
   public function updateDataAdmin()

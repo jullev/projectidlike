@@ -63,6 +63,7 @@ $route['adminlist'] = 'C_Overview/adminlist';
 $route['tambahadmin'] = 'C_Overview/tambahadmin';
 $route['tambahuser'] = 'C_Overview/tambahuser';
 $route['deleteuser'] = 'C_Register/delete';
+$route['deleteadmin'] = 'C_Register/deleteAdmin';
 $route['admin/detailuser'] = 'C_Overview/detailuser';
 $route['admintambah'] = 'C_ManagementAdmin/TambahAdmin';
 //$route['updateadmin'] = 'C_Overview/updateDataAdmin';

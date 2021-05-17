@@ -247,6 +247,20 @@ class C_Register extends CI_Controller
 			redirect('userlist?msg=error');
 		}
 	}
+
+	public function deleteAdmin()
+	{
+		$data = $this->input->get();
+		$id = $data['id'];
+		$result = $this->M_Register->delete($id);
+
+		if ($result > 0) {
+
+			redirect('adminlist?msg=success');
+		} else {
+			redirect('adminlist?msg=error');
+		}
+	}
 }
 
 /* End of file Pegawai.php */
