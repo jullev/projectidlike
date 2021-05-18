@@ -50,7 +50,9 @@ class Overview extends CI_Controller
 	public function detail_iklan()
 	{
 		$id =  $this->uri->segment(2);
+		$iduser = $this->session->userdata('id');
 		$data['dataIklan'] = $this->M_Iklan->select_iklan($id);
+		$data['cekhit'] = $this->M_Iklan->cek_hit($id,$iduser);
 		$data['userid'] = $this->session->userdata('id');
 //		var_dump($data);
 		$this->load->view("user/detail",$data);

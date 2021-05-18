@@ -136,8 +136,19 @@
 							<!-- Lokasi & Penawaran End -->
 							<!-- Button -->
 							<li class="list-group-item">
+								<?php //var_dump(@$cekhit);
+								if(!@$cekhit){
+								?>
 								<button class="btn btn-warning btn-block" onclick="window.location='<?php echo site_url("hitiklan/$value->idkerjaan");?>'"><i class="bi-hand-index-thumb-fill mr-1"></i> Hit</button>
 								<button class="btn btn-success btn-block"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
+								<?php
+								}
+								else{
+									?>
+									<button class="btn btn-danger btn-block"><i class="fa fa-times-circle"></i> Sudah Anda Hit</button>
+									<button class="btn btn-success btn-block"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
+								<?php	}
+								?>
 							</li>
 							<!-- Button End -->
 						</ul> <!-- UL End -->

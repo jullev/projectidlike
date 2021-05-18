@@ -94,6 +94,14 @@ class M_Iklan extends CI_Model
 
 		return $data->result();
 	}
+	public function cek_hit($id,$iduser)
+	{
+		$sql = "select * from hit where kerjaan_idkerjaan='$id' and user_iduser='$iduser'";
+
+		$data = $this->db->query($sql);
+
+		return $data->result();
+	}
 	public function select_iklan($id)
 	{
 		$sql = "SELECT *,wilayah_kabupaten.nama_kabupaten From kerjaan,wilayah_kabupaten 
