@@ -8,6 +8,7 @@ class Overview extends CI_Controller
 		$this->load->model("M_TambahIklan");
 		$this->load->library('session');
 		$this->load->model("M_Iklan");
+		$this->load->model("M_ManageUser");
 	}
 
 	public function index2()
@@ -27,7 +28,8 @@ class Overview extends CI_Controller
 
 	public function dashboard()
 	{
-		$this->load->view("user/dashboard/index");
+		$data = $this->M_ManageUser->select_user_id($this->session->userdata('id'));
+		$this->load->view("user/dashboard/index", $data);
 	}
 
 	public function iklansaya()
