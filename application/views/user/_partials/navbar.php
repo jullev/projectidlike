@@ -97,7 +97,7 @@
 						</div>
 					</div>
 					<!-- Lupa Pass -->
-					<a href="">Lupa Password?</a>
+					<a href="<?php echo site_url('lupa-password');?>">Lupa Password?</a>
 					<!-- Button Masuk -->
 					<center>
 						<button type="submit" class="btn btn-primary btn-lg mt-3">Masuk</button>
