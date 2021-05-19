@@ -99,9 +99,9 @@ class M_Register extends CI_Model
 		$data['phone'] = "62" . $data['phone'];
 
 		// Penambahan data
-		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir,gender, no_hp, role_idrole) 
+		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir, alamat, foto_profil, gender, no_hp, role_idrole) 
 		VALUES('" . $data['username_register'] . "', '" . $data['email_register'] . "', 
-		md5('" . $data['password_register'] . "'), '" . $data['name'] . "', '" . $data['birthdate'] . "', '" . $data['gender'] . "', '" . $data['phone'] . "', 2)";
+		md5('" . $data['password_register'] . "'), '" . $data['name'] . "', '" . $data['birthdate'] . "', '".$data['alamat']."', 'default.png', '" . $data['gender'] . "', '" . $data['phone'] . "', 2)";
 
 		$this->db->query($sql);
 
