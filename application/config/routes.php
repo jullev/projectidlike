@@ -68,6 +68,7 @@ $route['admin/detailuser'] = 'C_Overview/detailuser';
 $route['admintambah'] = 'C_ManagementAdmin/TambahAdmin';
 //$route['updateadmin'] = 'C_Overview/updateDataAdmin';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
+$route['updateadmin'] = 'C_ManagementAdmin/updateAdmin';
 $route['login'] = 'C_Register/loginData';
 $route['logout'] = 'C_Register/logout';
 $route['lupa-password'] = 'user/Overview/lupapassword';

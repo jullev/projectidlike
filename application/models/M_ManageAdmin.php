@@ -33,12 +33,10 @@ class M_ManageAdmin extends CI_Model
 
 	}
 
-	public function update($data)
+	public function updateAdmin($input)
 	{
-		$sql = "UPDATE user SET nama_user='" . $data['name'] . "', username='" . $data['username'] . "', email=" . $data['email'] . ", gender=" . $data['gender'] . ", tanggal_lahir=" . $data['birthdate'] . ", alamat='" . $data['alamat'] . "', no_hp=" . $data['phone'] . "foto_profil=" . $data['picture'] . " WHERE iduser='" . $data['idadmin'] . "'";
-
-		$this->db->query($sql);
-
-		return $this->db->affected_rows();
+		$input['phone'] = '62' . $input['phone'];
+		$sql = "UPDATE user SET nama_user='" . $input['nama'] . "', username='" . $input['username'] . "', gender='" . $input['gender'] . "', password=md5('".$input['password_register']."') , email='" . $input['email'] . "', tanggal_lahir='" . $input['birthdate'] . "', no_hp='" . $input['phone'] . "', alamat='" . $input['alamat'] . "' WHERE iduser=" . $input['id'];
+		return $this->db->query($sql);
 	}
 }

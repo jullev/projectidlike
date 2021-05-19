@@ -35,6 +35,15 @@
             <section class="content container">
                 <div class="row">
                     <div class="col-sm-12">
+                        <div id="alert_msg">
+                            <?php
+                            if ($this->session->flashdata('msg') !== null) {
+                            ?>
+                                <div class="alert alert-warning"><?php echo $this->session->flashdata('msg') ?></div>
+                            <?php
+                            }
+                            ?>
+                        </div>
                         <div class="card">
                             <div class="card-header">
                                 <span>
@@ -44,7 +53,7 @@
                                 </span>
                             </div>
                             <div class="card-body p-5 bg-light">
-                                <form action="updateadmin" method="POST">
+                                <form action="C_ManagementAdmin/updateAdmin" onsubmit=" return validation()" method="POST" id="admin_form">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Id Admin</label>
                                         <div class="col-sm-8">
@@ -98,9 +107,9 @@
                                         <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
                                         <div class="col-sm-8">
                                             <select class="custom-select" name="gender" id="gender" required>
-                                                <option value="#" <?php echo $this('gender') == '#' ? 'selected' : '' ?>>-- Jenis Kelamin --</option>
-                                                <option value="L" <?php echo $this('gender') == 'L' ? 'selected' : '' ?>>Laki - Laki</option>
-                                                <option value="P" <?php echo $this('gender') == 'P' ? 'selected' : '' ?>>Perempuan</option>
+                                                <!-- <option value="#">-- Jenis Kelamin --</option> -->
+                                                <option value="L" <?php echo @$detailuser->gender == "L" ? "select" : "" ?>>Laki - Laki</option>
+                                                <option value="P" <?php echo @$detailuser->gender == "P" ? "select" : "" ?>>Perempuan</option>
                                             </select>
                                         </div>
                                     </div>
@@ -111,7 +120,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">+62</span>
                                             </div>
-                                            <input type="text" class="form-control" name="phone"  pattern="[0-9]{11}" placeholder="8xxxxxxxxxxx" required value="<?php echo @$detailuser[0]->no_hp; ?>">
+                                            <input type="text" class="form-control" name="phone" pattern="[0-9]{11}" placeholder="8xxxxxxxxxxx" required value="<?php echo @$detailuser[0]->no_hp; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
