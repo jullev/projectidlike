@@ -168,8 +168,8 @@
             // Form Validation for gender, password
             const validation = () => {
                 const gender = document.forms["admin_form"]["gender"].value
-                const pwd = document.forms["register_form"]["password_register"].value
-                const pwd_confirm = document.forms["register_form"]["password_register_confirm"].value
+                const pwd = document.forms["admin_form"]["password_register"].value
+                const pwd_confirm = document.forms["admin_form"]["password_register_confirm"].value
 
 
                 // Jenis Kelamin

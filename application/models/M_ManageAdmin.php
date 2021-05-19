@@ -32,4 +32,13 @@ class M_ManageAdmin extends CI_Model
 		//		return $this->db->affected_rows();
 
 	}
+
+	public function update($data)
+	{
+		$sql = "UPDATE user SET nama_user='" . $data['name'] . "', username='" . $data['username'] . "', email=" . $data['email'] . ", gender=" . $data['gender'] . ", tanggal_lahir=" . $data['birthdate'] . ", alamat='" . $data['alamat'] . "', no_hp=" . $data['phone'] . "foto_profil=" . $data['picture'] . " WHERE iduser='" . $data['idadmin'] . "'";
+
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
+	}
 }

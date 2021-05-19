@@ -44,81 +44,63 @@
                                 </span>
                             </div>
                             <div class="card-body p-5 bg-light">
-								<form action="updateadmin" method="POST">
-									<div class="form-group row">
-										<label class="col-sm-3 col-form-label">Id Admin</label>
-										<div class="col-sm-8">
-											<input type="text" class="form-control" id="idadmin" placeholder="Tuliskan id admin anda" disabled="tru"
-												   value="<?php
-												   echo @$detailuser[0]->iduser;
-												   ?>">
-										</div>
-									</div>
+                                <form action="updateadmin" method="POST">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Id Admin</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="idadmin" id="idadmin" placeholder="Tuliskan id admin anda" disabled="tru" value="<?php echo @$detailuser[0]->iduser; ?>">
+                                        </div>
+                                    </div>
                                     <!-- nama -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Nama Lengkap</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="namaadmin" placeholder="Tuliskan Nama Lengkap Anda"
-											value="<?php
-											echo @$detailuser[0]->nama_user;
-											?>">
+                                            <input type="text" name="name" class="form-control" id="namaadmin" placeholder="Tuliskan Nama Lengkap Anda" value="<?php echo @$detailuser[0]->nama_user; ?>">
                                         </div>
                                     </div>
                                     <!-- username -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Username</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="useradmin" placeholder="Username"
-												   value="<?php
-												   echo @$detailuser[0]->username;
-												   ?>"
-											>
+                                            <input type="text" name="username" class="form-control" id="useradmin" placeholder="Username" value="<?php echo @$detailuser[0]->username; ?>">
                                         </div>
                                     </div>
                                     <!-- email -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Email</label>
                                         <div class="col-sm-8">
-                                            <input type="email" class="form-control" id="emailadmin" placeholder="Masukkan email anda" name="emailadmin"
-												   value="<?php
-												   echo @$detailuser[0]->email;
-												   ?>"
-											>
+                                            <input type="email" name="email" class="form-control" id="emailadmin" placeholder="Masukkan email anda" name="emailadmin" value="<?php echo @$detailuser[0]->email; ?>">
                                         </div>
                                     </div>
                                     <!-- password -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Password</label>
                                         <div class="col-sm-8">
-                                            <input type="password" class="form-control" id="passadmin" placeholder="password">
+                                            <input type="password" name="password_register" class="form-control" id="passadmin" placeholder="password">
                                         </div>
                                     </div>
                                     <!-- Konfirm Password -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Konfirmasi Password</label>
                                         <div class="col-sm-8">
-                                            <input type="password" class="form-control" id="passadmin" placeholder="konfirmasi password">
+                                            <input type="password" name="password_register_confirm" class="form-control" id="passadmin" placeholder="konfirmasi password">
                                         </div>
                                     </div>
                                     <!-- tanggal lahir -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Tanggal Lahir</label>
                                         <div class="col-sm-8">
-                                            <input type="date" class="form-control" id="lahir admin" name="lahiradmin"
-												   value="<?php
-												   echo @$detailuser[0]->tanggal_lahir;
-												   ?>"
-											>
+                                            <input type="date" name="birthdate" class="form-control" id="lahir admin" name="lahiradmin" value="<?php echo @$detailuser[0]->tanggal_lahir; ?>">
                                         </div>
                                     </div>
                                     <!-- Jenis Kelamin -->
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
                                         <div class="col-sm-8">
-                                            <select class="custom-select" id="gender" required>
-                                                <option selected>Jenis Kelamin</option>
-                                                <option value="Laki - Laki">Laki - Laki</option>
-                                                <option value="Perempuan">Perempuan</option>
+                                            <select class="custom-select" name="gender" id="gender" required>
+                                                <option value="#" <?php echo $this('gender') == '#' ? 'selected' : '' ?>>-- Jenis Kelamin --</option>
+                                                <option value="L" <?php echo $this('gender') == 'L' ? 'selected' : '' ?>>Laki - Laki</option>
+                                                <option value="P" <?php echo $this('gender') == 'P' ? 'selected' : '' ?>>Perempuan</option>
                                             </select>
                                         </div>
                                     </div>
@@ -129,10 +111,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">+62</span>
                                             </div>
-                                            <input type="text" class="form-control" name="phone" placeholder="Nomor Telepon" required
-												   value="<?php
-												   echo @$detailuser[0]->no_hp;
-												   ?>">
+                                            <input type="text" class="form-control" name="phone"  pattern="[0-9]{11}" placeholder="8xxxxxxxxxxx" required value="<?php echo @$detailuser[0]->no_hp; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -160,6 +139,38 @@
             </section>
             <!-- /.content -->
         </div>
+        <!-- confirm password -->
+        <script>
+            // Get id alert
+            const alert = document.getElementById("alert_msg")
+
+            // Form Validation for gender, password
+            const validation = () => {
+                const gender = document.forms["admin_form"]["gender"].value
+                const pwd = document.forms["admin_form"]["password_register"].value
+                const pwd_confirm = document.forms["admin_form"]["password_register_confirm"].value
+
+
+                // Jenis Kelamin
+                if (gender === "#") {
+                    alert.innerHTML = "<div class='alert alert-danger'>Mohon isi jenis kelamin anda</div>"
+                    return false
+                }
+
+                // Password
+                if (pwd !== pwd_confirm) {
+                    alert.innerHTML = "<div class='alert alert-danger'>Password tidak valid, harap ulangi lagi!</div>"
+                    return false
+                }
+
+
+            }
+
+            // Menghapus alert
+            const removeAlert = () => {
+                alert.innerHTML = ""
+            }
+        </script>
         <!-- /.content-wrapper -->
         <?php $this->load->view("admin/_partials/footer.php") ?>
 </body>
