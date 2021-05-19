@@ -43,6 +43,16 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 						foreach (@$dataIklan as $value) {
 						?>
 						</div>
+				<!-- Tipe form -->
+				<div class="form-group row">
+					<label for="judul" class="col-md-3 col-form-label">Id Kerjaan <sup
+								style="color:tomato">*</sup></label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" id="idkerjaan" name="idkerjaan" disabled
+							   value="<?php echo $value->idkerjaan; ?>" >
+
+					</div>
+				</div>
 						<!-- Tipe form -->
 						<div class="form-group row">
 							<label for="judul" class="col-md-3 col-form-label">Judul <sup
