@@ -19,8 +19,8 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 				</div>
 				<div class="card-body py-5 px-5">
 					<!-- form tambah list -->
-					<form action="<?php echo site_url('reportkerjaan') ?>" method="POST" onsubmit="return validation()"
-						  onclick="removeAlert()" name="insert-iklan">
+					<?php echo form_open("<?php echo site_url('reportkerjaan') ?>", array('enctype'=>'multipart/form-data')); ?>
+
 						<!-- Tampilkan alert -->
 						<div id="alert">
 							<?php
@@ -72,7 +72,7 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="deskripsi" class="col-md-3 col-form-label">Upload Gambar</label>
+							<label for="deskripsi" class="col-md-3 col-form-label">Upload bukti kerjaan</label>
 							<div class="col-md-9">
 								<div class="custom-file">
 									<input type="file" class="custom-file-input" id="inputGroupFile01"
@@ -82,39 +82,12 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 							</div>
 						</div>
 						
-						<!-- Tangga Lahir -->
-						<div class="form-group row">
-							<label for="birthdate" class="col-md-3 col-form-label">Deadline <sup
-									style="color: red;">*</sup></label>
-							<div class="col-md-9">
-								<div class="input-group">
-									<input type="date" class="form-control" id="deadline" name="deadline"
-										   min="<?php echo date('Y-m-d') ?>" required>
-								</div>
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="kota" class="col-md-3 col-form-label">Kota <sup
-									style="color: red;">*</sup></label>
-							<div class="col-md-9">
-								<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true"
-										required>
-									<option value="#">-- Pilih Kota/Kabupaten --</option>
-									<?php
-									foreach ($kabupaten as $kab) {
-										?>
-										<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
-										<?php
-									}
-									?>
-								</select>
-							</div>
-						</div>
+
 
 						<div class="form-group row">
 							<div class="col-md-9">
 								<input type="checkbox" id="verify" value="1" name="verify" required>
-								<small class="md-2"><strong>I want to register by submmiting this ad</strong></small>
+								<small class="md-2"><strong>Dengan ini saya menyatakan pekerjaan saya sudah selesai</strong></small>
 								<br>
 								<small>You will receive your authentication information by email.</small>
 							</div>
