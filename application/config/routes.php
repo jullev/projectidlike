@@ -79,6 +79,8 @@ $route['laporkerjaan/(:any)'] = "C_Iklan/reportkerjaan/$1";
 $route['dashboard'] = 'user/Overview/dashboard';
 $route['iklansaya'] = 'user/Overview/iklansaya';
 $route['hitproject'] = 'user/Overview/hitproject';
+$route['update-profile'] = 'C_ManagementUser/updateProfile';
+$route['update-password'] = 'C_ManagementUser/updatePassword';
 $route['menunggu-persetujuan'] = 'user/Overview/menunggupersetujuan';
 //iklan
 $route['tambahiklan'] = 'C_Iklan/tambahIklan';

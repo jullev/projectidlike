@@ -22,10 +22,9 @@
 						<!-- Nama dan Foto -->
 						<div class="col-md-10 col-lg-6 mx-md-auto mx-lg-0">
 							<img src="<?php
-							var_dump(@$datauser);
-							echo base_url('assets/image/users/') . $foto_profil ?>" alt=""
+							echo base_url('assets/image/users/') . @$datauser->foto_profil ?>" alt=""
 								 class="rounded-circle mr-3" style="width:48px;">
-							<strong>Akhmad Nur Hidayatulloh</strong>
+							<strong><?php echo $datauser->nama_user; ?></strong>
 						</div>
 						<div class="col-md-12 col-lg-6 mx-md-auto mx-lg-0 mt-3 mt-md-3 mt-lg-0 d-inline-flex">
 							<!-- Mail -->
@@ -93,6 +92,21 @@
 			<!-- Account Management -->
 			<div class="card">
 				<div class="card-body p-3 bg-light">
+					<!-- Alert -->
+					<?php
+					if ($this->session->userdata('status') !== null) {
+						?>
+						<div class="alert <?php echo $this->session->userdata('status') === 'success' ? 'alert-success' : 'alert-danger'; ?>"><?php echo $this->session->userdata('msg'); ?>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+
+						<?php
+						$arr = array('status', 'msg');
+						$this->session->unset_userdata($arr);
+					}
+					?>
 					<!-- Avatar -->
 					<div class="card mt-2">
 						<a href="#avatarCollapse" data-toggle="collapse" role="button" aria-expanded="false"
@@ -106,7 +120,7 @@
 								<div class="row">
 									<div class="col-md-12 text-center">
 										<div class="image">
-											<img src="<?php echo base_url('assets/image/users/') . $foto_profil ?>"
+											<img src="<?php echo base_url('assets/image/users/') . $datauser->foto_profil ?>"
 												 alt="" style="width: 200px; padding: 5px; border: solid 1px #ddd">
 										</div>
 									</div>
@@ -126,7 +140,7 @@
 						</a>
 						<div class="collapse show" id="accountCollapse">
 							<div class="card-body" style="padding: 45px;">
-								<form action="#" method="POST">
+								<form action="<?php echo site_url('update-profile') ?>" method="POST">
 									<div class="form-group row">
 										<label for="avatar" class="col-lg-3 col-form-label">Photo or Avatar</label>
 										<div class="col-lg-9">
@@ -142,7 +156,8 @@
 													style="color: tomato">*</sup></label>
 										<div class="col-lg-9">
 											<input type="text" name="nama" id="nama" placeholder="Nama Lengkap"
-												   class="form-control" value="<?php echo @$datauser->nama_user ?>" required>
+												   class="form-control" value="<?php echo @$datauser->nama_user ?>"
+												   required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -151,12 +166,12 @@
 										<div class="col-lg-9">
 											<div class="form-check form-check-inline">
 												<input type="radio" name="gender" id="gender1" class="form-check-input"
-													   value="L" <?php echo $gender == "L" ? "checked" : "" ?>>
+													   value="L" <?php echo @$datauser->gender == "L" ? "checked" : "" ?>>
 												<label for="gender1" class="form-check-label">Laki-Laki</label>
 											</div>
 											<div class="form-check form-check-inline">
 												<input type="radio" name="gender" id="gender2" class="form-check-input"
-													   value="P" <?php echo $gender == "P" ? "checked" : "" ?>>
+													   value="P" <?php echo @$datauser->gender == "P" ? "checked" : "" ?>>
 												<label for="gender2" class="form-check-label">Perempuan</label>
 											</div>
 										</div>
@@ -166,7 +181,7 @@
 													style="color: tomato">*</sup></label>
 										<div class="col-lg-9">
 											<input type="email" name="email" id="email" class="form-control"
-												   placeholder="Email" value="<?php echo $email ?>" required>
+												   placeholder="Email" value="<?php echo @$datauser->email ?>" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -174,7 +189,8 @@
 													style="color: tomato">*</sup></label>
 										<div class="col-lg-9">
 											<input type="date" name="birthdate" id="birthdate" class="form-control"
-												   placeholder="Tanggal Lahir" value="<?php echo $tanggal_lahir ?>"
+												   placeholder="Tanggal Lahir"
+												   value="<?php echo @$datauser->tanggal_lahir ?>"
 												   required>
 										</div>
 									</div>
@@ -187,7 +203,7 @@
 												<span class="input-group-text">+62</span>
 											</div>
 											<input type="tel" class="form-control" pattern="[0-9]{11}" name="phone"
-												   id="phone" value="<?php echo substr($no_hp, 2) ?>"
+												   id="phone" value="<?php echo substr(@$datauser->no_hp, 2) ?>"
 												   placeholder="8xxxxxxxxxx" maxlength="15" onfocus="removeAlert()"
 												   required>
 										</div>
@@ -197,7 +213,7 @@
 													style="color: tomato">*</sup></label>
 										<div class="col-lg-9">
 											<textarea name="alamat" id="alamat" class="form-control"
-													  rows="5"><?php echo $alamat ?></textarea>
+													  rows="5"><?php echo @$datauser->alamat ?></textarea>
 										</div>
 									</div>
 									<div class="row">
@@ -222,13 +238,14 @@
 						</a>
 						<div class="collapse show" id="settingCollapse">
 							<div class="card-body" style="padding: 45px;">
-								<form action="#" method="post">
+								<div id="pwdAlert"></div>
+								<form action="<?php echo site_url('update-password') ?>" method="POST" onsubmit="return pwdValidation()">
 									<div class="form-group row">
 										<label for="pwd" class="col-lg-3 col-form-label">Password Baru<sup
 													style="color: tomato">*</sup></label>
 										<div class="col-lg-9">
 											<input type="password" name="pwd" id="pwd" class="form-control"
-												   placeholder="Password" required>
+												   placeholder="Password" onfocus="removePwdAlert()" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -236,7 +253,7 @@
 													style="color: tomato">*</sup></label>
 										<div class="col-lg-9">
 											<input type="password" name="pwdC" id="pwdC" class="form-control"
-												   placeholder="Konfirmasi Password" required>
+												   placeholder="Konfirmasi Password" onfocus="removePwdAlert()" required>
 										</div>
 									</div>
 									<div class="row">
@@ -257,7 +274,21 @@
 	</div> <!-- Row -->
 </main> <!-- Container -->
 
+<script>
+	const alert = document.getElementById('pwdAlert')
+	const pwdValidation = () => {
+		const pwd = document.getElementById('pwd').value
+		const pwdC = document.getElementById('pwdC').value
 
+		if(pwd !== pwdC){
+			alert.innerHTML = "<div class='alert alert-danger'>Password tidak sesuai, ulangi lagi.</div>"
+			return false
+		}
+	}
+	const removePwdAlert = () => {
+		alert.innerHTML = ""
+	}
+</script>
 <!-- Footer -->
 <?php $this->load->view('user/_partials/footer.php') ?>
 </body>

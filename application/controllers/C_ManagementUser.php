@@ -7,19 +7,19 @@ class C_ManagementUser extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("m_managementuser");
+        $this->load->model("M_ManageUser");
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        $data["user"] = $this->m_managementuser->select_all_user();
+        $data["user"] = $this->M_ManageUser->select_all_user();
         $this->load->view("admin/tambahuser", $data);
     }
 
     public function add()
     {
-        $product = $this->m_managementuser;
+        $product = $this->M_ManageUser;
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
 
@@ -30,6 +30,34 @@ class C_ManagementUser extends CI_Controller
 
         $this->load->view("admin/tambahuser");
     }
+
+    public function updateProfile(){
+		$input = $this->input->post();
+		$input['id'] = $this->session->userdata('id');
+		$result = $this->M_ManageUser->updateProfile($input);
+		if($result > 0){
+			$this->session->set_userdata('status', 'success');
+			$this->session->set_userdata('msg', 'Data berhasil diperbarui.');
+		}else{
+			$this->session->set_userdata('status', 'error');
+			$this->session->set_userdata('msg', 'Periksa kembali data anda.');
+		}
+		redirect("dashboard", "refresh");
+
+	}
+	public function updatePassword(){
+		$input = $this->input->post();
+		$input['id'] = $this->session->userdata('id');
+		$result = $this->M_ManageUser->updatePassword($input);
+		if($result > 0){
+			$this->session->set_userdata('status', 'success');
+			$this->session->set_userdata('msg', 'Password berhasil diperbarui.');
+		}else{
+			$this->session->set_userdata('status', 'error');
+			$this->session->set_userdata('msg', 'Periksa kembali data anda.');
+		}
+		redirect("dashboard");
+	}
 
     // public function edit($id = null)
     // {

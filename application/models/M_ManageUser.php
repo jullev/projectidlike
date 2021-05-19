@@ -32,4 +32,13 @@ class M_ManageUser extends CI_Model
 
 		return $this->db->affected_rows();
 	}
+	public function updateProfile($input){
+		$input['phone'] = '62'.$input['phone'];
+		$sql = "UPDATE user SET nama_user='".$input['nama']."', gender='".$input['gender']."', email='".$input['email']."', tanggal_lahir='".$input['birthdate']."', no_hp='".$input['phone']."', alamat='".$input['alamat']."' WHERE iduser=".$input['id'];
+		return $this->db->query($sql);
+	}
+	public function updatePassword($input){
+		$sql = "UPDATE user SET password=md5('".$input['pwd']."') WHERE iduser=".$input['id'];
+		return $this->db->query($sql);
+	}
 }
