@@ -48,9 +48,9 @@
                                         <td class="text-center"><?php echo $value->deadline ?></td>
 										<?php
                                         if($value->status=="hit baru"){ ?>
-											<td class="text-center"><span class="btn list-group-item-info">Menunggu</span></td>
+											<td class="text-center"><span class="btn list-group-item-info" style="pointer-events: none;">Menunggu</span></td>
 										<?php } else{ ?>
-											<td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
+											<td class="text-center"><span class="btn list-group-item-success" style="pointer-events: none;">Disetujui</span></td>
 										<?php }
                                         ?>
                                         <td class="text-center">

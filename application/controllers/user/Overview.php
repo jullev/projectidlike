@@ -92,4 +92,9 @@ class Overview extends CI_Controller
 		$data['iklan'] = $this->M_TambahIklan->getIklan();
 		$this->load->view('user/tambahiklan', $data);
 	}
+
+	public function lupapassword()
+	{
+		$this->load->view('user/lupapassword');
+	}
 }

@@ -37,9 +37,12 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="card">
+						<div class="card-header">
+							<h3><strong>Semua Iklan</strong></h3>
+						</div>
 						<div class="card-body">
-							<section class="content">
-								<table class="table table">
+							<div id="adsAll_wrapper">
+								<table class="table table-striped" id="adsAll">
 									<thead class="thead-dark">
 									<tr>
 										<th scope="col">No.</th>
@@ -95,12 +98,12 @@
 
 										</tr>
 										<?php
-//					$total_dana+=$value->total;
+									//$total_dana+=$value->total;
 									}
 									?>
 									</tbody>
 								</table>
-							</section>
+							</div>
 						</div>
 						<!-- /.content -->
 					</div>
@@ -109,7 +112,21 @@
 		</section>
 		<!-- /.content-wrapper -->
 	</div>
+
+	<!-- Footer -->
 	<?php $this->load->view("admin/_partials/footer.php") ?>
+
+	<!-- JS -->
+	<script>
+		$(function() {
+            $("#adsAll").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                //"buttons": [ "excel", "pdf", "print"]
+            }).buttons().container().appendTo('#adsAll_wrapper .col-md-6:eq(0)');
+        });
+	</script>
 </body>
 
 </html>

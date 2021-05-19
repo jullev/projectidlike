@@ -70,6 +70,7 @@ $route['admintambah'] = 'C_ManagementAdmin/TambahAdmin';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
 $route['login'] = 'C_Register/loginData';
 $route['logout'] = 'C_Register/logout';
+$route['lupa-password'] = 'user/Overview/lupapassword';
 $route['userlist'] = 'C_Overview/userlist';
 $route['searchtest'] = 'C_Overview/searchtest';
 $route['detail/(:any)'] = "user/Overview/detail_iklan/$1";

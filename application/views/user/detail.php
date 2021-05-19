@@ -71,12 +71,30 @@
 							<?php echo $value->deskripsi; ?>
 							<!-- Tombol -->
 							<div class="row text-center mt-5 mb-2">
+								<!-- Tombol Whatsapp -->
 								<div class="col-sm-12 col-md-4">
 									<button class="btn btn-outline-success btn-lg"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
 								</div>
+								<!-- Tombol Whatsapp End -->
+								<!-- Tombol Hit -->
 								<div class="col-sm-12 col-md-4 mt-3 mt-md-0">
-									<button class="btn btn-outline-warning btn-lg"><i class="bi-hand-index-thumb-fill mr-1"></i> Hit</button>
+									<?php //var_dump(@$cekhit);
+									if(!@$cekhit){
+									?>
+									<button class="btn btn-outline-warning btn-lg">
+										<i class="bi-hand-index-thumb-fill mr-1"></i> Hit
+									</button>
+									<?php
+									}
+									else {
+										?>
+										<span class="btn list-group-item-success btn-lg" style="pointer-events: none;">
+											<i class="bi-check-circle mr-1"></i> Sudah Anda Hit
+										</span>
+									<?php	}
+									?>
 								</div>
+								<!-- Tombol Hit End -->
 								<div class="col-sm-12 col-md-4 mt-3 mt-md-0">
 									<button class="btn btn-outline-info btn-lg"><i class="bi-info-circle-fill mr-1"></i> Laporkan Iklan</button>
 								</div>
@@ -136,19 +154,26 @@
 							<!-- Lokasi & Penawaran End -->
 							<!-- Button -->
 							<li class="list-group-item">
+								<!-- Hit Button -->
 								<?php //var_dump(@$cekhit);
 								if(!@$cekhit){
 								?>
-								<button class="btn btn-warning btn-block" onclick="window.location='<?php echo site_url("hitiklan/$value->idkerjaan");?>'"><i class="bi-hand-index-thumb-fill mr-1"></i> Hit</button>
-								<button class="btn btn-success btn-block"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
+									<button class="btn btn-warning btn-block" onclick="window.location='<?php echo site_url("hitiklan/$value->idkerjaan");?>'">
+										<i class="bi-hand-index-thumb-fill mr-1"></i> Hit
+									</button>
 								<?php
 								}
 								else{
 									?>
-									<button class="btn btn-danger btn-block"><i class="fa fa-times-circle"></i> Sudah Anda Hit</button>
-									<button class="btn btn-success btn-block"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
+									<span class="btn list-group-item-success btn-block" style="pointer-events: none;">
+										<i class="bi-check-circle mr-1"></i> Sudah Anda Hit
+									</span>
 								<?php	}
 								?>
+								<!-- Hit Button End -->
+								<!-- Whatsapp Button -->
+								<button class="btn btn-success btn-block"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
+								<!-- Whatsapp Button End -->
 							</li>
 							<!-- Button End -->
 						</ul> <!-- UL End -->
