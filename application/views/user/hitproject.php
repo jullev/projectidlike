@@ -36,7 +36,7 @@
                                 </thead>
                                 <tbody>
 								<?php
-								//				var_dump(@$kegiatan);
+//												var_dump(@$dataIklan);
 								$count=0;
 								foreach (@$dataIklan as $value) {
 									$count++;
@@ -54,9 +54,17 @@
 										<?php }
                                         ?>
                                         <td class="text-center">
+											<div class="col-xs-6">
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#cancel" data-tooltip="tooltip" data-placement="bottom" title="Batalkan">
                                                 <i class="bi-x"></i>
-                                            </button>
+											</button>
+											</div>
+											<div class="col-xs-6">
+												<button class="btn btn-info"  title="Lapor Selesai" onclick="window.location='<?php echo site_url("laporkerjaan/$value->idkerjaan");?>'">
+													<i class="bi-check-all"></i>
+												</button>
+											</div>
+
                                         </td>
                                     </tr>
 								<?php } ?>

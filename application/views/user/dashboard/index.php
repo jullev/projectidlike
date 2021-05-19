@@ -21,7 +21,9 @@
 					<div class="row align-items-center">
 						<!-- Nama dan Foto -->
 						<div class="col-md-10 col-lg-6 mx-md-auto mx-lg-0">
-							<img src="<?php echo base_url('assets/image/users/') . $foto_profil ?>" alt=""
+							<img src="<?php
+							var_dump(@$datauser);
+							echo base_url('assets/image/users/') . $foto_profil ?>" alt=""
 								 class="rounded-circle mr-3" style="width:48px;">
 							<strong>Akhmad Nur Hidayatulloh</strong>
 						</div>
@@ -140,7 +142,7 @@
 													style="color: tomato">*</sup></label>
 										<div class="col-lg-9">
 											<input type="text" name="nama" id="nama" placeholder="Nama Lengkap"
-												   class="form-control" value="<?php echo $nama_user ?>" required>
+												   class="form-control" value="<?php echo @$datauser->nama_user ?>" required>
 										</div>
 									</div>
 									<div class="form-group row">

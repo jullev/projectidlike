@@ -23,6 +23,13 @@ class C_Iklan extends CI_Controller
 		var_dump($data);
 		$this->load->view('admin/iklanbaru',$data);
 	}
+	public function reportkerjaan()
+	{
+		$id =  $this->uri->segment(2);
+		$data['dataIklan'] = $this->M_Iklan->select_iklan($id);
+		var_dump($data);
+		$this->load->view('user/reportkerjaan',$data);
+	}
 	public function index_pengajuan_diterima()
 	{
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
@@ -86,6 +93,16 @@ class C_Iklan extends CI_Controller
 	public function simpanIklan(){
 		$input = $this->input->post();
 		$result = $this->M_Iklan->saveIklan($input);
+		if($result > 0){
+			redirect('tambahiklan?msg=success');
+		}else{
+			redirect('tambahiklan?msg=error');
+		}
+	}
+
+	public function reportIklan(){
+		$input = $this->input->post();
+		$result = $this->M_Iklan->reportKerjaan($input);
 		if($result > 0){
 			redirect('tambahiklan?msg=success');
 		}else{

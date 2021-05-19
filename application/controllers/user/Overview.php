@@ -28,7 +28,7 @@ class Overview extends CI_Controller
 
 	public function dashboard()
 	{
-		$data = $this->M_ManageUser->select_user_id($this->session->userdata('id'));
+		$data['datauser'] = $this->M_ManageUser->select_user_id($this->session->userdata('id'));
 		$this->load->view("user/dashboard/index", $data);
 	}
 

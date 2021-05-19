@@ -73,6 +73,7 @@ $route['logout'] = 'C_Register/logout';
 $route['userlist'] = 'C_Overview/userlist';
 $route['searchtest'] = 'C_Overview/searchtest';
 $route['detail/(:any)'] = "user/Overview/detail_iklan/$1";
+$route['laporkerjaan/(:any)'] = "C_Iklan/reportkerjaan/$1";
 //user has login
 $route['dashboard'] = 'user/Overview/dashboard';
 $route['iklansaya'] = 'user/Overview/iklansaya';
@@ -81,6 +82,7 @@ $route['menunggu-persetujuan'] = 'user/Overview/menunggupersetujuan';
 //iklan
 $route['tambahiklan'] = 'C_Iklan/tambahIklan';
 $route['simpaniklan'] = 'C_Iklan/simpanIklan';
+$route['reportkerjaan'] = 'C_Iklan/reportIklan';
 $route['iklanbaru'] = 'C_Iklan/index_pengajuan';
 $route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';
 $route['semuaiklan'] = 'C_Iklan/tampil';
