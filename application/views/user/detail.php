@@ -37,17 +37,51 @@
 						<hr>
 						<span class="text-muted small">
 							<i class="bi-clock mr-1"></i> 1 Minggu yang lalu
-							- Kategori
-							- <i class="bi-geo-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten; ?>
-							- <i class="bi-eye ml-1 mr-1"></i> 50x dilihat
+							- <i class="bi-grid mx-1"></i> Kategori
+							- <i class="bi-geo-alt mx-1"></i> <?php echo $value->nama_kabupaten; ?>
+							- <i class="bi-eye mx-1"></i> 50x dilihat
 						</span>
+						<div class="mt-2">
+							<button id="previmg" class="previmg btn btn-primary"><i class="bi-arrow-left"></i> Prev</button>
+							<button id="nextimg" class="nextimg btn btn-primary">Next <i class="bi-arrow-right"></i></button>
+						</div>
 						<center>
-							<img src="https://placeimg.com/640/480/arch" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
-							<ul class="list-inline">
-								<img src="https://placeimg.com/640/480/arch" alt="Ini foto 1" title="ini foto 1" style="width: 15%;">
-								<img src="https://placeimg.com/640/480/arch" alt="Ini foto 1" title="ini foto 1" style="width: 15%;">
-								<img src="https://placeimg.com/640/480/arch" alt="Ini foto 1" title="ini foto 1" style="width: 15%;">
-								<img src="https://placeimg.com/640/480/arch" alt="Ini foto 1" title="ini foto 1" style="width: 15%;">
+							<div class="tab-content" id="pills-tabContent">
+								<div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+									<img src="https://placeimg.com/640/480/arch" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
+								</div>
+								<div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+									<img src="https://placeimg.com/640/480/people" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
+								</div>
+								<div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
+									<img src="https://placeimg.com/640/480/tech" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
+								</div>
+								<div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">
+									<img src="https://placeimg.com/640/480/animals" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
+								</div>
+							</div>
+							
+							<ul class="nav nav-pills mt-3" id="pills-tab" role="tablist">
+								<li class="nav-item" role="presentation">
+									<a class="nav-link active" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">
+										<img src="https://placeimg.com/640/480/arch" alt="Ini foto 1" title="ini foto 1" style="width: 15%;">
+									</a>
+								</li>
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="false">
+										<img src="https://placeimg.com/640/480/people" alt="Ini foto 2" title="ini foto 2" style="width: 15%;">
+									</a>
+								</li>
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-selected="false">
+										<img src="https://placeimg.com/640/480/tech" alt="Ini foto 3" title="ini foto 3" style="width: 15%;">
+									</a>
+								</li>
+								<li class="nav-item" role="presentation">
+									<a class="nav-link" id="pills-4-tab" data-toggle="pill" href="#pills-4" role="tab" aria-controls="pills-4" aria-selected="false">
+										<img src="https://placeimg.com/640/480/animals" alt="Ini foto 4" title="ini foto 4" style="width: 15%;">
+									</a>
+								</li>
 							</ul>
 						</center>
 						<!-- Detail -->
@@ -187,5 +221,46 @@
 
 	<!-- Footer -->
 	<?php $this->load->view('user/_partials/footer.php'); ?>
+	<!-- JS -->
+	<script>
+		function btnNextPrev(){
+            var i, items = $('.nav-link'), pane = $('.tab-pane');
+            // next
+            $('.nextimg').on('click', function(){
+                for(i = 0; i < items.length; i++){
+                    if($(items[i]).hasClass('active') == true){
+                        break;
+                    }
+                }
+                if(i < items.length - 1){
+                    // for tab
+                    $(items[i]).removeClass('active');
+                    $(items[i+1]).addClass('active');
+                    // for pane
+                    $(pane[i]).removeClass('show active');
+                    $(pane[i+1]).addClass('show active');
+                }
+
+            });
+            // Prev
+            $('.previmg').on('click', function(){
+                for(i = 0; i < items.length; i++){
+                    if($(items[i]).hasClass('active') == true){
+                        break;
+                    }
+                }
+                if(i != 0){
+                    // for tab
+                    $(items[i]).removeClass('active');
+                    $(items[i-1]).addClass('active');
+                    // for pane
+                    $(pane[i]).removeClass('show active');
+                    $(pane[i-1]).addClass('show active');
+                }
+            });
+			console.log(items);
+        }
+        btnNextPrev();
+	</script>
 </body>
 </html>
