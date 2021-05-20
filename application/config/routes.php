@@ -66,7 +66,8 @@ $route['deleteuser'] = 'C_Register/delete';
 $route['deleteadmin'] = 'C_Register/deleteAdmin';
 $route['admin/detailuser'] = 'C_Overview/detailuser';
 $route['admintambah'] = 'C_ManagementAdmin/TambahAdmin';
-$route['updateadmin'] = 'C_Overview/updateadmin';
+$route['updateadminproses'] = 'C_ManagementAdmin/updateAdmin';
+// $route['updateadmin'] = 'C_Overview/updateadmin';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
 $route['updateadmin'] = 'C_ManagementAdmin/updateAdmin';
 $route['login'] = 'C_Register/loginData';
@@ -76,6 +77,7 @@ $route['userlist'] = 'C_Overview/userlist';
 $route['searchtest'] = 'C_Overview/searchtest';
 $route['detail/(:any)'] = "user/Overview/detail_iklan/$1";
 $route['laporkerjaan/(:any)'] = "C_Iklan/reportkerjaan/$1";
+$route['setkategori'] = "C_Overview/setKategori";
 //user has login
 $route['dashboard'] = 'user/Overview/dashboard';
 $route['iklansaya'] = 'user/Overview/iklansaya';
@@ -97,4 +99,3 @@ $route['hitiklan/(:any)'] = 'user/Overview/hit_iklan/$1';
 //terima iklan $1 id hitter $2
 $route['terimahitter/(:any)'] = 'C_Iklan/terimahitter/$1';
 $route['tolakhit/(:any)'] = 'C_Iklan/tolakhitter/$1';
-

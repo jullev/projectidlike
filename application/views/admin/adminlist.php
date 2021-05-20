@@ -75,8 +75,8 @@
 												<tr>
 													<td><?php echo $value->iduser ?></td>
 													<td><?php echo $value->nama_user ?></td>
-													<td><?php echo $value->email ?>
-													<td><?php echo $value->no_hp ?>
+													<td><?php echo $value->email ?> </td>
+													<td><?php echo $value->no_hp ?> </td>
 													<td>
 														<a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-primary mr-2" data-tooltip="tooltip" data-placement="bottom" title="Edit">
 															<i class="bi bi-pencil-square"></i>

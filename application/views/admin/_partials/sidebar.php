@@ -5,122 +5,148 @@
 		<span class="brand-text font-weight-light"><strong>TEMANTUMBUH</strong></span>
 	</a>
 	<?php
-//		var_dump(@$allcount);
-	 foreach (@$allcount as $value) {
+	//		var_dump(@$allcount);
+	foreach (@$allcount as $value) {
 	?>
 
-	<!-- Sidebar -->
-	<div class="sidebar">
-		<!-- Sidebar Menu -->
-		<nav class="mt-2">
-			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-				<!-- Sidebar Administrator -->
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						<i class="nav-icon bi bi-person-lines-fill align-middle"></i>
-						<p>
-							Administrator
-							<i class="right fas fa-angle-left"></i>
-						</p>
-					</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?php echo site_url('adminlist') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Management Admin</p>
-							</a>
-						</li>
-						<li class="nav-item menu-open">
-							<a href="<?php echo site_url('tambahadmin') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Tambah Admin</p>
-							</a>
-						</li>
-					</ul>
-				</li>
-				<!-- End Sidebar Administrator -->
-				<!-- Sidebar Management User-->
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						<i class="bi bi-people-fill nav-icon"></i>
-						<p>
-							User
-							<i class="right fas fa-angle-left"></i>
-						</p>
-					</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?php echo site_url('userlist') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Management User</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo site_url('tambahuser') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Tambah User</p>
-							</a>
-						</li>
-					</ul>
-				</li>
-				<!-- End Sidebar Management User-->
-				<!-- Sidebar Management Iklan -->
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						<i class="nav-icon bi-chat-right-text-fill align-middle"></i>
-						<p>
-							Iklan
-							<i class="right fas fa-angle-left"></i>
-						</p>
-					</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="<?php echo site_url('iklanbaru') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Pengajuan
-									<span class="right badge badge-info"><?php echo $value->pengajuan_baru; ?></span>
-								</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo site_url('iklandisetujui') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Disetujui
-									<span class="right badge badge-success"><?php echo $value->disetujui; ?></span>
-								</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo site_url('') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Dibatalkan
-									 <span class="right badge badge-danger"><?php echo $value->ditolak; ?></span>
-								</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Semua</p>
-								 <span class="right badge badge-success"><?php echo $value->total_kerjaan; ?></span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Selesai</p>
-								<span class="right badge badge-info"><?php echo $value->total_kerjaan; ?></span>
-							</a>
-						</li>
-					</ul>
-				</li>
-				<!-- End Sidebar Management Iklan -->
-			</ul>
-		</nav>
-		<!-- /.sidebar-menu -->
-	</div>
-	<!-- /.sidebar -->
-<!--	--><?php
-	 }
-//	?>
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<!-- Sidebar Menu -->
+			<nav class="mt-2">
+				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+					<!-- Sidebar Administrator -->
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="nav-icon bi bi-person-lines-fill align-middle"></i>
+							<p>
+								Administrator
+								<i class="right fas fa-angle-left"></i>
+							</p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="<?php echo site_url('adminlist') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Management Admin</p>
+								</a>
+							</li>
+							<li class="nav-item menu-open">
+								<a href="<?php echo site_url('tambahadmin') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Tambah Admin</p>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- End Sidebar Administrator -->
+					<!-- Sidebar Management User-->
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="bi bi-people-fill nav-icon"></i>
+							<p>
+								User
+								<i class="right fas fa-angle-left"></i>
+							</p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="<?php echo site_url('userlist') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Management User</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url('tambahuser') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Tambah User</p>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- End Sidebar Management User-->
+					<!-- Master Admin -->
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="bi bi-gear-fill nav-icon"></i>
+							<p>
+								Master Administrator
+								<i class="right fas fa-angle-left"></i>
+							</p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="<?php echo site_url('userlist') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Pengaturan Katagori</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url('tambahuser') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Pengaturan Wilayah</p>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- End Master Admin -->
+					<!-- Sidebar Management Iklan -->
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="nav-icon bi-chat-right-text-fill align-middle"></i>
+							<p>
+								Iklan
+								<i class="right fas fa-angle-left"></i>
+							</p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<a href="<?php echo site_url('iklanbaru') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Pengajuan
+										<span class="right badge badge-info"><?php echo $value->pengajuan_baru; ?></span>
+									</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url('iklandisetujui') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Disetujui
+										<span class="right badge badge-success"><?php echo $value->disetujui; ?></span>
+									</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url('') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Dibatalkan
+										<span class="right badge badge-danger"><?php echo $value->ditolak; ?></span>
+									</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Semua</p>
+									<span class="right badge badge-success"><?php echo $value->total_kerjaan; ?></span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Selesai</p>
+									<span class="right badge badge-info"><?php echo $value->total_kerjaan; ?></span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- End Sidebar Management Iklan -->
+				</ul>
+			</nav>
+			<!-- /.sidebar-menu -->
+		</div>
+		<!-- /.sidebar -->
+		<!--	--><?php
+				}
+				//	
+					?>
 </aside>
