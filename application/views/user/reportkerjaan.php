@@ -37,9 +37,9 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 							}
 							?>
 						</div>
-						<?php var_dump(@$dataIklan);
+						<?php
 						$judul = @$dataIklan->judul_kerjaan;
-						var_dump($judul);
+//						var_dump($judul);
 						foreach (@$dataIklan as $value) {
 						?>
 						</div>
