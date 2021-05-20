@@ -5,8 +5,8 @@
 		<span class="brand-text font-weight-light"><strong>TEMANTUMBUH</strong></span>
 	</a>
 	<?php
-	//	var_dump(@$allcount);
-	// foreach (@$allcount as $value) { 
+//		var_dump(@$allcount);
+	 foreach (@$allcount as $value) {
 	?>
 
 	<!-- Sidebar -->
@@ -86,7 +86,7 @@
 							<a href="<?php echo site_url('iklandisetujui') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Disetujui
-									<!-- <span class="right badge badge-success"><?php echo $value->disetujui; ?></span> -->
+									<span class="right badge badge-success"><?php echo $value->disetujui; ?></span>
 								</p>
 							</a>
 						</li>
@@ -94,7 +94,7 @@
 							<a href="<?php echo site_url('') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Dibatalkan
-									<!-- <span class="right badge badge-danger"><?php echo $value->ditolak; ?></span> -->
+									 <span class="right badge badge-danger"><?php echo $value->ditolak; ?></span>
 								</p>
 							</a>
 						</li>
@@ -102,7 +102,14 @@
 							<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Semua</p>
-								<!-- <span class="right badge badge-success"><?php echo $value->total_kerjaan; ?></span> -->
+								 <span class="right badge badge-success"><?php echo $value->total_kerjaan; ?></span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Selesai</p>
+								<span class="right badge badge-info"><?php echo $value->total_kerjaan; ?></span>
 							</a>
 						</li>
 					</ul>
@@ -113,7 +120,7 @@
 		<!-- /.sidebar-menu -->
 	</div>
 	<!-- /.sidebar -->
-	<?php
-	// }
-	?>
+<!--	--><?php
+	 }
+//	?>
 </aside>

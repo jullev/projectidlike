@@ -19,6 +19,7 @@ class C_Iklan extends CI_Controller
 	}
 	public function index_pengajuan()
 	{
+		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_baru();
 		var_dump($data);
 		$this->load->view('admin/iklanbaru',$data);
@@ -26,21 +27,23 @@ class C_Iklan extends CI_Controller
 	public function reportkerjaan()
 	{
 		$id =  $this->uri->segment(2);
-
+		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['dataIklan'] = $this->M_Iklan->select_iklan($id);
-		var_dump($data);
+//		var_dump($data);
 		$this->load->view('user/reportkerjaan',$data);
 	}
 	public function index_pengajuan_diterima()
 	{
+		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
-		var_dump($data);
+//		var_dump($data);
 		$this->load->view('admin/iklandisetujui',$data);
 	}
 	public function terimaiklan()
 	{
 		$id =  $this->uri->segment(2);
 //  	var_dump("data ",$id);
+		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['detailuser']=$this->M_Iklan->terima_iklan($id);
 //  	var_dump($data);
 		$this->load->view('admin/editadmin',$data);
@@ -49,12 +52,14 @@ class C_Iklan extends CI_Controller
 	public function tampil()
 	{
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan();
+		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$this->load->view('admin/semuaiklan', $data);
 	}
 	public function detailhit()
 	{
 		$id =  $this->uri->segment(2);
 //  	var_dump("data ",$id);
+		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['detailhit']=$this->M_Iklan->select_hit_periklan($id);
 //  	var_dump($data);
 		$this->load->view('admin/detailhit',$data);
@@ -63,6 +68,7 @@ class C_Iklan extends CI_Controller
 	{
 		$id =  $this->uri->segment(2);
 //  	var_dump("data ",$id);
+		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['detailhit']=$this->M_Iklan->tolak_hit($id);
 //  	var_dump($data);
 		$this->load->view('admin/detailhit',$data);
@@ -71,6 +77,7 @@ class C_Iklan extends CI_Controller
 	{
 		$id =  $this->uri->segment(2);
 //  	var_dump("data ",$id);
+		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['terimahit']=$this->M_Iklan->terima_hit($id);
 		$data['detailhit']=$this->M_Iklan->select_hit_periklan($id);
 //  	var_dump($data);
