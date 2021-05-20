@@ -32,7 +32,7 @@ class C_Register extends CI_Controller
 		//		print_r( $this->session->userdata('role'));
 
 		if ($this->session->userdata('role') == 1) {
-			$this->load->view('admin/overview');
+			redirect('admin', 'refresh');
 		} else if ($this->session->userdata('role') == 2) {
 //			$this->load->view('user/dashboard/index');
 			redirect('dashboard', 'refresh');

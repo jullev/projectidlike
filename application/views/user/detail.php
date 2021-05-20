@@ -31,7 +31,7 @@
 				<div class="card">
 					<div class="card-body bg-light">
 						<?php
-						var_dump(@$dataIklan);
+//						var_dump(@$dataIklan);
 						foreach (@$dataIklan as $value) { ?>
 						<h3><?php echo $value->judul_kerjaan; ?></h3>
 						<hr>
