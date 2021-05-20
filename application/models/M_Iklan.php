@@ -134,7 +134,7 @@ class M_Iklan extends CI_Model
 	}
 	public function reportKerjaan($data)
 	{
-		$sql = "INSERT INTO report_kerjaan(id_user,id_kerjaan,detail,bukti,tgl_selesai) VALUES('".$this->session->userdata('id')."' ,'".$data['judul']."', '".$data['contents']."',' ', CURRENT_DATE(), '".$data['deadline']."', '".$data['kategori']."','".$data['kota']."','".$data['harga']."','menunggu')";
+		$sql = "INSERT INTO report_kerjaan(id_user,id_kerjaan,detail,bukti,tgl_selesai) VALUES('".$this->session->userdata('id')."' ,'".$data['idkerjaan']."', '".$data['contents']."',' ".$data['deadline']."', CURRENT_DATE())";
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();

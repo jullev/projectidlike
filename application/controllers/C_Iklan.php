@@ -26,6 +26,7 @@ class C_Iklan extends CI_Controller
 	public function reportkerjaan()
 	{
 		$id =  $this->uri->segment(2);
+
 		$data['dataIklan'] = $this->M_Iklan->select_iklan($id);
 		var_dump($data);
 		$this->load->view('user/reportkerjaan',$data);
@@ -101,13 +102,34 @@ class C_Iklan extends CI_Controller
 	}
 
 	public function reportIklan(){
-		$input = $this->input->post();
-		$result = $this->M_Iklan->reportKerjaan($input);
-		if($result > 0){
-			redirect('tambahiklan?msg=success');
+		$config['upload_path'] = '/assets/image/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('userfile')){
+			// If the upload fails
+			echo $this->upload->display_errors('<p>', '</p>');
 		}else{
-			redirect('tambahiklan?msg=error');
+			// Pass the full path and post data to the set_newstudent model
+			$image_path = $this->upload->data();
+			$data = array(
+				'id_report'                => $this->input->post('hotelname'),
+				'id_user'        => $this->session->userdata('id'),
+				'id_kerjaan'             => $this->input->post('idkerjaan'),
+				'detail'             => $this->input->post('contents'),
+				'bukti'      =>    $image_path[full_path],
+				'tgl_selesai'              => CURRENT_DATE()
+			);
+			print_r($data);
+			$result = $this->db->insert('report_kerjaan', $data);
+			if($result > 0){
+//				redirect('tambahiklan?msg=success');
+			}else{
+//				redirect('tambahiklan?msg=error');
+			}
 		}
+
+
 	}
 	public function loginData()
 	{
