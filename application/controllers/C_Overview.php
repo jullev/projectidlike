@@ -108,7 +108,7 @@ class C_Overview extends CI_Controller
     $id =  $this->uri->segment(2);
     //  	var_dump("data ",$id);
     $data['detailuser'] = $this->M_ManageAdmin->select_admin_id($id);
-	  $data['allcount'] = $this->M_Iklan->show_allcount();
+    $data['allcount'] = $this->M_Iklan->show_allcount();
     //  	var_dump($data);
     $this->load->view('admin/editadmin', $data);
   }
@@ -118,20 +118,27 @@ class C_Overview extends CI_Controller
   }
   public function searchtest()
   {
-	  $data['allcount'] = $this->M_Iklan->show_allcount();
-    $this->load->view('admin/searchtest',$data);
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/searchtest', $data);
   }
   public function tambahuser()
   {
-	  $data['allcount'] = $this->M_Iklan->show_allcount();
-    $this->load->view('admin/tambahuser',$data);
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/tambahuser', $data);
   }
+
+  public function updateadmin()
+  {
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/editadmin', $data);
+  }
+
   public function detailuser()
   {
     $input = $this->input->get();
     $id = $input['id'];
     $data = $this->M_ManageUser->select_user_id($id);
-	  $data['allcount'] = $this->M_Iklan->show_allcount();
+    $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/detailuser', $data);
   }
 }

@@ -57,7 +57,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Id Admin</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="idadmin" id="idadmin" placeholder="Tuliskan id admin anda" disabled="tru" value="<?php echo @$detailuser[0]->iduser; ?>">
+                                            <input type="text" class="form-control" name="id" id="idadmin" placeholder="Tuliskan id admin anda" disabled="tru" value="<?php echo @$detailuser[0]->iduser; ?>">
                                         </div>
                                     </div>
                                     <!-- nama -->
