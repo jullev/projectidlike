@@ -75,13 +75,13 @@
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<a href="<?php echo site_url('userlist') ?>" class="nav-link">
+								<a href="<?php echo site_url('setkategori') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
 									<p>Pengaturan Katagori</p>
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="<?php echo site_url('tambahuser') ?>" class="nav-link">
+								<a href="<?php echo site_url('') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
 									<p>Pengaturan Wilayah</p>
 								</a>
@@ -124,17 +124,17 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
+								<a href="<?php echo site_url('') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
-									<p>Semua</p>
-									<span class="right badge badge-success"><?php echo $value->total_kerjaan; ?></span>
+									<p>Selesai</p>
+									<span class="right badge badge-primary"><?php echo $value->total_kerjaan; ?></span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
-									<p>Selesai</p>
-									<span class="right badge badge-info"><?php echo $value->total_kerjaan; ?></span>
+									<p>Semua</p>
+									<span class="right badge badge-secondary"><?php echo $value->total_kerjaan; ?></span>
 								</a>
 							</li>
 						</ul>

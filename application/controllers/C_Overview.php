@@ -154,4 +154,12 @@ class C_Overview extends CI_Controller
     $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/setkategori', $data);
   }
+  public function tambahKategori()
+  {
+    $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/tambahkategori', $data);
+  }
 }
+
+

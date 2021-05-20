@@ -78,6 +78,7 @@ $route['searchtest'] = 'C_Overview/searchtest';
 $route['detail/(:any)'] = "user/Overview/detail_iklan/$1";
 $route['laporkerjaan/(:any)'] = "C_Iklan/reportkerjaan/$1";
 $route['setkategori'] = "C_Overview/setKategori";
+$route['tambahkategori'] = "C_Overview/tambahKategori";
 //user has login
 $route['dashboard'] = 'user/Overview/dashboard';
 $route['iklansaya'] = 'user/Overview/iklansaya';

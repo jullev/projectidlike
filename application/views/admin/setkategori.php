@@ -23,7 +23,8 @@
                                 <div class="card-header">
                                     <ol class="breadcrumb float-sm-left">
                                         <li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Home</a></li>
-                                        <li class="breadcrumb-item active">List Admin</li>
+                                        <li class="breadcrumb-item">Master Administrator</li>
+                                        <li class="breadcrumb-item active">Pengaturan Kategori</li>
                                     </ol>
                                 </div>
                             </div>
@@ -53,42 +54,39 @@
                 ?>
                 <div class="card">
                     <div class="card-header">
-                        <h3><strong>Management Admin</strong></h3>
+                        <h3><strong>Pengaturan Kategori</strong></h3>
                     </div>
                     <div class="card-body">
+                        <a href="<?php echo site_url('tambahkategori') ?>" class="btn btn-primary"><i class="bi-plus"></i> Tambah Kategori</a>
                         <div id="adminlist_wrapper">
                             <div class="row">
                                 <div class="col-12">
                                     <table class="table table-striped dataTable dtr-inline" aria-describedby="adminlist_info" role="grid" id="adminlist">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">No.</th>
-                                                <th scope="col">Nama</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">No. Hp</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col" width="10%">No.</th>
+                                                <th scope="col">Nama Kategori</th>
+                                                <th scope="col" width="15%">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            foreach (@$alladmin as $value) { ?>
+                                            // foreach (@$alladmin as $value) { ?>
                                                 <tr>
-                                                    <td><?php echo $value->iduser ?></td>
-                                                    <td><?php echo $value->nama_user ?></td>
-                                                    <td><?php echo $value->email ?>
-                                                    <td><?php echo $value->no_hp ?>
+                                                    <td>1.</td>
+                                                    <td>Properti</td>
                                                     <td>
-                                                        <a href="<?php echo base_url() ?>editadmin/<?php echo $value->iduser ?>" class=" btn btn-primary mr-2" data-tooltip="tooltip" data-placement="bottom" title="Edit">
+                                                        <a href="<?php //echo base_url() ?><?php //echo ?>" class=" btn btn-primary mr-2" data-tooltip="tooltip" data-placement="bottom" title="Edit">
                                                             <i class="bi bi-pencil-square"></i>
                                                         </a>
-                                                        <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-tooltip="tooltip" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="userdelete(<?php echo $value->iduser ?>)">
+                                                        <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-tooltip="tooltip" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="//userdelete(<?php // ?>)">
                                                             <i class="bi bi-trash-fill"></i>
                                                         </a>
                                                     </td>
 
                                                 </tr>
                                             <?php
-                                            }
+                                            //}
                                             ?>
                                         </tbody>
                                     </table>
@@ -107,13 +105,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Hapus Admin</h5>
+                    <h5 class="modal-title">Hapus Kategori</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Yakin kah anda ingin menghilangkan user ini dari dunia?</p>
+                    <p>Apakah anda yakin ingin menghapus (kategori)?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
