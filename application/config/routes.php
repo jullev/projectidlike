@@ -87,6 +87,7 @@ $route['menunggu-persetujuan'] = 'user/Overview/menunggupersetujuan';
 $route['tambahiklan'] = 'C_Iklan/tambahIklan';
 $route['simpaniklan'] = 'C_Iklan/simpanIklan';
 $route['reportkerjaan'] = 'C_Iklan/reportIklan';
+$route['editiklan'] = 'user/Overview/editiklan';
 $route['iklanbaru'] = 'C_Iklan/index_pengajuan';
 $route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';
 $route['semuaiklan'] = 'C_Iklan/tampil';
@@ -96,3 +97,4 @@ $route['hitiklan/(:any)'] = 'user/Overview/hit_iklan/$1';
 //terima iklan $1 id hitter $2
 $route['terimahitter/(:any)'] = 'C_Iklan/terimahitter/$1';
 $route['tolakhit/(:any)'] = 'C_Iklan/tolakhitter/$1';
+

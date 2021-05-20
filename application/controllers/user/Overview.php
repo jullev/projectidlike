@@ -97,4 +97,9 @@ class Overview extends CI_Controller
 	{
 		$this->load->view('user/lupapassword');
 	}
+
+	public function editiklan()
+	{
+		$this->load->view ('user/editiklan');
+	}
 }
