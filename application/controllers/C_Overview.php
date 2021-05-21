@@ -9,6 +9,7 @@ class C_Overview extends CI_Controller
     $this->load->model('M_ManageAdmin');
     $this->load->model('M_ManageUser');
     $this->load->model('M_Iklan');
+    $this->load->model('M_Setkategori');
     $this->load->library('session');
     $this->load->library('form_validation');
   }
@@ -151,14 +152,25 @@ class C_Overview extends CI_Controller
       $data['status'] = $msg;
       $data['msg'] = $msg == 'success' ? 'Data berhasil di buang ' : 'Data gagal di buang';
     }
-    $data['allket'] = $this->M_Setkategori->select_all_kategori();
+    $data['allkat'] = $this->M_Setkategori->select_all_kategori();
     $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/setkategori', $data);
   }
+
   public function tambahKategori()
   {
     $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
     $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/tambahkategori', $data);
+  }
+
+  public function editKategori()
+  {
+    $id =  $this->uri->segment(2);
+    //  	var_dump("data ",$id);
+    $data['editKatgor'] = $this->M_Setkategori->select_kategori_id($id);
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    //  	var_dump($data);
+    $this->load->view('admin/editkategori', $data);
   }
 }

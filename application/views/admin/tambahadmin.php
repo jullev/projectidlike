@@ -39,7 +39,9 @@
                             <?php
                             if ($this->session->flashdata('msg') !== null) {
                             ?>
-                                <div class="alert alert-warning"><?php echo $this->session->flashdata('msg') ?></div>
+                                <div class="alert alert-warning"><?php echo $this->session->flashdata('msg') ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button></div>
                             <?php
                             }
                             ?>

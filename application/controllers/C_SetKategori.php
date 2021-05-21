@@ -37,4 +37,18 @@ class C_SetKategori extends CI_Controller
 			}
 		}
 	}
+
+	public function delete()
+	{
+		$data = $this->input->get();
+		$id = $data['id'];
+		$result = $this->M_Setkategori->delete($id);
+
+		if ($result > 0) {
+
+			redirect('setkategori?msg=success');
+		} else {
+			redirect('setkategori?msg=error');
+		}
+	}
 }

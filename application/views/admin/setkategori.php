@@ -72,13 +72,13 @@
                                         <tbody>
                                             <?php
                                             $i = 1;
-                                            foreach (@$allket as $value) { ?>
+                                            foreach (@$allkat as $value) { ?>
                                                 <tr>
                                                     <td><?php echo $i ?></td>
                                                     <td><?php echo $value->nama_kategori ?></td>
                                                     <td>
-                                                        <a type="button" class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('#') . '?id=' . $value->idkategori ?>">
-                                                            <i class="bi bi-eye-fill"></i>
+                                                        <a type="button" class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('kategoriedit') . '?id=' . $value->idkategori ?>">
+                                                            <i class="bi bi-pencil-square"></i>
                                                         </a>
                                                         <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-tooltip="tooltip" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="katdelete(<?php echo $value->idkategori ?>)">
                                                             <i class="bi bi-trash-fill"></i>
@@ -136,7 +136,7 @@
         const katdelete = (id) => {
             const delete_button = document.getElementById('deleteButton')
             delete_button.addEventListener('click', () => {
-                location.href = 'deleteadmin?id=' + id
+                location.href = 'deletekategori?id=' + id
             })
         }
     </script>

@@ -12,6 +12,14 @@ class M_Setkategori extends CI_Model
 		return $data->result();
 	}
 
+	public function select_kategori_id($id)
+	{
+		$sql = "SELECT * FROM kategori where idkategori ='$id'";
+		$data = $this->db->query($sql);
+
+		return $data->row();
+	}
+
 	public function addkategori($data)
 	{
 		//cek data unik pada nama kategori
@@ -40,5 +48,14 @@ class M_Setkategori extends CI_Model
 		} else {
 			return 0;
 		}
+	}
+
+	public function delete($id)
+	{
+		$sql = "DELETE FROM kategori WHERE idkategori='" . $id . "'";
+
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
 	}
 }

@@ -63,11 +63,11 @@
                                             <div class="form-group row">
                                                 <label for="category" class="col-3 col-form-label">Nama Kategori</label>
                                                 <div class="col-9">
-                                                    <input type="text" name="category" class="form-control" id="category" placeholder="Nama Kategori" required>
+                                                    <input type="text" name="category" class="form-control" id="category" value="<?php echo @$editKatgor[0]->nama_kategori; ?>" placeholder="Nama Kategori" required>
                                                 </div>
                                             </div>
                                             <!-- btn -->
-                                            <button type="submit" class="btn btn-primary btn-block">Tambahkan</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Ubah</button>
                                         </form>
                                     </div>
                                 </div>
