@@ -34,29 +34,52 @@ class C_ManagementUser extends CI_Controller
     public function updateProfile(){
 		$input = $this->input->post();
 		$input['id'] = $this->session->userdata('id');
+		// Cek apakah ada input file
+		if($_FILES['avatar']['error'] == UPLOAD_ERR_NO_FILE){
+			$temp = $this->M_ManageUser->checkImage();
+			$input['avatar'] = $temp->foto_profil;
+		}else{
+			// Upload image
+			$img_upload = $this->uploadImage();
+			if($img_upload['status'] != 'success'){
+				$this->session->set_userdata('status', 'error');
+				$this->session->set_userdata('msg', $img_upload['msg']);
+				redirect('dashboard', 'refresh');
+			}else{
+				$input['avatar'] = $img_upload['filename'];
+			}
+		}
 
-		$this->uploadImage();
 
-//		$result = $this->M_ManageUser->updateProfile($input);
-//		if($result > 0){
-//			$this->session->set_userdata('status', 'success');
-//			$this->session->set_userdata('msg', 'Data berhasil diperbarui.');
-//		}else{
-//			$this->session->set_userdata('status', 'error');
-//			$this->session->set_userdata('msg', 'Periksa kembali data anda.');
-//		}
-//		redirect("dashboard", "refresh");
+		$result = $this->M_ManageUser->updateProfile($input);
+		if($result > 0){
+			$this->session->set_userdata('status', 'success');
+			$this->session->set_userdata('msg', 'Data berhasil diperbarui.');
+		}else{
+			$this->session->set_userdata('status', 'error');
+			$this->session->set_userdata('msg', 'Periksa kembali data anda.');
+		}
+		redirect("dashboard", "refresh");
 
 	}
 
 	private function uploadImage(){
 
-		// Config untuk upload image
-		$this->load->helper('string');
-		$image_ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
-		$image_name = random_string('alnum', 10);
-		$image = $image_name.'.'.$image_ext;
+    	// Cek apakah gambar  default atau tidak
+		// Jika gambar tidak default, maka gambar akan ditimpa
+		// Jika default, maka akan upload gambar dengan nama file random
+		$img_check = $this->M_ManageUser->checkImage();
+		if($img_check->foto_profil == 'default.png'){
+			// Rename random filename
+			$this->load->helper('string');
+			$image_ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+			$image_name = random_string('alnum', 10);
+			$image = $image_name.'.'.$image_ext;
+		}else{
+			$image = $img_check->foto_profil;
+		}
 
+		// Config untuk upload image
 		$config['upload_path'] = 'assets/image/users/';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 		$config['file_name'] = $image;
@@ -65,9 +88,13 @@ class C_ManagementUser extends CI_Controller
 		$this->load->library('upload', $config);
 		if($this->upload->do_upload('avatar')){
 			$this->upload->data();
-			echo 'berhasil';
+			$result['status'] = 'success';
+			$result['filename'] = $image;
+			return $result;
 		}else{
-			echo $this->upload->display_errors();
+			$result['status'] = 'error';
+			$result['msg'] = $this->upload->display_errors();
+			return $result;
 		}
 	}
 

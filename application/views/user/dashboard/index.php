@@ -23,7 +23,7 @@
 						<div class="col-md-10 col-lg-6 mx-md-auto mx-lg-0">
 							<img src="<?php
 							echo base_url('assets/image/users/') . @$datauser->foto_profil ?>" alt=""
-								 class="rounded-circle mr-3" style="width:48px;">
+								 class="rounded-circle mr-3" style="width:48px;height:48px;">
 							<strong><?php echo $datauser->nama_user; ?></strong>
 						</div>
 						<div class="col-md-12 col-lg-6 mx-md-auto mx-lg-0 mt-3 mt-md-3 mt-lg-0 d-inline-flex">
