@@ -12,7 +12,7 @@ class C_SetKategori extends CI_Controller
 
 	public function index()
 	{
-		$this->load->views('setkategori')
+		$this->load->views('setkategori');
 	}
 
 	public function prosestambahkategori()
@@ -24,7 +24,7 @@ class C_SetKategori extends CI_Controller
 		$validation->set_rules("nama_kategori", "category", "required|trim|is_unique['kategori.nama_kategori']");
 
 		if ($validation == true) {
-			$result = $this->M_Register->insert($data);
+			$result = $this->M_Setkategori->addkategori($data);
 			if ($result == "success") {
 				$this->session->set_flashdata('msg', 'Penambahan kategori berhasil!!');
 				redirect("setkategori");

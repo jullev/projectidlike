@@ -100,7 +100,8 @@ class C_Overview extends CI_Controller
       $this->session->set_flashdata('alamat', '');
       $this->session->set_flashdata('gender', '');
     }
-    $this->load->view('admin/tambahadmin');
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/tambahadmin', $data);
   }
 
   public function editAdmin()
@@ -150,7 +151,7 @@ class C_Overview extends CI_Controller
       $data['status'] = $msg;
       $data['msg'] = $msg == 'success' ? 'Data berhasil di buang ' : 'Data gagal di buang';
     }
-    $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    $data['allket'] = $this->M_Setkategori->select_all_kategori();
     $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/setkategori', $data);
   }
@@ -161,5 +162,3 @@ class C_Overview extends CI_Controller
     $this->load->view('admin/tambahkategori', $data);
   }
 }
-
-

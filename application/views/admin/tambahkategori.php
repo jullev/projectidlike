@@ -39,6 +39,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
+                        <div id="alert_msg">
+                            <?php
+                            if ($this->session->flashdata('msg') !== null) {
+                            ?>
+                                <div class="alert alert-warning"><?php echo $this->session->flashdata('msg') ?></div>
+                            <?php
+                            }
+                            ?>
+                        </div>
                         <div class="card">
                             <div class="card-header text-center">
                                 <h3><strong>Tambah Kategori</strong></h3>
@@ -48,14 +57,16 @@
                                 <div class="row">
                                     <div class="col 12 col-sm-10 col-lg-10 mt-4 mx-auto">
                                         <!-- nama -->
-                                        <div class="form-group row">
-                                            <label for="category" class="col-3 col-form-label">Nama Kategori</label>
-                                            <div class="col-9">
-                                                <input type="text" name="category" class="form-control" id="category"  placeholder="Nama Kategori" required>
+                                        <form action="<?php echo site_url('kategoriadd') ?>" onsubmit=" return validation()" method="POST" id="kategori_form">
+                                            <div class="form-group row">
+                                                <label for="category" class="col-3 col-form-label">Nama Kategori</label>
+                                                <div class="col-9">
+                                                    <input type="text" name="category" class="form-control" id="category" placeholder="Nama Kategori" required>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- btn -->
-                                        <button class="btn btn-primary btn-block">Tambahkan</button>
+                                            <!-- btn -->
+                                            <button type="submit" class="btn btn-primary btn-block">Tambahkan</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -66,6 +77,27 @@
         </div>
         <!-- /.content-wrapper -->
     </div>
+    <!-- validation -->
+    <script>
+        // Get id alert
+        const alert = document.getElementById("alert_msg")
+
+        // Form Validation for gender, password
+        const validation = () => {
+            const katgor = document.forms["kategori_form"]["category"].value
+
+            if (katgor === "#") {
+                alert.innerHTML = "<div class='alert alert-danger'>Mohon isi nama kategori</div>"
+                return false
+            }
+
+        }
+
+        // Menghapus alert
+        const removeAlert = () => {
+            alert.innerHTML = ""
+        }
+    </script>
 
     <!-- Footer -->
     <?php $this->load->view("admin/_partials/footer.php") ?>

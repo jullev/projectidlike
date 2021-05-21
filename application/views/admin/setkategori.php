@@ -71,22 +71,24 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            // foreach (@$alladmin as $value) { ?>
+                                            $i = 1;
+                                            foreach (@$allket as $value) { ?>
                                                 <tr>
-                                                    <td>1.</td>
-                                                    <td>Properti</td>
+                                                    <td><?php echo $i ?></td>
+                                                    <td><?php echo $value->nama_kategori ?></td>
                                                     <td>
-                                                        <a href="<?php //echo base_url() ?><?php //echo ?>" class=" btn btn-primary mr-2" data-tooltip="tooltip" data-placement="bottom" title="Edit">
-                                                            <i class="bi bi-pencil-square"></i>
+                                                        <a type="button" class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('#') . '?id=' . $value->idkategori ?>">
+                                                            <i class="bi bi-eye-fill"></i>
                                                         </a>
-                                                        <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-tooltip="tooltip" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="//userdelete(<?php // ?>)">
+                                                        <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-tooltip="tooltip" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="katdelete(<?php echo $value->idkategori ?>)">
                                                             <i class="bi bi-trash-fill"></i>
                                                         </a>
                                                     </td>
 
                                                 </tr>
                                             <?php
-                                            //}
+                                                $i += 1;
+                                            }
                                             ?>
                                         </tbody>
                                     </table>
@@ -131,7 +133,7 @@
             }).buttons().container().appendTo('#adminlist_wrapper .col-md-6:eq(0)');
         });
 
-        const userdelete = (id) => {
+        const katdelete = (id) => {
             const delete_button = document.getElementById('deleteButton')
             delete_button.addEventListener('click', () => {
                 location.href = 'deleteadmin?id=' + id

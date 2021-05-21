@@ -71,9 +71,10 @@
 										</thead>
 										<tbody>
 											<?php
+											$i = 1;
 											foreach (@$alladmin as $value) { ?>
 												<tr>
-													<td><?php echo $value->iduser ?></td>
+													<td><?php echo $i ?></td>
 													<td><?php echo $value->nama_user ?></td>
 													<td><?php echo $value->email ?> </td>
 													<td><?php echo $value->no_hp ?> </td>
@@ -87,7 +88,7 @@
 													</td>
 
 												</tr>
-											<?php
+											<?php $i += 1;
 											}
 											?>
 										</tbody>
