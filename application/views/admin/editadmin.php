@@ -53,7 +53,7 @@
                                 </span>
                             </div>
                             <div class="card-body p-5 bg-light">
-                                <form action="C_ManagementAdmin/updateAdmin" onsubmit=" return validation()" method="POST" id="admin_form">
+                                <form action="<?php echo site_url('updateadminproses') ?>" onsubmit=" return validation()" method="POST" id="admin_form">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Id Admin</label>
                                         <div class="col-sm-8">
@@ -107,9 +107,9 @@
                                         <label class="col-sm-3 col-form-label">Jenis Kelamin</label>
                                         <div class="col-sm-8">
                                             <select class="custom-select" name="gender" id="gender" required>
-                                                <!-- <option value="#">-- Jenis Kelamin --</option> -->
-                                                <option value="L" <?php echo @$detailuser->gender == "L" ? "select" : "" ?>>Laki - Laki</option>
-                                                <option value="P" <?php echo @$detailuser->gender == "P" ? "select" : "" ?>>Perempuan</option>
+                                                <option value="#" <?php echo @$detailuser[0]->gender == '#' ? 'selected' : '' ?>>-- Jenis Kelamin --</option>
+                                                <option value="L" <?php echo @$detailuser[0]->gender == 'L' ? 'selected' : '' ?>>Laki - Laki</option>
+                                                <option value="P" <?php echo @$detailuser[0]->gender == 'P' ? 'selected' : '' ?>>Perempuan</option>
                                             </select>
                                         </div>
                                     </div>
@@ -120,9 +120,20 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">+62</span>
                                             </div>
-                                            <input type="text" class="form-control" name="phone" pattern="[0-9]{11}" placeholder="8xxxxxxxxxxx" required value="<?php echo @$detailuser[0]->no_hp; ?>">
+                                            <input type="text" class="form-control" name="phone" pattern="[0-9]{11}" placeholder="8xxxxxxxxxxx" required value="<?php echo substr(@$detailuser[0]->no_hp, 2); ?>">
                                         </div>
                                     </div>
+                                    <!-- Alamat Lengkap -->
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Alamat Lengkap</label>
+                                        <div class="input-group col-sm-8">
+                                            <div class="input-group">
+                                                <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" placeholder="tuliskan alamat lengkap anda"><?php echo @$detailuser[0]->alamat; ?></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- upload file -->
                                     <div class="form-group row">
                                         <label for="deskripsi" class="col-sm-3 col-form-label">Upload Foto Profil</label>
                                         <div class="input-group col-sm-8">

@@ -3,7 +3,18 @@
 
 <!-- Head -->
 <?php $this->load->view('user/_partials/head.php'); ?>
-
+<style>
+	.nav {
+		flex-wrap: nowrap;
+	}
+	.nav-link {
+		border: solid 2px transparent;
+	}
+	.nav-pills .nav-link.active {
+		background: transparent;
+		border: solid 2px #ddd;
+	}
+</style>
 <body>
 
 	<!-- Navbar -->
@@ -46,40 +57,40 @@
 							<button id="nextimg" class="nextimg btn btn-primary">Next <i class="bi-arrow-right"></i></button>
 						</div>
 						<center>
-							<div class="tab-content" id="pills-tabContent">
-								<div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
-									<img src="https://placeimg.com/640/480/arch" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
+							<div class="tab-content" id="img-tabContent">
+								<div class="tab-pane fade show active" id="img-1" role="tabpanel" aria-labelledby="img-1-tab">
+									<img src="<?php echo base_url('assets/image/detail1.jpg') ?>" alt="Ini Judul" title="Ini Judul" class="mt-3 w-100">
 								</div>
-								<div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
-									<img src="https://placeimg.com/640/480/people" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
+								<div class="tab-pane fade" id="img-2" role="tabpanel" aria-labelledby="img-2-tab">
+									<img src="<?php echo base_url('assets/image/detail2.jpg') ?>" alt="Ini Judul" title="Ini Judul" class="mt-3 w-100">
 								</div>
-								<div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
-									<img src="https://placeimg.com/640/480/tech" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
+								<div class="tab-pane fade" id="img-3" role="tabpanel" aria-labelledby="img-3-tab">
+									<img src="<?php echo base_url('assets/image/detail3.jpg') ?>" alt="Ini Judul" title="Ini Judul" class="mt-3 w-100">
 								</div>
-								<div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">
-									<img src="https://placeimg.com/640/480/animals" alt="Ini Judul" title="Ini Judul" class="mt-3 mb-3 w-100">
+								<div class="tab-pane fade" id="img-4" role="tabpanel" aria-labelledby="img-4-tab">
+									<img src="<?php echo base_url('assets/image/detail4.jpg') ?>" alt="Ini Judul" title="Ini Judul" class="mt-3 w-100">
 								</div>
 							</div>
 							
-							<ul class="nav nav-pills mt-3" id="pills-tab" role="tablist">
+							<ul class="nav nav-pills mt-1 mb-3" id="img-tab" role="tablist">
 								<li class="nav-item" role="presentation">
-									<a class="nav-link active" id="pills-1-tab" data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">
-										<img src="https://placeimg.com/640/480/arch" alt="Ini foto 1" title="ini foto 1" style="width: 15%;">
+									<a class="nav-link active" id="img-1-tab" data-toggle="tab" href="#img-1" role="tab" aria-controls="img-1" aria-selected="true">
+										<img src="<?php echo base_url('assets/image/detail1.jpg') ?>" alt="Ini foto 1" title="ini foto 1" class="w-75">
 									</a>
 								</li>
 								<li class="nav-item" role="presentation">
-									<a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="false">
-										<img src="https://placeimg.com/640/480/people" alt="Ini foto 2" title="ini foto 2" style="width: 15%;">
+									<a class="nav-link" id="img-2-tab" data-toggle="tab" href="#img-2" role="tab" aria-controls="img-2" aria-selected="false">
+										<img src="<?php echo base_url('assets/image/detail2.jpg') ?>" alt="Ini foto 2" title="ini foto 2" class="w-75">
 									</a>
 								</li>
 								<li class="nav-item" role="presentation">
-									<a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#pills-3" role="tab" aria-controls="pills-3" aria-selected="false">
-										<img src="https://placeimg.com/640/480/tech" alt="Ini foto 3" title="ini foto 3" style="width: 15%;">
+									<a class="nav-link" id="img-3-tab" data-toggle="tab" href="#img-3" role="tab" aria-controls="img-3" aria-selected="false">
+										<img src="<?php echo base_url('assets/image/detail3.jpg') ?>" alt="Ini foto 3" title="ini foto 3" class="w-75">
 									</a>
 								</li>
 								<li class="nav-item" role="presentation">
-									<a class="nav-link" id="pills-4-tab" data-toggle="pill" href="#pills-4" role="tab" aria-controls="pills-4" aria-selected="false">
-										<img src="https://placeimg.com/640/480/animals" alt="Ini foto 4" title="ini foto 4" style="width: 15%;">
+									<a class="nav-link" id="img-4-tab" data-toggle="tab" href="#img-4" role="tab" aria-controls="img-4" aria-selected="false">
+										<img src="<?php echo base_url('assets/image/detail4.jpg') ?>" alt="Ini foto 4" title="ini foto 4" class="w-75">
 									</a>
 								</li>
 							</ul>
@@ -87,7 +98,7 @@
 						<!-- Detail -->
 						<ul class="nav nav-tabs">
 							<li class="nav-item">
-								<span class="nav-link active"><strong>Detail Iklan</strong></span>
+								<span class="nav-link active" id="detailIklan"><strong>Detail Iklan</strong></span>
 							</li>
 						</ul>
 						<div class="tab-content bg-white p-3" style="border: 1px solid #dee2e6; border-top: none;">
@@ -224,7 +235,7 @@
 	<!-- JS -->
 	<script>
 		function btnNextPrev(){
-            var i, items = $('.nav-link'), pane = $('.tab-pane');
+            var i, items = $('.nav-link:not(#detailIklan)'), pane = $('.tab-pane');
             // next
             $('.nextimg').on('click', function(){
                 for(i = 0; i < items.length; i++){

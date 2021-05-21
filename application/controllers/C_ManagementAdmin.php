@@ -21,7 +21,7 @@ class C_ManagementAdmin extends CI_Controller
     {
         $input = $this->input->post();
         $input['id'] = $this->session->userdata('id');
-        $result = $this->M_ManageAdmin->updateProfile($input);
+        $result = $this->M_ManageAdmin->updateAdmin($input);
         if ($result > 0) {
             $this->session->set_userdata('status', 'success');
             $this->session->set_userdata('msg', 'Data berhasil diperbarui.');
@@ -29,6 +29,6 @@ class C_ManagementAdmin extends CI_Controller
             $this->session->set_userdata('status', 'error');
             $this->session->set_userdata('msg', 'Periksa kembali data anda.');
         }
-        redirect("editadmin", "refresh");
+        redirect("adminlist", "refresh");
     }
 }

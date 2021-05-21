@@ -141,4 +141,25 @@ class C_Overview extends CI_Controller
     $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/detailuser', $data);
   }
+
+  public function setKategori()
+  {
+    $input = $this->input->get();
+    if (isset($input['msg'])) {
+      $msg = $input['msg'];
+      $data['status'] = $msg;
+      $data['msg'] = $msg == 'success' ? 'Data berhasil di buang ' : 'Data gagal di buang';
+    }
+    $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/setkategori', $data);
+  }
+  public function tambahKategori()
+  {
+    $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/tambahkategori', $data);
+  }
 }
+
+
