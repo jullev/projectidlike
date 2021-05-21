@@ -67,16 +67,16 @@
 												<td><b><?php echo $value->deadline ?></b><br>
 												<td><b><?php echo $value->harga ?></b><br>
 												<td><b><?php echo $value->hit ?></b><br>
-												<td>
+												<td class="d-flex">
 													<a href="<?php echo base_url() ?>hit/<?php echo $value->idkerjaan ?>"
-													class="btn btn-primary btn-lg m-1" data-tooltip="tooltip"
-													data-placement="bottom" data-original-title="Detail Hit">
+													class="btn btn-primary m-1" data-tooltip="tooltip"
+													data-placement="top" data-original-title="Detail Hit">
 														<i class="bi bi-file-earmark-medical"></i>
 													</a>
 
 													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
-													class="btn btn-danger btn-lg m-1" data-tooltip="tooltip"
-													data-placement="bottom" data-original-title="Tolak">
+													class="btn btn-danger m-1" data-tooltip="tooltip"
+													data-placement="top" data-original-title="Tolak">
 														<i class="bi bi-x-circle"></i>
 													</a>
 												</td>

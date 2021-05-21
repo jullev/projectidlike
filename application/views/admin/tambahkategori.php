@@ -55,15 +55,15 @@
                                 <h3><strong>Tambah Kategori</strong></h3>
                             </div>
                             <div class="card-body bg-light">
-                                <a href="<?php echo site_url('setkategori') ?>" class="btn btn-info" style="color: white !important;"><i class="bi-chevron-left" role="button"></i> Kembali</a>
+                                <a href="<?php echo site_url('setkategori') ?>" class="btn btn-primary" style="color: white !important;"><i class="bi-chevron-left" role="button"></i> Kembali</a>
                                 <div class="row">
-                                    <div class="col 12 col-sm-10 col-lg-10 mt-4 mx-auto">
+                                    <div class="col-12 mt-4 mx-auto">
                                         <!-- nama -->
                                         <form action="<?php echo site_url('kategoriadd') ?>" onsubmit=" return validation()" method="POST" id="kategori_form">
                                             <div class="form-group row">
                                                 <label for="category" class="col-3 col-form-label">Nama Kategori</label>
                                                 <div class="col-9">
-                                                    <input type="text" name="category" class="form-control" id="category" placeholder="Nama Kategori" required>
+                                                    <input type="text" name="category" class="form-control" id="category" placeholder="Nama Kategori Baru" required>
                                                 </div>
                                             </div>
                                             <!-- btn -->

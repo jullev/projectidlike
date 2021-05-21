@@ -52,49 +52,36 @@
 							- <i class="bi-geo-alt mx-1"></i> <?php echo $value->nama_kabupaten; ?>
 							- <i class="bi-eye mx-1"></i> 50x dilihat
 						</span>
-						<div class="mt-2">
-							<button id="previmg" class="previmg btn btn-primary"><i class="bi-arrow-left"></i> Prev</button>
-							<button id="nextimg" class="nextimg btn btn-primary">Next <i class="bi-arrow-right"></i></button>
-						</div>
+						<!-- Image -->
 						<center>
-							<div class="tab-content" id="img-tabContent">
-								<div class="tab-pane fade show active" id="img-1" role="tabpanel" aria-labelledby="img-1-tab">
-									<img src="<?php echo base_url('assets/image/detail1.jpg') ?>" alt="Ini Judul" title="Ini Judul" class="mt-3 w-100">
+							<div id="detImg" class="carousel slide my-4" data-ride="carousel" data-interval="false">
+								<ol class="carousel-indicators">
+									<li data-target="#detImg" data-slide-to="0" class="active"></li>
+									<li data-target="#detImg" data-slide-to="1"></li>
+									<li data-target="#detImg" data-slide-to="2"></li>
+								</ol>
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+									<img src="<?php echo base_url('assets/image/detail1.jpg') ?>" class="d-block w-100" alt="Gambar <?php echo $value->judul_kerjaan; ?> 1">
+									</div>
+									<div class="carousel-item">
+									<img src="<?php echo base_url('assets/image/detail2.jpg') ?>" class="d-block w-100" alt="Gambar <?php echo $value->judul_kerjaan; ?> 2">
+									</div>
+									<div class="carousel-item">
+									<img src="<?php echo base_url('assets/image/detail3.jpg') ?>" class="d-block w-100" alt="Gambar <?php echo $value->judul_kerjaan; ?> 3">
+									</div>
 								</div>
-								<div class="tab-pane fade" id="img-2" role="tabpanel" aria-labelledby="img-2-tab">
-									<img src="<?php echo base_url('assets/image/detail2.jpg') ?>" alt="Ini Judul" title="Ini Judul" class="mt-3 w-100">
-								</div>
-								<div class="tab-pane fade" id="img-3" role="tabpanel" aria-labelledby="img-3-tab">
-									<img src="<?php echo base_url('assets/image/detail3.jpg') ?>" alt="Ini Judul" title="Ini Judul" class="mt-3 w-100">
-								</div>
-								<div class="tab-pane fade" id="img-4" role="tabpanel" aria-labelledby="img-4-tab">
-									<img src="<?php echo base_url('assets/image/detail4.jpg') ?>" alt="Ini Judul" title="Ini Judul" class="mt-3 w-100">
-								</div>
+								<a class="carousel-control-prev" href="#detImg" role="button" data-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="carousel-control-next" href="#detImg" role="button" data-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
 							</div>
-							
-							<ul class="nav nav-pills mt-1 mb-3" id="img-tab" role="tablist">
-								<li class="nav-item" role="presentation">
-									<a class="nav-link active" id="img-1-tab" data-toggle="tab" href="#img-1" role="tab" aria-controls="img-1" aria-selected="true">
-										<img src="<?php echo base_url('assets/image/detail1.jpg') ?>" alt="Ini foto 1" title="ini foto 1" class="w-75">
-									</a>
-								</li>
-								<li class="nav-item" role="presentation">
-									<a class="nav-link" id="img-2-tab" data-toggle="tab" href="#img-2" role="tab" aria-controls="img-2" aria-selected="false">
-										<img src="<?php echo base_url('assets/image/detail2.jpg') ?>" alt="Ini foto 2" title="ini foto 2" class="w-75">
-									</a>
-								</li>
-								<li class="nav-item" role="presentation">
-									<a class="nav-link" id="img-3-tab" data-toggle="tab" href="#img-3" role="tab" aria-controls="img-3" aria-selected="false">
-										<img src="<?php echo base_url('assets/image/detail3.jpg') ?>" alt="Ini foto 3" title="ini foto 3" class="w-75">
-									</a>
-								</li>
-								<li class="nav-item" role="presentation">
-									<a class="nav-link" id="img-4-tab" data-toggle="tab" href="#img-4" role="tab" aria-controls="img-4" aria-selected="false">
-										<img src="<?php echo base_url('assets/image/detail4.jpg') ?>" alt="Ini foto 4" title="ini foto 4" class="w-75">
-									</a>
-								</li>
-							</ul>
 						</center>
+						<!-- Image End -->
 						<!-- Detail -->
 						<ul class="nav nav-tabs">
 							<li class="nav-item">
@@ -232,46 +219,5 @@
 
 	<!-- Footer -->
 	<?php $this->load->view('user/_partials/footer.php'); ?>
-	<!-- JS -->
-	<script>
-		function btnNextPrev(){
-            var i, items = $('.nav-link:not(#detailIklan)'), pane = $('.tab-pane');
-            // next
-            $('.nextimg').on('click', function(){
-                for(i = 0; i < items.length; i++){
-                    if($(items[i]).hasClass('active') == true){
-                        break;
-                    }
-                }
-                if(i < items.length - 1){
-                    // for tab
-                    $(items[i]).removeClass('active');
-                    $(items[i+1]).addClass('active');
-                    // for pane
-                    $(pane[i]).removeClass('show active');
-                    $(pane[i+1]).addClass('show active');
-                }
-
-            });
-            // Prev
-            $('.previmg').on('click', function(){
-                for(i = 0; i < items.length; i++){
-                    if($(items[i]).hasClass('active') == true){
-                        break;
-                    }
-                }
-                if(i != 0){
-                    // for tab
-                    $(items[i]).removeClass('active');
-                    $(items[i-1]).addClass('active');
-                    // for pane
-                    $(pane[i]).removeClass('show active');
-                    $(pane[i-1]).addClass('show active');
-                }
-            });
-			console.log(items);
-        }
-        btnNextPrev();
-	</script>
 </body>
 </html>
