@@ -140,14 +140,14 @@
 						</a>
 						<div class="collapse show" id="accountCollapse">
 							<div class="card-body" style="padding: 45px;">
-								<form action="<?php echo site_url('update-profile') ?>" method="POST">
+								<form action="<?php echo site_url('update-profile') ?>" method="POST" enctype="multipart/form-data">
 									<div class="form-group row">
 										<label for="avatar" class="col-lg-3 col-form-label">Photo or Avatar</label>
 										<div class="col-lg-9">
-											<div class="custom-file">
-												<input type="file" name="avatar" id="avatar" class="custom-file-input" accept="image/jpeg, image/png">
-												<label for="avatar" class="custom-file-label">Photo or Avatar</label>
-											</div>
+<!--											<div class="custom-file">-->
+												<input type="file" name="avatar" id="avatar" accept="image/jpeg, image/png" >
+<!--												<label for="avatar" class="custom-file-label">Photo or Avatar</label>-->
+<!--											</div>-->
 										</div>
 									</div>
 

@@ -34,7 +34,9 @@ class C_ManagementUser extends CI_Controller
     public function updateProfile(){
 		$input = $this->input->post();
 		$input['id'] = $this->session->userdata('id');
-		echo $this->uploadImage($input['avatar']);
+
+		$this->uploadImage();
+
 //		$result = $this->M_ManageUser->updateProfile($input);
 //		if($result > 0){
 //			$this->session->set_userdata('status', 'success');
@@ -47,26 +49,25 @@ class C_ManagementUser extends CI_Controller
 
 	}
 
-	private function uploadImage($pic){
-
-		// Mengubah nama file menjadi random
-		$this->load->helper('string');
-		$fileExt = pathinfo($pic, PATHINFO_EXTENSION);
-		$fileName = random_string('alnum', 10);
-		$file = $fileName.".".$fileExt;
+	private function uploadImage(){
 
 		// Config untuk upload image
-		$config['upload_path'] = './assets/image/users/';
-    	$config['allowed_types'] = 'jpg|jpeg|png';
-    	$config['file_name'] = $file;
-    	$config['overwrite'] = true;
-    	$config['max_size'] = 4096;
-		$this->load->library('upload', $config);
+		$this->load->helper('string');
+		$image_ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+		$image_name = random_string('alnum', 10);
+		$image = $image_name.'.'.$image_ext;
 
+		$config['upload_path'] = 'assets/image/users/';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['file_name'] = $image;
+		$config['overwrite'] = true;
+		$config['max_size'] = 4096;
+		$this->load->library('upload', $config);
 		if($this->upload->do_upload('avatar')){
-			return $this->upload->data('file_name');
+			$this->upload->data();
+			echo 'berhasil';
 		}else{
-			return 'default.png';
+			echo $this->upload->display_errors();
 		}
 	}
 
