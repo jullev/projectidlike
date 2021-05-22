@@ -137,9 +137,11 @@ class C_Overview extends CI_Controller
 
   public function detailuser()
   {
+
     $input = $this->input->get();
     $id = $input['id'];
-    $data = $this->M_ManageUser->select_user_id($id);
+    $data['userdata'] = $this->M_ManageUser->select_user_id($id);
+    // error pada sidebar allcount
     $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/detailuser', $data);
   }
@@ -164,10 +166,20 @@ class C_Overview extends CI_Controller
     $this->load->view('admin/tambahkategori', $data);
   }
 
+  // public function editKatgor()
+  // {
+  //   $input = $this->input->get();
+  //   $id = $input['id'];
+  //   $data = $this->M_Setkategori->select_kategori_id($id);
+  //   $data['allcount'] = $this->M_Iklan->show_allcount();
+  //   $this->load->view('admin/editkategori', $data);
+  // }
+
   public function editKategori()
   {
-    $id =  $this->uri->segment(2);
-    //  	var_dump("data ",$id);
+    $input = $this->input->get();
+    $id = $input['id'];
+    // var_dump("data ", $id);
     $data['editKatgor'] = $this->M_Setkategori->select_kategori_id($id);
     $data['allcount'] = $this->M_Iklan->show_allcount();
     //  	var_dump($data);

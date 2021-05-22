@@ -64,6 +64,7 @@
 											<tr>
 												<th scope="col">No.</th>
 												<th scope="col">Nama</th>
+												<th scope="col">Username</th>
 												<th scope="col">Email</th>
 												<th scope="col">No. Hp</th>
 												<th scope="col">Action</th>
@@ -76,6 +77,7 @@
 												<tr>
 													<td><?php echo $i ?></td>
 													<td><?php echo $value->nama_user ?></td>
+													<td><?php echo $value->username ?></td>
 													<td><?php echo $value->email ?> </td>
 													<td><?php echo $value->no_hp ?> </td>
 													<td>

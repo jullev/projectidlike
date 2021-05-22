@@ -51,4 +51,9 @@ class C_SetKategori extends CI_Controller
 			redirect('setkategori?msg=error');
 		}
 	}
+
+	public function updatekategori()
+	{
+		$inpu
+	}
 }
