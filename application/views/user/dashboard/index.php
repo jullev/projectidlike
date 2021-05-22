@@ -8,13 +8,13 @@
 
 <main class="container mb-5" style="margin-top: 100px;">
 	<div class="row">
-		<div class="col-sm-12 col-md-5 col-lg-3 mb-3">
+		<div class="col-12 col-md-5 col-lg-3 mb-3">
 			<!-- Sidebar -->
 			<?php $this->load->view("user/dashboard/sidebar") ?>
 		</div>
 
 		<!-- Col 2 - Main content -->
-		<div class="col-sm-12 col-md-7 col-lg-9">
+		<div class="col-12 col-md-7 col-lg-9">
 			<!-- Ringkasan -->
 			<div class="card mb-3">
 				<div class="card-body">

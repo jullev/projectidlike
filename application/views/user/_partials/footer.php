@@ -42,6 +42,10 @@
 <script src="<?php echo base_url('assets/plugins/datatables-buttons/js/buttons.html5.min.js')?>"></script>
 <script src="<?php echo base_url('assets/plugins/datatables-buttons/js/buttons.print.min.js')?>"></script>
 <script src="<?php echo base_url('assets/plugins/datatables-buttons/js/buttons.colVis.min.js')?>"></script>
+<!-- Custum Input File -->
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+
 <script>
   // Input Only Number
   function isInputNumber(evt) {
@@ -61,4 +65,6 @@
       });
   });
   //Data Tooltip End
+
+  bsCustomFileInput.init();
 </script>

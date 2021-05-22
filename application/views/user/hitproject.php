@@ -54,17 +54,14 @@
 										<?php }
                                         ?>
                                         <td class="text-center">
-											<div class="col-xs-6">
-                                            <button class="btn btn-danger" data-toggle="modal" data-target="#cancel" data-tooltip="tooltip" data-placement="bottom" title="Batalkan">
-                                                <i class="bi-x"></i>
-											</button>
-											</div>
-											<div class="col-xs-6">
-												<button class="btn btn-info"  title="Lapor Selesai" onclick="window.location='<?php echo site_url("laporkerjaan/$value->idkerjaan");?>'">
-													<i class="bi-check-all"></i>
+											<div class="d-flex">
+												<button class="btn btn-success mr-1" data-tooltip="tooltip" data-placement="bottom" title="Lapor Selesai" onclick="window.location='<?php echo site_url("laporkerjaan/$value->idkerjaan");?>'">
+													<i class="bi-check"></i>
 												</button>
+                                                <button class="btn btn-danger" data-toggle="modal" data-target="#cancel" data-tooltip="tooltip" data-placement="bottom" title="Batalkan">
+                                                    <i class="bi-x"></i>
+                                                </button>
 											</div>
-
                                         </td>
                                     </tr>
 								<?php } ?>

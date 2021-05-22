@@ -12,12 +12,19 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 
 <div class="container mb-5" style="margin-top: 100px;" id="tambahiklan-container">
 	<div class="row">
-		<div class="col-sm-8">
+		<!-- Col 1 - Sidebar -->
+		<div class="col-12 col-md-5 col-lg-3 mb-3">
+			<!-- Sidebar -->
+			<?php $this->load->view("user/dashboard/sidebar") ?>
+		</div>
+
+		<!-- Col 2 - Main content -->
+		<div class="col-12 col-md-7 col-lg-9">
 			<div class="card">
 				<div class="card-header">
-					<h3><i class="bi bi-files"></i> <strong>Lapor Kerjaan Selesai</strong></h3>
+					<h3><i class="bi bi-clipboard-check mr-1"></i> <strong>Lapor Kerjaan Selesai</strong></h3>
 				</div>
-				<div class="card-body py-5 px-5">
+				<div class="card-body">
 					<!-- form tambah list -->
 					<?php echo form_open("<?php echo site_url('reportkerjaan') ?>", array('enctype'=>'multipart/form-data')); ?>
 
@@ -37,23 +44,27 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 							}
 							?>
 						</div>
+						<!-- Tampilkan alert end -->
+
 						<?php
 						$judul = @$dataIklan->judul_kerjaan;
-//						var_dump($judul);
+						// var_dump($judul);
 						foreach (@$dataIklan as $value) {
 						?>
-						</div>
-				<!-- Tipe form -->
-				<div class="form-group row">
-					<label for="judul" class="col-md-3 col-form-label">Id Kerjaan <sup
-								style="color:tomato">*</sup></label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" id="idkerjaan" name="idkerjaan" disabled
-							   value="<?php echo $value->idkerjaan; ?>" >
+					
+						<!-- Id Kerjaan -->
+						<div class="form-group row">
+							<label for="judul" class="col-md-3 col-form-label">Id Kerjaan <sup
+										style="color:tomato">*</sup></label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" id="idkerjaan" name="idkerjaan" disabled
+									value="<?php echo $value->idkerjaan; ?>" >
 
-					</div>
-				</div>
-						<!-- Tipe form -->
+							</div>
+						</div>
+						<!-- Id Kerjaan End -->
+
+						<!-- Judul -->
 						<div class="form-group row">
 							<label for="judul" class="col-md-3 col-form-label">Judul <sup
 									style="color:tomato">*</sup></label>
@@ -63,67 +74,77 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 
 							</div>
 						</div>
-						<div class="form-group row">
-							<label for="deskripsi" class="col-md-3 col-form-label">Deskripsi hasil pekerjaan <sup style="color: tomato">*</sup></label>
-							<div class="col-md-9">
-                                    <textarea class="form-control" name="contents" id="summernote" required>
+						<!-- Judul end -->
 
-                                    </textarea>
+						<!-- Deskripsi -->
+						<div class="form-group row">
+							<label for="deskripsi" class="col-md-3 col-form-label">Deskripsi Hasil Pekerjaan <sup style="color: tomato">*</sup></label>
+							<div class="col-md-9">
+								<textarea class="form-control" name="contents" id="summernote" required></textarea>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label for="deskripsi" class="col-md-3 col-form-label">Upload bukti kerjaan</label>
+						<!-- Deskripsi end -->
+
+						<!-- Upload File -->
+						<div class="form-group row align-items-center">
+							<label for="uploadbukti" class="col-md-3 col-form-label">Upload Bukti Kerjaan</label>
 							<div class="col-md-9">
 								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="inputGroupFile01"
-										   aria-describedby="inputGroupFileAddon01">
-									<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+									<input type="file" class="custom-file-input" id="uploadBukti" name="uploadbukti">
+									<label class="custom-file-label" for="uploadBukti">Choose file</label>
 								</div>
 							</div>
 						</div>
-						
+						<!-- Upload File End -->
 
-
+						<!-- Checkbox -->
 						<div class="form-group row">
-							<div class="col-md-9">
-								<input type="checkbox" id="verify" value="1" name="verify" required>
-								<small class="md-2"><strong>Dengan ini saya menyatakan pekerjaan saya sudah selesai</strong></small>
-								<br>
-								<small>You will receive your authentication information by email.</small>
+							<div class="col-12">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" id="verify" value="1" name="verify" class="custom-control-input" required>
+									<label class="custom-control-label" for="verify">
+										<small><strong>Dengan ini saya menyatakan pekerjaan saya sudah selesai</strong></small>
+										<br>
+										<small>You will receive your authentication information by email.</small>
+									</label>
+								</div>
 							</div>
 						</div>
+						<!-- Checkbox end -->
+
 						<!-- Captcha -->
 						<!--                            <div class="form-group row">-->
 						<!--                                <div class="col-md-9">-->
 						<!--                                    <div class="g-recaptcha" data-sitekey="6LfcdL4aAAAAAJhUJSD1sa-1dW8AsrIjQ7rj_zj9"></div>-->
 						<!--                                </div>-->
 						<!--                            </div>-->
+
+						<!-- Tombol Submit -->
 						<div class="form-group row">
-							<div class="col-md-12">
-								<button class="btn btn-block btn-primary" type="submit">Lanjut</button>
+							<div class="col-12">
+								<button class="btn btn-block btn-primary" type="submit">Kirim</button>
 							</div>
 						</div>
+						<!-- Tombol Submit end -->
+						
 					</form>
 				<?php } ?>
 				</div>
+				</div>
 			</div>
 		</div>
-		<
-		</div>
-	</div>
 </div>
 <?php $this->load->view('user/_partials/footer.php'); ?>
 </body>
-<script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
 	$(function () {
 		// Summernote
 		$('#summernote').summernote({
 			height: 200
 		});
-	})
+	});
 
-	const alert = document.getElementById('alert')
+	const alert = document.getElementById('alert');
 	const validation = () => {
 
 		const kategori = document.forms['insert-iklan']['kategori'].value
