@@ -55,6 +55,21 @@ class C_Iklan extends CI_Controller
 		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$this->load->view('admin/semuaiklan', $data);
 	}
+	public function tampiliklanselesai()
+	{
+		$data['dataIklan'] = $this->M_Iklan->select_iklan_selesai();
+		$data['allcount'] = $this->M_Iklan->show_allcount();
+		$this->load->view('admin/iklanselesai', $data);
+	}
+	public function detaillaporan()
+	{
+		$id =  $this->uri->segment(2);
+//  	var_dump("data ",$id);
+		$data['allcount'] = $this->M_Iklan->show_allcount();
+		$data['detailhit']=$this->M_Iklan->detail_iklan_selesai($id);
+//  	var_dump($data);
+		$this->load->view('admin/detaillaporanselesai',$data);
+	}
 	public function detailhit()
 	{
 		$id =  $this->uri->segment(2);

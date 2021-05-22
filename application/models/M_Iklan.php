@@ -111,6 +111,24 @@ class M_Iklan extends CI_Model
 
 		return $data->result();
 	}
+	public function select_iklan_selesai()
+	{
+		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi, report_kerjaan.tgl_selesai,user.nama_user
+		from kerjaan,report_kerjaan,user where kerjaan.idkerjaan=report_kerjaan.id_kerjaan and user.iduser=report_kerjaan.id_user";
+//		echo $sql;
+		$data = $this->db->query($sql);
+
+		return $data->result();
+	}
+	public function detail_iklan_selesai($id)
+	{
+		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi,report_kerjaan.detail, report_kerjaan.tgl_selesai,user.nama_user
+		from kerjaan,report_kerjaan,user where kerjaan.idkerjaan=report_kerjaan.id_kerjaan and user.iduser=report_kerjaan.id_user and report_kerjaan.id='$id'";
+//		echo $sql;
+		$data = $this->db->query($sql);
+
+		return $data->result();
+	}
 
 	public function getAllCategory()
 	{
@@ -139,6 +157,7 @@ class M_Iklan extends CI_Model
 
 		return $this->db->affected_rows();
 	}
+
 	public function allHit()
 	{
 		$iduser = $this->session->userdata('id');

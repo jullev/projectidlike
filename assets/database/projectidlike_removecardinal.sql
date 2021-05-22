@@ -21,6 +21,18 @@ SET time_zone = "+00:00";
 -- Database: `projectidlike`
 --
 
+--membuat delimiter
+delimiter $$
+create trigger after_insert_report
+    AFTER INSERT
+    ON report_kerjaan FOR EACH ROW
+BEGIN
+    update kerjaan set id_status=6 where idkerjaan=new.id_kerjaan$$
+        END$$
+
+DELIMITER ;
+
+
 DELIMITER $$
 --
 -- Functions
