@@ -104,8 +104,7 @@ class M_Iklan extends CI_Model
 	}
 	public function select_iklan($id)
 	{
-		$sql = "SELECT *,wilayah_kabupaten.nama_kabupaten From kerjaan,wilayah_kabupaten 
-		where wilayah_kabupaten.id_kabupaten=kerjaan.kabupaten_idkabupaten and idkerjaan=$id";
+		$sql = "SELECT kerjaan.*,wilayah_kabupaten.nama_kabupaten, user.no_hp as no_hp From kerjaan,wilayah_kabupaten, user where wilayah_kabupaten.id_kabupaten=kerjaan.kabupaten_idkabupaten and kerjaan.user_iduser = user.iduser and idkerjaan=".$id;
 
 		$data = $this->db->query($sql);
 
