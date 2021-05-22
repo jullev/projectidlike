@@ -26,13 +26,13 @@ class C_SetKategori extends CI_Controller
 		if ($validation == true) {
 			$result = $this->M_Setkategori->addkategori($data);
 			if ($result == "success") {
-				$this->session->set_flashdata('msg', 'Penambahan kategori berhasil!!');
+				$this->session->set_userdata('msg', 'Penambahan kategori berhasil!!');
 				redirect("setkategori");
 			} elseif ($result == "failed") {
-				$this->session->set_flashdata('msg', 'Terdapat kategori yang sama');
+				$this->session->set_userdata('msg', 'Terdapat kategori yang sama');
 				redirect("setkategori");
 			} else {
-				$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
+				$this->session->set_userdata('msg', 'Periksa kembali data anda!');
 				redirect("setkategori");
 			}
 		}
@@ -58,7 +58,6 @@ class C_SetKategori extends CI_Controller
 		$input['id'] = $this->session->userdata('id');
 		$result = $this->M_Setkategori->updateKategori($input);
 
-		var_dump($input);
 
 		if ($result > 0) {
 			$this->session->set_userdata('status', 'success');

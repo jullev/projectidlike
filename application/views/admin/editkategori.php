@@ -41,13 +41,14 @@
                     <div class="col-12">
                         <div id="alert_msg">
                             <?php
-                            if ($this->session->flashdata('msg') !== null) {
+                            if ($this->session->userdata('msg') !== null) {
                             ?>
-                                <div class="alert alert-warning"><?php echo $this->session->flashdata('msg') ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <div class="alert alert-warning"><?php echo $this->session->userdata('msg') ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button></div>
                             <?php
                             }
+                            $this->session->unset_userdata('msg');
                             ?>
                         </div>
                         <div class="card">
@@ -63,7 +64,7 @@
                                             <div class="form-group row">
                                                 <label for="category" class="col-3 col-form-label">Id Kategori</label>
                                                 <div class="col-9">
-                                                    <input type="text" name="category" name="id" class="form-control" id="id" value="<?php echo @$editKatgor->idkategori; ?>" placeholder="Nama Kategori" disabled>
+                                                    <input type="text" name="id" id="id" class="form-control" value="<?php echo @$editKatgor->idkategori; ?>" placeholder="Nama Kategori" disabled>
                                                 </div>
                                             </div>
                                             <div class="form-group row">

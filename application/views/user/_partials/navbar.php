@@ -121,7 +121,7 @@
 			btn_tambahiklan.dataset.toggle = 'modal'
 		}else{
 			btn_tambahiklan.addEventListener('click', () => {
-				location.href = 'tambahiklan'
+				location.href = "<?php echo site_url('tambahiklan') ?>"
 			})
 		}
 	}

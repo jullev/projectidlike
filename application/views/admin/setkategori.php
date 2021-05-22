@@ -36,20 +36,21 @@
             <!-- Main content -->
             <section class="content container">
                 <?php
-                if (isset($status)) {
-                    if ($status == "success") {
+                if ($this->session->userdata('status') !== null) {
+                    if ($this->session->userdata('status') == "success") {
                 ?>
-                        <div class="alert alert-success"><?php echo $msg ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <div class="alert alert-success"><?php echo $this->session->userdata('msg') ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button></div>
                     <?php
                     } else {
                     ?>
-                        <div class="alert alert-danger"><?php echo $msg ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <div class="alert alert-danger"><?php echo $this->session->userdata('msg') ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button></div>
                 <?php
                     }
+                    $this->session->unset_userdata(array('status', 'msg'));
                 }
                 ?>
                 <div class="card">
