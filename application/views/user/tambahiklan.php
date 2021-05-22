@@ -20,7 +20,7 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 				<div class="card-body py-5 px-5">
 					<!-- form tambah list -->
 					<form action="<?php echo site_url('simpaniklan') ?>" method="POST" onsubmit="return validation()"
-						  onclick="removeAlert()" name="insert-iklan">
+						  onclick="removeAlert()" name="insert-iklan" enctype="multipart/form-data">
 						<!-- Tampilkan alert -->
 						<div id="alert">
 							<?php
@@ -75,11 +75,11 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 						<div class="form-group row">
 							<label for="deskripsi" class="col-md-3 col-form-label">Upload Gambar</label>
 							<div class="col-md-9">
-								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="inputGroupFile01"
-										   aria-describedby="inputGroupFileAddon01">
-									<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-								</div>
+<!--								<div class="custom-file">-->
+									<input type="file" class="form-control-file" id="img" name="img"
+										   aria-describedby="inputGroupFileAddon01" accept="image/jpeg, image/png">
+<!--									<label class="custom-file-label" for="inputGroupFile01">Choose file</label>-->
+<!--								</div>-->
 							</div>
 						</div>
 						<div class="form-group row">

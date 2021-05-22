@@ -115,12 +115,52 @@ class C_Iklan extends CI_Controller
 
 	public function simpanIklan(){
 		$input = $this->input->post();
+
+		// Cek apakah file ada
+		if($_FILES['img']['error'] == UPLOAD_ERR_NO_FILE){
+			redirect('tambahiklan?msg=error');
+		}
+
+		// Upload image
+		$img_upload = $this->uploadGambarIklan();
+		if($img_upload['status'] != 'success'){
+			redirect('tambahiklan?msg=error');
+		}
+
+		$input['img'] = $img_upload['filename'];
 		$result = $this->M_Iklan->saveIklan($input);
 		if($result > 0){
 			redirect('tambahiklan?msg=success');
 		}else{
 			redirect('tambahiklan?msg=error');
 		}
+	}
+
+	private function uploadGambarIklan(){
+		$img_ext = pathinfo($_FILES['img']['name'], PATHINFO_EXTENSION);
+		// Randomize string
+		$this->load->helper('string');
+		$random_name = random_string('alnum', 15);
+		$img_name = $random_name.'.'.$img_ext;
+
+		$config['upload_path'] = 'assets/image/iklan/';
+		$config['allowed_types'] = 'jpg|jpeg|png';
+		$config['max_size'] = 4096;
+		$config['file_name'] = $img_name;
+		$config['overwrite'] = true;
+
+		$this->load->library('upload', $config);
+
+		if($this->upload->do_upload('img')){
+			$this->upload->data();
+			$data['status'] = 'success';
+			$data['filename'] = $img_name;
+			return $data;
+		}else{
+			$data['status'] = $this->upload->display_errors();
+			return $data;
+		}
+
 	}
 
 	public function reportIklan(){

@@ -144,9 +144,8 @@ class M_Iklan extends CI_Model
 
 	public function saveIklan($data)
 	{
-		$sql = "INSERT INTO kerjaan VALUES(NULL,'".$this->session->userdata('id')."' ,'".$data['judul']."', '".$data['contents']."',' ', CURRENT_DATE(), '".$data['deadline']."', '".$data['kategori']."','".$data['kota']."','".$data['harga']."','menunggu')";
+		$sql = "INSERT INTO kerjaan VALUES(NULL,'".$this->session->userdata('id')."' ,'".$data['judul']."', '".$data['contents']."','".$data['img']."', CURRENT_DATE(), '".$data['deadline']."', '".$data['kategori']."','".$data['kota']."','".$data['harga']."', 1)";
 		$this->db->query($sql);
-
 		return $this->db->affected_rows();
 	}
 	public function reportKerjaan($data)
