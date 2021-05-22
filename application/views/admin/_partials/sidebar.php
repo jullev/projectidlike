@@ -93,8 +93,7 @@
 					<li class="nav-item">
 						<a href="#" class="nav-link">
 							<i class="nav-icon bi-chat-right-text-fill align-middle"></i>
-							<p>
-								Iklan
+							<p>Iklan
 								<i class="right fas fa-angle-left"></i>
 							</p>
 						</a>
@@ -102,25 +101,22 @@
 							<li class="nav-item">
 								<a href="<?php echo site_url('iklanbaru') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
-									<p>Pengajuan
-										<span class="right badge badge-info"><?php echo $value->pengajuan_baru; ?></span>
-									</p>
+									<p>Pengajuan</p>
+									<span class="right badge badge-info"><?php echo $value->pengajuan_baru; ?></span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="<?php echo site_url('iklandisetujui') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
-									<p>Disetujui
-										<span class="right badge badge-success"><?php echo $value->disetujui; ?></span>
-									</p>
+									<p>Disetujui</p>
+									<span class="right badge badge-success"><?php echo $value->disetujui; ?></span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="<?php echo site_url('') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
-									<p>Dibatalkan
-										<span class="right badge badge-danger"><?php echo $value->ditolak; ?></span>
-									</p>
+									<p>Dibatalkan</p>
+									<span class="right badge badge-danger"><?php echo $value->ditolak; ?></span>
 								</a>
 							</li>
 							<li class="nav-item">
