@@ -14,7 +14,7 @@ class M_Setkategori extends CI_Model
 
 	public function select_kategori_id($id)
 	{
-		$sql = "SELECT * FROM kategori where idkategori ='$id'";
+		$sql = "SELECT * FROM kategori WHERE idkategori ='$id'";
 		$data = $this->db->query($sql);
 
 		return $data->row();
@@ -57,5 +57,11 @@ class M_Setkategori extends CI_Model
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
+	}
+
+	public function updateKategori($input)
+	{
+		$sql = "UPDATE kategori SET nama_kategori='" . $input['category'] . "' WHERE idkategori=" . $input['id'];
+		return $this->db->query($sql);
 	}
 }

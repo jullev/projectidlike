@@ -24,8 +24,8 @@
                                     <ol class="breadcrumb float-sm-left">
                                         <li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Home</a></li>
                                         <li class="breadcrumb-item">Master Administrator</li>
-                                        <li class="breadcrumb-item">Pengaturan Kategori</li>
-                                        <li class="breadcrumb-item active">Tambah Kategori</li>
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('setkategori') ?>">Pengaturan Kategori</a></li>
+                                        <li class="breadcrumb-item active">Edit Kategori</li>
 
                                     </ol>
                                 </div>
@@ -61,9 +61,15 @@
                                         <!-- nama -->
                                         <form action="<?php echo site_url('kategoriadd') ?>" onsubmit=" return validation()" method="POST" id="kategori_form">
                                             <div class="form-group row">
+                                                <label for="category" class="col-3 col-form-label">Id Kategori</label>
+                                                <div class="col-9">
+                                                    <input type="text" name="category" name="id" class="form-control" id="id" value="<?php echo @$editKatgor->idkategori; ?>" placeholder="Nama Kategori" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <label for="category" class="col-3 col-form-label">Nama Kategori</label>
                                                 <div class="col-9">
-                                                    <input type="text" name="category" class="form-control" id="category" value="<?php echo @$editKatgor[0]->nama_kategori; ?>" placeholder="Nama Kategori" required>
+                                                    <input type="text" name="category" class="form-control" id="category" value="<?php echo @$editKatgor->nama_kategori; ?>" placeholder="Nama Kategori" required>
                                                 </div>
                                             </div>
                                             <!-- btn -->
