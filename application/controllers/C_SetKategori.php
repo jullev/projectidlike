@@ -52,8 +52,21 @@ class C_SetKategori extends CI_Controller
 		}
 	}
 
-	public function updatekategori()
+	public function UpdateKategori()
 	{
-		$inpu
+		$input = $this->input->post();
+		$input['id'] = $this->session->userdata('id');
+		$result = $this->M_Setkategori->updateKategori($input);
+
+		var_dump($input);
+
+		if ($result > 0) {
+			$this->session->set_userdata('status', 'success');
+			$this->session->set_userdata('msg', 'Data berhasil diperbarui');
+		} else {
+			$this->session->set_userdata('status', 'error');
+			$this->session->set_userdata('msg', 'Periksa kembali data anda. ');
+		}
+		redirect("setkategori", "refresh");
 	}
 }

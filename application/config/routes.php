@@ -70,6 +70,7 @@ $route['admin/detailuser'] = 'C_Overview/detailuser';
 $route['updateadminproses'] = 'C_ManagementAdmin/updateAdmin';
 $route['kategoriadd'] = 'C_SetKategori/prosestambahkategori';
 $route['kategoriedit'] = 'C_Overview/editKategori';
+$route['kategoriupdate'] = 'C_SetKategori/UpdateKategori';
 // $route['updateadmin'] = 'C_Overview/updateadmin';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
 $route['updateadmin'] = 'C_ManagementAdmin/updateAdmin';

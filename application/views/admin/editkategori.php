@@ -59,7 +59,7 @@
                                 <div class="row">
                                     <div class="col 12 col-sm-10 col-lg-10 mt-4 mx-auto">
                                         <!-- nama -->
-                                        <form action="<?php echo site_url('kategoriadd') ?>" onsubmit=" return validation()" method="POST" id="kategori_form">
+                                        <form action="<?php echo site_url('kategoriupdate') ?>" onsubmit=" return validation()" method="POST" id="kategori_form">
                                             <div class="form-group row">
                                                 <label for="category" class="col-3 col-form-label">Id Kategori</label>
                                                 <div class="col-9">
