@@ -21,10 +21,22 @@
 					<div class="row align-items-center">
 						<!-- Nama dan Foto -->
 						<div class="col-md-10 col-lg-6 mx-md-auto mx-lg-0">
-							<img src="<?php
-							echo base_url('assets/image/users/') . @$datauser->foto_profil ?>" alt=""
-								 class="rounded-circle mr-3" style="width:48px;height:48px;">
-							<strong><?php echo $datauser->nama_user; ?></strong>
+							<div class="d-flex">
+								<img src="<?php echo base_url('assets/image/users/') . @$datauser->foto_profil ?>" alt="" class="rounded-circle mr-3" style="width:48px;height:48px;">
+								<div class="d-flex flex-column">
+									<div><strong><?php echo $datauser->nama_user; ?></strong></div>
+									<div>
+										<span class="text-warning">
+											<i class="bi-star-fill"></i>
+											<i class="bi-star-fill"></i>
+											<i class="bi-star-fill"></i>
+											<i class="bi-star-fill"></i>
+											<i class="bi-star-half"></i>
+										</span>
+										<span class="ml-1"><strong>4.5</strong>/5</span>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="col-md-12 col-lg-6 mx-md-auto mx-lg-0 mt-3 mt-md-3 mt-lg-0 d-inline-flex">
 							<!-- Mail -->
@@ -142,12 +154,12 @@
 							<div class="card-body" style="padding: 45px;">
 								<form action="<?php echo site_url('update-profile') ?>" method="POST" enctype="multipart/form-data">
 									<div class="form-group row">
-										<label for="avatar" class="col-lg-3 col-form-label">Photo or Avatar</label>
+										<label for="avatar1" class="col-lg-3 col-form-label">Photo or Avatar</label>
 										<div class="col-lg-9">
-<!--											<div class="custom-file">-->
+											<div class="custom-file">
 												<input type="file" name="avatar" id="avatar" accept="image/jpeg, image/png" >
-<!--												<label for="avatar" class="custom-file-label">Photo or Avatar</label>-->
-<!--											</div>-->
+												<label for="avatar" class="custom-file-label">Photo or Avatar</label>
+											</div>
 										</div>
 									</div>
 
