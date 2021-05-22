@@ -105,7 +105,7 @@
 							<div class="row text-center mt-5 mb-2">
 								<!-- Tombol Whatsapp -->
 								<div class="col-sm-12 col-md-4">
-									<button class="btn btn-outline-success btn-lg"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
+									<a href="https://wa.me/<?php echo $value->no_hp ?>"  class="btn btn-outline-success btn-lg"><i class="bi-whatsapp mr-1"></i> WhatsApp</a>
 								</div>
 								<!-- Tombol Whatsapp End -->
 								<!-- Tombol Hit -->
@@ -113,7 +113,7 @@
 									<?php //var_dump(@$cekhit);
 									if(!@$cekhit){
 									?>
-									<button class="btn btn-outline-warning btn-lg">
+									<button class="btn btn-outline-warning btn-lg" id="btnHit2" onmouseover="login_check_hit('btnHit2',<?php echo $this->session->userdata('is_login') ?> )">
 										<i class="bi-hand-index-thumb-fill mr-1"></i> Hit
 									</button>
 									<?php
@@ -190,7 +190,7 @@
 								<?php //var_dump(@$cekhit);
 								if(!@$cekhit){
 								?>
-									<button class="btn btn-warning btn-block" onclick="window.location='<?php echo site_url("hitiklan/$value->idkerjaan");?>'">
+									<button class="btn btn-warning btn-block" id="btnHit"  onmouseover="login_check_hit('btnHit',<?php echo $this->session->userdata('is_login') ?> )">
 										<i class="bi-hand-index-thumb-fill mr-1"></i> Hit
 									</button>
 								<?php
@@ -204,7 +204,7 @@
 								?>
 								<!-- Hit Button End -->
 								<!-- Whatsapp Button -->
-								<button class="btn btn-success btn-block"><i class="bi-whatsapp mr-1"></i> WhatsApp</button>
+								<a href="https://wa.me/<?php echo $value->no_hp ?>" class="btn btn-success btn-block"><i class="bi-whatsapp mr-1"></i> WhatsApp</a>
 								<!-- Whatsapp Button End -->
 							</li>
 							<!-- Button End -->
@@ -219,5 +219,20 @@
 
 	<!-- Footer -->
 	<?php $this->load->view('user/_partials/footer.php'); ?>
+	<script>
+		const login_check_hit = (btn, status) => {
+			const is_login = status
+			const btn_hit = document.getElementById(btn)
+			if(is_login === undefined || is_login === null){
+				btn_hit.dataset.target = '#signIn'
+				btn_hit.dataset.toggle = 'modal'
+			}else{
+				btn_hit.addEventListener('click', () => {
+					location.href = '<?php echo site_url('hitiklan/').$value->idkerjaan; ?>'
+				})
+			}
+		}
+	</script>
 </body>
+
 </html>
