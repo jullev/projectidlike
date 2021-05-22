@@ -42,7 +42,7 @@
                                         <td class="text-center">03 Mei 2021</td>
                                         <td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
                                         <td class="text-center">
-                                            <button class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Edit Iklan">
+                                            <button onclick="window.location='<?php echo site_url('editiklan');?>'" class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Edit Iklan">
                                                 <i class="bi-pencil-square"></i>
                                             </button>
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#delete" data-tooltip="tooltip" data-placement="bottom" title="Hapus Iklan">
@@ -57,7 +57,7 @@
                                         <td class="text-center">17 Mei 2021</td>
                                         <td class="text-center"><span class="btn list-group-item-success">Disetujui</span></td>
                                         <td class="text-center">
-                                            <button class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Edit Iklan">
+                                            <button onclick="window.location='<?php echo site_url('editiklan');?>'" class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Edit Iklan">
                                                 <i class="bi-pencil-square"></i>
                                             </button>
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#delete" data-tooltip="tooltip" data-placement="bottom" title="Hapus Iklan">
@@ -72,7 +72,7 @@
                                         <td class="text-center">10 Mei 2021</td>
                                         <td class="text-center"><span class="btn list-group-item-danger">Ditolak</span></td>
                                         <td class="text-center">
-                                            <button class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Edit Iklan">
+                                            <button onclick="window.location='<?php echo site_url('editiklan');?>'" class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Edit Iklan">
                                                 <i class="bi-pencil-square"></i>
                                             </button>
                                             <button class="btn btn-danger" data-toggle="modal" data-target="#delete" data-tooltip="tooltip" data-placement="bottom" title="Hapus Iklan">
