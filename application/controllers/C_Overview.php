@@ -10,6 +10,7 @@ class C_Overview extends CI_Controller
     $this->load->model('M_ManageUser');
     $this->load->model('M_Iklan');
     $this->load->model('M_Setkategori');
+    $this->load->model('M_Setwilayah');
     $this->load->library('session');
     $this->load->library('form_validation');
   }
@@ -161,10 +162,11 @@ class C_Overview extends CI_Controller
 
   public function tambahKategori()
   {
-    $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
+    // $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
     $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/tambahkategori', $data);
   }
+
 
   // public function editKatgor()
   // {
@@ -184,5 +186,12 @@ class C_Overview extends CI_Controller
     $data['allcount'] = $this->M_Iklan->show_allcount();
     //  	var_dump($data);
     $this->load->view('admin/editkategori', $data);
+  }
+
+  public function setWilayah()
+  {
+    $data['allwil'] = $this->M_Setwilayah->select_all_wilayah();
+    $data['allcount'] = $this->M_Iklan->show_allcount();
+    $this->load->view('admin/setwilayah', $data);
   }
 }
