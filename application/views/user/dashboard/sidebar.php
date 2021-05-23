@@ -106,3 +106,10 @@
         }
     }
 </script>
+
+<!-- Cek apakah sudah login -->
+<?php
+if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login") == false)) {
+	redirect('/');
+}
+?>
