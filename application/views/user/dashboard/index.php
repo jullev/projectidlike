@@ -157,7 +157,7 @@
 										<label for="avatar1" class="col-lg-3 col-form-label">Photo or Avatar</label>
 										<div class="col-lg-9">
 											<div class="custom-file">
-												<input type="file" name="avatar" id="avatar" accept="image/jpeg, image/png" >
+												<input type="file" class="custom-file-input" name="avatar" id="avatar" accept="image/jpeg, image/png" >
 												<label for="avatar" class="custom-file-label">Photo or Avatar</label>
 											</div>
 										</div>

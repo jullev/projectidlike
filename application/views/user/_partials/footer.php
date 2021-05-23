@@ -47,6 +47,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
 
 <script>
+  // Summernote
+  $(function () {
+		// Summernote
+		$('#summernote').summernote({
+			height: 200
+		});
+	});
+
   // Input Only Number
   function isInputNumber(evt) {
     var ch = String.fromCharCode(evt.which);

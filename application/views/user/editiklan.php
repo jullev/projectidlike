@@ -18,52 +18,42 @@
 							<h3><i class="bi-pencil-square mr-1"></i>&nbsp;Edit Iklan</h3>
 						</div>
 						<div class="card-body">
-							<div class="form-group row">
-								<label for="judul" class="col-md-3 col-form-label">Judul <sup
-								style="color:tomato">*</sup></label>
-								<div class="col-md-9">
+							<div class="form-group">
+								<label for="judul" class="form-label">Judul</label>
 									<input type="text" class="form-control" id="judul" name="judul"
 									placeholder="Judul Iklan" required>
-								</div>
 							</div>
-							<div class="form-group row">
-								<label for="deskripsi" class="col-md-3 col-form-label">Deskripsi <sup style="color: tomato">*</sup></label>
-								<div class="col-md-9">
+							<div class="form-group">
+								<label for="deskripsi" class="form-label">Deskripsi</label>
 									<textarea class="form-control" name="contents" id="summernote" required>
 									<small>Deskripsikan apa yang membuat iklan anda menarik dan unik.</small>
 									</textarea>
-								</div>
 							</div>
-							<div class="form-group row">
+							<div class="form-group">
 								<!-- kategori form -->
-								<label for="kategori" class="col-md-3 col-form-label">Kategori <sup
-								style="color:tomato">*</sup></label>
-								<div class="col-md-9">
-									<select class="custom-select" name="kategori" id="kategori" required>
-										<option value="#" selected>-- Pilih Kategori --</option>
-										<?php
-										foreach ($kategori as $kat) {
-										?>
-										<option value="<?php echo $kat->idkategori ?>"><?php echo $kat->nama_kategori ?></option>
-										<?php
-										}
-										?>
-									</select>
+								<label for="kategori" class="form-label">Kategori</label>
+								<select class="custom-select" name="kategori" id="kategori" required>
+									<option value="#" selected>-- Pilih Kategori --</option>
+									<?php
+									foreach ($kategori as $kat) {
+									?>
+									<option value="<?php echo $kat->idkategori ?>"><?php echo $kat->nama_kategori ?></option>
+									<?php
+									}
+									?>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="deskripsi" class="form-label">Upload Gambar</label>
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="inputGroupFile01"
+									aria-describedby="inputGroupFileAddon01">
+									<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="deskripsi" class="col-md-3 col-form-label">Upload Gambar</label>
-								<div class="col-md-9">
-									<div class="custom-file">
-										<input type="file" class="custom-file-input" id="inputGroupFile01"
-										aria-describedby="inputGroupFileAddon01">
-										<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-									</div>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="price" class="col-md-3 col-form-label">Harga</label>
-								<div class="input-group mb-3 col-md-9">
+							<div class="form-group">
+								<label for="price" class="form-label">Harga</label>
+								<div class="input-group">
 									<div class="input-group-prepend ">
 										<span class="input-group-text">Rp </span>
 									</div>
@@ -72,33 +62,35 @@
 								</div>
 							</div>
 							<!-- Tangga Lahir -->
-							<div class="form-group row">
-								<label for="birthdate" class="col-md-3 col-form-label">Deadline <sup
-								style="color: red;">*</sup></label>
-								<div class="col-md-9">
-									<div class="input-group">
-										<input type="date" class="form-control" id="deadline" name="deadline"
-										min="<?php echo date('Y-m-d') ?>" required>
-									</div>
+							<div class="form-group">
+								<label for="birthdate" class="form-label">Deadline </label>
+								<div class="input-group">
+									<input type="date" class="form-control" id="deadline" name="deadline"
+									min="<?php echo date('Y-m-d') ?>" required>
 								</div>
 							</div>
-							<div class="form-group row">
-								<label for="kota" class="col-md-3 col-form-label">Kota <sup
-								style="color: red;">*</sup></label>
-								<div class="col-md-9">
-									<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true"
-										required>
-										<option value="#">-- Pilih Kota/Kabupaten --</option>
-										<?php
-											foreach ($kabupaten as $kab) {
-										?>
-										<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
-										<?php
-										}
-										?>
-									</select>
-									<div class="mt-4 text-right"><a href="#" class="btn btn-primary">Simpan</a></div>
+							<div class="form-group">
+								<label for="kota" class="form-label">Kota</label>
+								<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true"
+									required>
+									<option value="#">-- Pilih Kota/Kabupaten --</option>
+									<?php
+										foreach ($kabupaten as $kab) {
+									?>
+									<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
+									<?php
+									}
+									?>
+								</select>
+							</div>
+							<div class="card list-group-item-warning">
+								<div class="card-body">
+									<i class="bi-info-circle mr-1"></i> Setelah iklan diedit, admin akan memverifikasi kembali iklan anda.
 								</div>
+							</div>
+							<div class="row mt-4">
+								<div class="col-6"></div>
+								<div class="col-6"><a href="#" class="btn btn-lg btn-block btn-primary">Simpan</a></div>
 							</div>
 						</div> <!-- Card-Body Main End -->
 					</div> <!-- Card Main End -->

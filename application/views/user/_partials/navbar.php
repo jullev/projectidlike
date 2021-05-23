@@ -59,7 +59,7 @@
 			?>
 			<!-- Tombol Tambah Iklan -->
 			<button class="btn btn-warning ml-2 ml-sm-3" id="btnTambahIklan"
-					onload="login_check(<?php echo $this->session->userdata('is_login') ?>)">
+					onmouseover="login_check(<?php echo $this->session->userdata('is_login') ?>)">
 				<i class="bi bi-plus-circle"></i></i> Buat Iklan
 			</button>
 		</div>

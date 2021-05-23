@@ -75,11 +75,11 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 						<div class="form-group row">
 							<label for="deskripsi" class="col-md-3 col-form-label">Upload Gambar</label>
 							<div class="col-md-9">
-<!--								<div class="custom-file">-->
+								<div class="custom-file">
 									<input type="file" class="form-control-file" id="img" name="img"
 										   aria-describedby="inputGroupFileAddon01" accept="image/jpeg, image/png">
-<!--									<label class="custom-file-label" for="inputGroupFile01">Choose file</label>-->
-<!--								</div>-->
+									<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+								</div>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -216,13 +216,6 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 </body>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
-	$(function () {
-		// Summernote
-		$('#summernote').summernote({
-			height: 200
-		});
-	})
-
 	const alert = document.getElementById('alert')
 	const validation = () => {
 

@@ -82,6 +82,25 @@
       box-shadow: none;
     }
   }
+
+  #cardHover {
+    transition: 0.2s all;
+    overflow: hidden;
+  }
+  #cardHover:hover {
+    box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+
+  .img-zoom {
+    overflow: hidden;
+  }
+  .img-zoom img {
+    transition: all ease 0.75s;
+  }
+  .img-zoom:hover img {
+    transform: scale(1.25);
+  }
   
 </style>
 
@@ -198,8 +217,10 @@
         foreach (@$dataIklan as $value) {
           ?>
           <div class="col-lg-3 col-md-6 col-sm-10 px-2 mb-3">
-            <div class="card">
-              <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="<?php echo $value->judul_kerjaan; ?>" title="<?php echo $value->judul_kerjaan; ?>">
+            <div class="card" id="cardHover">
+              <div class="img-zoom">
+                <img class="card-img-top" src="assets/image/Inside-Out.jpg" alt="<?php echo $value->judul_kerjaan; ?>" title="<?php echo $value->judul_kerjaan; ?>">
+              </div>
               <div class="card-body" style="height: 16rem;overflow: hidden;">
                 <h5 class="card-title text-capitalize">
                   <a href="<?php echo base_url() ?>detail/<?php echo $value->idkerjaan; ?>"><?php echo $value->judul_kerjaan; ?></a>
