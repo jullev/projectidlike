@@ -27,9 +27,13 @@ class C_Register extends CI_Controller
 	{
 		$data = $this->input->post();
 		//print_r($data);
-		$this->M_Register->Select_Login($data);
+		$result = $this->M_Register->Select_Login($data);
 		//		print_r( $hasil->role_idrole);
 		//		print_r( $this->session->userdata('role'));
+
+		if($result == 'error'){
+			redirect('/', 'refresh');
+		}
 
 		if ($this->session->userdata('role') == 1) {
 			redirect('admin', 'refresh');

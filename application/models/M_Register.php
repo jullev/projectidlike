@@ -51,11 +51,11 @@ class M_Register extends CI_Model
 			$this->session->set_userdata('id', $data_query->row()->iduser);
 			$this->session->set_userdata('role', $data_query->row()->role_idrole);
 			$this->session->set_userdata('is_login', TRUE);
-
 			return TRUE;
 		} else {
-			echo "password salah";
-			return FALSE;
+			$this->session->set_userdata('status', 'error');
+			$this->session->set_userdata('msg', 'Username/password salah');
+			return 'error';
 		}
 		return $data_query->result();
 	}
