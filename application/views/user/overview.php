@@ -145,7 +145,7 @@
                 <div class="input-group"><input type="text" placeholder="Dimana?" class="form-control"></div>
               </div>
               <div class="col-lg-2">
-                <button class="btn btn-primary btn-block rounded-pill" type="submit"><i class="bi-search mr-1"></i> Search</button>
+                <button class="btn btn-primary btn-block rounded-pill py-lg-3" type="submit"><i class="bi-search mr-1"></i> Search</button>
               </div>
             </div>
           </form>
