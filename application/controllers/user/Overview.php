@@ -102,4 +102,19 @@ class Overview extends CI_Controller
 	{
 		$this->load->view ('user/editiklan');
 	}
+
+	public function verifikasiemail()
+	{
+		$this->load->view('user/verifikasiemail');
+	}
+
+	public function lupapassword2()
+	{
+		$this->load->view('user/lupapassword2');
+	}
+
+	public function forgot()
+	{
+		$this->load->view('user/forgot');
+	}
 }

@@ -22,7 +22,8 @@
 						<!-- Nama dan Foto -->
 						<div class="col-md-10 col-lg-6 mx-md-auto mx-lg-0">
 							<div class="d-flex">
-								<img src="<?php echo base_url('assets/image/users/') . @$datauser->foto_profil ?>" alt="" class="rounded-circle mr-3" style="width:48px;height:48px;">
+								<img src="<?php echo base_url('assets/image/users/') . @$datauser->foto_profil ?>"
+									 alt="" class="rounded-circle mr-3" style="width:48px;height:48px;">
 								<div class="d-flex flex-column">
 									<div><strong><?php echo $datauser->nama_user; ?></strong></div>
 									<div>
@@ -152,12 +153,14 @@
 						</a>
 						<div class="collapse show" id="accountCollapse">
 							<div class="card-body" style="padding: 45px;">
-								<form action="<?php echo site_url('update-profile') ?>" method="POST" enctype="multipart/form-data">
+								<form action="<?php echo site_url('update-profile') ?>" method="POST"
+									  enctype="multipart/form-data">
 									<div class="form-group row">
 										<label for="avatar1" class="col-lg-3 col-form-label">Photo or Avatar</label>
 										<div class="col-lg-9">
 											<div class="custom-file">
-												<input type="file" class="custom-file-input" name="avatar" id="avatar" accept="image/jpeg, image/png" >
+												<input type="file" class="custom-file-input" name="avatar" id="avatar"
+													   accept="image/jpeg, image/png">
 												<label for="avatar" class="custom-file-label">Photo or Avatar</label>
 											</div>
 										</div>
@@ -251,7 +254,8 @@
 						<div class="collapse show" id="settingCollapse">
 							<div class="card-body" style="padding: 45px;">
 								<div id="pwdAlert"></div>
-								<form action="<?php echo site_url('update-password') ?>" method="POST" onsubmit="return pwdValidation()">
+								<form action="<?php echo site_url('update-password') ?>" method="POST"
+									  onsubmit="return pwdValidation()">
 									<div class="form-group row">
 										<label for="pwd" class="col-lg-3 col-form-label">Password Baru<sup
 													style="color: tomato">*</sup></label>
@@ -265,7 +269,8 @@
 													style="color: tomato">*</sup></label>
 										<div class="col-lg-9">
 											<input type="password" name="pwdC" id="pwdC" class="form-control"
-												   placeholder="Konfirmasi Password" onfocus="removePwdAlert()" required>
+												   placeholder="Konfirmasi Password" onfocus="removePwdAlert()"
+												   required>
 										</div>
 									</div>
 									<div class="row">
@@ -292,7 +297,7 @@
 		const pwd = document.getElementById('pwd').value
 		const pwdC = document.getElementById('pwdC').value
 
-		if(pwd !== pwdC){
+		if (pwd !== pwdC) {
 			alert.innerHTML = "<div class='alert alert-danger'>Password tidak sesuai, ulangi lagi.</div>"
 			return false
 		}
