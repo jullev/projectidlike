@@ -23,7 +23,7 @@
 							<div class="card-header">
 								<ol class="breadcrumb float-sm-left">
 									<li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Home</a></li>
-									<li class="breadcrumb-item active">List Iklan Baru</li>
+									<li class="breadcrumb-item active">Iklan Baru</li>
 								</ol>
 							</div>
 						</div>
@@ -37,9 +37,12 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="card">
+						<div class="card-header">
+							<h3><strong>Iklan Baru</strong></h3>
+						</div>
 						<div class="card-body">
-							<section class="content">
-								<table class="table table">
+							<div id="adsNew_wrapper">
+								<table class="table" id="adsNew">
 									<thead class="thead-dark">
 									<tr>
 										<th scope="col">No.</th>
@@ -82,7 +85,7 @@
 									?>
 									</tbody>
 								</table>
-							</section>
+							</div>
 						</div>
 						<!-- /.content -->
 					</div>
@@ -91,7 +94,21 @@
 		</section>
 		<!-- /.content-wrapper -->
 	</div>
+
+	<!-- Footer -->
 	<?php $this->load->view("admin/_partials/footer.php") ?>
+
+	<!-- JS -->
+	<script>
+		$(function() {
+            $("#adsNew").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                //"buttons": [ "excel", "pdf", "print"]
+            }).buttons().container().appendTo('#adsNew_wrapper .col-md-6:eq(0)');
+        });
+	</script>
 </body>
 
 </html>
