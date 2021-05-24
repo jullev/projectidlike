@@ -8,7 +8,7 @@
 <div class="container mb-5" style="margin-top: 100px;">
 	<div class="card">
 		<div class="card-header">
-			<h3>Rubah Password</h3>
+			<h3>Ubah Password</h3>
 		</div>
 		<div class="card-body">
 			<!--Form New Password-->

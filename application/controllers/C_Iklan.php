@@ -21,7 +21,7 @@ class C_Iklan extends CI_Controller
 	{
 		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_baru();
-		var_dump($data);
+		//var_dump($data);
 		$this->load->view('admin/iklanbaru',$data);
 	}
 	public function reportkerjaan()

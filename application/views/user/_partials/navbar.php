@@ -10,7 +10,7 @@
 	 onload="alert(<?php echo $this->session->userdata('status') ?>)">
 	<div class="container">
 		<!-- Nama Website -->
-		<a class="navbar-brand" href="<?php echo site_url('/') ?>">Brand</a>
+		<a class="navbar-brand" href="<?php echo site_url('/') ?>"><?php echo SITE_NAME ?></a>
 		<!-- Collapse Button -->
 		<button data-toggle="collapse" class="navbar-toggler mb-2" data-target="#navcol-1">
 			<span class="navbar-toggler-icon"></span>
