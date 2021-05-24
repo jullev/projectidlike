@@ -22,7 +22,7 @@ class Overview extends CI_Controller
 	{
 		// load view admin/overview.php
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
-//		echo ($data);
+		$data['kategori'] = $this->M_Iklan->getAllCategory();
 		$this->load->view("user/overview",$data);
 	}
 

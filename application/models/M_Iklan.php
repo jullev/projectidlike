@@ -75,7 +75,7 @@ class M_Iklan extends CI_Model
 
 	public function select_all_iklan_disetujui()
 	{
-		$sql = "SELECT *, F_hitunghit(idkerjaan) as hit FROM kerjaan where id_status=2";
+		$sql = "SELECT kerjaan.*, F_hitunghit(idkerjaan) as hit, kategori.nama_kategori, wilayah_kabupaten.nama_kabupaten FROM kerjaan, kategori, wilayah_kabupaten  where kerjaan.kategori_idkategori=kategori.idkategori and kerjaan.kabupaten_idkabupaten=wilayah_kabupaten.id_kabupaten and id_status=2";
 
 		$data = $this->db->query($sql);
 
