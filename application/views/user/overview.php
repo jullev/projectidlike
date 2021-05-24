@@ -195,29 +195,29 @@
 					<div class="form-row">
 						<div class="col-md-3">
 							<ul class="list-unstyled">
-								<li>Jakarta</li>
-								<li>Bandung</li>
-								<li>Medan</li>
-								<li>Suarabaya</li>
-								<li>Bekasi</li>
-							</ul>
-						</div>
-						<div class="col-md-3">
-							<ul class="list-unstyled">
-								<li>Palembang</li>
-								<li>Makassar</li>
-								<li>Tanggerang</li>
-								<li>South Tanggerang</li>
-								<li>Semarang</li>
-							</ul>
-						</div>
-						<div class="col-md-3">
-							<ul class="list-unstyled">
-								<li>Depok</li>
-								<li>Batam</li>
-								<li>Padang</li>
-								<li>Denpasar</li>
-								<li>Kota Lainnya</li>
+								<li><a href="">Jakarta</a></li>
+                <li><a href="">Bandung</a></li>
+                <li><a href="">Medan</a></li>
+                <li><a href="">Surabaya</a></li>
+                <li><a href="">Bekasi</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="">Palembang</a></li>
+                <li><a href="">Makassar</a></li>
+                <li><a href="">Tangerang</a></li>
+                <li><a href="">Tangerang Selatan</a></li>
+                <li><a href="">Semarang</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <ul class="list-unstyled">
+                <li><a href="">Depok</a></li>
+                <li><a href="">Batam</a></li>
+                <li><a href="">Padang</a></li>
+                <li><a href="">Denpasar</a></li>
+                <li><a href="" data-toggle="modal" data-target="#moreCity">Kota Lainnya</a></li>
 							</ul>
 						</div>
 					</div>
@@ -258,25 +258,60 @@
                     - <i class="bi-grid ml-1 mr-1"></i> <?php echo $value->nama_kategori ?>
                     - <i class="bi-geo-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten ?>
                   </span>
-								<div class="text-right">
-									<h5>Rp <?php echo number_format($value->harga, 2, ',', '.'); ?></h5>
-								</div>
-								</p>
-							</div>
-						</div>
-					</div>
-					<?php
-				}
-				?>
-			</div>
-		</div> <!-- /Card Body -->
-	</div> <!-- /Card -->
-</div> <!-- /Container -->
-<!-- Iklan Terbaru End -->
+                  <div class="text-right">
+                    <h5>Rp. <?php echo number_format($value->harga,2, ',', '.'); ?></h5>
+                  </div>
+                </p>
+              </div>
+            </div>
+          </div>
+          <?php
+          }
+          ?>
+        </div>
+      </div> <!-- /Card Body -->
+    </div> <!-- /Card -->
+  </div> <!-- /Container -->
+  <!-- Iklan Terbaru End -->
 
-<!-- footer -->
-<?php $this->load->view('user/_partials/footer.php'); ?>
-<!-- /footer -->
+  <!-- Modal Kota Lainnya -->
+  <div class="modal fade" id="moreCity" tabindex="-1" aria-labelledby="moreCityLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="moreCityLabel">Pilih Daerah Lainnya</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+							<div class="col-9 pr-1">
+								<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true"
+										required>
+									<option value="#">-- Pilih Kota/Kabupaten --</option>
+									<?php
+									foreach ($kabupaten as $kab) {
+										?>
+										<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
+										<?php
+									}
+									?>
+								</select>
+							</div>
+              <div class="col-3 pl-1">
+                  <button class="btn btn-block btn-primary">Submit</button>
+              </div>
+						</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Kota Lainnya End -->
+  
+  <!-- footer -->
+  <?php $this->load->view('user/_partials/footer.php'); ?>
+  <!-- /footer -->
 </body>
 
 </html>
