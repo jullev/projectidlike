@@ -76,7 +76,7 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 							<label for="deskripsi" class="col-md-3 col-form-label">Upload Gambar</label>
 							<div class="col-md-9">
 								<div class="custom-file">
-									<input type="file" class="form-control-file" id="img" name="img"
+									<input type="file" class="custom-file-input" id="img" name="img"
 										   aria-describedby="inputGroupFileAddon01" accept="image/jpeg, image/png">
 									<label class="custom-file-label" for="inputGroupFile01">Choose file</label>
 								</div>

@@ -30,7 +30,7 @@
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="#"><i class="bi-house-fill"></i></a></li>
 						<li class="breadcrumb-item"><a href="#">Kategori</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Judul</li>
+						<li class="breadcrumb-item active" aria-current="page"><?php echo $dataIklan[0]->judul_kerjaan ?></li>
 					</ol>
 				</nav>
 			</div>
@@ -47,10 +47,10 @@
 						<h3><?php echo $value->judul_kerjaan; ?></h3>
 						<hr>
 						<span class="text-muted small">
-							<i class="bi-clock mr-1"></i> 1 Minggu yang lalu
-							- <i class="bi-grid mx-1"></i> Kategori
+							<i class="bi-clock mr-1"></i> <?php echo $value->tanggal_submit ?>
+							- <i class="bi-grid mx-1"></i> <?php echo $value->nama_kategori ?>
 							- <i class="bi-geo-alt mx-1"></i> <?php echo $value->nama_kabupaten; ?>
-							- <i class="bi-eye mx-1"></i> 50x dilihat
+<!--							- <i class="bi-eye mx-1"></i> 50x dilihat-->
 						</span>
 						<!-- Image -->
 						<center>
@@ -62,7 +62,7 @@
 								</ol>
 								<div class="carousel-inner">
 									<div class="carousel-item active">
-									<img src="<?php echo base_url('assets/image/detail1.jpg') ?>" class="d-block w-100" alt="Gambar <?php echo $value->judul_kerjaan; ?> 1">
+									<img src="<?php echo base_url('assets/image/iklan/').$value->gambar_kerjaan ?>" class="d-block w-100" alt="Gambar <?php echo $value->judul_kerjaan; ?> 1">
 									</div>
 									<div class="carousel-item">
 									<img src="<?php echo base_url('assets/image/detail2.jpg') ?>" class="d-block w-100" alt="Gambar <?php echo $value->judul_kerjaan; ?> 2">
@@ -91,12 +91,12 @@
 						<div class="tab-content bg-white p-3" style="border: 1px solid #dee2e6; border-top: none;">
 							<div class="row" style="font-size: 120%;">
 								<div class="col-12 col-lg-6 text-lg-left text-left">
-									<i class="bi-geo-alt-fill mr-2"></i> 
+									<i class="bi-geo-alt-fill mr-2"></i>
 									<strong>Lokasi: </strong><a href=""><?php echo $value->nama_kabupaten; ?></a>
 								</div>
 								<div class="col-12 col-lg-6 text-lg-right text-left mt-2 mt-lg-0">
 									<i class="bi-tag-fill mr-2"></i>
-									<strong>Penawaran: </strong>Rp. <?php echo number_format($value->harga,2); ?>
+									<strong>Penawaran: </strong>Rp <?php echo number_format($value->harga,2, ',', '.'); ?>
 								</div>
 							</div>
 							<hr>
@@ -147,15 +147,15 @@
 							<li class="list-group-item">
 								<div class="row">
 									<div class="col-lg-4 col-md-2 col-3">
-										<img src="https://placeimg.com/300/300/people" alt="Anggito Suryo" title="Anggito Suryo" class="w-100" style="max-width: 70px;">
+										<img src="<?php echo base_url('assets/image/users/').$value->foto_profil ?>" alt="Anggito Suryo" title="Anggito Suryo" class="w-100" style="max-width: 70px; max-height: 70px;">
 									</div>
 									<div class="col-lg-8 col-md-10 col-9 pl-0">
 										<div class="row">
 											<div class="col-12 text-muted small">Posted by</div>
-											<div class="col-12">Anggito Suryo Baskoro Kuncoro Santoso</div>
+											<div class="col-12"><?php echo $value->nama_user; ?></div>
 										</div>
 									</div>
-								</div>					
+								</div>
 							</li>
 							<!-- Posted by End -->
 							<!-- Lokasi & Penawaran -->
@@ -173,13 +173,13 @@
 									</div>
 									<!-- Penawaran -->
 									<div class="col-1 p-0">
-										<i class="bi-tag-fill mr-2"></i>									
+										<i class="bi-tag-fill mr-2"></i>
 									</div>
 									<div class="col-5 p-0">
 										<span class="text-muted">Penawaran</span>
 									</div>
 									<div class="col-6 p-0 text-right">
-										Rp. <?php echo number_format($value->harga,2); ?>
+										Rp <?php echo number_format($value->harga,2, ',', '.'); ?>
 									</div>
 								</div>
 							</li>

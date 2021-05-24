@@ -104,7 +104,7 @@ class M_Iklan extends CI_Model
 	}
 	public function select_iklan($id)
 	{
-		$sql = "SELECT kerjaan.*,wilayah_kabupaten.nama_kabupaten, user.no_hp as no_hp From kerjaan,wilayah_kabupaten, user where wilayah_kabupaten.id_kabupaten=kerjaan.kabupaten_idkabupaten and kerjaan.user_iduser = user.iduser and idkerjaan=".$id;
+		$sql = "SELECT kerjaan.*,wilayah_kabupaten.nama_kabupaten as nama_kabupaten, kategori.nama_kategori, user.* From kerjaan,wilayah_kabupaten, user, kategori where wilayah_kabupaten.id_kabupaten=kerjaan.kabupaten_idkabupaten and kerjaan.user_iduser = user.iduser and kerjaan.kategori_idkategori = kategori.idkategori and idkerjaan=".$id;
 
 		$data = $this->db->query($sql);
 
@@ -146,7 +146,7 @@ class M_Iklan extends CI_Model
 
 	public function saveIklan($data)
 	{
-		$sql = "INSERT INTO kerjaan VALUES(NULL,'".$this->session->userdata('id')."' ,'".$data['judul']."', '".$data['contents']."','".$data['img']."', CURRENT_DATE(), '".$data['deadline']."', '".$data['kategori']."','".$data['kota']."','".$data['harga']."', 1)";
+		$sql = "INSERT INTO kerjaan VALUES(NULL ,'".$data['judul']."', '".$data['contents']."','".$data['img']."', CURRENT_DATE(), '".$data['deadline']."', '".$data['kategori']."','".$data['kota']."','".$data['harga']."', 1, '".$this->session->userdata('id')."')";
 		$this->db->query($sql);
 		return $this->db->affected_rows();
 	}
