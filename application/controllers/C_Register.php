@@ -31,14 +31,14 @@ class C_Register extends CI_Controller
 		//		print_r( $hasil->role_idrole);
 		//		print_r( $this->session->userdata('role'));
 
-		if($result == 'error'){
+		if ($result == 'error') {
 			redirect('/', 'refresh');
 		}
 
 		if ($this->session->userdata('role') == 1) {
 			redirect('admin', 'refresh');
 		} else if ($this->session->userdata('role') == 2) {
-//			$this->load->view('user/dashboard/index');
+			//			$this->load->view('user/dashboard/index');
 			redirect('dashboard', 'refresh');
 		}
 	}
@@ -97,7 +97,7 @@ class C_Register extends CI_Controller
 			$result = $this->M_Register->insert($data);
 			if ($result == "success") {
 				$this->session->set_flashdata('msg', 'Pendaftaran berhasil! Silakan login menggunakan akun anda.');
-				redirect("/");
+				redirect("verifikasiemail");
 			} elseif ($result == "failed") {
 				$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
 				redirect("register");
@@ -138,6 +138,8 @@ class C_Register extends CI_Controller
 
 
 		if ($validation == true) {
+			$this->_sendEmail();
+
 			$result = $this->M_Register->insert($data);
 			if ($result == "success") {
 				$this->session->set_flashdata('msg', 'Pendaftaran berhasil! Silakan login menggunakan akun anda.');
@@ -156,6 +158,21 @@ class C_Register extends CI_Controller
 			$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
 			redirect("tambahuser");
 		}
+	}
+
+
+	private function _sendEmail()
+	{
+		$config = [
+			'protocol' => 'smtp',
+			'smtp_host' => 'ssl://smtp.googlemail.com',
+			'smtp_user' => '',
+			'smtp_pass' => '',
+			'smpt_port' => 465,
+			'mailtype' => 'html',
+			'charset' => 'utf-8',
+			'newline' => '\r\n',
+		];
 	}
 
 	public function prosesTambahAdmin()

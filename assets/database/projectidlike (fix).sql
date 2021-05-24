@@ -7,9 +7,11 @@
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE
+= "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone
+= "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -25,10 +27,16 @@ DELIMITER $$
 --
 -- Fungsi
 --
-CREATE DEFINER=`root`@`localhost` FUNCTION `F_hitunghit` (`x1` INT) RETURNS INT(11) BEGIN 
+CREATE DEFINER=`root`@`localhost` FUNCTION `F_hitunghit`
+(`x1` INT) RETURNS INT
+(11)
+BEGIN
   DECLARE dist int;
-  select count(*) into dist from hit where hit.kerjaan_idkerjaan=x1;
-  RETURN dist;
+select count(*)
+into dist
+from hit
+where hit.kerjaan_idkerjaan=x1;
+RETURN dist;
 END$$
 
 DELIMITER ;
@@ -39,19 +47,27 @@ DELIMITER ;
 -- Struktur dari tabel `hit`
 --
 
-CREATE TABLE `hit` (
-  `idhit` int(11) NOT NULL,
+CREATE TABLE `hit`
+(
+  `idhit` int
+(11) NOT NULL,
   `tgl_hit` date NOT NULL,
-  `user_iduser` int(11) NOT NULL,
-  `kerjaan_idkerjaan` int(11) NOT NULL,
-  `id_status` int(5) NOT NULL
+  `user_iduser` int
+(11) NOT NULL,
+  `kerjaan_idkerjaan` int
+(11) NOT NULL,
+  `id_status` int
+(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `hit`
 --
 
-INSERT INTO `hit` (`idhit`, `tgl_hit`, `user_iduser`, `kerjaan_idkerjaan`, `id_status`) VALUES
+INSERT INTO `hit` (`
+idhit`,
+`tgl_hit
+`, `user_iduser`, `kerjaan_idkerjaan`, `id_status`) VALUES
 (1, '2021-05-08', 4, 2, 3),
 (5, '2021-05-14', 4, 4, 3);
 
@@ -61,16 +77,22 @@ INSERT INTO `hit` (`idhit`, `tgl_hit`, `user_iduser`, `kerjaan_idkerjaan`, `id_s
 -- Struktur dari tabel `kategori`
 --
 
-CREATE TABLE `kategori` (
-  `idkategori` int(11) NOT NULL,
-  `nama_kategori` varchar(45) NOT NULL
+CREATE TABLE `kategori`
+(
+  `idkategori` int
+(11) NOT NULL,
+  `nama_kategori` varchar
+(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `kategori`
 --
 
-INSERT INTO `kategori` (`idkategori`, `nama_kategori`) VALUES
+INSERT INTO `kategori` (`
+idkategori`,
+`nama_kategori
+`) VALUES
 (1, 'Cari Investor'),
 (2, 'Bisnis Dijual'),
 (3, 'Properti'),
@@ -91,25 +113,38 @@ INSERT INTO `kategori` (`idkategori`, `nama_kategori`) VALUES
 -- Struktur dari tabel `kerjaan`
 --
 
-CREATE TABLE `kerjaan` (
-  `idkerjaan` int(11) NOT NULL,
-  `judul_kerjaan` varchar(45) NOT NULL,
+CREATE TABLE `kerjaan`
+(
+  `idkerjaan` int
+(11) NOT NULL,
+  `judul_kerjaan` varchar
+(45) NOT NULL,
   `deskripsi` text NOT NULL,
-  `gambar_kerjaan` varchar(255) NOT NULL,
+  `gambar_kerjaan` varchar
+(255) NOT NULL,
   `tanggal_submit` date NOT NULL,
   `deadline` date NOT NULL,
-  `kategori_idkategori` int(11) NOT NULL,
-  `kabupaten_idkabupaten` int(11) NOT NULL,
-  `harga` int(7) NOT NULL,
-  `id_status` int(11) DEFAULT NULL,
-  `user_iduser` int(11) DEFAULT NULL
+  `kategori_idkategori` int
+(11) NOT NULL,
+  `kabupaten_idkabupaten` int
+(11) NOT NULL,
+  `harga` int
+(7) NOT NULL,
+  `id_status` int
+(11) DEFAULT NULL,
+  `user_iduser` int
+(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `kerjaan`
 --
 
-INSERT INTO `kerjaan` (`idkerjaan`, `judul_kerjaan`, `deskripsi`, `gambar_kerjaan`, `tanggal_submit`, `deadline`, `kategori_idkategori`, `kabupaten_idkabupaten`, `harga`, `id_status`, `user_iduser`) VALUES
+INSERT INTO `kerjaan` (`
+idkerjaan`,
+`judul_kerjaan`,
+`deskripsi
+`, `gambar_kerjaan`, `tanggal_submit`, `deadline`, `kategori_idkategori`, `kabupaten_idkabupaten`, `harga`, `id_status`, `user_iduser`) VALUES
 (2, 'testing', 'ashajkshkajsh', '', '2021-05-07', '2021-06-03', 2, 3509, 18000, 2, 7),
 (4, 'Iklan testing2', 'Deskripsi iklan yang menurutu saya menakik adalah 123456789', '', '2021-05-11', '2021-05-27', 6, 3173, 1900000, 2, 7);
 
@@ -119,12 +154,17 @@ INSERT INTO `kerjaan` (`idkerjaan`, `judul_kerjaan`, `deskripsi`, `gambar_kerjaa
 -- Struktur dari tabel `report_kerjaan`
 --
 
-CREATE TABLE `report_kerjaan` (
-  `id_report` int(3) NOT NULL,
-  `id_user` int(3) NOT NULL,
-  `id_kerjaan` int(3) NOT NULL,
+CREATE TABLE `report_kerjaan`
+(
+  `id_report` int
+(3) NOT NULL,
+  `id_user` int
+(3) NOT NULL,
+  `id_kerjaan` int
+(3) NOT NULL,
   `detail` text NOT NULL,
-  `bukti` varchar(255) NOT NULL,
+  `bukti` varchar
+(255) NOT NULL,
   `tgl_selesai` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -132,7 +172,10 @@ CREATE TABLE `report_kerjaan` (
 -- Dumping data untuk tabel `report_kerjaan`
 --
 
-INSERT INTO `report_kerjaan` (`id_report`, `id_user`, `id_kerjaan`, `detail`, `bukti`, `tgl_selesai`) VALUES
+INSERT INTO `report_kerjaan` (`
+id_report`,
+`id_user
+`, `id_kerjaan`, `detail`, `bukti`, `tgl_selesai`) VALUES
 (2, 4, 4, 'kerjaan sudah beres', '', '2021-05-22 13:24:52');
 
 -- --------------------------------------------------------
@@ -141,16 +184,22 @@ INSERT INTO `report_kerjaan` (`id_report`, `id_user`, `id_kerjaan`, `detail`, `b
 -- Struktur dari tabel `role`
 --
 
-CREATE TABLE `role` (
-  `idrole` int(11) NOT NULL,
-  `nama_role` varchar(45) NOT NULL
+CREATE TABLE `role`
+(
+  `idrole` int
+(11) NOT NULL,
+  `nama_role` varchar
+(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `role`
 --
 
-INSERT INTO `role` (`idrole`, `nama_role`) VALUES
+INSERT INTO `role` (`
+idrole`,
+`nama_role
+`) VALUES
 (1, 'Admin'),
 (2, 'User');
 
@@ -160,11 +209,15 @@ INSERT INTO `role` (`idrole`, `nama_role`) VALUES
 -- Struktur dari tabel `star_point`
 --
 
-CREATE TABLE `star_point` (
-  `idstar_point` int(11) NOT NULL,
-  `star_point` int(5) NOT NULL,
+CREATE TABLE `star_point`
+(
+  `idstar_point` int
+(11) NOT NULL,
+  `star_point` int
+(5) NOT NULL,
   `tanggal` date NOT NULL,
-  `user_iduser` int(11) NOT NULL
+  `user_iduser` int
+(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -173,16 +226,22 @@ CREATE TABLE `star_point` (
 -- Struktur dari tabel `tmst_status`
 --
 
-CREATE TABLE `tmst_status` (
-  `id_status` int(5) NOT NULL,
-  `status` varchar(50) NOT NULL
+CREATE TABLE `tmst_status`
+(
+  `id_status` int
+(5) NOT NULL,
+  `status` varchar
+(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tmst_status`
 --
 
-INSERT INTO `tmst_status` (`id_status`, `status`) VALUES
+INSERT INTO `tmst_status` (`
+id_status`,
+`status
+`) VALUES
 (1, 'iklan diajukan'),
 (2, 'iklan diterima'),
 (3, 'Iklan DIsetujui Untuk DIkerjakan'),
@@ -196,17 +255,27 @@ INSERT INTO `tmst_status` (`id_status`, `status`) VALUES
 -- Struktur dari tabel `user`
 --
 
-CREATE TABLE `user` (
-  `iduser` int(11) NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `nama_user` varchar(45) NOT NULL,
+CREATE TABLE `user`
+(
+  `iduser` int
+(11) NOT NULL,
+  `username` varchar
+(45) NOT NULL,
+  `email` varchar
+(45) NOT NULL,
+  `password` varchar
+(255) NOT NULL,
+  `nama_user` varchar
+(45) NOT NULL,
   `tanggal_lahir` date NOT NULL,
-  `no_hp` varchar(15) DEFAULT NULL,
-  `foto_profil` varchar(45) NOT NULL,
-  `role_idrole` int(11) NOT NULL,
-  `gender` char(1) DEFAULT NULL,
+  `no_hp` varchar
+(15) DEFAULT NULL,
+  `foto_profil` varchar
+(45) NOT NULL,
+  `role_idrole` int
+(11) NOT NULL,
+  `gender` char
+(1) DEFAULT NULL,
   `alamat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -214,7 +283,9 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `nama_user`, `tanggal_lahir`, `no_hp`, `foto_profil`, `role_idrole`, `gender`, `alamat`) VALUES
+INSERT INTO `user`
+  (`iduser`, `username`, `email
+`, `password`, `nama_user`, `tanggal_lahir`, `no_hp`, `foto_profil`, `role_idrole`, `gender`, `alamat`) VALUES
 (3, 'as', 'ery@polije.ac.id', '6ab7ec99b6aa105aeab1acde2019b125', 'as', '2021-04-29', NULL, '', 1, NULL, ''),
 (4, 'jullev', 'ery@polije.ac.id', 'ae2b1fca515949e5d54fb22b8ed95575', 'ery', '2021-04-22', NULL, '', 2, NULL, ''),
 (6, 'as1', 'setiyawanjullev@gmail.com', '6ab7ec99b6aa105aeab1acde2019b125', 'DWI PUTRO SARWO SETYOHADI', '2021-04-28', NULL, '', 1, NULL, ''),
@@ -227,11 +298,18 @@ INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `nama_user`, `tan
 -- Struktur dari tabel `verifikasi`
 --
 
-CREATE TABLE `verifikasi` (
-  `id_verify` int(11) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `token` varchar(128) NOT NULL,
-  `date_created` int(11) NOT NULL
+CREATE TABLE `verifikasi`
+(
+  `id_verify` int
+(11) NOT NULL,
+  `email` varchar
+(128) NOT NULL,
+  `token` varchar
+(128) NOT NULL,
+  `date_created` int
+(11) NOT NULL,
+  `verify_status` int
+(2) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -240,16 +318,22 @@ CREATE TABLE `verifikasi` (
 -- Struktur dari tabel `wilayah_kabupaten`
 --
 
-CREATE TABLE `wilayah_kabupaten` (
-  `id_kabupaten` int(4) NOT NULL,
-  `nama_kabupaten` varchar(30) NOT NULL
+CREATE TABLE `wilayah_kabupaten`
+(
+  `id_kabupaten` int
+(4) NOT NULL,
+  `nama_kabupaten` varchar
+(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `wilayah_kabupaten`
 --
 
-INSERT INTO `wilayah_kabupaten` (`id_kabupaten`, `nama_kabupaten`) VALUES
+INSERT INTO `wilayah_kabupaten` (`
+id_kabupaten`,
+`nama_kabupaten
+`) VALUES
 (1101, 'Kab. Simeulue'),
 (1102, 'Kab. Aceh Singkil'),
 (1103, 'Kab. Aceh Selatan'),
@@ -758,67 +842,83 @@ INSERT INTO `wilayah_kabupaten` (`id_kabupaten`, `nama_kabupaten`) VALUES
 -- Indeks untuk tabel `hit`
 --
 ALTER TABLE `hit`
-  ADD PRIMARY KEY (`idhit`),
-  ADD UNIQUE KEY `kerjaan_idkerjaan` (`kerjaan_idkerjaan`),
-  ADD KEY `user_iduser` (`user_iduser`);
+ADD PRIMARY KEY
+(`idhit`),
+ADD UNIQUE KEY `kerjaan_idkerjaan`
+(`kerjaan_idkerjaan`),
+ADD KEY `user_iduser`
+(`user_iduser`);
 
 --
 -- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`idkategori`);
+ADD PRIMARY KEY
+(`idkategori`);
 
 --
 -- Indeks untuk tabel `kerjaan`
 --
 ALTER TABLE `kerjaan`
-  ADD PRIMARY KEY (`idkerjaan`),
-  ADD KEY `kategori_idkategori` (`kategori_idkategori`),
-  ADD KEY `kabupaten_idkabupaten` (`kabupaten_idkabupaten`);
+ADD PRIMARY KEY
+(`idkerjaan`),
+ADD KEY `kategori_idkategori`
+(`kategori_idkategori`),
+ADD KEY `kabupaten_idkabupaten`
+(`kabupaten_idkabupaten`);
 
 --
 -- Indeks untuk tabel `report_kerjaan`
 --
 ALTER TABLE `report_kerjaan`
-  ADD PRIMARY KEY (`id_report`);
+ADD PRIMARY KEY
+(`id_report`);
 
 --
 -- Indeks untuk tabel `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`idrole`);
+ADD PRIMARY KEY
+(`idrole`);
 
 --
 -- Indeks untuk tabel `star_point`
 --
 ALTER TABLE `star_point`
-  ADD PRIMARY KEY (`idstar_point`),
-  ADD KEY `user_iduser` (`user_iduser`);
+ADD PRIMARY KEY
+(`idstar_point`),
+ADD KEY `user_iduser`
+(`user_iduser`);
 
 --
 -- Indeks untuk tabel `tmst_status`
 --
 ALTER TABLE `tmst_status`
-  ADD PRIMARY KEY (`id_status`);
+ADD PRIMARY KEY
+(`id_status`);
 
 --
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`iduser`),
-  ADD KEY `role_id` (`role_idrole`);
+ADD PRIMARY KEY
+(`iduser`),
+ADD KEY `role_id`
+(`role_idrole`);
 
 --
 -- Indeks untuk tabel `verifikasi`
 --
 ALTER TABLE `verifikasi`
-  ADD PRIMARY KEY (`id_verify`);
+ADD PRIMARY KEY
+(`id_verify`);
 
 --
 -- Indeks untuk tabel `wilayah_kabupaten`
 --
 ALTER TABLE `wilayah_kabupaten`
-  ADD PRIMARY KEY (`id_kabupaten`);
+ADD PRIMARY KEY
+(`id_kabupaten`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -828,49 +928,57 @@ ALTER TABLE `wilayah_kabupaten`
 -- AUTO_INCREMENT untuk tabel `hit`
 --
 ALTER TABLE `hit`
-  MODIFY `idhit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idhit` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idkategori` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `kerjaan`
 --
 ALTER TABLE `kerjaan`
-  MODIFY `idkerjaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idkerjaan` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `report_kerjaan`
 --
 ALTER TABLE `report_kerjaan`
-  MODIFY `id_report` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_report` int
+(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `star_point`
 --
 ALTER TABLE `star_point`
-  MODIFY `idstar_point` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idstar_point` int
+(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tmst_status`
 --
 ALTER TABLE `tmst_status`
-  MODIFY `id_status` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_status` int
+(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `iduser` int
+(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `verifikasi`
 --
 ALTER TABLE `verifikasi`
-  MODIFY `id_verify` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_verify` int
+(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
