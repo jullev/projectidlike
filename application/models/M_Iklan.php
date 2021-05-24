@@ -113,7 +113,8 @@ class M_Iklan extends CI_Model
 	public function select_iklan_selesai()
 	{
 		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi, report_kerjaan.tgl_selesai,user.nama_user
-		from kerjaan,report_kerjaan,user where kerjaan.idkerjaan=report_kerjaan.id_kerjaan and user.iduser=report_kerjaan.id_user";
+		from kerjaan,report_kerjaan,user where kerjaan.idkerjaan=report_kerjaan.id_kerjaan 
+		and user.iduser=report_kerjaan.id_user";
 //		echo $sql;
 		$data = $this->db->query($sql);
 
@@ -121,9 +122,10 @@ class M_Iklan extends CI_Model
 	}
 	public function detail_iklan_selesai($id)
 	{
-		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi,report_kerjaan.detail, report_kerjaan.tgl_selesai,user.nama_user
-		from kerjaan,report_kerjaan,user where kerjaan.idkerjaan=report_kerjaan.id_kerjaan and user.iduser=report_kerjaan.id_user and report_kerjaan.id='$id'";
-//		echo $sql;
+		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi,report_kerjaan.detail,kerjaan.deadline, report_kerjaan.tgl_selesai,user.nama_user
+		from kerjaan,report_kerjaan,user where kerjaan.idkerjaan=report_kerjaan.id_kerjaan 
+		and user.iduser=report_kerjaan.id_user and kerjaan.idkerjaan='$id'";
+		echo $sql;
 		$data = $this->db->query($sql);
 
 		return $data->result();
