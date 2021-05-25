@@ -84,13 +84,16 @@ class C_Register extends CI_Controller
 		$validation->set_rules("no_hp", "phone", "required");
 		$validation->set_rules("password", "password_register", "required");
 
-		$this->session->set_flashdata('name', $data['name']);
-		$this->session->set_flashdata('username_register', $data['username_register']);
-		$this->session->set_flashdata('email_register', $data['email_register']);
-		$this->session->set_flashdata('birthdate', $data['birthdate']);
-		$this->session->set_flashdata('alamat', $data['alamat']);
-		$this->session->set_flashdata('phone', $data['phone']);
-		$this->session->set_flashdata('gender', $data['gender']);
+		// Kirim kode verifikasi email
+		$this->sendEmail($data['email_register']);
+
+//		$this->session->set_flashdata('name', $data['name']);
+//		$this->session->set_flashdata('username_register', $data['username_register']);
+//		$this->session->set_flashdata('email_register', $data['email_register']);
+//		$this->session->set_flashdata('birthdate', $data['birthdate']);
+//		$this->session->set_flashdata('alamat', $data['alamat']);
+//		$this->session->set_flashdata('phone', $data['phone']);
+//		$this->session->set_flashdata('gender', $data['gender']);
 
 
 		if ($validation == true) {
@@ -112,6 +115,29 @@ class C_Register extends CI_Controller
 			$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
 			redirect("register");
 		}
+	}
+
+	private function sendEmail($email){
+		$config = array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'smtp.gmail.com',
+			'smtp_user' => '110011dummy@gmail.com',
+			'smtp_pass' => 'Dummy110011',
+			'smtp_port' => '465',
+			'smtp_crypto' => 'ssl',
+			'mailtype' => 'html',
+			'charset' => 'utf-8',
+			'newline' => "\r\n",
+		);
+		// Load library email
+		$this->load->library('email', $config);
+		$this->email->from('admin@temantumbuh.com', 'TEMAN TUMBUH');
+		$this->email->to($email);
+
+		$this->email->subject('Pendaftaran berhasil!');
+		$this->email->message('Klik link di bawah ini untuk verifikasi email.');
+
+		$this->email->send();
 	}
 
 	public function prosesTambahUser()
