@@ -27,7 +27,7 @@
 				<!-- Akun -->
 				<div class="btn-group ml-auto">
 					<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">
+							aria-haspopup="true" aria-expanded="false" id="nameNavbar">
 						<i class="bi-person-fill mr-1"></i><?php echo $this->session->userdata("nama") ?>
 					</button>
 					<div class="dropdown-menu">

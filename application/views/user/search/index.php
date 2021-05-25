@@ -2,10 +2,23 @@
 <html lang="en">
 
 <?php $this->load->view('user/_partials/head.php'); ?>
+
+<style>
+    .btn-light:not(#nameNavbar) {
+		background: white;
+		color: #868e96;
+        border-color: #ced4da;
+	}
+    #kategoriCari {
+        border-top-left-radius: .25rem;
+        border-bottom-left-radius: .25rem;
+    }
+</style>
 <body>
     
     <?php $this->load->view('user/_partials/navbar.php'); ?>
 
+    <!-- Search -->
     <div class="container mb-3" style="margin-top: 100px;">
       <div class="row">
         <div class="col-md-10 col-lg-12 col-xl-12 mx-auto">
@@ -13,7 +26,7 @@
             <form>
                 <div class="input-group">
                     <div class="input-group-prepend"></div>
-                        <select class="custom-select" id="inputGroupSelect01">
+                        <select class="custom-select" id="kategoriCari">
                             <option selected>Semua Kategori</option>
                             <?php
 								foreach ($kategori as $kat){
@@ -23,7 +36,7 @@
 								}
 							?>
                         </select>
-                        <input class="form-control" type="text" placeholder="Apa ?">
+                        <input class="form-control" type="text" placeholder="Apa ?" id="apaCari">
 						<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
 							<option value="#">Dimana?</option>
 							<?php
@@ -35,8 +48,7 @@
 							?>
 						</select>
                     <div class="input-group-append">
-                        <button class="btn btn-primary text-left" type="button">Go!
-                            <i class="fa fa-search float-left d-xl-flex justify-content-xl-center align-items-xl-center" style="transform: translate(-2px) translateX(-2px) translateY(3px);"></i>
+                        <button class="btn btn-primary text-left" type="button"><i class="bi-search mr-1"></i> Cari
                         </button>
                     </div>
                 </div>
@@ -45,6 +57,7 @@
         </div>
       </div> <!-- Row -->
     </div> <!-- Container -->
+    <!-- Search End -->
 
     <div class="main-container mb-5" style="height: auto !important; min-height: 0px !important;">
         <!-- Breadcrumb -->
@@ -62,33 +75,23 @@
         <div class="container">
             <div class="row">
                 <!-- Sidebar -->
-                <div class="col-md-3">
+                <div class="col-sm-0 col-md-4 col-lg-3">
                     <?php $this->load->view('user/search/sidebar'); ?>
                 </div>
                 <!-- End Sidebar -->
                 <!-- Search Result -->
-                <div class="col-md-9">
-                    <div class="card text-center">
-                        <div class="card-header">
-                            <ul class="nav nav-tabs card-header-tabs">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">Semua Iklan <span class="badge badge-info">22</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Private <span class="badge badge-info-light">4</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Professional <span class="badge badge-info-light">0</span></a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="col-md-8 col-lg-9 mb-4">
+                    <div class="card">
                         <div class="card-body">
                             <div class="row listing-filter pb-3 mb-3">
-                                <div class="float-sm-left col-sm-6 text-left">
+                                <div class="col">
                                     Semua iklan dalam 
-                                </div>
-                                <div class="float-sm-right col-sm-6 text-right">
-                                    <i class="bi-grid"></i>
+                                    <span class="py-2 px-3 ml-2 badge badge-light">
+                                        <span id="kategoriBadge">Kategori </span><a href=""><i class="ml-2 bi-x"></i></a>
+                                    </span>
+                                    <span class="py-2 px-3 ml-1 badge badge-light">
+                                        <span id="kotaBadge">Kota </span><a href=""><i class="ml-2 bi-x"></i></a>
+                                    </span>
                                 </div>
                             </div>
                             <!-- View Hasil -->

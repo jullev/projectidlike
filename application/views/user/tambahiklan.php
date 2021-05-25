@@ -83,12 +83,12 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="price" class="col-md-3 col-form-label">Harga</label>
+							<label for="harga" class="col-md-3 col-form-label">Harga</label>
 							<div class="input-group mb-3 col-md-9">
 								<div class="input-group-prepend ">
 									<span class="input-group-text">Rp </span>
 								</div>
-								<input type="text" class="form-control" placeholder="Contoh: 15000" name="harga"
+								<input type="text" id="harga" onkeypress="isInputNumber(event)" class="form-control" placeholder="Contoh: 15000" name="harga"
 									   required>
 							</div>
 						</div>
@@ -161,10 +161,14 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 						<!--                            </div>-->
 						<div class="form-group row">
 							<div class="col-md-9">
-								<input type="checkbox" id="verify" value="1" name="verify" required>
-								<small class="md-2"><strong>I want to register by submmiting this ad</strong></small>
-								<br>
-								<small>You will receive your authentication information by email.</small>
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="verify" value="1" name="verify" required>
+									<label for="verify" class="custom-control-label">
+										<small><strong>I want to register by submmiting this ad</strong></small>
+										<br>
+										<small>You will receive your authentication information by email.</small>
+									</label>
+								</div>
 							</div>
 						</div>
 						<!-- Captcha -->
@@ -243,6 +247,5 @@ if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login
 	const removeAlert = () => {
 		alert.innerHTML = "";
 	}
-
 </script>
 </html>
