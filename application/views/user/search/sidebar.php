@@ -1,3 +1,12 @@
+<!-- <style>
+    #listDaerah li div.custom-radio.custom-control input[type=radio] {
+        visibility: hidden;
+    }
+    #listDaerah li div.custom-radio.custom-control input[type=radio]:checked label {
+        color: #007bff !important;
+    }
+</style> -->
+
 <div class="card mb-4">
     <!-- Tanggal Diposting -->
     <div class="card-header"><h5>Tanggal Diposting</h5></div>
@@ -78,9 +87,19 @@
         <h5>Lokasi</h5>
     </div>
     <div class="card-body">
-        <ul class="list-unstyled">
-            <li class="mb-2">Jakarta</li>
-            <li class="mb-2">Surabaya</li>
+        <ul class="list-unstyled" id="listDaerah">
+            <li class="mb-2">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="daerah" name="daerah1" class="custom-control-input">
+                    <label class="custom-control-label" for="daerah1">Jakarta</label>
+                </div>
+            </li>
+            <li class="mb-2">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="daerah2" name="daerah" class="custom-control-input">
+                    <label class="custom-control-label" for="daerah2">Surabaya</label>
+                </div>
+            </li>
             <li class="mb-2">Medan</li>
             <li class="mb-2">Bandung</li>
             <li class="mb-2">Bekasi</li>
@@ -88,4 +107,5 @@
             <li class="mb-2">Palembang</li>
         </ul>
     </div>
-</div>
+    <!-- Lokasi End -->
+</div> <!-- ./card -->

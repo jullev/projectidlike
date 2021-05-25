@@ -107,10 +107,10 @@
 			box-shadow: none;
 		}
 	}
-	.btn-light {
+	.btn-light:not(#nameNavbar) {
 		background: white;
 		border: none;
-		color: #495057;
+		color: #868e96;
 	}
 
 	#cardHover {
@@ -193,7 +193,7 @@
 						</div>
 						<div class="col-lg-2">
 							<button class="btn btn-primary btn-block rounded-pill py-lg-3" type="submit"><i
-										class="bi-search mr-1"></i> Search
+										class="bi-search mr-1"></i> Cari
 							</button>
 						</div>
 					</div>
@@ -309,7 +309,7 @@
         <div class="modal-body">
           <div class="form-group row">
 							<div class="col-9 pr-1">
-								<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true"
+								<select class="selectpicker form-control" name="kota" id="daerah" data-live-search="true"
 										required>
 									<option value="#">-- Pilih Kota/Kabupaten --</option>
 									<?php
