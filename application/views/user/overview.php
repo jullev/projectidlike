@@ -259,7 +259,7 @@
 									- <i class="bi-geo-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten ?>
 								  </span>
                   <div class="text-right">
-                    <h5>Rp. <?php echo number_format($value->harga,2, ',', '.'); ?></h5>
+                    <h5>Rp <?php echo number_format($value->harga,2, ',', '.'); ?></h5>
                   </div>
                 </p>
               </div>
