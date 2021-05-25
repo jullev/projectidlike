@@ -2,7 +2,6 @@
 <html lang="en">
 
 <?php $this->load->view('user/_partials/head.php'); ?>
-
 <body>
     
     <?php $this->load->view('user/_partials/navbar.php'); ?>
@@ -16,12 +15,25 @@
                     <div class="input-group-prepend"></div>
                         <select class="custom-select" id="inputGroupSelect01">
                             <option selected>Semua Kategori</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <?php
+								foreach ($kategori as $kat){
+							?>
+									<option value="<?php echo $kat->idkategori ?>"><?php echo $kat->nama_kategori ?></option>
+							<?php
+								}
+							?>
                         </select>
                         <input class="form-control" type="text" placeholder="Apa ?">
-                        <input class="form-control" type="text" placeholder="Dimana ?">
+						<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
+							<option value="#">Dimana?</option>
+							<?php
+							foreach ($kabupaten as $kab) {
+								?>
+								<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
+								<?php
+							}
+							?>
+						</select>
                     <div class="input-group-append">
                         <button class="btn btn-primary text-left" type="button">Go!
                             <i class="fa fa-search float-left d-xl-flex justify-content-xl-center align-items-xl-center" style="transform: translate(-2px) translateX(-2px) translateY(3px);"></i>

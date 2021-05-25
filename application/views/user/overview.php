@@ -158,7 +158,7 @@
 		<!-- Search -->
 		<div class="col-12 col-sm-12 col-md-11 col-lg-10 mx-auto mt-2">
 			<div class="card rounded-search mx-auto shadow-sm">
-				<form action="#">
+				<form action="<?php echo site_url('search-process') ?>" method="POST">
 					<div class="form-row align-items-center mx-2 my-3 my-lg-0 mx-lg-2">
 						<div class="col-lg-4 d-flex form-group align-items-center mb-3 my-lg-3">
 							<div class="input-group">
@@ -180,7 +180,7 @@
 							</div>
 						</div>
 						<div class="col-lg-3 d-flex align-items-center form-group my-lg-3" id="kotaSearch">
-							<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true" required>
+							<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
 								<option value="#">Dimana?</option>
 								<?php
 								foreach ($kabupaten as $kab) {
