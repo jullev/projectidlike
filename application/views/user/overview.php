@@ -23,6 +23,10 @@
 			border-left: none;
 			border-right: none;
 		}
+
+		.form-row > .form-group > .input-group > .form-control:focus {
+			box-shadow: none;
+		}
 	}
 
 	@media (min-width: 576px) {
@@ -43,6 +47,10 @@
 			border-left: none;
 			border-right: none;
 		}
+
+		.form-row > .form-group > .input-group > .form-control:focus {
+			box-shadow: none;
+		}
 	}
 
 	@media (min-width: 768px) {
@@ -62,6 +70,10 @@
 			border-top: none;
 			border-left: none;
 			border-right: none;
+		}
+
+		.form-row > .form-group > .input-group > .form-control:focus {
+			box-shadow: none;
 		}
 	}
 
@@ -87,13 +99,18 @@
 			border-radius: 0px !important;
 			border-top: none;
 			border-bottom: none;
-			border-right: none;
+			border-right:  1px solid #dee2e6 !important;
 			border-left: 1px solid #dee2e6 !important;
 		}
 
 		.form-row > .form-group > .input-group > .form-control:focus {
 			box-shadow: none;
 		}
+	}
+	.btn-light {
+		background: white;
+		border: none;
+		color: #495057;
 	}
 
 	#cardHover {
@@ -146,7 +163,7 @@
 						<div class="col-lg-4 d-flex form-group align-items-center mb-3 my-lg-3">
 							<div class="input-group">
 								<select name="kategori" id="kategori" class="custom-select">
-									<option value="#" selected>-- Kategori --</option>
+									<option value="#" selected>Kategori</option>
 									<?php
 									foreach ($kategori as $kat) {
 										?>
@@ -162,9 +179,17 @@
 								<input type="text" placeholder="Apa?" class="form-control">
 							</div>
 						</div>
-						<div class="col-lg-3 d-flex align-items-center form-group my-lg-3">
-							<div class="input-group"><input type="text" placeholder="Dimana?" class="form-control">
-							</div>
+						<div class="col-lg-3 d-flex align-items-center form-group my-lg-3" id="kotaSearch">
+							<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true" required>
+								<option value="#">Dimana?</option>
+								<?php
+								foreach ($kabupaten as $kab) {
+									?>
+									<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
+									<?php
+								}
+								?>
+							</select>
 						</div>
 						<div class="col-lg-2">
 							<button class="btn btn-primary btn-block rounded-pill py-lg-3" type="submit"><i
@@ -182,49 +207,46 @@
 
 <!-- Pilih Daerah -->
 <div class="container my-3">
-	<section
-			style="background: #e9ecef;padding: 10px;border-style: none;border-radius: 5px;box-shadow: 0px 0px 0px rgb(27,30,33);">
-		<div class="row">
-			<div class="col">
-				<h1>Pilih kota atau daerah</h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<form>
-					<div class="form-row">
-						<div class="col-md-3">
-							<ul class="list-unstyled">
-								<li><a href="">Jakarta</a></li>
-                <li><a href="">Bandung</a></li>
-                <li><a href="">Medan</a></li>
-                <li><a href="">Surabaya</a></li>
-                <li><a href="">Bekasi</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <ul class="list-unstyled">
-                <li><a href="">Palembang</a></li>
-                <li><a href="">Makassar</a></li>
-                <li><a href="">Tangerang</a></li>
-                <li><a href="">Tangerang Selatan</a></li>
-                <li><a href="">Semarang</a></li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <ul class="list-unstyled">
-                <li><a href="">Depok</a></li>
-                <li><a href="">Batam</a></li>
-                <li><a href="">Padang</a></li>
-                <li><a href="">Denpasar</a></li>
-                <li><a href="" data-toggle="modal" data-target="#moreCity">Kota Lainnya</a></li>
-							</ul>
+	<div class="card p-3 bg-light">
+		<div class="card-body">
+			<h1 class="mb-3">Pilih Kota atau Daerah</h1>
+			<div class="row">
+				<div class="col">
+					<form>
+						<div class="form-row">
+							<div class="col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="">Jakarta</a></li>
+									<li><a href="">Bandung</a></li>
+									<li><a href="">Medan</a></li>
+									<li><a href="">Surabaya</a></li>
+									<li><a href="">Bekasi</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="">Palembang</a></li>
+									<li><a href="">Makassar</a></li>
+									<li><a href="">Tangerang</a></li>
+									<li><a href="">Tangerang Selatan</a></li>
+									<li><a href="">Semarang</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="">Depok</a></li>
+									<li><a href="">Batam</a></li>
+									<li><a href="">Padang</a></li>
+									<li><a href="">Denpasar</a></li>
+									<li><a href="" data-toggle="modal" data-target="#moreCity">Kota Lainnya</a></li>
+								</ul>
+							</div>
 						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 </div> <!-- /container -->
 <!-- Pilih Daerah End -->
 
