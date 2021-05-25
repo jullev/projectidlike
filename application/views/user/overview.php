@@ -253,11 +253,11 @@
 									<a href="<?php echo base_url() ?>detail/<?php echo $value->idkerjaan; ?>"><?php echo $value->judul_kerjaan; ?></a>
 								</h5>
 								<p class="card-text">
-                  <span class="text-muted small">
-                    <i class="bi-clock mr-1"></i> <?php echo $value->tanggal_submit ?>
-                    - <i class="bi-grid ml-1 mr-1"></i> <?php echo $value->nama_kategori ?>
-                    - <i class="bi-geo-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten ?>
-                  </span>
+								  <span class="text-muted small">
+									<i class="bi-clock mr-1"></i> <?php echo $value->tanggal_submit ?>
+									- <i class="bi-grid ml-1 mr-1"></i> <?php echo $value->nama_kategori ?>
+									- <i class="bi-geo-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten ?>
+								  </span>
                   <div class="text-right">
                     <h5>Rp. <?php echo number_format($value->harga,2, ',', '.'); ?></h5>
                   </div>
@@ -302,13 +302,13 @@
               <div class="col-3 pl-1">
                   <button class="btn btn-block btn-primary">Submit</button>
               </div>
-						</div>
+			</div>
         </div>
       </div>
     </div>
   </div>
   <!-- Modal Kota Lainnya End -->
-  
+
   <!-- footer -->
   <?php $this->load->view('user/_partials/footer.php'); ?>
   <!-- /footer -->

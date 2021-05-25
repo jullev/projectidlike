@@ -38,11 +38,13 @@ class Welcome extends CI_Controller
 		else if($this->session->userdata('role')==2){
 			$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
 			$data['kategori'] = $this->M_Iklan->getAllCategory();
+			$data['kabupaten'] = $this->M_Iklan->getAllKab();
 			$this->load->view('user/overview',$data);
 		}
 		else{
 			$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
 			$data['kategori'] = $this->M_Iklan->getAllCategory();
+			$data['kabupaten'] = $this->M_Iklan->getAllKab();
 			$this->load->view('user/overview',$data);
 		}
 	}
