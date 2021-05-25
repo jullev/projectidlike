@@ -64,12 +64,12 @@
 									<div class="carousel-item active">
 									<img src="<?php echo base_url('assets/image/iklan/').$value->gambar_kerjaan ?>" class="d-block w-100" alt="Gambar <?php echo $value->judul_kerjaan; ?> 1">
 									</div>
-									<div class="carousel-item">
-									<img src="<?php echo base_url('assets/image/detail2.jpg') ?>" class="d-block w-100" alt="Gambar <?php echo $value->judul_kerjaan; ?> 2">
-									</div>
-									<div class="carousel-item">
-									<img src="<?php echo base_url('assets/image/detail3.jpg') ?>" class="d-block w-100" alt="Gambar <?php echo $value->judul_kerjaan; ?> 3">
-									</div>
+<!--									<div class="carousel-item">-->
+<!--									<img src="--><?php //echo base_url('assets/image/detail2.jpg') ?><!--" class="d-block w-100" alt="Gambar --><?php //echo $value->judul_kerjaan; ?><!-- 2">-->
+<!--									</div>-->
+<!--									<div class="carousel-item">-->
+<!--									<img src="--><?php //echo base_url('assets/image/detail3.jpg') ?><!--" class="d-block w-100" alt="Gambar --><?php //echo $value->judul_kerjaan; ?><!-- 3">-->
+<!--									</div>-->
 								</div>
 								<a class="carousel-control-prev" href="#detImg" role="button" data-slide="prev">
 									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
