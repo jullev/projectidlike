@@ -42,7 +42,7 @@
                             </div>
                             <!-- Email -->
                             <div class="form-group row">
-                                <label for="email" class="col-md-3 col-form-label">Email <sup style="color: red;">*</sup></label>
+                                <label for="email_register" class="col-md-3 col-form-label">Email <sup style="color: red;">*</sup></label>
                                 <div class="col-md-8">
                                     <input type="email" id="email_register" name="email_register" class="form-control" aria-describedby="emailHelp" value="<?php echo $this->session->flashdata('email_register') ?>" placeholder="Email" maxlength="45" onfocus="removeAlert()" required>
                                 </div>
