@@ -108,9 +108,23 @@ class C_Iklan extends CI_Controller
 			$data['msg'] = $inputGet['msg'] == 'success' ? 'Berhasil menambahkan iklan' : 'Iklan gagal ditambahkan, ulangi lagi.';
 		}
 
+		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['kategori'] = $this->M_Iklan->getAllCategory();
 		$data['kabupaten'] = $this->M_Iklan->getAllKab();
-		$this->load->view("user/tambahiklan", $data);
+		$this->load->view("admin/tambahiklan", $data);
+	}
+	public function editIklan(){
+		$inputGet = $this->input->get();
+
+		if(isset($inputGet['msg'])){
+			$data['status'] = $inputGet['msg'];
+			$data['msg'] = $inputGet['msg'] == 'success' ? 'Berhasil menambahkan iklan' : 'Iklan gagal ditambahkan, ulangi lagi.';
+		}
+
+		$data['allcount'] = $this->M_Iklan->show_allcount();
+		$data['kategori'] = $this->M_Iklan->getAllCategory();
+		$data['kabupaten'] = $this->M_Iklan->getAllKab();
+		$this->load->view("admin/tambahiklan", $data);
 	}
 
 	public function simpanIklan(){

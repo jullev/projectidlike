@@ -84,16 +84,14 @@
 
 													?></b><br>
 											<td>
-												<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
-												   class=" btn btn-warning btn-sm btn-3d" data-tooltip="tooltip"
-												   data-placement="top" style="margin:5px;" data-original-title="EDIT">
-													<i class="bi bi-person-lines-fill"></i>
-
-													<a href="<?php echo base_url() ?>terimaiklan/<?php echo $value->idkerjaan ?>"
-													   class=" btn btn-warning btn-sm btn-3d" data-tooltip="tooltip"
-													   data-placement="top" style="margin:5px;"
-													   data-original-title="EDIT">
-														<i class="bi bi-x-circle"></i>
+												<div class="d-flex">
+													<a href="<?php echo base_url() ?>editiklan/<?php echo $value->idkerjaan ?>" class="btn btn-primary mr-1" data-tooltip="tooltip" data-placement="top" title="Edit Iklan">
+														<i class="bi bi-pencil-square"></i>
+													</a>
+													<a href="<?php echo base_url() ?>" class=" btn btn-danger" data-tooltip="tooltip" data-placement="top" title="Hapus Iklan">
+														<i class="bi bi-trash"></i>
+													</a>
+												</div>
 											</td>
 
 										</tr>

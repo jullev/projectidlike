@@ -90,7 +90,7 @@
         <ul class="list-unstyled" id="listDaerah">
             <li class="mb-2">
                 <div class="custom-control custom-radio">
-                    <input type="radio" id="daerah" name="daerah1" class="custom-control-input">
+                    <input type="radio" id="daerah1" name="daerah" class="custom-control-input">
                     <label class="custom-control-label" for="daerah1">Jakarta</label>
                 </div>
             </li>

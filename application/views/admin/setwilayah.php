@@ -34,34 +34,34 @@
             </div>
             <!-- /.content-header -->
             <!-- Main content -->
-            <section class="content container">
-                <?php
-                if ($this->session->userdata('status') !== null) {
-                    if ($this->session->userdata('status') == "success") {
-                ?>
-                        <div class="alert alert-success"><?php echo $this->session->userdata('msg') ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button></div>
-                    <?php
-                    } else {
-                    ?>
-                        <div class="alert alert-danger"><?php echo $this->session->userdata('msg') ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button></div>
-                <?php
-                    }
-                    $this->session->unset_userdata(array('status', 'msg'));
-                }
-                ?>
-                <div class="card">
-                    <div class="card-header">
-                        <h3><strong>List Wilayah</strong></h3>
-                    </div>
-                    <div class="card-body">
-                        <!-- <a href="<?php echo site_url('tambahwilayah') ?>" class="btn btn-primary"><i class="bi-plus"></i> Tambah Kategori</a> -->
-                        <div id="adminlist_wrapper">
-                            <div class="row">
-                                <div class="col-12">
+            <section class="content container">  
+                <div class="row">
+                    <div class="col-12">
+                        <?php
+                        if ($this->session->userdata('status') !== null) {
+                            if ($this->session->userdata('status') == "success") {
+                        ?>
+                                <div class="alert alert-success"><?php echo $this->session->userdata('msg') ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button></div>
+                            <?php
+                            } else {
+                            ?>
+                                <div class="alert alert-danger"><?php echo $this->session->userdata('msg') ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button></div>
+                        <?php
+                            }
+                            $this->session->unset_userdata(array('status', 'msg'));
+                        }
+                        ?>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><strong>List Wilayah</strong></h3>
+                            </div>
+                            <div class="card-body">
+                                <!-- <a href="<?php echo site_url('tambahwilayah') ?>" class="btn btn-primary"><i class="bi-plus"></i> Tambah Kategori</a> -->
+                                <div id="adminlist_wrapper">
                                     <table class="table table-striped dataTable dtr-inline" aria-describedby="adminlist_info" role="grid" id="adminlist">
                                         <thead class="thead-dark">
                                             <tr>
@@ -107,6 +107,7 @@
             </section>
         </div>
         <!-- /.content-wrapper -->
+        <?php $this->load->view("admin/_partials/footer.php") ?>
     </div>
     <!-- modal delete -->
     <div class="modal fade" tabindex="-1" id="deleteModal">
@@ -128,7 +129,6 @@
             </div>
         </div>
     </div>
-    <?php $this->load->view("admin/_partials/footer.php") ?>
     <script>
         $(function() {
             $("#adminlist").DataTable({

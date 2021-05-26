@@ -63,18 +63,19 @@
 											<td><b><?php echo $value->deskripsi ?></b><br>
 											<td><b><?php echo $value->tgl_selesai ?></b><br>
 											<td><b><?php echo $value->nama_user ?></b><br>
-											<td class="d-flex">
-												<a href="<?php echo base_url() ?>reportiklanselesai/<?php echo $value->idkerjaan ?>"
-												   class="btn btn-primary m-1" data-tooltip="tooltip"
-												   data-placement="top" data-original-title="Detail Laporan">
-													<i class="bi bi-file-earmark-medical"></i>
-												</a>
-
-												<a href=""
-												   class="btn btn-danger m-1" data-tooltip="tooltip"
-												   data-placement="top" data-original-title="Tolak">
-													<i class="bi bi-x-circle"></i>
-												</a>
+											<td>
+												<div class="d-flex">
+													<a href="<?php echo base_url() ?>reportiklanselesai/<?php echo $value->idkerjaan ?>"
+													   class="btn btn-primary mr-1" data-tooltip="tooltip"
+													   data-placement="top" data-original-title="Detail Laporan">
+														<i class="bi bi-file-earmark-medical"></i>
+													</a>
+													<a href=""
+													   class="btn btn-danger" data-tooltip="tooltip"
+													   data-placement="top" data-original-title="Tolak">
+														<i class="bi bi-x-circle"></i>
+													</a>
+												</div>
 											</td>
 
 										</tr>
