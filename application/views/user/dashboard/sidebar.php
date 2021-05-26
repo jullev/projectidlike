@@ -32,7 +32,7 @@
         <!-- My Account End -->
 
         <!-- MY ADS -->
-        <div class="row mb-2">
+        <!-- <div class="row mb-2">
             <div class="col text-left">
                 IKLAN SAYA
             </div>
@@ -64,7 +64,7 @@
                 </a>
             </div>
         </div>
-        <hr>
+        <hr> -->
         <!-- My Ads End -->
 
         <!-- Hit Project -->

@@ -104,12 +104,12 @@
 							<!-- Tombol -->
 							<div class="row text-center mt-5 mb-2">
 								<!-- Tombol Whatsapp -->
-								<div class="col-sm-12 col-md-4">
+								<div class="col-sm-12 col-md-6">
 									<a href="https://wa.me/<?php echo $value->no_hp ?>"  class="btn btn-outline-success btn-lg"><i class="bi-whatsapp mr-1"></i> WhatsApp</a>
 								</div>
 								<!-- Tombol Whatsapp End -->
 								<!-- Tombol Hit -->
-								<div class="col-sm-12 col-md-4 mt-3 mt-md-0">
+								<div class="col-sm-12 col-md-6 mt-3 mt-md-0">
 									<?php //var_dump(@$cekhit);
 									if(!@$cekhit){
 									?>
@@ -127,9 +127,6 @@
 									?>
 								</div>
 								<!-- Tombol Hit End -->
-								<div class="col-sm-12 col-md-4 mt-3 mt-md-0">
-									<button class="btn btn-outline-info btn-lg"><i class="bi-info-circle-fill mr-1"></i> Laporkan Iklan</button>
-								</div>
 							</div>
 						</div>
 					</div>
