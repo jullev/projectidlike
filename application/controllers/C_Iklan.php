@@ -193,6 +193,15 @@ class C_Iklan extends CI_Controller
 
 
 	}
+	public function inputReview()
+	{
+		$data = $this->input->post();
+		//print_r($data);
+		$this->M_Iklan->isistarpoint($data);
+		redirect("iklanselesai");
+
+
+	}
 	public function loginData()
 	{
 		$data = $this->input->post();
