@@ -122,10 +122,10 @@ class M_Iklan extends CI_Model
 	}
 	public function detail_iklan_selesai($id)
 	{
-		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi,report_kerjaan.detail,kerjaan.deadline, report_kerjaan.tgl_selesai,user.nama_user
+		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi,report_kerjaan.detail,kerjaan.deadline, report_kerjaan.tgl_selesai,user.nama_user,user.iduser
 		from kerjaan,report_kerjaan,user where kerjaan.idkerjaan=report_kerjaan.id_kerjaan 
 		and user.iduser=report_kerjaan.id_user and kerjaan.idkerjaan='$id'";
-		echo $sql;
+//		echo $sql;
 		$data = $this->db->query($sql);
 
 		return $data->result();
@@ -171,6 +171,13 @@ class M_Iklan extends CI_Model
 	public function HitKerjaan($idkerjaan)
 	{
 		$sql = "INSERT INTO hit VALUES(NULL,current_date(),'".$this->session->userdata('id')."' ,'".$idkerjaan."','7')";
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
+	}
+	public function isistarpoint($kerjaan)
+	{
+		$sql = "INSERT INTO star_point VALUES(NULL,'".$kerjaan['penilaian']."', current_date(),' ".$kerjaan['iduser']."','".$kerjaan['idkerjaan']."','".$kerjaan['review']."')";
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();

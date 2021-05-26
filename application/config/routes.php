@@ -104,6 +104,7 @@ $route['iklanbaru'] = 'C_Iklan/index_pengajuan';
 $route['iklandisetujui'] = 'C_Iklan/index_pengajuan_diterima';
 $route['semuaiklan'] = 'C_Iklan/tampil';
 $route['iklanselesai'] = 'C_Iklan/tampiliklanselesai';
+$route['starpoint'] = 'C_Iklan/inputReview';
 $route['reportiklanselesai/(:any)'] = 'C_Iklan/detaillaporan/$1';
 $route['terimaiklan/(:any)'] = 'C_Iklan/terimaiklan/$1';
 $route['hit/(:any)'] = 'C_Iklan/detailhit/$1';
