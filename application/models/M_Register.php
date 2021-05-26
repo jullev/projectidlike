@@ -88,19 +88,19 @@ class M_Register extends CI_Model
 	public function insert($data)
 	{
 		// Cek data unik pada username dan email
-//		$validation = $this->uniqueDataCheck($data);
-//		if ($validation == "username-error") {
-//			return "username-error";
-//		} elseif ($validation == "email-error") {
-//			return "email-error";
-//		}
+		$validation = $this->uniqueDataCheck($data);
+		if ($validation == "username-error") {
+			return "username-error";
+		} elseif ($validation == "email-error") {
+			return "email-error";
+		}
 
-		// Menambahkan string 62 di depan input phone
+//		 Menambahkan string 62 di depan input phone
 		$data['phone'] = "62" . $data['phone'];
 
 		// Penambahan data
-		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir, alamat, foto_profil, gender, no_hp, role_idrole) 
-		VALUES('" . $data['username_register'] . "', '" . $data['email_register'] . "', 
+		$sql = "INSERT INTO user(username,email,password,nama_user,tanggal_lahir, alamat, foto_profil, gender, no_hp, role_idrole)
+		VALUES('" . $data['username_register'] . "', '" . $data['email_register'] . "',
 		md5('" . $data['password_register'] . "'), '" . $data['name'] . "', '" . $data['birthdate'] . "', '" . $data['alamat'] . "', 'default.png', '" . $data['gender'] . "', '" . $data['phone'] . "', 2)";
 
 		$this->db->query($sql);
@@ -145,14 +145,14 @@ class M_Register extends CI_Model
 		$sql = "SELECT COUNT(username) as user_count FROM user where username='" . $data['username_register'] . "'";
 //		echo $sql;
 		$query = $this->db->query($sql);
-		if ($query->row()->user_count > 0) {
+		if (intval($query->row()->user_count) > 0) {
 			return "username-error";
 		}
 
 		// Email check
 		$sql = "SELECT COUNT(email) as email_count FROM user where email='" . $data['email_register'] . "'";
 		$query = $this->db->query($sql);
-		if ($query->row()->email_count > 0) {
+		if (intval($query->row()->email_count) > 0) {
 			return "email-error";
 		} else {
 			return 0;
