@@ -118,6 +118,7 @@ class C_Register extends CI_Controller
 	}
 
 	private function sendEmail($email){
+		$token = $this->generateToken();
 		$config = array(
 			'protocol' => 'smtp',
 			'smtp_host' => 'smtp.gmail.com',
@@ -133,13 +134,18 @@ class C_Register extends CI_Controller
 		$this->load->library('email', $config);
 		$this->email->from('admin@temantumbuh.com', 'TEMAN TUMBUH');
 		$this->email->to($email);
-
 		$this->email->subject('Pendaftaran berhasil!');
-		$this->email->message('Klik link di bawah ini untuk verifikasi email.');
+		$this->email->message('Selamat! Akun anda berhasil dibuat, pakai kode <strong>'.$token.'</strong> untuk verifikasi akun anda di '.site_url('verifikasiemail'));
 
 		$this->email->send();
 	}
 
+	private function generateToken(){
+		$this->load->helper('string');
+		$token = random_string('numeric', '6');
+		return $token;
+	}
+	
 	public function prosesTambahUser()
 	{
 
