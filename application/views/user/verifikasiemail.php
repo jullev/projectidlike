@@ -19,11 +19,11 @@
 							</div>
 							<div class="card-body">
 								<?php
-									if($this->session->userdata('msg') !== NULL){
+									if($this->session->userdata('vmsg') !== NULL){
 								?>
-										<div class="alert <?php echo $this->session->userdata('status') == 'success' ? 'alert-success' : 'alert-danger' ?>"><?php echo $this->session->userdata('msg') ?></div>
+										<div class="alert <?php echo $this->session->userdata('vstatus') == 'success' ? 'alert-success' : 'alert-danger' ?>"><?php echo $this->session->userdata('vmsg') ?></div>
 								<?php
-										$this->session->unset_userdata(array('status', 'msg'));
+										$this->session->unset_userdata(array('vstatus', 'vmsg'));
 									}
 								?>
 								<form action="C_Register/verifyEmail" method="POST">

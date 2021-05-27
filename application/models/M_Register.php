@@ -41,23 +41,31 @@ class M_Register extends CI_Model
 
 	public function Select_Login($data)
 	{
+
 		$sql = "SELECT * FROM user WHERE username = '" . $data['username'] . "' and password = md5('" . $data['password'] . "')";
-		//		echo $sql;
 		$data_query = $this->db->query($sql);
 		//		print_r($data_query->result());
 		if ($data_query->num_rows() > 0) {
-			$this->session->set_userdata('username', $data_query->row()->username);
-			$this->session->set_userdata('nama', $data_query->row()->nama_user);
-			$this->session->set_userdata('id', $data_query->row()->iduser);
-			$this->session->set_userdata('role', $data_query->row()->role_idrole);
-			$this->session->set_userdata('is_login', TRUE);
-			return TRUE;
+			// Cek apakah email sudah diverifikasi atau belum
+			$query_check = $this->db->query('SELECT verify_status from verifikasi where email="' . $data_query->row()->email . '"');
+			if ($query_check->row()->verify_status == 1) {
+				$this->session->set_userdata('username', $data_query->row()->username);
+				$this->session->set_userdata('nama', $data_query->row()->nama_user);
+				$this->session->set_userdata('id', $data_query->row()->iduser);
+				$this->session->set_userdata('role', $data_query->row()->role_idrole);
+				$this->session->set_userdata('is_login', TRUE);
+				return TRUE;
+			} else {
+				$this->session->set_userdata('status', 'error');
+				$this->session->set_userdata('msg', 'Email belum diverifikasi, harap verifikasi terlebih dahulu! Klik <a href="C_Register/resendToken"><strong>di sini</strong></a> untuk mengirim ulang kode verifikasi.');
+				$this->session->set_userdata('email', $data_query->row()->email);
+				return 'error';
+			}
 		} else {
 			$this->session->set_userdata('status', 'error');
 			$this->session->set_userdata('msg', 'Username/password salah');
 			return 'error';
 		}
-		return $data_query->result();
 	}
 
 	public function logout()
@@ -189,14 +197,26 @@ class M_Register extends CI_Model
 		return $this->db->affected_rows();
 	}
 
-	public function checkToken($data){
-		$sql = "SELECT email FROM verifikasi WHERE token='".$data."'";
+	public function checkToken($data)
+	{
+		$sql = "SELECT email FROM verifikasi WHERE token='" . $data . "'";
 		$query = $this->db->query($sql);
 		return $query->row();
 	}
-	public function verifyEmail($data){
-		$sql = "UPDATE verifikasi SET verify_status=1 WHERE email='".$data."'";
+
+	public function verifyEmail($data)
+	{
+		$sql = "UPDATE verifikasi SET verify_status=1 WHERE email='" . $data . "'";
 		$this->db->query($sql);
+		return $this->db->affected_rows();
+	}
+
+	public function resendToken($token)
+	{
+		$email = $this->session->userdata('email');
+		$sql = "UPDATE verifikasi SET token='" . $token . "' where email='" . $email . "'";
+		$this->db->query($sql);
+
 		return $this->db->affected_rows();
 	}
 }

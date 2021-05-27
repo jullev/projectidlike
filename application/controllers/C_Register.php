@@ -86,7 +86,7 @@ class C_Register extends CI_Controller
 		$validation->set_rules("password", "password_register", "required");
 
 		// Kirim kode verifikasi email
-		$this->sendEmail($data['email_register']);
+		$this->sendEmail($email = $data['email_register']);
 
 //		$this->session->set_flashdata('name', $data['name']);
 //		$this->session->set_flashdata('username_register', $data['username_register']);
@@ -100,8 +100,8 @@ class C_Register extends CI_Controller
 		if ($validation == true) {
 			$result = $this->M_Register->insert($data);
 			if ($result == "success") {
-				$this->session->set_userdata('status', 'success');
-				$this->session->set_userdata('msg', 'Pendaftaran berhasil! Silakan cek email anda untuk verifikasi akun ini.');
+				$this->session->set_userdata('vstatus', 'success');
+				$this->session->set_userdata('vmsg', 'Pendaftaran berhasil! Silakan cek email anda untuk verifikasi akun ini.');
 				redirect("verifikasiemail");
 			} elseif ($result == "failed") {
 				$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
@@ -119,15 +119,18 @@ class C_Register extends CI_Controller
 		}
 	}
 
-	private function sendEmail($email)
+	private function sendEmail($email = '', $status = 'new', $tokenResend = '')
 	{
 		$token = $this->generateToken();
 
 		// Save into database
-		$save_token = $this->M_Register->saveToken($token, $email);
-		if ($save_token < 1) {
-			echo 'Token gagal ditambahkan';
+		if ($status == 'new') {
+			$save_token = $this->M_Register->saveToken($token, $email);
+			if ($save_token < 1) {
+				echo 'Token gagal ditambahkan';
+			}
 		}
+
 		// Send email
 		$config = array(
 			'protocol' => 'smtp',
@@ -145,8 +148,12 @@ class C_Register extends CI_Controller
 		$this->email->from('admin@temantumbuh.com', SITE_NAME);
 		$this->email->to($email);
 		$this->email->subject('Pendaftaran berhasil!');
-		$this->email->message('Selamat! Akun anda berhasil dibuat, pakai kode <strong>' . $token . '</strong> untuk verifikasi akun anda di ' . site_url('verifikasiemail'));
-
+		$this->email->message('aaaa');
+		if ($status == 'new') {
+			$this->email->message('Selamat! Akun anda berhasil dibuat, pakai kode <strong>' . $token . '</strong> untuk verifikasi akun anda di ' . site_url('verifikasiemail'));
+		} else {
+			$this->email->message('Kode verifikasi anda adalah <strong>' . $tokenResend . '</strong>. Masukkan kode ke dalam link beriku ini: ' . site_url('verifikasiemail'));
+		}
 		$this->email->send();
 	}
 
@@ -267,27 +274,40 @@ class C_Register extends CI_Controller
 		}
 	}
 
-	public function verifyEmail(){
+	public function verifyEmail()
+	{
 		$data = $this->input->post();
 
 		// Check Token Availability
 		$result = $this->M_Register->checkToken($data['verify-email']);
-		if($result !== NULL){
+		if ($result !== NULL) {
 			$verify = $this->M_Register->verifyEmail($result->email);
-			var_dump($verify);
-			if($verify > 0){
+			if ($verify > 0) {
 				$this->session->set_userdata('email_msg', 'Verifikasi email berhasil! Silakan login menggunakan akun anda.');
 				redirect('/', 'refresh');
-			}else{
-				$this->session->set_userdata('msg', 'Token tidak sesuai, ulangi lagi');
+			} else {
+				$this->session->set_userdata('vmsg', 'Token tidak sesuai, ulangi lagi');
 				redirect('verifikasiemail', 'refresh');
 			}
-		}else{
-			$this->session->set_userdata('msg', 'Token tidak sesuai, ulangi lagi');
+		} else {
+			$this->session->set_userdata('vmsg', 'Token tidak sesuai, ulangi lagi');
 			redirect('verifikasiemail', 'refresh');
 		}
 	}
-}
 
-/* End of file Pegawai.php */
-/* Location: ./application/controllers/Pegawai.php */
+	public function resendToken()
+	{
+		$token = $this->generateToken();
+		$resend = $this->M_Register->resendToken($token);
+
+		if ($resend > 0) {
+			$this->session->set_userdata('vmsg', 'Kode verifikasi berhasil dikirim! Silakan cek email anda.');
+			$this->session->set_userdata('vstatus', 'success');
+			$this->sendEmail($email = $this->session->userdata('email'), $status = 'resend', $tokenResend = $token);
+			$this->session->unset_userdata('email');
+			redirect('verifikasiemail', 'refresh');
+		} else {
+			echo 'gagal';
+		}
+	}
+}
