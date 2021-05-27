@@ -1,14 +1,13 @@
 <script>
 	const status = '<?php echo $this->session->userdata('status') != null ? $this->session->userdata('status') : 'success' ?>'
 	const msg = '<?php echo $this->session->userdata('email_msg') != null ? $this->session->userdata('email_msg') : '' ?>'
-	$(window).on('load', function () {
+	$(window).on('load', function() {
 		if (status == 'error' || msg != '') {
 			$('#signIn').modal('show');
 		}
 	});
 </script>
-<nav class="navbar navbar-light navbar-expand-sm fixed-top bg-white shadow-sm navigation-clean"
-	 onload="alert(<?php echo $this->session->userdata('status') ?>)">
+<nav class="navbar navbar-light navbar-expand-sm fixed-top bg-white shadow-sm navigation-clean" onload="alert(<?php echo $this->session->userdata('status') ?>)">
 	<div class="container">
 		<!-- Nama Website -->
 		<a class="navbar-brand" href="<?php echo site_url('/') ?>"><?php echo SITE_NAME ?></a>
@@ -17,35 +16,30 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<!-- Masuk, Daftar, Akun, Tambah Iklan -->
-		<div class="collapse navbar-collapse py-2 py-md-0 justify-content-center justify-content-md-start"
-			 id="navcol-1">
+		<div class="collapse navbar-collapse py-2 py-md-0 justify-content-center justify-content-md-start" id="navcol-1">
 
 
 			<?php
 			if (($this->session->userdata("is_login") !== null) && ($this->session->userdata('is_login') == true)) {
-				?>
+			?>
 				<!-- Untuk yang sudah login -->
 				<!-- Akun -->
 				<div class="btn-group ml-auto">
-					<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false" id="nameNavbar">
+					<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nameNavbar">
 						<i class="bi-person-fill mr-1"></i><?php echo $this->session->userdata("nama") ?>
 					</button>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="<?php echo site_url('dashboard'); ?>"><i
-									class="bi-house mr-1"></i> Dashboard</a>
+						<a class="dropdown-item" href="<?php echo site_url('dashboard'); ?>"><i class="bi-house mr-1"></i> Dashboard</a>
 						<!-- <a class="dropdown-item" href="<?php echo site_url('iklansaya'); ?>"><i
 									class="bi-badge-ad mr-1"></i> Iklan Saya</a> -->
-						<a class="dropdown-item" href="<?php echo site_url('hitproject'); ?>"><i
-									class="bi-hand-index-thumb mr-1"></i> Hit Project</a>
+						<a class="dropdown-item" href="<?php echo site_url('hitproject'); ?>"><i class="bi-hand-index-thumb mr-1"></i> Hit Project</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="<?php echo site_url('logout') ?>"><i
-									class="bi-box-arrow-right mr-1"></i> Logout</a>
+						<a class="dropdown-item" href="<?php echo site_url('logout') ?>"><i class="bi-box-arrow-right mr-1"></i> Logout</a>
 					</div>
 				</div>
-				<?php
+			<?php
 			} else {
-				?>
+			?>
 				<!-- Untuk yang belum login -->
 				<!-- Tombol Masuk -->
 				<button class="btn btn-outline-primary ml-md-auto" data-target='#signIn' data-toggle="modal">
@@ -55,7 +49,7 @@
 				<a href="<?php echo site_url('register') ?>" class="btn btn-outline-primary ml-2 ml-sm-3" role="button">
 					<i class="bi-person-plus"></i> Daftar
 				</a>
-				<?php
+			<?php
 			}
 			?>
 			<!-- Tombol Tambah Iklan -->
@@ -85,16 +79,16 @@
 					<div id="alert">
 						<?php
 						if ($this->session->userdata('status') !== null) {
-							?>
+						?>
 							<div class="alert alert-danger"><?php echo $this->session->userdata('msg'); ?></div>
-							<?php
+						<?php
 							$this->session->unset_userdata(array('status', 'msg'));
 						}
 
 						if ($this->session->userdata('email_msg') !== null) {
-							?>
+						?>
 							<div class="alert alert-success"><?php echo $this->session->userdata('email_msg'); ?></div>
-							<?php
+						<?php
 							$this->session->unset_userdata('email_msg');
 						}
 
@@ -109,8 +103,7 @@
 									<i class="bi-person-fill"></i>
 								</span>
 							</div>
-							<input type="text" class="form-control" id="username" name="username" placeholder="Username"
-								   aria-describedby="username-addon" onfocus="removeAlert()">
+							<input type="text" class="form-control" id="username" name="username" placeholder="Username" aria-describedby="username-addon" onfocus="removeAlert()">
 						</div>
 					</div>
 					<!-- Password -->
@@ -122,15 +115,14 @@
 									<i class="bi-key-fill"></i>
 								</span>
 							</div>
-							<input type="password" class="form-control" id="password" name="password"
-								   placeholder="Password" aria-describedby="password-addon" onfocus="removeAlert()">
+							<input type="password" class="form-control" id="password" name="password" placeholder="Password" aria-describedby="password-addon" onfocus="removeAlert()">
 						</div>
 					</div>
-					<!-- Tetap Login -->
+					<!-- Show Password -->
 					<div class="form-group form-check pl-0">
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input" id="rememberme">
-							<label class="custom-control-label" for="rememberme">Tetap Masuk</label>
+							<input type="checkbox" class="custom-control-input" id="show" onclick="showPassword()">
+							<label class="custom-control-label" for="show">Show password</label>
 						</div>
 					</div>
 					<!-- Lupa Pass -->
@@ -165,5 +157,17 @@
 
 	const removeAlert = () => {
 		document.getElementById('alert').innerHTML = "";
+	}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	const showPassword = () => {
+		const checkbox = document.getElementById('show')
+		const pwd = document.getElementById('password')
+		if (checkbox.checked == true) {
+			pwd.setAttribute('type', 'text')
+		} else {
+			pwd.setAttribute('type', 'password')
+		}
 	}
 </script>

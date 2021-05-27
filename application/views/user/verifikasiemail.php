@@ -48,10 +48,10 @@
 
 		</div>
 		<!-- /container -->
-		<!-- Footer -->
 
 	</div>
 
+		<!-- Footer -->
 	<?php $this->load->view('user/_partials/footer.php'); ?>
 </body>
 

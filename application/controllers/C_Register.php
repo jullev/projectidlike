@@ -88,13 +88,13 @@ class C_Register extends CI_Controller
 		// Kirim kode verifikasi email
 		$this->sendEmail($email = $data['email_register']);
 
-//		$this->session->set_flashdata('name', $data['name']);
-//		$this->session->set_flashdata('username_register', $data['username_register']);
-//		$this->session->set_flashdata('email_register', $data['email_register']);
-//		$this->session->set_flashdata('birthdate', $data['birthdate']);
-//		$this->session->set_flashdata('alamat', $data['alamat']);
-//		$this->session->set_flashdata('phone', $data['phone']);
-//		$this->session->set_flashdata('gender', $data['gender']);
+		//		$this->session->set_flashdata('name', $data['name']);
+		//		$this->session->set_flashdata('username_register', $data['username_register']);
+		//		$this->session->set_flashdata('email_register', $data['email_register']);
+		//		$this->session->set_flashdata('birthdate', $data['birthdate']);
+		//		$this->session->set_flashdata('alamat', $data['alamat']);
+		//		$this->session->set_flashdata('phone', $data['phone']);
+		//		$this->session->set_flashdata('gender', $data['gender']);
 
 
 		if ($validation == true) {
@@ -147,12 +147,15 @@ class C_Register extends CI_Controller
 		$this->load->library('email', $config);
 		$this->email->from('admin@temantumbuh.com', SITE_NAME);
 		$this->email->to($email);
-		$this->email->subject('Pendaftaran berhasil!');
-		$this->email->message('aaaa');
 		if ($status == 'new') {
-			$this->email->message('Selamat! Akun anda berhasil dibuat, pakai kode <strong>' . $token . '</strong> untuk verifikasi akun anda di ' . site_url('verifikasiemail'));
-		} else {
-			$this->email->message('Kode verifikasi anda adalah <strong>' . $tokenResend . '</strong>. Masukkan kode ke dalam link beriku ini: ' . site_url('verifikasiemail'));
+			$this->email->subject('Pendaftaran berhasil!');
+			$this->email->message('Selamat! Akun anda berhasil dibuat, pakai kode <strong>' . $token . '</strong> untuk verifikasi akun anda di <strong>' . site_url('verifikasiemail') . '</strong>');
+		} elseif ($status == 'resend') {
+			$this->email->subject('Verifikasi Email');
+			$this->email->message('Kode verifikasi anda adalah <strong>' . $tokenResend . '</strong>. Masukkan kode ke dalam link berikut ini:  <strong>' . site_url('verifikasiemail') . '</strong>');
+		} elseif ($status == 'reset-password') {
+			$this->email->subject('Reset Password');
+			$this->email->message('Untuk melakukan reset password silahkan klik link berikut: <strong> ' . site_url('verifikasiemail') . '?t=' . $tokenResend . '</strong>');
 		}
 		$this->email->send();
 	}
@@ -209,42 +212,6 @@ class C_Register extends CI_Controller
 		}
 	}
 
-	public function update()
-	{
-		$id = trim($_POST['id']);
-
-		$data['dataPasien'] = $this->M_pasien->select_by_id($id);
-		$data['dataPosisi'] = $this->M_posisi->select_all();
-		$data['dataKota'] = $this->M_kota->select_all();
-		$data['userdata'] = $this->userdata;
-		echo show_my_modal('modals/modal_update_pasien', 'update-pasien', $data);
-	}
-
-
-	public function prosesUpdate()
-	{
-		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'trim|required');
-		$this->form_validation->set_rules('umur', 'umur', 'trim|required');
-
-		$data = $this->input->post();
-		if ($this->form_validation->run() == TRUE) {
-			$result = $this->M_pasien->update($data);
-
-			if ($result > 0) {
-				$out['status'] = '';
-				$out['msg'] = show_source('Data Pasien Berhasil diupdate', '20px');
-			} else {
-				$out['status'] = '';
-				$out['msg'] = show_succ_msg('Data Pasien Gagal diupdate', '20px');
-			}
-		} else {
-			$out['status'] = 'form';
-			$out['msg'] = show_err_msg(validation_errors());
-		}
-
-		echo json_encode($out);
-	}
 
 	public function delete()
 	{
@@ -308,6 +275,24 @@ class C_Register extends CI_Controller
 			redirect('verifikasiemail', 'refresh');
 		} else {
 			echo 'gagal';
+		}
+	}
+
+	public function forgotPassword()
+	{
+		$data = $this->input->post();
+
+
+
+		$result = $this->M_Register->checkemail($data['reset']);
+		if ($result == '') {
+			$this->session->set_userdata('msg', 'Username/Email tidak dapat ditemukan, Silahkan ulangi lagi');
+			redirect('lupa-password', 'refresh');
+		} else {
+			$token = $this->generateToken();
+			$this->M_Register->saveForgotPassword($result, $token);
+			$this->sendEmail($email = $result, $status = 'reset-password', $tokenResend = $token);
+			redirect('lupa-password-status');
 		}
 	}
 }

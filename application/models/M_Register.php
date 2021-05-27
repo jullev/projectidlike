@@ -103,7 +103,7 @@ class M_Register extends CI_Model
 			return "email-error";
 		}
 
-//		 Menambahkan string 62 di depan input phone
+		//		 Menambahkan string 62 di depan input phone
 		$data['phone'] = "62" . $data['phone'];
 
 		// Penambahan data
@@ -151,7 +151,7 @@ class M_Register extends CI_Model
 	{
 		// Username check
 		$sql = "SELECT COUNT(username) as user_count FROM user where username='" . $data['username_register'] . "'";
-//		echo $sql;
+		//		echo $sql;
 		$query = $this->db->query($sql);
 		if (intval($query->row()->user_count) > 0) {
 			return "username-error";
@@ -219,7 +219,40 @@ class M_Register extends CI_Model
 
 		return $this->db->affected_rows();
 	}
+
+	public function checkemail($data)
+	{
+		$sql = "SELECT email FROM user WHERE email='" . $data . "' OR username='" . $data . "' ";
+		$query = $this->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			$data = $query->row()->email;
+			return $data;
+		} else {
+			return '';
+		}
+		// $data['jumlah'] = $query->num_rows();
+	}
+
+	private function checkValueResetPassword($email)
+	{
+		$sql = "SELECT email FROM reset_password WHERE email= '" . $email . "' ";
+		$query = $this->db->query($sql);
+		// var_dump($query->num_rows());
+		return $query->num_rows();
+	}
+
+	public function saveForgotPassword($email, $token)
+	{
+		$check = $this->checkValueResetPassword($email);
+		// var_dump($check);
+		if ($check > 0) {
+			$sql = "UPDATE reset_password SET token= '" . $token . "' WHERE email= '" . $email . "'";
+		} else {
+			$sql = "INSERT INTO reset_password VALUES('" . $email . "' , '" . $token . "')";
+		}
+		$this->db->query($sql);
+		// return $this->db->affected_rows();
+	}
 }
 
-/* End of file M_pegawai.php */
-/* Location: ./application/models/M_pegawai.php */

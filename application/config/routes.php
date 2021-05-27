@@ -93,7 +93,7 @@ $route['update-profile'] = 'C_ManagementUser/updateProfile';
 $route['update-password'] = 'C_ManagementUser/updatePassword';
 $route['menunggu-persetujuan'] = 'user/Overview/menunggupersetujuan';
 $route['verifikasiemail'] = 'user/Overview/verifikasiemail';
-$route['lupapassword2'] = 'user/Overview/lupapassword2';
+$route['lupa-password-status'] = 'user/Overview/lupapassword2';
 $route['forgot'] = 'user/Overview/forgot';
 //iklan
 $route['tambahiklan'] = 'C_Iklan/tambahIklan';
