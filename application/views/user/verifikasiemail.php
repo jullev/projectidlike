@@ -18,10 +18,22 @@
 								</h3>
 							</div>
 							<div class="card-body">
+								<?php
+									if($this->session->userdata('msg') !== NULL){
+								?>
+										<div class="alert <?php echo $this->session->userdata('status') == 'success' ? 'alert-success' : 'alert-danger' ?>"><?php echo $this->session->userdata('msg') ?></div>
+								<?php
+										$this->session->unset_userdata(array('status', 'msg'));
+									}
+								?>
+								<form action="C_Register/verifyEmail" method="POST">
+									<label for="verify-email">Masukkan kode token:</label>
+									<input type="text" class="form-control" name="verify-email" id="verify-email" placeholder="Masukkan token di sini" required>
+									<button class="btn btn-primary mt-3" type="submit" style="width: 100%">Submit</button>
+								</form>
 								<div class="text-center">
-									<span>Link verifikasi akun dikirim ke email anda</span>
 									<div class="mt-2">
-										<a href="" class="btn btn-primary">Kembali Ke Halaman Utama</a>
+										<a href="" class="link-primary">Kembali Ke Halaman Utama</a>
 									</div>
 									<div class="mt-4">
 										<span>Email belum masuk ?</span>

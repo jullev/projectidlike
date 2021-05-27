@@ -1,7 +1,8 @@
 <script>
 	const status = '<?php echo $this->session->userdata('status') != null ? $this->session->userdata('status') : 'success' ?>'
+	const msg = '<?php echo $this->session->userdata('email_msg') != null ? $this->session->userdata('email_msg') : '' ?>'
 	$(window).on('load', function () {
-		if (status == 'error') {
+		if (status == 'error' || msg != '') {
 			$('#signIn').modal('show');
 		}
 	});
@@ -88,6 +89,13 @@
 							<div class="alert alert-danger"><?php echo $this->session->userdata('msg'); ?></div>
 							<?php
 							$this->session->unset_userdata(array('status', 'msg'));
+						}
+
+						if ($this->session->userdata('email_msg') !== null) {
+							?>
+							<div class="alert alert-success"><?php echo $this->session->userdata('email_msg'); ?></div>
+							<?php
+							$this->session->unset_userdata('email_msg');
 						}
 
 						?>

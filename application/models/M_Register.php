@@ -180,6 +180,25 @@ class M_Register extends CI_Model
 
 		return $data->num_rows();
 	}
+
+	public function saveToken($token, $email)
+	{
+		$sql = "INSERT INTO verifikasi VALUES (NULL, '" . $email . "', '" . $token . "', 0)";
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
+	}
+
+	public function checkToken($data){
+		$sql = "SELECT email FROM verifikasi WHERE token='".$data."'";
+		$query = $this->db->query($sql);
+		return $query->row();
+	}
+	public function verifyEmail($data){
+		$sql = "UPDATE verifikasi SET verify_status=1 WHERE email='".$data."'";
+		$this->db->query($sql);
+		return $this->db->affected_rows();
+	}
 }
 
 /* End of file M_pegawai.php */

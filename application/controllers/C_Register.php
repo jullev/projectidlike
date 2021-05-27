@@ -42,6 +42,7 @@ class C_Register extends CI_Controller
 			redirect('dashboard', 'refresh');
 		}
 	}
+
 	public function logOut()
 	{
 		$this->session->unset_userdata('username');
@@ -99,7 +100,8 @@ class C_Register extends CI_Controller
 		if ($validation == true) {
 			$result = $this->M_Register->insert($data);
 			if ($result == "success") {
-				$this->session->set_flashdata('msg', 'Pendaftaran berhasil! Silakan login menggunakan akun anda.');
+				$this->session->set_userdata('status', 'success');
+				$this->session->set_userdata('msg', 'Pendaftaran berhasil! Silakan cek email anda untuk verifikasi akun ini.');
 				redirect("verifikasiemail");
 			} elseif ($result == "failed") {
 				$this->session->set_flashdata('msg', 'Periksa kembali data anda!');
@@ -117,8 +119,16 @@ class C_Register extends CI_Controller
 		}
 	}
 
-	private function sendEmail($email){
+	private function sendEmail($email)
+	{
 		$token = $this->generateToken();
+
+		// Save into database
+		$save_token = $this->M_Register->saveToken($token, $email);
+		if ($save_token < 1) {
+			echo 'Token gagal ditambahkan';
+		}
+		// Send email
 		$config = array(
 			'protocol' => 'smtp',
 			'smtp_host' => 'smtp.gmail.com',
@@ -132,20 +142,21 @@ class C_Register extends CI_Controller
 		);
 		// Load library email
 		$this->load->library('email', $config);
-		$this->email->from('admin@temantumbuh.com', 'TEMAN TUMBUH');
+		$this->email->from('admin@temantumbuh.com', SITE_NAME);
 		$this->email->to($email);
 		$this->email->subject('Pendaftaran berhasil!');
-		$this->email->message('Selamat! Akun anda berhasil dibuat, pakai kode <strong>'.$token.'</strong> untuk verifikasi akun anda di '.site_url('verifikasiemail'));
+		$this->email->message('Selamat! Akun anda berhasil dibuat, pakai kode <strong>' . $token . '</strong> untuk verifikasi akun anda di ' . site_url('verifikasiemail'));
 
 		$this->email->send();
 	}
 
-	private function generateToken(){
+	private function generateToken()
+	{
 		$this->load->helper('string');
 		$token = random_string('numeric', '6');
 		return $token;
 	}
-	
+
 
 	public function prosesTambahAdmin()
 	{
@@ -253,6 +264,27 @@ class C_Register extends CI_Controller
 			redirect('adminlist?msg=success');
 		} else {
 			redirect('adminlist?msg=error');
+		}
+	}
+
+	public function verifyEmail(){
+		$data = $this->input->post();
+
+		// Check Token Availability
+		$result = $this->M_Register->checkToken($data['verify-email']);
+		if($result !== NULL){
+			$verify = $this->M_Register->verifyEmail($result->email);
+			var_dump($verify);
+			if($verify > 0){
+				$this->session->set_userdata('email_msg', 'Verifikasi email berhasil! Silakan login menggunakan akun anda.');
+				redirect('/', 'refresh');
+			}else{
+				$this->session->set_userdata('msg', 'Token tidak sesuai, ulangi lagi');
+				redirect('verifikasiemail', 'refresh');
+			}
+		}else{
+			$this->session->set_userdata('msg', 'Token tidak sesuai, ulangi lagi');
+			redirect('verifikasiemail', 'refresh');
 		}
 	}
 }
