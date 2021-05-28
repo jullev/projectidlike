@@ -25,30 +25,6 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
 	<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
 	<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
-  <style>
-    .badge-info-light {
-      color: #0c5460;
-      background-color: #bee5eb;
-    }
-
-    .listing-filter {
-      border-bottom: 1px #ddd solid;
-    }
-
-    .sumdata {
-      width: 85px;
-      margin-right: 15px;
-      display: inline;
-    }
-    .sdata-left {
-      float: left;
-      width: 48%;
-    }
-    .sdata-right {
-      float: right;
-      width: 48%;
-    }
-  </style>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>

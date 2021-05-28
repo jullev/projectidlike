@@ -1,12 +1,3 @@
-<!-- <style>
-    #listDaerah li div.custom-radio.custom-control input[type=radio] {
-        visibility: hidden;
-    }
-    #listDaerah li div.custom-radio.custom-control input[type=radio]:checked label {
-        color: #007bff !important;
-    }
-</style> -->
-
 <div class="card mb-4">
     <!-- Tanggal Diposting -->
     <div class="card-header"><h5>Tanggal Diposting</h5></div>
@@ -46,7 +37,6 @@
                 </div>
                 <input type="text" onkeypress="isInputNumber(event)" class="form-control" id="maxprice" placeholder="Maximal">
             </div>
-            <button class="btn btn-primary btn-block">Submit</button>
         </form>
     </div>
     <!-- Kisaran Harga End -->
@@ -58,25 +48,11 @@
     <div class="card-body">
         <ul class="list-unstyled">
             <li class="d-flex justify-content-between align-items-center mb-2">
-                Cari Investor<span class="badge badge-light badge-pill">98</span>
-            </li>
-            <li class="d-flex justify-content-between align-items-center mb-2">
-                Bisnis Dijual<span class="badge badge-light badge-pill">55</span>
-            </li>
-            <li class="d-flex justify-content-between align-items-center mb-2">
-                Properti<span class="badge badge-light badge-pill">1</span>
-            </li>
-            <li class="d-flex justify-content-between align-items-center mb-2">
-                Kendaraan<span class="badge badge-light badge-pill">10</span>
-            </li>
-            <li class="d-flex justify-content-between align-items-center mb-2">
-                Produk<span class="badge badge-light badge-pill">9</span>
-            </li>
-            <li class="d-flex justify-content-between align-items-center mb-2">
-                Jasa<span class="badge badge-light badge-pill">14</span>
-            </li>
-            <li class="d-flex justify-content-between align-items-center mb-2">
-                Industri<span class="badge badge-light badge-pill">17</span>
+                <div class="custom-control custom-radio">
+                    <input type="radio" name="kategori" id="kategori1" class="custom-control-input">
+                    <label for="kategori1" class="custom-control-label">Cari Investor</label>
+                </div>
+                <span class="badge badge-light badge-pill">98</span>
             </li>
         </ul>
     </div>
@@ -100,12 +76,59 @@
                     <label class="custom-control-label" for="daerah2">Surabaya</label>
                 </div>
             </li>
-            <li class="mb-2">Medan</li>
-            <li class="mb-2">Bandung</li>
-            <li class="mb-2">Bekasi</li>
-            <li class="mb-2">Bandung</li>
-            <li class="mb-2">Palembang</li>
+            <li class="mb-2">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="daerah3" name="daerah" class="custom-control-input">
+                    <label class="custom-control-label" for="daerah3">Bandung</label>
+                </div>
+            </li>
+            <li class="mb-2">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="daerah4" name="daerah" class="custom-control-input">
+                    <label class="custom-control-label" for="daerah4">Bekasi</label>
+                </div>
+            </li>
+            <li class="mb-2">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="daerah5" name="daerah" class="custom-control-input">
+                    <label class="custom-control-label" for="daerah5">Makassar</label>
+                </div>
+            </li>
+            <li class="mb-2">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="daerah6" name="daerah" class="custom-control-input">
+                    <label class="custom-control-label" for="daerah6">Palembang</label>
+                </div>
+            </li>
+            <li class="mb-2">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="daerah7" name="daerah" class="custom-control-input">
+                    <label class="custom-control-label" for="daerah7">Medan</label>
+                </div>
+            </li>
+            <li>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="daerahAll" name="daerah" class="custom-control-input">
+                    <label class="custom-control-label" for="daerahAll">
+                        <select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
+							<option value="#">Kota Lainnya</option>
+							<?php
+							foreach ($kabupaten as $kab) {
+								?>
+								<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
+								<?php
+							}
+							?>
+						</select>
+                    </label>
+                </div>
+            </li>
         </ul>
     </div>
     <!-- Lokasi End -->
+    <div class="card-body border-top">
+        <!-- Tombol Terapkan -->
+        <button class="btn btn-primary btn-block">Terapkan</button>
+        <!-- Tombol Terapkan End -->
+    </div>
 </div> <!-- ./card -->
