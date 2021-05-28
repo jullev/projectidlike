@@ -254,5 +254,10 @@ class M_Register extends CI_Model
 		$this->db->query($sql);
 		// return $this->db->affected_rows();
 	}
-}
 
+	public function updatePassword($input)
+	{
+		$sql = "UPDATE user SET password=md5('" . $input['pwd'] . "') WHERE iduser=" . $input['id'];
+		return $this->db->query($sql);
+	}
+}

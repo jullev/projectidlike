@@ -155,7 +155,7 @@ class C_Register extends CI_Controller
 			$this->email->message('Kode verifikasi anda adalah <strong>' . $tokenResend . '</strong>. Masukkan kode ke dalam link berikut ini:  <strong>' . site_url('verifikasiemail') . '</strong>');
 		} elseif ($status == 'reset-password') {
 			$this->email->subject('Reset Password');
-			$this->email->message('Untuk melakukan reset password silahkan klik link berikut: <strong> ' . site_url('verifikasiemail') . '?t=' . $tokenResend . '</strong>');
+			$this->email->message('Untuk melakukan reset password silahkan klik link berikut: <strong> ' . site_url('forgot') . '?t=' . $tokenResend . '</strong>');
 		}
 		$this->email->send();
 	}
@@ -294,5 +294,20 @@ class C_Register extends CI_Controller
 			$this->sendEmail($email = $result, $status = 'reset-password', $tokenResend = $token);
 			redirect('lupa-password-status');
 		}
+	}
+
+	public function updatePassword()
+	{
+		$input = $this->input->post();
+		$input['id'] = $this->session->userdata('id');
+		$result = $this->M_Register->updatePassword($input);
+		if ($result > 0) {
+			$this->session->set_userdata('status', 'success');
+			$this->session->set_userdata('msg', 'Password berhasil diperbarui, Silahkan Login Menggunakan akun anda.');
+		} else {
+			$this->session->set_userdata('status', 'error');
+			$this->session->set_userdata('msg', 'Periksa kembali data anda.');
+		}
+		redirect("/");
 	}
 }

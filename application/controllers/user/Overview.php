@@ -15,15 +15,15 @@ class Overview extends CI_Controller
 	{
 		// load view admin/overview.php
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
-//		var_dump($data);
-		$this->load->view("user/overview",$data);
+		//		var_dump($data);
+		$this->load->view("user/overview", $data);
 	}
 	public function index()
 	{
 		// load view admin/overview.php
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
 		$data['kategori'] = $this->M_Iklan->getAllCategory();
-		$this->load->view("user/overview",$data);
+		$this->load->view("user/overview", $data);
 	}
 
 	public function dashboard()
@@ -40,32 +40,32 @@ class Overview extends CI_Controller
 	public function hitproject()
 	{
 		$data['dataIklan'] = $this->M_Iklan->allHit();
-//		echo ($data);
-		$this->load->view("user/hitproject",$data);
+		//		echo ($data);
+		$this->load->view("user/hitproject", $data);
 	}
 
 	public function menunggupersetujuan()
 	{
 		$this->load->view('user/iklanmenunggu');
 	}
-	
+
 	public function detail_iklan()
 	{
 		$id =  $this->uri->segment(2);
 		$iduser = $this->session->userdata('id');
 		$data['dataIklan'] = $this->M_Iklan->select_iklan($id);
-		$data['cekhit'] = $this->M_Iklan->cek_hit($id,$iduser);
+		$data['cekhit'] = $this->M_Iklan->cek_hit($id, $iduser);
 		$data['userid'] = $this->session->userdata('id');
-//		var_dump($data);
-		$this->load->view("user/detail",$data);
+		//		var_dump($data);
+		$this->load->view("user/detail", $data);
 	}
 	public function hit_iklan()
 	{
 		$id =  $this->uri->segment(2);
 		$data['hit'] = $this->M_Iklan->HitKerjaan($id);
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
-////		echo ($data);
-		$this->load->view("user/overview",$data);
+		////		echo ($data);
+		$this->load->view("user/overview", $data);
 	}
 
 	public function search()
@@ -77,7 +77,7 @@ class Overview extends CI_Controller
 
 	public function register()
 	{
-		if($this->session->flashdata('name') == ""){
+		if ($this->session->flashdata('name') == "") {
 			$this->session->set_flashdata('name', '');
 			$this->session->set_flashdata('username_register', '');
 			$this->session->set_flashdata('email_register', '');
@@ -102,7 +102,7 @@ class Overview extends CI_Controller
 
 	public function editiklan()
 	{
-		$this->load->view ('user/editiklan');
+		$this->load->view('user/editiklan');
 	}
 
 	public function verifikasiemail()

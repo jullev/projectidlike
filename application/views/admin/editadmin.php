@@ -159,40 +159,41 @@
             </section>
             <!-- /.content -->
         </div>
-        <!-- confirm password -->
-        <script>
-            // Get id alert
-            const alert = document.getElementById("alert_msg")
+    </div>
+    <!-- confirm password -->
+    <script>
+        // Get id alert
+        const alert = document.getElementById("alert_msg")
 
-            // Form Validation for gender, password
-            const validation = () => {
-                const gender = document.forms["admin_form"]["gender"].value
-                const pwd = document.forms["admin_form"]["password_register"].value
-                const pwd_confirm = document.forms["admin_form"]["password_register_confirm"].value
-
-
-                // Jenis Kelamin
-                if (gender === "#") {
-                    alert.innerHTML = "<div class='alert alert-danger'>Mohon isi jenis kelamin anda</div>"
-                    return false
-                }
-
-                // Password
-                if (pwd !== pwd_confirm) {
-                    alert.innerHTML = "<div class='alert alert-danger'>Password tidak valid, harap ulangi lagi!</div>"
-                    return false
-                }
+        // Form Validation for gender, password
+        const validation = () => {
+            const gender = document.forms["admin_form"]["gender"].value
+            const pwd = document.forms["admin_form"]["password_register"].value
+            const pwd_confirm = document.forms["admin_form"]["password_register_confirm"].value
 
 
+            // Jenis Kelamin
+            if (gender === "#") {
+                alert.innerHTML = "<div class='alert alert-danger'>Mohon isi jenis kelamin anda</div>"
+                return false
             }
 
-            // Menghapus alert
-            const removeAlert = () => {
-                alert.innerHTML = ""
+            // Password
+            if (pwd !== pwd_confirm) {
+                alert.innerHTML = "<div class='alert alert-danger'>Password tidak valid, harap ulangi lagi!</div>"
+                return false
             }
-        </script>
-        <!-- /.content-wrapper -->
-        <?php $this->load->view("admin/_partials/footer.php") ?>
+
+
+        }
+
+        // Menghapus alert
+        const removeAlert = () => {
+            alert.innerHTML = ""
+        }
+    </script>
+    <!-- /.content-wrapper -->
+    <?php $this->load->view("admin/_partials/footer.php") ?>
 </body>
 
 </html>
