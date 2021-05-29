@@ -96,7 +96,7 @@
 					</div>
 					<!-- Username -->
 					<div class="form-group mb-3">
-						<label for="username">Username</label>
+						<label for="username">Username/Email</label>
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="username-addon">
