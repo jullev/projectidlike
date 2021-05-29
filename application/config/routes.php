@@ -94,7 +94,7 @@ $route['update-password'] = 'C_ManagementUser/updatePassword';
 $route['menunggu-persetujuan'] = 'user/Overview/menunggupersetujuan';
 $route['verifikasiemail'] = 'user/Overview/verifikasiemail';
 $route['lupa-password-status'] = 'user/Overview/lupapassword2';
-$route['forgot'] = 'user/Overview/forgot';
+$route['forgot'] = 'C_Register/forgot';
 //iklan
 $route['tambahiklan'] = 'C_Iklan/tambahIklan';
 $route['simpaniklan'] = 'C_Iklan/simpanIklan';

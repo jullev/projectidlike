@@ -9,15 +9,6 @@
 
     <div class="wrapper">
         <?php $this->load->view("user/_partials/navbar") ?>
-        <div id="alert_msg">
-            <?php
-            if ($this->session->flashdata('msg') !== null) {
-            ?>
-                <div class="alert alert-success"><?php echo $this->session->flashdata('msg') ?></div>
-            <?php
-            }
-            ?>
-        </div>
         <!-- wrapper content -->
         <div class="content-wrapper">
             <!-- container -->
@@ -34,6 +25,14 @@
                                 </h3>
                             </div>
                             <div class="card-body">
+                                <?php
+                                if ($this->session->userdata('vmsg') !== NULL) {
+                                ?>
+                                    <div class="alert <?php echo $this->session->userdata('vstatus') == 'success' ? 'alert-success' : 'alert-danger' ?>"><?php echo $this->session->userdata('vmsg') ?></div>
+                                <?php
+                                    $this->session->unset_userdata(array('vstatus', 'vmsg'));
+                                }
+                                ?>
                                 <form action="C_Register/forgotPassword" method="POST">
                                     <div class="form-group">
                                         <label for="emailuser">Email/Username</label>

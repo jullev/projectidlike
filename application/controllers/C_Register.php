@@ -286,24 +286,41 @@ class C_Register extends CI_Controller
 
 		$result = $this->M_Register->checkemail($data['reset']);
 		if ($result == '') {
-			$this->session->set_userdata('msg', 'Username/Email tidak dapat ditemukan, Silahkan ulangi lagi');
+			$this->session->set_userdata('vmsg', 'Username/Email tidak dapat ditemukan, Silahkan ulangi lagi');
 			redirect('lupa-password', 'refresh');
 		} else {
 			$token = $this->generateToken();
 			$this->M_Register->saveForgotPassword($result, $token);
+			$this->session->set_userdata('vmsg', 'Silahkan check email anda, jika token tidak muncul silahkan isi dan kirim ulang');
+			$this->session->set_userdata('vstatus', 'success');
 			$this->sendEmail($email = $result, $status = 'reset-password', $tokenResend = $token);
-			redirect('lupa-password-status');
+			redirect('lupa-password', 'refresh');
 		}
+	}
+
+	public function forgot()
+	{
+		$input = $this->input->get();
+
+		// Cek apakah token valid
+		$result = $this->M_Register->checkTokenPassword($input['t']);
+		if ($result == 'error') {
+			$data['msg'] = 'Kode token tidak sesuai. Silakan isi ulang email/username anda pada link berikut: <strong><a href= ' . site_url('lupa-password') . ' >Klik di sini</a><strong> ';
+		}
+		$data['result'] = $result;
+
+		$this->load->view('user/forgot', $data);
 	}
 
 	public function updatePassword()
 	{
 		$input = $this->input->post();
-		$input['id'] = $this->session->userdata('id');
-		$result = $this->M_Register->updatePassword($input);
+		$input['email'] = $this->session->userdata('email');
+		$result = $this->M_Register->updatePassword($input, true);
 		if ($result > 0) {
-			$this->session->set_userdata('status', 'success');
-			$this->session->set_userdata('msg', 'Password berhasil diperbarui, Silahkan Login Menggunakan akun anda.');
+			$this->session->set_userdata('email_msg', 'Password berhasil diperbarui, Silahkan Login Menggunakan akun anda.');
+			$this->M_Register->deleteToken($this->session->userdata('email'));
+			$this->session->unset_userdata('email');
 		} else {
 			$this->session->set_userdata('status', 'error');
 			$this->session->set_userdata('msg', 'Periksa kembali data anda.');

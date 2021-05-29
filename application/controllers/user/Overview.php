@@ -115,8 +115,4 @@ class Overview extends CI_Controller
 		$this->load->view('user/lupapassword2');
 	}
 
-	public function forgot()
-	{
-		$this->load->view('user/forgot');
-	}
 }

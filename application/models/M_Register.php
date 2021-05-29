@@ -255,9 +255,33 @@ class M_Register extends CI_Model
 		// return $this->db->affected_rows();
 	}
 
-	public function updatePassword($input)
+	public function checkTokenPassword($input)
 	{
-		$sql = "UPDATE user SET password=md5('" . $input['pwd'] . "') WHERE iduser=" . $input['id'];
-		return $this->db->query($sql);
+		$sql = "SELECT email FROM reset_password WHERE token='" . $input . "'";
+		$query = $this->db->query($sql);
+
+		if ($query->num_rows() > 0) {
+			$this->session->set_userdata('email', $query->row()->email);
+			return 'success';
+		} else {
+			return 'error';
+		}
+	}
+
+	public function updatePassword($input, $reset = false)
+	{
+		if ($reset == true) {
+			$sql = "UPDATE user SET password=md5('" . $input['newpassword'] . "') WHERE email='" . $input['email'] . "'";
+		} else {
+			$sql = "UPDATE user SET password=md5('" . $input['newpassword'] . "') WHERE iduser=" . $input['id'];
+		}
+		$this->db->query($sql);
+		return $this->db->affected_rows();
+	}
+
+	public function deleteToken($email)
+	{
+		$sql = "DELETE FROM reset_password WHERE email='" . $email . "'";
+		$this->db->query($sql);
 	}
 }
