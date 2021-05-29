@@ -28,14 +28,14 @@
 						<!--Form New Password-->
 						<div class="form-group row">
 							<label for="newpassword" class="col-lg-3 ">Password Baru<sup style="color: tomato">*</sup></label>
-							<div class="col-lg-9">
+							<div class="col-lg-9 input-group">
 								<input type="password" name="newpassword" id="newpassword" placeholder="Masukkan Password Baru Anda" class="form-control" <?php echo $result == 'success' ? 'required' : 'disabled'  ?>>
 							</div>
 						</div>
 						<!--Form Validation Password-->
 						<div class="form-group row">
 							<label for="valpassword" class="col-lg-3 ">Konfirmasi Password Baru<sup style="color: tomato">*</sup></label>
-							<div class="col-lg-9">
+							<div class="col-lg-9 input-group">
 								<input type="password" name="valpassword" id="valpassword" placeholder="Masukkan Kembali Password Baru Anda" class="form-control" <?php echo $result == 'success' ? 'required' : 'disabled'  ?>>
 							</div>
 						</div>
