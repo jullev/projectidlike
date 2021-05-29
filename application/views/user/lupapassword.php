@@ -45,7 +45,7 @@
                                             <input type="text" name="reset" id="reset" placeholder="Masukkan Email atau Username" class="form-control" aria-describedby="emailuser-addon" required>
                                         </div>
                                         <div class="text-center">
-                                            <button class="btn btn-primary btn-block mt-2" type="submit">Kirim</button>
+                                            <button class="btn btn-primary btn-block mt-2 mb-3" type="submit">Kirim</button>
                                             <a href="<?php echo site_url('/') ?>"> Kembali ke Halaman Awal</a>
                                         </div>
                                     </div>

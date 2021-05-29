@@ -23,20 +23,19 @@
 						}
 						?>
 					</div>
-					<form action="C_Register/updatePassword" id="password_form" <?php echo $result == 'success' ? '' : 'hidden'  ?> method="POST" onsubmit="return validation()">
-
+					<form action="C_Register/updatePassword" id="password_form" method="POST" onsubmit="return validationPwd()" <?php echo $result == 'success' ? '' : 'hidden'  ?>>
 						<!--Form New Password-->
 						<div class="form-group row">
 							<label for="newpassword" class="col-lg-3 ">Password Baru<sup style="color: tomato">*</sup></label>
 							<div class="col-lg-9 input-group">
-								<input type="password" name="newpassword" id="newpassword" placeholder="Masukkan Password Baru Anda" class="form-control" <?php echo $result == 'success' ? 'required' : 'disabled'  ?>>
+								<input type="password" name="newpassword" id="newpassword" placeholder="Masukkan Password Baru Anda" class="form-control" onfocus="removeAlertResetPwd()" <?php echo $result == 'success' ? 'required' : 'disabled'  ?>>
 							</div>
 						</div>
 						<!--Form Validation Password-->
 						<div class="form-group row">
 							<label for="valpassword" class="col-lg-3 ">Konfirmasi Password Baru<sup style="color: tomato">*</sup></label>
 							<div class="col-lg-9 input-group">
-								<input type="password" name="valpassword" id="valpassword" placeholder="Masukkan Kembali Password Baru Anda" class="form-control" <?php echo $result == 'success' ? 'required' : 'disabled'  ?>>
+								<input type="password" name="valpassword" id="valpassword" placeholder="Masukkan Kembali Password Baru Anda" class="form-control" onfocus="removeAlertResetPwd()" <?php echo $result == 'success' ? 'required' : 'disabled'  ?>>
 							</div>
 						</div>
 						<div class="text-center">
@@ -50,23 +49,20 @@
 	<!--footer-->
 	<script>
 		const alert = document.getElementById('alert_msg')
-		const validation = () => {
+		const validationPwd = () => {
 			const pwd = document.forms["password_form"]["newpassword"].value
 			const pwd_confirm = document.forms["password_form"]["valpassword"].value
 
-			console.log(pwd)
-			console.log(pwd_confirm)
 			// Password
-			return false
-			// if (pwd !== pwd_confirm) {
-			// 	alert.innerHTML = "<div class='alert alert-danger'>Password tidak valid, harap ulangi lagi!</div>"
-			// 	return false
-			// }
+			if (pwd !== pwd_confirm) {
+				alert.innerHTML = "<div class='alert alert-danger'>Password tidak valid, harap ulangi lagi!</div>"
+				return false
+			}
 
 		}
 
 		// Menghapus alert
-		const removeAlert = () => {
+		const removeAlertResetPwd = () => {
 			alert.innerHTML = ""
 		}
 	</script>
