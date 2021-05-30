@@ -328,6 +328,11 @@ class C_Iklan extends CI_Controller
 			echo show_err_msg('Data Pasien Gagal dihapus ', '20px');
 		}
 	}
+
+	public function searchIklanOverview(){
+		$input = $this->input->post();
+		$result = $this->M_Iklan->searchIklanOverview($input);
+	}
 }
 
 /* End of file Pegawai.php */

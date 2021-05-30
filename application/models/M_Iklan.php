@@ -94,6 +94,7 @@ class M_Iklan extends CI_Model
 
 		return $data->result();
 	}
+
 	public function cek_hit($id,$iduser)
 	{
 		$sql = "select * from hit where kerjaan_idkerjaan='$id' and user_iduser='$iduser'";
@@ -102,6 +103,7 @@ class M_Iklan extends CI_Model
 
 		return $data->result();
 	}
+
 	public function select_iklan($id)
 	{
 		$sql = "SELECT kerjaan.*,wilayah_kabupaten.nama_kabupaten as nama_kabupaten, kategori.nama_kategori, user.* From kerjaan,wilayah_kabupaten, user, kategori where wilayah_kabupaten.id_kabupaten=kerjaan.kabupaten_idkabupaten and kerjaan.user_iduser = user.iduser and kerjaan.kategori_idkategori = kategori.idkategori and idkerjaan=".$id;
@@ -181,5 +183,14 @@ class M_Iklan extends CI_Model
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
+	}
+	public function searchIklanOverview($data){
+		$data['kategori'] = $data['kategori'] == '#' ? '0' : $data['kategori'];
+		$data['kota'] = $data['kota'] == '#' ? '0' : $data['kota'];
+		$extra_sql = $data['konten'] == '' ? '' : "OR judul_kerjaan LIKE '%".$data['konten']."%' OR deskripsi LIKE '%".$data['konten']."%'";
+
+		$sql = "SELECT * FROM kerjaan WHERE kategori_idkategori=".$data['kategori']." OR kabupaten_idkabupaten=".$data['kota'].$extra_sql;
+		$query = $this->db->query($sql);
+		var_dump($query->result());
 	}
 }
