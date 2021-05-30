@@ -70,9 +70,7 @@ class Overview extends CI_Controller
 
 	public function search()
 	{
-		$data['kategori'] = $this->M_Iklan->getAllCategory();
-		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
-		$this->load->view('user/search/index', $data);
+
 	}
 
 	public function register()

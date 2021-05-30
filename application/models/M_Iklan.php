@@ -184,13 +184,13 @@ class M_Iklan extends CI_Model
 
 		return $this->db->affected_rows();
 	}
-	public function searchIklanOverview($data){
+	public function searchIklan($data){
 		$data['kategori'] = $data['kategori'] == '#' ? '0' : $data['kategori'];
 		$data['kota'] = $data['kota'] == '#' ? '0' : $data['kota'];
-		$extra_sql = $data['konten'] == '' ? '' : "OR judul_kerjaan LIKE '%".$data['konten']."%' OR deskripsi LIKE '%".$data['konten']."%'";
+		$extra_sql = $data['konten'] == '' ? '' : " OR judul_kerjaan LIKE '%".$data['konten']."%' OR deskripsi LIKE '%".$data['konten']."%'";
 
 		$sql = "SELECT * FROM kerjaan WHERE kategori_idkategori=".$data['kategori']." OR kabupaten_idkabupaten=".$data['kota'].$extra_sql;
 		$query = $this->db->query($sql);
-		var_dump($query->result());
+		return $query->result();
 	}
 }

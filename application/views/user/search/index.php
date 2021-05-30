@@ -37,11 +37,11 @@
       <div class="row">
         <div class="col-md-10 col-lg-12 col-xl-12 mx-auto">
           <div class="search-bar">
-            <form>
+            <form action="<?php echo site_url('search') ?>" method="POST">
                 <div class="input-group">
                     <div class="input-group-prepend"></div>
-                        <select class="custom-select" id="kategoriCari">
-                            <option selected>Semua Kategori</option>
+                        <select class="custom-select" id="kategoriCari"  name="kategori">
+                            <option value="#">Semua Kategori</option>
                             <?php
 								foreach ($kategori as $kat){
 							?>
@@ -50,7 +50,7 @@
 								}
 							?>
                         </select>
-                        <input class="form-control" type="text" placeholder="Apa ?" id="apaCari">
+                        <input class="form-control" type="text" placeholder="Apa ?" id="apaCari" name="konten">
 						<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
 							<option value="#">Dimana?</option>
 							<?php
@@ -62,7 +62,7 @@
 							?>
 						</select>
                     <div class="input-group-append">
-                        <button class="btn btn-primary text-left" type="button"><i class="bi-search mr-1"></i> Cari
+                        <button class="btn btn-primary text-left" type="submit"><i class="bi-search mr-1"></i> Cari
                         </button>
                     </div>
                 </div>
@@ -115,7 +115,14 @@
                                 </div>
                             </div>
                             <!-- View Hasil -->
-                            <?php $this->load->view('user/search/results'); ?>
+                            <?php
+								if($jmlIklan > 0){
+									$this->load->view('user/search/results');
+								}else{
+									$this->load->view('user/search/noresult');
+								}
+
+							?>
                         </div>
                     </div>
                 </div>
