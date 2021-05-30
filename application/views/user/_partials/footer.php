@@ -45,6 +45,9 @@
 <!-- Custum Input File -->
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+<!-- OffCanvas -->
+<script src="<?php echo base_url('node_modules/js-offcanvas/dist/_js/js-offcanvas.pkgd.js')?>"></script> 
+
 
 <script>
   // Summernote
