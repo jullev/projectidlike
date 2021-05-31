@@ -1,30 +1,34 @@
 <div class="card mb-4">
     <!-- Tanggal Diposting -->
-    <div class="card-header"><h5>Tanggal Diposting</h5></div>
+    <div class="card-header">
+        <h5>Tanggal Diposting</h5>
+    </div>
     <div class="card-body">
         <div class="custom-control custom-radio mb-3">
-            <input type="radio" class="custom-control-input" name="customRadio" id="tglpost1">
+            <input type="radio" class="custom-control-input" name="waktu" value="24jam" id="tglpost1">
             <label class="custom-control-label" for="tglpost1">24 Jam</label>
         </div>
         <div class="custom-control custom-radio mb-3">
-            <input type="radio" class="custom-control-input" name="customRadio" id="tglpost2">
+            <input type="radio" class="custom-control-input" name="waktu" value="3hari" id="tglpost2">
             <label class="custom-control-label" for="tglpost2">3 Hari</label>
         </div>
         <div class="custom-control custom-radio mb-3">
-            <input type="radio" class="custom-control-input" name="customRadio" id="tglpost3">
+            <input type="radio" class="custom-control-input" name="waktu" value="7hari" id="tglpost3">
             <label class="custom-control-label" for="tglpost3">7 Hari</label>
         </div>
         <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" name="customRadio" id="tglpost4">
+            <input type="radio" class="custom-control-input" name="waktu" value="8hari" id="tglpost4">
             <label class="custom-control-label" for="tglpost4">30 Hari</label>
         </div>
     </div>
     <!-- Tanggal Diposting End -->
 
     <!-- Kisaran Harga -->
-    <div class="card-header"><h5>Kisaran Harga</h5></div>
+    <div class="card-header">
+        <h5>Kisaran Harga</h5>
+    </div>
     <div class="card-body">
-        <form action="">
+        <form action="C_Iklan/filterHarga">
             <div class="input-group mb-2" id="rangeprice">
                 <div class="input-group-prepend">
                     <div class="input-group-text">Rp</div>
@@ -120,15 +124,15 @@
                     <input type="radio" id="daerahAll" name="daerah" class="custom-control-input">
                     <label class="custom-control-label" for="daerahAll">
                         <select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
-							<option value="#">Kota Lainnya</option>
-							<?php
-							foreach ($kabupaten as $kab) {
-								?>
-								<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
-								<?php
-							}
-							?>
-						</select>
+                            <option value="#">Kota Lainnya</option>
+                            <?php
+                            foreach ($kabupaten as $kab) {
+                            ?>
+                                <option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
                     </label>
                 </div>
             </li>

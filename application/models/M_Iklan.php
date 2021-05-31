@@ -119,7 +119,7 @@ class M_Iklan extends CI_Model
 		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi, report_kerjaan.tgl_selesai,user.nama_user
 		from kerjaan,report_kerjaan,user where kerjaan.idkerjaan=report_kerjaan.id_kerjaan 
 		and user.iduser=report_kerjaan.id_user";
-//		echo $sql;
+		//		echo $sql;
 		$data = $this->db->query($sql);
 
 		return $data->result();
@@ -130,7 +130,7 @@ class M_Iklan extends CI_Model
 		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi,report_kerjaan.detail,kerjaan.deadline, report_kerjaan.tgl_selesai,user.nama_user,user.iduser
 		from kerjaan,report_kerjaan,user where kerjaan.idkerjaan=report_kerjaan.id_kerjaan 
 		and user.iduser=report_kerjaan.id_user and kerjaan.idkerjaan='$id'";
-//		echo $sql;
+		//		echo $sql;
 		$data = $this->db->query($sql);
 
 		return $data->result();
@@ -209,5 +209,12 @@ class M_Iklan extends CI_Model
 		$data = $this->db->query($sql);
 
 		return $data->row();
+	}
+
+	public function filterharga($input)
+	{
+		$sql = "SELECT * FROM kerjaan WHERE harga BETWEEN harga=" . $input['minprice'] . " AND " . $input['maxprice'] . "";
+		$query = $this->db->query($sql);
+		return $query->result();
 	}
 }
