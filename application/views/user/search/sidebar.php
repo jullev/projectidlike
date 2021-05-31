@@ -1,22 +1,14 @@
-<div class="card mb-4">
+<div class="card">
     <!-- Tanggal Diposting -->
     <div class="card-header"><h5>Tanggal Diposting</h5></div>
     <div class="card-body">
-        <div class="custom-control custom-radio mb-3">
-            <input type="radio" class="custom-control-input" name="customRadio" id="tglpost1">
-            <label class="custom-control-label" for="tglpost1">24 Jam</label>
+        <div class="form-group">
+            <label for="startDate">Mulai</label>
+            <input type="date" id="startDate" class="form-control">
         </div>
-        <div class="custom-control custom-radio mb-3">
-            <input type="radio" class="custom-control-input" name="customRadio" id="tglpost2">
-            <label class="custom-control-label" for="tglpost2">3 Hari</label>
-        </div>
-        <div class="custom-control custom-radio mb-3">
-            <input type="radio" class="custom-control-input" name="customRadio" id="tglpost3">
-            <label class="custom-control-label" for="tglpost3">7 Hari</label>
-        </div>
-        <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" name="customRadio" id="tglpost4">
-            <label class="custom-control-label" for="tglpost4">30 Hari</label>
+        <label for="endDate">Sampai</label>
+        <div class="form-group">
+            <input type="date" id="endDate" class="form-control">
         </div>
     </div>
     <!-- Tanggal Diposting End -->
