@@ -38,7 +38,7 @@
 				<div class="col-sm-12">
 					<div class="card">
 						<div class="card-header">
-							<h3>Hit: <strong>Judul Project</strong></h3>
+							<h3><strong>Detail Hit</strong></h3>
 						</div>
 						<div class="card-body">
 							<div id="detailHit_wrapper">
@@ -87,18 +87,20 @@
 												}
 												?>
 											</td>
-											<td class="d-flex">
-												<a href="<?php echo base_url() ?>terimahitter/<?php echo $value->idhit  ?>"
-												   class="m-1 btn btn-primary" data-tooltip="tooltip"
-												   data-placement="top" data-original-title="Terima Hit">
-													<i class="bi-check-circle"></i>
-												</a>
-
-												<a href="<?php echo base_url() ?>tolakhit/<?php echo $value->idhit  ?>"
-													class="m-1 btn btn-danger" data-tooltip="tooltip"
-													data-placement="top" data-original-title="Tolak Hit">
-													<i class="bi bi-x-circle"></i>
-												</a>
+											<td>
+												<div class="d-flex">
+													<a href="<?php echo base_url() ?>terimahitter/<?php echo $value->idhit  ?>"
+													   class="m-1 btn btn-primary" data-tooltip="tooltip"
+													   data-placement="top" data-original-title="Terima Hit">
+														<i class="bi-check-circle"></i>
+													</a>
+	
+													<a href="<?php echo base_url() ?>tolakhit/<?php echo $value->idhit  ?>"
+														class="m-1 btn btn-danger" data-tooltip="tooltip"
+														data-placement="top" data-original-title="Tolak Hit">
+														<i class="bi bi-x-circle"></i>
+													</a>
+												</div>
 											</td>
 
 										</tr>

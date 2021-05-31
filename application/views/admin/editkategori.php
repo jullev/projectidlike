@@ -23,7 +23,6 @@
                                 <div class="card-header">
                                     <ol class="breadcrumb float-sm-left">
                                         <li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Home</a></li>
-                                        <li class="breadcrumb-item">Master Administrator</li>
                                         <li class="breadcrumb-item"><a href="<?php echo site_url('setkategori') ?>">Pengaturan Kategori</a></li>
                                         <li class="breadcrumb-item active">Edit Kategori</li>
 

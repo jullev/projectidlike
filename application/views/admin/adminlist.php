@@ -34,31 +34,31 @@
 			<!-- /.content-header -->
 			<!-- Main content -->
 			<section class="content container">
-				<?php
-				if (isset($status)) {
-					if ($status == "success") {
-				?>
-						<div class="alert alert-success"><?php echo $msg ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button></div>
-					<?php
-					} else {
-					?>
-						<div class="alert alert-danger"><?php echo $msg ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button></div>
-				<?php
-					}
-				}
-				?>
-				<div class="card">
-					<div class="card-header">
-						<h3><strong>Management Admin</strong></h3>
-					</div>
-					<div class="card-body">
-						<div id="adminlist_wrapper">
-							<div class="row">
-								<div class="col-12">
+				<div class="row">
+					<div class="col-12">
+						<?php
+						if (isset($status)) {
+							if ($status == "success") {
+						?>
+								<div class="alert alert-success"><?php echo $msg ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button></div>
+							<?php
+							} else {
+							?>
+								<div class="alert alert-danger"><?php echo $msg ?><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button></div>
+						<?php
+							}
+						}
+						?>
+						<div class="card">
+							<div class="card-header">
+								<h3><strong>Management Admin</strong></h3>
+							</div>
+							<div class="card-body">
+								<div id="adminlist_wrapper">
 									<table class="table table-striped dataTable dtr-inline" aria-describedby="adminlist_info" role="grid" id="adminlist">
 										<thead class="thead-dark">
 											<tr>
