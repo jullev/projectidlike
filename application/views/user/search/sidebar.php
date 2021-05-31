@@ -47,13 +47,22 @@
     </div>
     <div class="card-body">
         <ul class="list-unstyled">
-            <li class="d-flex justify-content-between align-items-center mb-2">
-                <div class="custom-control custom-radio">
-                    <input type="radio" name="kategori" id="kategori1" class="custom-control-input">
-                    <label for="kategori1" class="custom-control-label">Cari Investor</label>
-                </div>
-                <span class="badge badge-light badge-pill">98</span>
-            </li>
+			<?php
+				$i = 0;
+				foreach($kategori as $kat){
+			?>
+					<li class="d-flex justify-content-between align-items-center mb-2">
+						<div class="custom-control custom-radio">
+							<input type="radio" name="kategori" id="<?php echo $kat->idkategori ?>" class="custom-control-input" value="<?php echo $kat->idkategori ?>">
+							<label for="<?php echo $kat->idkategori ?>" class="custom-control-label"><?php echo $kat->nama_kategori ?></label>
+						</div>
+						<span class="badge badge-light badge-pill"><?php echo $kategori_jml[$i]->jml ?></span>
+					</li>
+			<?php
+					$i += 1;
+				}
+			?>
+
         </ul>
     </div>
     <!-- Kategori End -->

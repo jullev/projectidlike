@@ -13,6 +13,7 @@ class M_Iklan extends CI_Model
 
 		return $data->result();
 	}
+
 	public function show_allcount()
 	{
 		$sql = "SELECT DISTINCT(select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=1) as pengajuan_baru,
@@ -95,7 +96,7 @@ class M_Iklan extends CI_Model
 		return $data->result();
 	}
 
-	public function cek_hit($id,$iduser)
+	public function cek_hit($id, $iduser)
 	{
 		$sql = "select * from hit where kerjaan_idkerjaan='$id' and user_iduser='$iduser'";
 
@@ -106,12 +107,13 @@ class M_Iklan extends CI_Model
 
 	public function select_iklan($id)
 	{
-		$sql = "SELECT kerjaan.*,wilayah_kabupaten.nama_kabupaten as nama_kabupaten, kategori.nama_kategori, user.* From kerjaan,wilayah_kabupaten, user, kategori where wilayah_kabupaten.id_kabupaten=kerjaan.kabupaten_idkabupaten and kerjaan.user_iduser = user.iduser and kerjaan.kategori_idkategori = kategori.idkategori and idkerjaan=".$id;
+		$sql = "SELECT kerjaan.*,wilayah_kabupaten.nama_kabupaten as nama_kabupaten, kategori.nama_kategori, user.* From kerjaan,wilayah_kabupaten, user, kategori where wilayah_kabupaten.id_kabupaten=kerjaan.kabupaten_idkabupaten and kerjaan.user_iduser = user.iduser and kerjaan.kategori_idkategori = kategori.idkategori and idkerjaan=" . $id;
 
 		$data = $this->db->query($sql);
 
 		return $data->result();
 	}
+
 	public function select_iklan_selesai()
 	{
 		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi, report_kerjaan.tgl_selesai,user.nama_user
@@ -122,6 +124,7 @@ class M_Iklan extends CI_Model
 
 		return $data->result();
 	}
+
 	public function detail_iklan_selesai($id)
 	{
 		$sql = "SELECT kerjaan.idkerjaan,kerjaan.judul_kerjaan,kerjaan.deskripsi,report_kerjaan.detail,kerjaan.deadline, report_kerjaan.tgl_selesai,user.nama_user,user.iduser
@@ -137,6 +140,7 @@ class M_Iklan extends CI_Model
 	{
 		$sql = "SELECT * FROM kategori";
 		$data = $this->db->query($sql);
+
 		return $data->result();
 	}
 
@@ -148,13 +152,14 @@ class M_Iklan extends CI_Model
 
 	public function saveIklan($data)
 	{
-		$sql = "INSERT INTO kerjaan VALUES(NULL ,'".$data['judul']."', '".$data['contents']."','".$data['img']."', CURRENT_DATE(), '".$data['deadline']."', '".$data['kategori']."','".$data['kota']."','".$data['harga']."', 1, '".$this->session->userdata('id')."')";
+		$sql = "INSERT INTO kerjaan VALUES(NULL ,'" . $data['judul'] . "', '" . $data['contents'] . "','" . $data['img'] . "', CURRENT_DATE(), '" . $data['deadline'] . "', '" . $data['kategori'] . "','" . $data['kota'] . "','" . $data['harga'] . "', 1, '" . $this->session->userdata('id') . "')";
 		$this->db->query($sql);
 		return $this->db->affected_rows();
 	}
+
 	public function reportKerjaan($data)
 	{
-		$sql = "INSERT INTO report_kerjaan(id_user,id_kerjaan,detail,bukti,tgl_selesai) VALUES('".$this->session->userdata('id')."' ,'".$data['idkerjaan']."', '".$data['contents']."',' ".$data['deadline']."', CURRENT_DATE())";
+		$sql = "INSERT INTO report_kerjaan(id_user,id_kerjaan,detail,bukti,tgl_selesai) VALUES('" . $this->session->userdata('id') . "' ,'" . $data['idkerjaan'] . "', '" . $data['contents'] . "',' " . $data['deadline'] . "', CURRENT_DATE())";
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
@@ -170,27 +175,39 @@ class M_Iklan extends CI_Model
 
 		return $this->db->affected_rows();
 	}
+
 	public function HitKerjaan($idkerjaan)
 	{
-		$sql = "INSERT INTO hit VALUES(NULL,current_date(),'".$this->session->userdata('id')."' ,'".$idkerjaan."','7')";
+		$sql = "INSERT INTO hit VALUES(NULL,current_date(),'" . $this->session->userdata('id') . "' ,'" . $idkerjaan . "','7')";
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
 	}
+
 	public function isistarpoint($kerjaan)
 	{
-		$sql = "INSERT INTO star_point VALUES(NULL,'".$kerjaan['penilaian']."', current_date(),' ".$kerjaan['iduser']."','".$kerjaan['idkerjaan']."','".$kerjaan['review']."')";
+		$sql = "INSERT INTO star_point VALUES(NULL,'" . $kerjaan['penilaian'] . "', current_date(),' " . $kerjaan['iduser'] . "','" . $kerjaan['idkerjaan'] . "','" . $kerjaan['review'] . "')";
 		$this->db->query($sql);
 
 		return $this->db->affected_rows();
 	}
-	public function searchIklan($data){
+
+	public function searchIklan($data)
+	{
 		$data['kategori'] = $data['kategori'] == '#' ? '0' : $data['kategori'];
 		$data['kota'] = $data['kota'] == '#' ? '0' : $data['kota'];
-		$extra_sql = $data['konten'] == '' ? '' : " OR judul_kerjaan LIKE '%".$data['konten']."%' OR deskripsi LIKE '%".$data['konten']."%'";
+		$extra_sql = $data['konten'] == '' ? '' : " OR judul_kerjaan LIKE '%" . $data['konten'] . "%' OR deskripsi LIKE '%" . $data['konten'] . "%'";
 
-		$sql = "SELECT * FROM kerjaan WHERE kategori_idkategori=".$data['kategori']." OR kabupaten_idkabupaten=".$data['kota'].$extra_sql;
+		$sql = "SELECT * FROM kerjaan WHERE kategori_idkategori=" . $data['kategori'] . " OR kabupaten_idkabupaten=" . $data['kota'] . $extra_sql;
 		$query = $this->db->query($sql);
 		return $query->result();
+	}
+
+	public function getCategoryCount($id)
+	{
+		$sql = "SELECT COUNT(idkerjaan) as jml FROM kerjaan WHERE kategori_idkategori=" . $id;
+		$data = $this->db->query($sql);
+
+		return $data->row();
 	}
 }

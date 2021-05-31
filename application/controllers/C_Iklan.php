@@ -350,10 +350,14 @@ class C_Iklan extends CI_Controller
 		$input = $this->input->post();
 
 		$data['kategori'] = $this->M_Iklan->getAllCategory();
+		$data['kategori_jml'] = array();
+		foreach ($data['kategori'] as $kat) {
+			array_push($data['kategori_jml'], $this->M_Iklan->getCategoryCount($kat->idkategori));
+		}
 //		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
 		$data['dataIklan'] = $this->M_Iklan->searchIklan($input);
 		$data['jmlIklan'] = count($data['dataIklan']);
-
+//
 		$this->load->view('user/search/index', $data);
 	}
 }
