@@ -119,7 +119,7 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="<?php echo site_url('') ?>" class="nav-link">
+								<a href="<?php echo site_url('iklanditolak') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
 									<p>Dibatalkan</p>
 									<span class="right badge badge-danger"><?php echo $value->ditolak; ?></span>
@@ -129,7 +129,7 @@
 								<a href="<?php echo site_url('iklanselesai') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
 									<p>Selesai</p>
-									<span class="right badge badge-primary"><?php echo $value->total_kerjaan; ?></span>
+									<span class="right badge badge-primary"><?php echo $value->selesai; ?></span>
 								</a>
 							</li>
 							<li class="nav-item">

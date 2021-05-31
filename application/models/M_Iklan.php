@@ -19,7 +19,8 @@ class M_Iklan extends CI_Model
 		$sql = "SELECT DISTINCT(select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=1) as pengajuan_baru,
                 (select COUNT(kerjaan.judul_kerjaan) from kerjaan ) as total_kerjaan,
                 (select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=2) as disetujui,
-                (select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=4) as ditolak,                
+                (select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=4) as ditolak,
+				(select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=6) as selesai,                    
                 (SELECT COUNT(hit.idhit) from hit) as total_hit  FROM kerjaan ";
 
 		$data = $this->db->query($sql);
@@ -29,10 +30,10 @@ class M_Iklan extends CI_Model
 
 	public function terima_iklan($id)
 	{
-		$sql = "update kerjaan set id_status=2 where idkerjaan='$id'";
+		$sql = "UPDATE kerjaan SET id_status=2 WHERE idkerjaan='$id'";
 		echo $sql;
 		$data = $this->db->query($sql);
-		var_dump($data);
+		// var_dump($data);
 		if ($data->affected_rows() == 1)
 			return true;
 		else
@@ -81,6 +82,24 @@ class M_Iklan extends CI_Model
 		$data = $this->db->query($sql);
 
 		return $data->result();
+	}
+
+	public function select_iklan_tolak()
+	{
+		$sql = "SELECT kerjaan.*, F_hitunghit(idkerjaan) as hit, kategori.nama_kategori, wilayah_kabupaten.nama_kabupaten FROM kerjaan, kategori, wilayah_kabupaten  where kerjaan.kategori_idkategori=kategori.idkategori and kerjaan.kabupaten_idkabupaten=wilayah_kabupaten.id_kabupaten and id_status=4";
+
+		$data = $this->db->query($sql);
+
+		return $data->result();
+	}
+
+	public function delete($id)
+	{
+		$sql = "DELETE FROM kerjaan WHERE idkerjaan='" . $id . "'";
+
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
 	}
 
 	public function select_hit_periklan($id)
