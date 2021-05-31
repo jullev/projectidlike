@@ -59,7 +59,7 @@
                                 <h3><strong>Pengaturan Kategori</strong></h3>
                             </div>
                             <div class="card-body">
-                                <a href="<?php echo site_url('tambahkategori') ?>" class="btn btn-primary"><i class="bi-plus"></i> Tambah Kategori</a>
+                                <a href="<?php echo site_url('tambahkategori') ?>" class="btn btn-primary mb-2"><i class="bi-plus"></i> Tambah Kategori</a>
                                 <div id="adminlist_wrapper">
                                     <table class="table table-striped dataTable dtr-inline" aria-describedby="adminlist_info" role="grid" id="adminlist">
                                         <thead class="thead-dark">
@@ -77,12 +77,14 @@
                                                     <td><?php echo $i ?></td>
                                                     <td><?php echo $value->nama_kategori ?></td>
                                                     <td>
-                                                        <a type="button" class="btn btn-primary" data-tooltip="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('kategoriedit') . '?id=' . $value->idkategori ?>">
-                                                            <i class="bi bi-pencil-square"></i>
-                                                        </a>
-                                                        <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-tooltip="tooltip" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="katdelete(<?php echo $value->idkategori ?>)">
-                                                            <i class="bi bi-trash-fill"></i>
-                                                        </a>
+                                                        <div class="d-flex">
+                                                            <a type="button" class="btn btn-primary mr-1" data-tooltip="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('kategoriedit') . '?id=' . $value->idkategori ?>">
+                                                                <i class="bi bi-pencil-square"></i>
+                                                            </a>
+                                                            <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-tooltip="tooltip" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="katdelete(<?php echo $value->idkategori ?>)">
+                                                                <i class="bi bi-trash-fill"></i>
+                                                            </a>
+                                                        </div>
                                                     </td>
 
                                                 </tr>

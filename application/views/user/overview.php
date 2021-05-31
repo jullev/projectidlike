@@ -107,7 +107,7 @@
 			box-shadow: none;
 		}
 	}
-	.btn-light:not(#nameNavbar) {
+	.btn-light:not(#nameNavbar, #showAllAds) {
 		background: white;
 		border: none;
 		color: #868e96;
@@ -275,23 +275,27 @@
 									<a href="<?php echo base_url() ?>detail/<?php echo $value->idkerjaan; ?>"><?php echo $value->judul_kerjaan; ?></a>
 								</h5>
 								<p class="card-text">
-								  <span class="text-muted small">
-									<i class="bi-clock mr-1"></i> <?php echo $value->tanggal_submit ?>
-									- <i class="bi-grid ml-1 mr-1"></i> <?php echo $value->nama_kategori ?>
-									- <i class="bi-geo-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten ?>
-								  </span>
-                  <div class="text-right">
-                    <h5>Rp <?php echo number_format($value->harga,2, ',', '.'); ?></h5>
-                  </div>
-                </p>
-              </div>
-            </div>
-          </div>
-          <?php
-          }
-          ?>
-        </div>
-      </div> <!-- /Card Body -->
+								  	<span class="text-muted small">
+										<i class="bi-clock mr-1"></i> <?php echo $value->tanggal_submit ?>
+										- <i class="bi-grid ml-1 mr-1"></i> <?php echo $value->nama_kategori ?>
+										- <i class="bi-geo-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten ?>
+								  	</span>
+									<div class="text-right">
+										<h5>Rp <?php echo number_format($value->harga,2, ',', '.'); ?></h5>
+									</div>
+								</p>
+							</div>
+						</div>
+					</div>
+				<?php
+				}
+				?>
+        	</div>
+			
+			<div class="d-flex justify-content-center">
+				<button class="btn btn-outline-primary">Semua Iklan <i class="bi-caret-down-fill ml-2"></i></button>
+			</div>
+      	</div> <!-- /Card Body -->
     </div> <!-- /Card -->
   </div> <!-- /Container -->
   <!-- Iklan Terbaru End -->
