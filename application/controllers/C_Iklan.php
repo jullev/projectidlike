@@ -31,7 +31,7 @@ class C_Iklan extends CI_Controller
 		$id = $this->uri->segment(2);
 		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['dataIklan'] = $this->M_Iklan->select_iklan($id);
-//		var_dump($data);
+		//		var_dump($data);
 		$this->load->view('user/reportkerjaan', $data);
 	}
 
@@ -39,17 +39,17 @@ class C_Iklan extends CI_Controller
 	{
 		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
-//		var_dump($data);
+		//		var_dump($data);
 		$this->load->view('admin/iklandisetujui', $data);
 	}
 
 	public function terimaiklan()
 	{
 		$id = $this->uri->segment(2);
-//  	var_dump("data ",$id);
+		//  	var_dump("data ",$id);
 		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['detailuser'] = $this->M_Iklan->terima_iklan($id);
-//  	var_dump($data);
+		//  	var_dump($data);
 		$this->load->view('admin/editadmin', $data);
 	}
 
@@ -70,41 +70,41 @@ class C_Iklan extends CI_Controller
 	public function detaillaporan()
 	{
 		$id = $this->uri->segment(2);
-//  	var_dump("data ",$id);
+		//  	var_dump("data ",$id);
 		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['detailhit'] = $this->M_Iklan->detail_iklan_selesai($id);
-//  	var_dump($data);
+		//  	var_dump($data);
 		$this->load->view('admin/detaillaporanselesai', $data);
 	}
 
 	public function detailhit()
 	{
 		$id = $this->uri->segment(2);
-//  	var_dump("data ",$id);
+		//  	var_dump("data ",$id);
 		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['detailhit'] = $this->M_Iklan->select_hit_periklan($id);
-//  	var_dump($data);
+		//  	var_dump($data);
 		$this->load->view('admin/detailhit', $data);
 	}
 
 	public function tolakhitter()
 	{
 		$id = $this->uri->segment(2);
-//  	var_dump("data ",$id);
+		//  	var_dump("data ",$id);
 		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['detailhit'] = $this->M_Iklan->tolak_hit($id);
-//  	var_dump($data);
+		//  	var_dump($data);
 		$this->load->view('admin/detailhit', $data);
 	}
 
 	public function terimahitter()
 	{
 		$id = $this->uri->segment(2);
-//  	var_dump("data ",$id);
+		//  	var_dump("data ",$id);
 		$data['allcount'] = $this->M_Iklan->show_allcount();
 		$data['terimahit'] = $this->M_Iklan->terima_hit($id);
 		$data['detailhit'] = $this->M_Iklan->select_hit_periklan($id);
-//  	var_dump($data);
+		//  	var_dump($data);
 		$this->load->view('admin/detailhit', $data);
 	}
 
@@ -188,7 +188,6 @@ class C_Iklan extends CI_Controller
 			$data['status'] = $this->upload->display_errors();
 			return $data;
 		}
-
 	}
 
 	public function reportIklan()
@@ -214,13 +213,11 @@ class C_Iklan extends CI_Controller
 			print_r($data);
 			$result = $this->db->insert('report_kerjaan', $data);
 			if ($result > 0) {
-//				redirect('tambahiklan?msg=success');
+				//				redirect('tambahiklan?msg=success');
 			} else {
-//				redirect('tambahiklan?msg=error');
+				//				redirect('tambahiklan?msg=error');
 			}
 		}
-
-
 	}
 
 	public function inputReview()
@@ -229,8 +226,6 @@ class C_Iklan extends CI_Controller
 		//print_r($data);
 		$this->M_Iklan->isistarpoint($data);
 		redirect("iklanselesai");
-
-
 	}
 
 	public function loginData()
@@ -238,8 +233,8 @@ class C_Iklan extends CI_Controller
 		$data = $this->input->post();
 		//print_r($data);
 		$this->M_Register->Select_Login($data);
-//		print_r( $hasil->role_idrole);
-//		print_r( $this->session->userdata('role'));
+		//		print_r( $hasil->role_idrole);
+		//		print_r( $this->session->userdata('role'));
 
 		if ($this->session->userdata('role') == 1) {
 			$this->load->view('admin/overview');
@@ -262,98 +257,32 @@ class C_Iklan extends CI_Controller
 
 			if ($this->session->userdata('role') != 1) {
 				redirect("user");
-//			$this->load->view('user/overview', $hasil);
+				//			$this->load->view('user/overview', $hasil);
 			} else {
-//			$this->load->view('admin/overview', $hasil);
+				//			$this->load->view('admin/overview', $hasil);
 				redirect("admin");
 			}
-
 		}
 	}
 
-
-	public function prosesTambah()
-	{
-
-		$data = $this->input->post();
-		if ($this->form_validation->run() == true) {
-			$result = $this->M_Register->insert($data);
-
-			if ($result > 0) {
-				$out['status'] = '';
-				$out['msg'] = 'Data Pegawai Berhasil ditambahkan';
-				$this->load->view('user/register', $out);
-			} else {
-				$out['status'] = '';
-				$out['msg'] = show_err_msg('Data Pegawai Gagal ditambahkan', '20px');
-			}
-		} else {
-			$out['status'] = '';
-			$out['msg'] = validation_errors();
-			$this->load->view('user/register', $out);
-		}
-
-
-		//echo json_encode($result);
-	}
-
-	public function update()
-	{
-		$id = trim($_POST['id']);
-
-		$data['dataPasien'] = $this->M_pasien->select_by_id($id);
-		$data['dataPosisi'] = $this->M_posisi->select_all();
-		$data['dataKota'] = $this->M_kota->select_all();
-		$data['userdata'] = $this->userdata;
-		echo show_my_modal('modals/modal_update_pasien', 'update-pasien', $data);
-	}
-
-	public function prosesUpdate()
-	{
-		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'trim|required');
-		$this->form_validation->set_rules('umur', 'umur', 'trim|required');
-
-		$data = $this->input->post();
-		if ($this->form_validation->run() == TRUE) {
-			$result = $this->M_pasien->update($data);
-
-			if ($result > 0) {
-				$out['status'] = '';
-				$out['msg'] = show_succ_msg('Data Pasien Berhasil diupdate', '20px');
-			} else {
-				$out['status'] = '';
-				$out['msg'] = show_succ_msg('Data Pasien Gagal diupdate', '20px');
-			}
-		} else {
-			$out['status'] = 'form';
-			$out['msg'] = show_err_msg(validation_errors());
-		}
-
-		echo json_encode($out);
-	}
-
-	public function delete()
-	{
-		$id = $_POST['id'];
-		$result = $this->M_pasien->delete($id);
-
-		if ($result > 0) {
-			echo show_succ_msg('Data Pasien Berhasil dihapus', '20px');
-		} else {
-			echo show_err_msg('Data Pasien Gagal dihapus ', '20px');
-		}
-	}
 
 	public function searchIklan()
 	{
 		$input = $this->input->post();
 
 		$data['kategori'] = $this->M_Iklan->getAllCategory();
-//		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
+		//		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
 		$data['dataIklan'] = $this->M_Iklan->searchIklan($input);
 		$data['jmlIklan'] = count($data['dataIklan']);
 
+		$this->load->view('user/search/index', $data);
+	}
+
+	public function filterHarga()
+	{
+		$input = $this->input->post();
+
+		$data['dataIklan'] = $this->M_Iklan->filterharga($input);
 		$this->load->view('user/search/index', $data);
 	}
 }
