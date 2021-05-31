@@ -121,7 +121,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Yakin kah anda ingin menghilangkan user ini dari dunia?</p>
+                    <p>Yakin kah anda ingin menghapus user ini?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

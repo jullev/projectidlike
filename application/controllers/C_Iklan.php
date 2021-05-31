@@ -67,6 +67,27 @@ class C_Iklan extends CI_Controller
 		$this->load->view('admin/iklanselesai', $data);
 	}
 
+	public function tampilIklanTolak()
+	{
+		$data['dataIklan'] = $this->M_Iklan->select_iklan_tolak();
+		$data['allcount'] = $this->M_Iklan->show_allcount();
+		$this->load->view('admin/iklanditolak', $data);
+	}
+
+	public function delete()
+	{
+		$data = $this->input->get();
+		$id = $data['id'];
+		$result = $this->M_Iklan->delete($id);
+
+		if ($result > 0) {
+
+			redirect('iklanditolak?msg=success');
+		} else {
+			redirect('iklanditolak?msg=error');
+		}
+	}
+
 	public function detaillaporan()
 	{
 		$id = $this->uri->segment(2);
@@ -280,9 +301,9 @@ class C_Iklan extends CI_Controller
 		foreach ($data['kategori'] as $kat) {
 			array_push($data['kategori_jml'], $this->M_Iklan->getCategoryCount($kat->idkategori));
 		}
+
 		$data['dataIklan'] = $this->M_Iklan->searchIklan($input);
 		$data['jmlIklan'] = count($data['dataIklan']);
-
 
 		$this->load->view('user/search/index', $data);
 	}
