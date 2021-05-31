@@ -51,7 +51,7 @@
 				?>
 				<li class="d-flex justify-content-between align-items-center mb-2">
 					<div class="custom-control custom-radio">
-						<input type="radio" name="kategori" id="<?php echo $kat->idkategori ?>"
+						<input type="radio" name="kategori_sidebar" id="<?php echo $kat->idkategori ?>"
 							   class="custom-control-input" value="<?php echo $kat->idkategori ?>">
 						<label for="<?php echo $kat->idkategori ?>"
 							   class="custom-control-label"><?php echo $kat->nama_kategori ?></label>
@@ -72,7 +72,7 @@
 		<h5>Lokasi</h5>
 	</div>
 	<div class="card-body">
-		<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
+		<select class="selectpicker form-control" name="kota_sidebar" id="kota" data-live-search="true">
 			<option value="#">Kota/Kabupaten</option>
 			<?php
 			foreach ($kabupaten as $kab) {

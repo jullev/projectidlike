@@ -270,16 +270,20 @@ class C_Iklan extends CI_Controller
 	{
 		$input = $this->input->post();
 
+		// Ambil data input untuk ditampilkan di badge
+		$data['kat_badge'] = $input['kategori'] != '#' ? $this->M_Iklan->getCategoryName($input['kategori']) : '';
+		$data['kota_badge'] = $input['kota'] != '#' ? $this->M_Iklan->getCityName($input['kota']) : '';
+
 		$data['kabupaten'] = $this->M_Iklan->getAllKab();
 		$data['kategori'] = $this->M_Iklan->getAllCategory();
 		$data['kategori_jml'] = array();
 		foreach ($data['kategori'] as $kat) {
 			array_push($data['kategori_jml'], $this->M_Iklan->getCategoryCount($kat->idkategori));
 		}
-//		$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
 		$data['dataIklan'] = $this->M_Iklan->searchIklan($input);
 		$data['jmlIklan'] = count($data['dataIklan']);
-//
+
+
 		$this->load->view('user/search/index', $data);
 	}
 

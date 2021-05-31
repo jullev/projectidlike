@@ -217,4 +217,16 @@ class M_Iklan extends CI_Model
 		$query = $this->db->query($sql);
 		return $query->result();
 	}
+
+	public function getCategoryName($id)
+	{
+		$sql = 'SELECT nama_kategori FROM kategori WHERE idkategori=' . $id;
+		return $this->db->query($sql)->row();
+	}
+
+	public function getCityName($id)
+	{
+		$sql = 'SELECT nama_kabupaten FROM wilayah_kabupaten WHERE id_kabupaten=' . $id;
+		return $this->db->query($sql)->row();
+	}
 }
