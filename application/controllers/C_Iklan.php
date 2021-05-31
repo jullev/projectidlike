@@ -270,6 +270,7 @@ class C_Iklan extends CI_Controller
 	{
 		$input = $this->input->post();
 
+		$data['kabupaten'] = $this->M_Iklan->getAllKab();
 		$data['kategori'] = $this->M_Iklan->getAllCategory();
 		$data['kategori_jml'] = array();
 		foreach ($data['kategori'] as $kat) {
