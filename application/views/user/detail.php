@@ -29,7 +29,7 @@
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="#"><i class="bi-house-fill"></i></a></li>
-						<li class="breadcrumb-item"><a href="#">Kategori</a></li>
+						<li class="breadcrumb-item"><a href="<?php echo site_url('search').'?f=true&kat='.$dataIklan[0]->kategori_idkategori ?>"><?php echo $dataIklan[0]->nama_kategori ?></a></li>
 						<li class="breadcrumb-item active" aria-current="page"><?php echo $dataIklan[0]->judul_kerjaan ?></li>
 					</ol>
 				</nav>
@@ -92,7 +92,7 @@
 							<div class="row" style="font-size: 120%;">
 								<div class="col-12 col-lg-6 text-lg-left text-left">
 									<i class="bi-geo-alt-fill mr-2"></i>
-									<strong>Lokasi: </strong><a href=""><?php echo $value->nama_kabupaten; ?></a>
+									<strong>Lokasi: </strong><a href="<?php echo site_url('search').'?f=true&loc='.$dataIklan[0]->kabupaten_idkabupaten?>"><?php echo $value->nama_kabupaten; ?></a>
 								</div>
 								<div class="col-12 col-lg-6 text-lg-right text-left mt-2 mt-lg-0">
 									<i class="bi-tag-fill mr-2"></i>
@@ -166,7 +166,7 @@
 										<span class="text-muted">Lokasi</span>
 									</div>
 									<div class="col-6 p-0 text-right mb-2">
-										<a href="#"><?php echo $value->nama_kabupaten; ?></a>
+										<a href="<?php echo site_url('search').'?f=true&loc='.$dataIklan[0]->kabupaten_idkabupaten?>"><?php echo $value->nama_kabupaten; ?></a>
 									</div>
 									<!-- Penawaran -->
 									<div class="col-1 p-0">
