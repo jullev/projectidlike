@@ -99,7 +99,7 @@
 			border-radius: 0px !important;
 			border-top: none;
 			border-bottom: none;
-			border-right:  1px solid #dee2e6 !important;
+			border-right: 1px solid #dee2e6 !important;
 			border-left: 1px solid #dee2e6 !important;
 		}
 
@@ -107,6 +107,7 @@
 			box-shadow: none;
 		}
 	}
+
 	.btn-light:not(#nameNavbar, #showAllAds) {
 		background: white;
 		border: none;
@@ -162,8 +163,8 @@
 					<div class="form-row align-items-center mx-2 my-3 my-lg-0 mx-lg-2">
 						<div class="col-lg-4 d-flex form-group align-items-center mb-3 my-lg-3">
 							<div class="input-group">
-								<select name="kategori" id="kategori" class="custom-select">
-									<option value="#" selected>Kategori</option>
+								<select name="kategori" id="kategori" class="selectpicker form-control" data-live-search="true">
+									<option value="#">-- Kategori --</option>
 									<?php
 									foreach ($kategori as $kat) {
 										?>
@@ -216,28 +217,36 @@
 						<div class="form-row">
 							<div class="col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="">Jakarta</a></li>
-									<li><a href="">Bandung</a></li>
-									<li><a href="">Medan</a></li>
-									<li><a href="">Surabaya</a></li>
-									<li><a href="">Bekasi</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=3173' ?>">Jakarta
+											Pusat</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=3273' ?>">Bandung</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=1275' ?>">Medan</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=3578' ?>">Surabaya</a>
+									</li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=3275' ?>">Bekasi</a></li>
 								</ul>
 							</div>
 							<div class="col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="">Palembang</a></li>
-									<li><a href="">Makassar</a></li>
-									<li><a href="">Tangerang</a></li>
-									<li><a href="">Tangerang Selatan</a></li>
-									<li><a href="">Semarang</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=1671' ?>">Palembang</a>
+									</li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=7371' ?>">Makassar</a>
+									</li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=3671' ?>">Tangerang</a>
+									</li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=3674' ?>">Tangerang
+											Selatan</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=3374' ?>">Semarang</a>
+									</li>
 								</ul>
 							</div>
 							<div class="col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="">Depok</a></li>
-									<li><a href="">Batam</a></li>
-									<li><a href="">Padang</a></li>
-									<li><a href="">Denpasar</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=3276' ?>">Depok</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=3509' ?>">Jember</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=1371' ?>">Padang</a></li>
+									<li><a href="<?php echo site_url('search') . '?f=true&loc=5171' ?>">Denpasar</a>
+									</li>
 									<li><a href="" data-toggle="modal" data-target="#moreCity">Kota Lainnya</a></li>
 								</ul>
 							</div>
@@ -280,64 +289,77 @@
 										- <i class="bi-grid ml-1 mr-1"></i> <?php echo $value->nama_kategori ?>
 										- <i class="bi-geo-alt ml-1 mr-1"></i> <?php echo $value->nama_kabupaten ?>
 								  	</span>
-									<div class="text-right">
-										<h5>Rp <?php echo number_format($value->harga,2, ',', '.'); ?></h5>
-									</div>
+								<div class="text-right">
+									<h5>Rp <?php echo number_format($value->harga, 2, ',', '.'); ?></h5>
+								</div>
 								</p>
 							</div>
 						</div>
 					</div>
-				<?php
+					<?php
 				}
 				?>
-        	</div>
-			
+			</div>
+
 			<div class="d-flex justify-content-center">
 				<button class="btn btn-outline-primary">Semua Iklan <i class="bi-caret-down-fill ml-2"></i></button>
 			</div>
-      	</div> <!-- /Card Body -->
-    </div> <!-- /Card -->
-  </div> <!-- /Container -->
-  <!-- Iklan Terbaru End -->
+		</div> <!-- /Card Body -->
+	</div> <!-- /Card -->
+</div> <!-- /Container -->
+<!-- Iklan Terbaru End -->
 
-  <!-- Modal Kota Lainnya -->
-  <div class="modal fade" id="moreCity" tabindex="-1" aria-labelledby="moreCityLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="moreCityLabel">Pilih Daerah Lainnya</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group row">
-							<div class="col-9 pr-1">
-								<select class="selectpicker form-control" name="kota" id="daerah" data-live-search="true"
-										required>
-									<option value="#">-- Pilih Kota/Kabupaten --</option>
-									<?php
-									foreach ($kabupaten as $kab) {
-										?>
-										<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
-										<?php
-									}
-									?>
-								</select>
-							</div>
-              <div class="col-3 pl-1">
-                  <button class="btn btn-block btn-primary">Submit</button>
-              </div>
+<!-- Modal Kota Lainnya -->
+<div class="modal fade" id="moreCity" tabindex="-1" aria-labelledby="moreCityLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="moreCityLabel">Pilih Daerah Lainnya</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal Kota Lainnya End -->
-
-  <!-- footer -->
-  <?php $this->load->view('user/_partials/footer.php'); ?>
-  <!-- /footer -->
+			<div class="modal-body">
+				<form action="<?php echo site_url('search') . '?f=true' ?>" method="GET" onfocusout="cityCheck()">
+					<div class="form-group row">
+						<div class="col-9 pr-1">
+							<select class="selectpicker form-control" name="kota" id="daerah" data-live-search="true"
+									required>
+								<option value="#" id="select_kota_default">-- Pilih Kota/Kabupaten --</option>
+								<?php
+								foreach ($kabupaten as $kab) {
+									?>
+									<option value="<?php echo $kab->id_kabupaten ?>"><?php echo $kab->nama_kabupaten ?></option>
+									<?php
+								}
+								?>
+							</select>
+						</div>
+						<div class="col-3 pl-1">
+							<button type="submit" class="btn btn-block btn-primary" id="select_kota_submit" disabled>
+								Submit
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal Kota Lainnya End -->
+<script>
+	// Kota lainnya cek
+	const cityCheck = () => {
+		if (document.getElementById('select_kota_default').selected == false) {
+			document.getElementById('select_kota_submit').disabled = false;
+		} else {
+			document.getElementById('select_kota_submit').disabled = true;
+		}
+	}
+</script>
+<!-- footer -->
+<?php $this->load->view('user/_partials/footer.php'); ?>
+<!-- /footer -->
 </body>
 
 </html>
