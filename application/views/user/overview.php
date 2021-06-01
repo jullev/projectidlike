@@ -293,7 +293,7 @@
         	</div>
 			
 			<div class="d-flex justify-content-center">
-				<button class="btn btn-outline-primary">Semua Iklan <i class="bi-caret-down-fill ml-2"></i></button>
+				<button class="btn btn-outline-primary">Semua Iklan <i class="bi-caret-right-fill ml-2"></i></button>
 			</div>
       	</div> <!-- /Card Body -->
     </div> <!-- /Card -->
