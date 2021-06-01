@@ -40,7 +40,12 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
  	<!-- Bootstrap Select Search -->
  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" />
-	<!-- Cek apakah sudah login dan role adalah admin -->
+	<style>
+		.user-panel .info {
+			white-space: normal !important;
+		}
+	</style>
+	 <!-- Cek apakah sudah login dan role adalah admin -->
 	<?php
 	if (!$this->session->userdata("is_login") || ($this->session->userdata("is_login") == false) || ($this->session->userdata('role') != 1)) {
 		redirect('user');
