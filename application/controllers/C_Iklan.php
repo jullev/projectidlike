@@ -313,7 +313,15 @@ class C_Iklan extends CI_Controller
 		$input = $this->input->post();
 
 		$data['dataIklan'] = $this->M_Iklan->filterharga($input);
-		$this->load->view('user/search/index', $data);
+		$this->load->view('user/search/result', $data);
+	}
+
+	public function filterDate()
+	{
+		$input = $this->input->post();
+
+		$data['dataIklan'] = $this->M_Iklan->filterDate($input);
+		$this->load->view('user/search/result', $data);
 	}
 }
 

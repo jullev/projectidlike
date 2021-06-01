@@ -18,7 +18,7 @@
 				</div>
 				<div class="info d-hidden-mini">
 					<a href="#" class=""><?php echo $this->session->userdata("nama") ?>
-					<a href="<?php echo site_url('logout') ?>" class="btn btn-secondary btn-sm mt-2">Logout <i class="bi-box-arrow-right ml-1"></i></a>
+						<a href="<?php echo site_url('logout') ?>" class="btn btn-secondary btn-sm mt-2">Logout <i class="bi-box-arrow-right ml-1"></i></a>
 				</div>
 			</div>
 
@@ -115,7 +115,7 @@
 									<p>Tambah Iklan</p>
 								</a>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a href="<?php echo site_url('iklanbaru') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
 									<p>Pengajuan</p>
@@ -135,7 +135,7 @@
 									<p>Dibatalkan</p>
 									<span class="right badge badge-danger"><?php echo $value->ditolak; ?></span>
 								</a>
-							</li>
+							</li> -->
 							<li class="nav-item">
 								<a href="<?php echo site_url('iklanselesai') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>

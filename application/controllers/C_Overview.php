@@ -17,6 +17,7 @@ class C_Overview extends CI_Controller
 
   public function index()
   {
+    $data['alluser'] = $this->M_ManageUser->totalUser();
     $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view("admin/overview", $data);
   }

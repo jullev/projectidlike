@@ -20,7 +20,8 @@ class M_Iklan extends CI_Model
                 (select COUNT(kerjaan.judul_kerjaan) from kerjaan ) as total_kerjaan,
                 (select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=2) as disetujui,
                 (select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=4) as ditolak,
-				(select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=6) as selesai,                    
+				(select COUNT(kerjaan.judul_kerjaan) from kerjaan where kerjaan.id_status=6) as selesai,
+				(SELECT COUNT(user.iduser) FROM user WHERE user.role_idrole=2) as total_user,                    
                 (SELECT COUNT(hit.idhit) from hit) as total_hit  FROM kerjaan ";
 
 		$data = $this->db->query($sql);
@@ -237,6 +238,13 @@ class M_Iklan extends CI_Model
 		return $query->result();
 	}
 
+	public function filterDate($date)
+	{
+		$sql = "SELECT * FROM kerjaan WHERE tanggal_submit BETWEEN tanggal_submit" . $date['startDate'] . " AND " . $date['endDate'] . "";
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
+
 	public function getCategoryName($id)
 	{
 		$sql = 'SELECT nama_kategori FROM kategori WHERE idkategori=' . $id;
@@ -247,5 +255,11 @@ class M_Iklan extends CI_Model
 	{
 		$sql = 'SELECT nama_kabupaten FROM wilayah_kabupaten WHERE id_kabupaten=' . $id;
 		return $this->db->query($sql)->row();
+	}
+
+	public function filter($input)
+	{
+		if ('f' == true) {
+		}
 	}
 }

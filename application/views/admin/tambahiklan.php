@@ -66,7 +66,7 @@
                             </div>
                             <div class=" form-group">
                                 <label for="judul">Judul</label>
-                                <input type="text" name="judul" id="judul" class="form-control" required>
+                                <input type="text" name="judul" id="judul" class="form-control" required placeholder="tambahkan judul iklan">
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi" class="col-md-3 col-form-label">Deskripsi <sup style="color: tomato">*</sup></label>

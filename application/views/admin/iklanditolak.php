@@ -74,10 +74,11 @@
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $i = 1;
                                             //var_dump(@$kegiatan);
                                             foreach (@$dataIklan as $value) { ?>
                                                 <tr>
-                                                    <td><?php echo $value->idkerjaan ?></td>
+                                                    <td><?php echo $i ?></td>
                                                     <td><?php echo $value->judul_kerjaan ?></td>
                                                     <td><b><?php echo $value->deskripsi ?></b><br>
                                                     <td><b><?php echo $value->tanggal_submit ?></b><br>
@@ -92,6 +93,7 @@
 
                                                 </tr>
                                             <?php
+                                                $i += 1;
                                                 //$total_dana+=$value->total;
                                             }
                                             ?>

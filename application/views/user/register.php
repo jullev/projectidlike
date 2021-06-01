@@ -17,15 +17,15 @@
                     <!-- Form Daftar -->
                     <div class="card-body py-5 px-5">
                         <form action='C_Register/prosesTambah' onsubmit="return validation()" method="POST" id="register_form">
-							<div id="alert_msg">
-								<?php
-								if ($this->session->flashdata('msg') !== null) {
-								?>
-									<div class="alert alert-info"><?php echo $this->session->flashdata('msg') ?></div>
-								<?php
-								}
-								?>
-							</div>
+                            <div id="alert_msg">
+                                <?php
+                                if ($this->session->flashdata('msg') !== null) {
+                                ?>
+                                    <div class="alert alert-info"><?php echo $this->session->flashdata('msg') ?></div>
+                                <?php
+                                }
+                                ?>
+                            </div>
                             <!-- Nama -->
                             <div class="form-group row">
                                 <label for="name" class="col-md-3 col-form-label">Nama <sup style="color: red;">*</sup></label>
@@ -75,17 +75,17 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">+62</span>
                                     </div>
-                                    <input type="tel" class="form-control" pattern="[0-9]{11}" name="phone" id="phone" value="<?php echo $this->session->flashdata('phone') ?>" placeholder="8xxxxxxxxxx" maxlength="15" onfocus="removeAlert()" required>
+                                    <input type="tel" class="form-control" pattern="[0-9]{13}" name="phone" id="phone" value="<?php echo $this->session->flashdata('phone') ?>" placeholder="8xxxxxxxxxx" maxlength="15" onfocus="removeAlert()" required>
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>
-							<!-- Alamat -->
-							<div class="form-group row">
-								<label for="phone" class="col-md-3 col-form-label">Alamat <sup style="color: red;">*</sup></label>
-								<div class="input-group col-md-8">
-									<textarea name="alamat" class="form-control" id="alamat" cols="50" rows="10" style="resize: none"  placeholder="Alamat domisili"  onfocus="removeAlert()" required><?php echo $this->session->flashdata('alamat') ?></textarea>
-								</div>
-							</div>
+                            <!-- Alamat -->
+                            <div class="form-group row">
+                                <label for="phone" class="col-md-3 col-form-label">Alamat <sup style="color: red;">*</sup></label>
+                                <div class="input-group col-md-8">
+                                    <textarea name="alamat" class="form-control" id="alamat" cols="50" rows="10" style="resize: none" placeholder="Alamat domisili" onfocus="removeAlert()" required><?php echo $this->session->flashdata('alamat') ?></textarea>
+                                </div>
+                            </div>
                             <!-- Password -->
                             <div class="form-group row">
                                 <label for="password" class="col-md-3 col-form-label">Password <sup style="color: red;">*</sup></label>
@@ -139,38 +139,39 @@
             </div>
         </div> <!-- Row -->
     </div> <!-- Container -->
-	<script>
-		// Get id alert
-		const alert = document.getElementById("alert_msg")
+    <script>
+        // Get id alert
+        const alert = document.getElementById("alert_msg")
 
-		// Form Validation for gender, password
-		const validation = () => {
-			const gender = document.forms["register_form"]["gender"].value
-			const pwd = document.forms["register_form"]["password_register"].value
-			const pwd_confirm = document.forms["register_form"]["password_register_confirm"].value
-
-
-			// Jenis Kelamin
-			if(gender === "#"){
-				alert.innerHTML = "<div class='alert alert-danger'>Mohon isi jenis kelamin anda</div>"
-				return false
-			}
-
-			// Password
-			if(pwd !== pwd_confirm){
-				alert.innerHTML = "<div class='alert alert-danger'>Password tidak valid, harap ulangi lagi!</div>"
-				return false
-			}
+        // Form Validation for gender, password
+        const validation = () => {
+            const gender = document.forms["register_form"]["gender"].value
+            const pwd = document.forms["register_form"]["password_register"].value
+            const pwd_confirm = document.forms["register_form"]["password_register_confirm"].value
 
 
-		}
+            // Jenis Kelamin
+            if (gender === "#") {
+                alert.innerHTML = "<div class='alert alert-danger'>Mohon isi jenis kelamin anda</div>"
+                return false
+            }
 
-		// Menghapus alert
-		const removeAlert = () => {
-			alert.innerHTML = ""
-		}
-	</script>
+            // Password
+            if (pwd !== pwd_confirm) {
+                alert.innerHTML = "<div class='alert alert-danger'>Password tidak valid, harap ulangi lagi!</div>"
+                return false
+            }
+
+
+        }
+
+        // Menghapus alert
+        const removeAlert = () => {
+            alert.innerHTML = ""
+        }
+    </script>
 </body>
 
 <?php $this->load->view('user/_partials/footer.php'); ?>
+
 </html>
