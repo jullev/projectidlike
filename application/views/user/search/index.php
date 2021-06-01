@@ -14,6 +14,26 @@
 		border-top-left-radius: .25rem;
 		border-bottom-left-radius: .25rem;
 	}
+	@media (min-width: 992px) {
+		#offCanvas {
+			width: 30%;
+		}
+	}
+	@media (min-width: 768px) and (max-width: 991px) {
+		#offCanvas {
+			width: 40%;
+		}
+	}
+	@media (min-width: 576px) and (max-width: 767px) {
+		#offCanvas {
+			width: 70%;
+		}
+	}
+	@media (min-width: 0px) and (max-width: 575px) {
+		#offCanvas {
+			width: 90%;
+		}
+	}
 </style>
 <body>
 
