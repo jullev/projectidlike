@@ -63,5 +63,8 @@ class M_Setkategori extends CI_Model
 	{
 		$sql = "UPDATE kategori SET nama_kategori='" . $input['category'] . "' WHERE idkategori=" . $input['id'];
 		return $this->db->query($sql);
+
+		// return $this->db->affected_rows();
+		// return $this->db->row();
 	}
 }

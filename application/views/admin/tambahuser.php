@@ -55,7 +55,7 @@
                                 </span>
                             </div>
                             <div class="card-body p-5 bg-light">
-                                <form action="C_Register/prosesTambahUser" onsubmit=" return validation()" method="POST" id="register_form">
+                                <form action="C_Register/prosesTambah" onsubmit=" return validation()" method="POST" id="register_form">
 
                                     <!-- nama -->
                                     <div class="form-group row">
@@ -137,7 +137,7 @@
                                         </div>
                                     </div>
                                     <!-- Foto Profile -->
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label for="deskripsi" class="col-sm-3 col-form-label">Upload Foto Profil</label>
                                         <div class="input-group col-sm-8">
                                             <div class="custom-file">
@@ -146,7 +146,7 @@
                                             </div>
 
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- button -->
                                     <div class="form-group row">
                                         <div class="input-group col-sm-12 ">

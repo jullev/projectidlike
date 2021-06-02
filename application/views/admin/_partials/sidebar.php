@@ -140,14 +140,14 @@
 								<a href="<?php echo site_url('iklanselesai') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
 									<p>Selesai</p>
-									<span class="right badge badge-primary"><?php echo $value->selesai; ?></span>
+									<span class="right badge badge-success"><?php echo $value->selesai; ?></span>
 								</a>
 							</li>
 							<li class="nav-item">
 								<a href="<?php echo site_url('semuaiklan') ?>" class="nav-link">
 									<i class="far fa-circle nav-icon"></i>
 									<p>Semua</p>
-									<span class="right badge badge-secondary"><?php echo $value->total_kerjaan; ?></span>
+									<span class="right badge badge-primary"><?php echo $value->total_kerjaan; ?></span>
 								</a>
 							</li>
 						</ul>

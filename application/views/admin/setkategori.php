@@ -78,7 +78,7 @@
                                                     <td><?php echo $value->nama_kategori ?></td>
                                                     <td>
                                                         <div class="d-flex">
-                                                            <a type="button" class="btn btn-primary mr-1" data-tooltip="tooltip" data-placement="bottom" title="Lihat Detail" href="<?php echo site_url('kategoriedit') . '?id=' . $value->idkategori ?>">
+                                                            <a type="button" class="btn btn-primary mr-1" data-tooltip="tooltip" data-placement="bottom" title="Edit" href="<?php echo site_url('kategoriedit') . '?id=' . $value->idkategori ?>">
                                                                 <i class="bi bi-pencil-square"></i>
                                                             </a>
                                                             <a type="button" class="btn btn-danger text-white" data-target="#deleteModal" role="button" data-tooltip="tooltip" data-toggle="modal" data-placement="bottom" title="Hapus" onclick="katdelete(<?php echo $value->idkategori ?>)">

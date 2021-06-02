@@ -43,9 +43,9 @@
 								<div class="small-box bg-info">
 									<div class="inner">
 
-										<h3><?php echo $value->pengajuan_baru; ?></h3>
+										<h3><?php echo $value->selesai; ?></h3>
 
-										<p>Permohonon Iklan</p>
+										<p>Iklan Selesai</p>
 									</div>
 									<div class="icon">
 										<i class="fas fa-ad"></i>
@@ -54,9 +54,7 @@
 								</div>
 							</div>
 							<!-- ./col -->
-							<?php
-							// foreach (@$alluser as $value) { 
-							?>
+
 							<div class="col-lg-3 col-6">
 								<!-- small box -->
 								<div class="small-box bg-success">
@@ -92,25 +90,26 @@
 									<a href="<?php echo site_url('semuaiklan') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
-						<?php } ?>
-						<!-- ./col -->
-						<div class="col-lg-3 col-6">
-							<!-- small box -->
-							<div class="small-box bg-danger">
-								<div class="inner">
-									<h3><?php
 
-										echo $value->total_hit; ?></h3>
+							<!-- ./col -->
+							<div class="col-lg-3 col-6">
+								<!-- small box -->
+								<div class="small-box bg-danger">
+									<div class="inner">
+										<h3><?php
 
-									<p>Total Hit</p>
+											echo $value->total_hit; ?></h3>
+
+										<p>Total Hit</p>
+									</div>
+									<div class="icon">
+										<i class="fas fa-suitcase"></i>
+									</div>
+									<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 								</div>
-								<div class="icon">
-									<i class="fas fa-suitcase"></i>
-								</div>
-								<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
 							</div>
-						</div>
-						<!-- ./col -->
+
+							<!-- ./col -->
 						</div>
 						<!-- /.row -->
 						<figure class="highcharts-figure">
@@ -140,7 +139,7 @@
 
 								xAxis: {
 									accessibility: {
-										rangeDescription: 'Range: 2010 to 2017'
+										rangeDescription: 'Range: 2021 to 2030'
 									}
 								},
 
@@ -155,25 +154,24 @@
 										label: {
 											connectorAllowed: false
 										},
-										pointStart: 2010
+										pointStart: 2020
 									}
 								},
 
 								series: [{
 									name: 'User',
-									data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+									data: [0, <?php
+												echo $value->total_user;
+												?>]
 								}, {
 									name: 'Jumlah Iklan',
-									data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+									data: [0, <?php echo $value->total_kerjaan; ?>]
 								}, {
 									name: 'HIT',
-									data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
+									data: [0, <?php echo $value->total_hit; ?>]
 								}, {
-									name: 'Star Point',
-									data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-								}, {
-									name: 'Pengajuan',
-									data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+									name: 'Iklan Selesai',
+									data: [0, <?php echo $value->selesai; ?>]
 								}],
 
 								responsive: {
@@ -193,6 +191,7 @@
 
 							});
 						</script>
+					<?php } ?>
 				</div><!-- /.container-fluid -->
 			</section>
 			<!-- /.content -->

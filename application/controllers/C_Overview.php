@@ -183,6 +183,7 @@ class C_Overview extends CI_Controller
     $input = $this->input->get();
     $id = $input['id'];
     // var_dump("data ", $id);
+
     $data['editKatgor'] = $this->M_Setkategori->select_kategori_id($id);
     $data['allcount'] = $this->M_Iklan->show_allcount();
     //  	var_dump($data);

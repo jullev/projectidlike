@@ -108,7 +108,7 @@
                                     <div class="form-group row">
                                         <label for="deskripsi" class="col-sm-3 col-form-label">Foto Profil</label>
                                         <div class="input-group col-sm-8">
-                                            <img src="<?php echo base_url('assets/assets/img/testimonials-2.jpg') ?>" class="img-thumbnail" style="width: 200px; " alt="...">
+                                            <img src="<?php echo base_url('assets/image/users/') . $userdata->foto_profil ?>" class="img-thumbnail" style="width: 200px; " alt="...">
                                         </div>
                                     </div>
                                     <!-- button -->

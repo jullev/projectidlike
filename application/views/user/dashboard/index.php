@@ -199,7 +199,7 @@
 												<div class="input-group-prepend">
 													<span class="input-group-text">+62</span>
 												</div>
-												<input type="tel" class="form-control" pattern="[0-9]{13}" name="phone" id="phone" value="<?php echo substr(@$datauser->no_hp, 2) ?>" placeholder="8xxxxxxxxxx" maxlength="16" onfocus="removeAlert()" required>
+												<input type="tel" class="form-control" pattern="[0-9]{12}" name="phone" id="phone" value="<?php echo substr(@$datauser->no_hp, 2) ?>" placeholder="8xxxxxxxxxx" maxlength="15" onfocus="removeAlert()" required>
 											</div>
 										</div>
 										<div class="form-group row">
