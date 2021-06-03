@@ -208,7 +208,7 @@
 <?php $this->load->view('user/_partials/footer.php'); ?>
 <script>
 	$('#offCanvas').offcanvas({
-		modifiers: 'left, overlay',
+		modifiers: 'right, overlay',
 		triggerButton: '#filterMobileBtn'
 	});
 </script>

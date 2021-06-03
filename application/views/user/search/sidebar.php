@@ -48,7 +48,7 @@
 				$i = 0;
 				foreach ($kategori as $kat) {
 					?>
-					<li class="d-flex justify-content-between align-items-center mb-2 list-group-item">
+					<li class="d-flex justify-content-between align-items-center list-group-item">
 						<div class="form-check">
 							<input type="radio" name="kategori_get" id="<?php echo $kat->idkategori ?>"
 								   class="form-check-input" value="<?php echo $kat->idkategori ?>">

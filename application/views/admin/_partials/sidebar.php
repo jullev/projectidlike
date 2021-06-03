@@ -17,7 +17,7 @@
 					<img src="<?php echo base_url('assets/image/users/default.png'); ?>" class="img-circle elevation-2" alt="User Image">
 				</div>
 				<div class="info d-hidden-mini">
-					<a href="#" class=""><?php echo $this->session->userdata("nama") ?>
+					<a class=""><?php echo $this->session->userdata("nama") ?>
 						<a href="<?php echo site_url('logout') ?>" class="btn btn-secondary btn-sm mt-2">Logout <i class="bi-box-arrow-right ml-1"></i></a>
 				</div>
 			</div>

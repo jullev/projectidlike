@@ -10,21 +10,14 @@
 			border-radius: 1rem;
 		}
 
-		.form-row > .form-group > .input-group > .custom-select {
+		input#cariApa {
 			border-radius: 0px !important;
 			border-top: none;
 			border-left: none;
 			border-right: none;
 		}
 
-		.form-row > .form-group > .input-group > .form-control {
-			border-radius: 0px !important;
-			border-top: none;
-			border-left: none;
-			border-right: none;
-		}
-
-		.form-row > .form-group > .input-group > .form-control:focus {
+		input#cariApa:focus {
 			box-shadow: none;
 		}
 	}
@@ -34,21 +27,14 @@
 			border-radius: 1rem;
 		}
 
-		.form-row > .form-group > .input-group > .custom-select {
+		input#cariApa {
 			border-radius: 0px !important;
 			border-top: none;
 			border-left: none;
 			border-right: none;
 		}
 
-		.form-row > .form-group > .input-group > .form-control {
-			border-radius: 0px !important;
-			border-top: none;
-			border-left: none;
-			border-right: none;
-		}
-
-		.form-row > .form-group > .input-group > .form-control:focus {
+		input#cariApa:focus {
 			box-shadow: none;
 		}
 	}
@@ -58,21 +44,14 @@
 			border-radius: 1rem;
 		}
 
-		.form-row > .form-group > .input-group > .custom-select {
+		input#cariApa {
 			border-radius: 0px !important;
 			border-top: none;
 			border-left: none;
 			border-right: none;
 		}
 
-		.form-row > .form-group > .input-group > .form-control {
-			border-radius: 0px !important;
-			border-top: none;
-			border-left: none;
-			border-right: none;
-		}
-
-		.form-row > .form-group > .input-group > .form-control:focus {
+		input#cariApa:focus {
 			box-shadow: none;
 		}
 	}
@@ -82,20 +61,7 @@
 			border-radius: 50rem;
 		}
 
-		.form-row > .form-group > .input-group > .custom-select {
-			border-radius: 0px !important;
-			border-top: none;
-			border-bottom: none;
-			border-right: none;
-			border-left: none;
-		}
-
-		.form-row > .form-group > .input-group > .custom-select:focus {
-			box-shadow: none;
-			background-color: #f8f9fa;
-		}
-
-		.form-row > .form-group > .input-group > .form-control {
+		input#cariApa {
 			border-radius: 0px !important;
 			border-top: none;
 			border-bottom: none;
@@ -103,7 +69,7 @@
 			border-left: 1px solid #dee2e6 !important;
 		}
 
-		.form-row > .form-group > .input-group > .form-control:focus {
+		input#cariApa:focus {
 			box-shadow: none;
 		}
 	}
@@ -177,7 +143,7 @@
 						</div>
 						<div class="col-lg-3 d-flex align-items-center form-group mb-3 my-lg-3">
 							<div class="input-group">
-								<input type="text" placeholder="Apa?" class="form-control" name="konten">
+								<input type="text" id="cariApa" placeholder="Apa?" class="form-control" name="konten">
 							</div>
 						</div>
 						<div class="col-lg-3 d-flex align-items-center form-group my-lg-3" id="kotaSearch">
@@ -280,7 +246,7 @@
 									 title="<?php echo $value->judul_kerjaan; ?>">
 							</div>
 							<div class="card-body" style="height: 16rem;overflow: hidden;">
-								<h5 class="card-title text-capitalize">
+								<h5 class="card-title">
 									<a href="<?php echo base_url() ?>detail/<?php echo $value->idkerjaan; ?>"><?php echo $value->judul_kerjaan; ?></a>
 								</h5>
 								<p class="card-text">
