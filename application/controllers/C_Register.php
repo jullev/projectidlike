@@ -182,13 +182,13 @@ class C_Register extends CI_Controller
 		$validation->set_rules("no_hp", "phone", "required");
 		$validation->set_rules("password", "password_register", "required");
 
-		$this->session->set_flashdata('name', $data['name']);
-		$this->session->set_flashdata('username_register', $data['username_register']);
-		$this->session->set_flashdata('email_register', $data['email_register']);
-		$this->session->set_flashdata('birthdate', $data['birthdate']);
-		$this->session->set_flashdata('alamat', $data['alamat']);
-		$this->session->set_flashdata('phone', $data['phone']);
-		$this->session->set_flashdata('gender', $data['gender']);
+		// $this->session->set_flashdata('name', $data['name']);
+		// $this->session->set_flashdata('username_register', $data['username_register']);
+		// $this->session->set_flashdata('email_register', $data['email_register']);
+		// $this->session->set_flashdata('birthdate', $data['birthdate']);
+		// $this->session->set_flashdata('alamat', $data['alamat']);
+		// $this->session->set_flashdata('phone', $data['phone']);
+		// $this->session->set_flashdata('gender', $data['gender']);
 
 
 		if ($validation == true) {

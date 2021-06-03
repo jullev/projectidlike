@@ -138,7 +138,7 @@
                                         <label for="deskripsi" class="col-sm-3 col-form-label">Upload Foto Profil</label>
                                         <div class="input-group col-sm-8">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                                <input type="file" class="custom-file-input" name="avatar" id="avatar" accept="image/jpeg, image/png" aria-describedby="inputGroupFileAddon01">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                             </div>
                                         </div>

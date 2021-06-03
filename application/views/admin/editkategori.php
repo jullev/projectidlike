@@ -63,7 +63,7 @@
                                             <div class="form-group row">
                                                 <label for="category" class="col-3 col-form-label">Id Kategori</label>
                                                 <div class="col-9">
-                                                    <input type="text" name="id" id="id" class="form-control" value="<?php echo @$editKatgor->idkategori; ?>" placeholder="Nama Kategori" disabled>
+                                                    <input type="text" name="id" id="id" class="form-control" value="<?php echo @$editKatgor->idkategori; ?>" placeholder="Nama Kategori" readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
