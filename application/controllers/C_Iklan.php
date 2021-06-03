@@ -289,11 +289,8 @@ class C_Iklan extends CI_Controller
 
 	public function searchIklan()
 	{
-		$input = $this->input->post();
-
-		// Ambil data input untuk ditampilkan di badge
-		$data['kat_badge'] = $input['kategori'] != '#' ? $this->M_Iklan->getCategoryName($input['kategori']) : '';
-		$data['kota_badge'] = $input['kota'] != '#' ? $this->M_Iklan->getCityName($input['kota']) : '';
+		$input_post = $this->input->post();
+		$input_get = $this->input->get();
 
 		$data['kabupaten'] = $this->M_Iklan->getAllKab();
 		$data['kategori'] = $this->M_Iklan->getAllCategory();
@@ -301,9 +298,28 @@ class C_Iklan extends CI_Controller
 		foreach ($data['kategori'] as $kat) {
 			array_push($data['kategori_jml'], $this->M_Iklan->getCategoryCount($kat->idkategori));
 		}
+		if(isset($input_get['kota_get'])){
+			// Ambil data input untuk ditampilkan di badge
+			if(isset($input_get['kategori_get'])){
+				// Get category name
+				$data['kat_badge'] = $input_get['kategori_get'] != '' ? $this->M_Iklan->getCategoryName($input_get['kategori_get']) : '';
+			}
+			$data['kota_badge'] = $input_get['kota_get'] != '#' ? $this->M_Iklan->getCityName($input_get['kota_get']) : '';
+			$data['hargamin_badge'] = $input_get['harga_min'] != '' ? $input_get['harga_min'] : '';
+			$data['hargamax_badge'] = $input_get['harga_max'] != '' ? $input_get['harga_max'] : '';
+			$data['startdate_badge'] = $input_get['start_date'] != '' ? $input_get['start_date'] : '';
+			$data['enddate_badge'] = $input_get['end_date'] != '' ? $input_get['end_date'] : '';
 
-		$data['dataIklan'] = $this->M_Iklan->searchIklan($input);
-		$data['jmlIklan'] = count($data['dataIklan']);
+			// Data iklan
+			$data['dataIklan'] = $this->M_Iklan->searchIklanGet($input_get);
+			$data['jmlIklan'] = count($data['dataIklan']);
+		}else{
+			// Ambil data input untuk ditampilkan di badge
+			$data['kat_badge'] = $input_post['kategori'] != '#' ? $this->M_Iklan->getCategoryName($input_post['kategori']) : '';
+			$data['kota_badge'] = $input_post['kota'] != '#' ? $this->M_Iklan->getCityName($input_post['kota']) : '';
+			$data['dataIklan'] = $this->M_Iklan->searchIklanPost($input_post);
+			$data['jmlIklan'] = count($data['dataIklan']);
+		}
 
 		$this->load->view('user/search/index', $data);
 	}

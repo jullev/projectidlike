@@ -212,13 +212,50 @@ class M_Iklan extends CI_Model
 		return $this->db->affected_rows();
 	}
 
-	public function searchIklan($data)
+	public function searchIklanPost($data)
 	{
 		$data['kategori'] = $data['kategori'] == '#' ? '0' : $data['kategori'];
 		$data['kota'] = $data['kota'] == '#' ? '0' : $data['kota'];
 		$extra_sql = $data['konten'] == '' ? '' : " OR judul_kerjaan LIKE '%" . $data['konten'] . "%' OR deskripsi LIKE '%" . $data['konten'] . "%'";
 
 		$sql = "SELECT * FROM kerjaan WHERE kategori_idkategori=" . $data['kategori'] . " OR kabupaten_idkabupaten=" . $data['kota'] . $extra_sql;
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
+
+	public function searchIklanGet($data)
+	{
+		$filter = array();
+		// Kategori
+		if(isset($data['kategori_get'])){
+			array_push($filter, ' kategori_idkategori='.$data['kategori_get'].' ');
+		}
+		// Lokasi
+		if($data['kota_get'] != '#'){
+			array_push($filter,' kabupaten_idkabupaten='.$data['kota_get'].' ');
+		}
+		// Harga
+		if($data['harga_min'] != ''){
+			array_push($filter,' harga>='.$data['harga_min'].' ');
+		}
+		if($data['harga_max'] != ''){
+			array_push($filter,' harga<='.$data['harga_max'].' ');
+		}
+		// Tanggal deadline
+		if($data['start_date'] != ''){
+			array_push($filter," deadline>='".$data['start_date']."' ");
+		}
+		if($data['end_date'] != ''){
+			array_push($filter," deadline<='".$data['end_date']."' ");
+		}
+
+		// If no filter
+		if(count($filter) == 0){
+			$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten";
+		}else{
+			$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten WHERE ".implode("AND", $filter);
+		}
+
 		$query = $this->db->query($sql);
 		return $query->result();
 	}

@@ -85,8 +85,8 @@
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="#"><i class="bi-house-fill"></i></a></li>
-				<li class="breadcrumb-item"><a href="#">Library</a></li>
+				<li class="breadcrumb-item"><a href="<?php echo site_url('/') ?>"><i class="bi-house-fill"></i></a></li>
+				<li class="breadcrumb-item"><a href="<?php echo site_url('search') ?>">Search</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Data</li>
 			</ol>
 		</nav>
@@ -114,6 +114,34 @@
 									?>
 									<span class="py-2 px-3 ml-1 badge badge-light">
                                         <span id="kotaBadge"><?php echo $kota_badge->nama_kabupaten ?></span>
+                                    </span>
+									<?php
+								}
+								if (isset($hargamin_badge) AND $hargamin_badge != '') {
+									?>
+									<span class="py-2 px-3 ml-1 badge badge-light">
+                                        <span id="hargaminBadge">Min: <?php echo $hargamin_badge ?></span>
+                                    </span>
+									<?php
+								}
+								if (isset($hargamax_badge) AND $hargamax_badge != '') {
+									?>
+									<span class="py-2 px-3 ml-1 badge badge-light">
+                                        <span id="hargamaxBadge">Max: <?php echo $hargamax_badge ?></span>
+                                    </span>
+									<?php
+								}
+								if (isset($startdate_badge) AND $startdate_badge != '') {
+									?>
+									<span class="py-2 px-3 ml-1 badge badge-light">
+                                        <span id="hargamaxBadge">From: <?php echo $startdate_badge ?></span>
+                                    </span>
+									<?php
+								}
+								if (isset($enddate_badge) AND $enddate_badge != '') {
+									?>
+									<span class="py-2 px-3 ml-1 badge badge-light">
+                                        <span id="hargamaxBadge">To: <?php echo $enddate_badge ?></span>
                                     </span>
 									<?php
 								}
