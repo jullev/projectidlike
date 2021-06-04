@@ -298,7 +298,12 @@ class C_Iklan extends CI_Controller
 		foreach ($data['kategori'] as $kat) {
 			array_push($data['kategori_jml'], $this->M_Iklan->getCategoryCount($kat->idkategori));
 		}
-		if(isset($input_get['kota_get'])){
+		if(isset($input_get['loc'])){
+			$data['kota_badge'] = $input_get['loc'] != '#' ? $this->M_Iklan->getCityName($input_get['loc']) : '';
+			// Data iklan
+			$data['dataIklan'] = $this->M_Iklan->searchIklanLink($input_get['loc']);
+			$data['jmlIklan'] = count($data['dataIklan']);
+		}elseif(isset($input_get['kota_get'])){
 			// Ambil data input untuk ditampilkan di badge
 			if(isset($input_get['kategori_get'])){
 				// Get category name
@@ -312,6 +317,15 @@ class C_Iklan extends CI_Controller
 
 			// Data iklan
 			$data['dataIklan'] = $this->M_Iklan->searchIklanGet($input_get);
+			$data['jmlIklan'] = count($data['dataIklan']);
+		}elseif(isset($input_get['all'])){
+			// Data iklan
+			$data['dataIklan'] = $this->M_Iklan->searchIklanAll();
+			$data['jmlIklan'] = count($data['dataIklan']);
+		}elseif(isset($input_get['cat'])){
+			$data['kat_badge'] = $input_get['cat'] != '' ? $this->M_Iklan->getCategoryName($input_get['cat']) : '';
+			// Data iklan
+			$data['dataIklan'] = $this->M_Iklan->searchIklanCat($input_get['cat']);
 			$data['jmlIklan'] = count($data['dataIklan']);
 		}else{
 			// Ambil data input untuk ditampilkan di badge

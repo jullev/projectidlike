@@ -259,7 +259,21 @@ class M_Iklan extends CI_Model
 		$query = $this->db->query($sql);
 		return $query->result();
 	}
-
+	public function searchIklanLink($id){
+		$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten WHERE kabupaten_idkabupaten=".$id;
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
+	public function searchIklanCat($id){
+		$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten WHERE kategori_idkategori=".$id;
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
+	public function searchIklanAll(){
+		$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten";
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
 	public function getCategoryCount($id)
 	{
 		$sql = "SELECT COUNT(idkerjaan) as jml FROM kerjaan WHERE kategori_idkategori=" . $id;

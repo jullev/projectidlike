@@ -86,7 +86,7 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="<?php echo site_url('/') ?>"><i class="bi-house-fill"></i></a></li>
-				<li class="breadcrumb-item"><a href="<?php echo site_url('search') ?>">Search</a></li>
+				<li class="breadcrumb-item"><a href="">Search</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Data</li>
 			</ol>
 		</nav>

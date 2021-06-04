@@ -183,35 +183,35 @@
 						<div class="form-row">
 							<div class="col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=3173' ?>">Jakarta
+									<li><a href="<?php echo site_url('search') . '?loc=3173' ?>">Jakarta
 											Pusat</a></li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=3273' ?>">Bandung</a></li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=1275' ?>">Medan</a></li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=3578' ?>">Surabaya</a>
+									<li><a href="<?php echo site_url('search') . '?loc=3273' ?>">Bandung</a></li>
+									<li><a href="<?php echo site_url('search') . '?loc=1275' ?>">Medan</a></li>
+									<li><a href="<?php echo site_url('search') . '?loc=3578' ?>">Surabaya</a>
 									</li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=3275' ?>">Bekasi</a></li>
+									<li><a href="<?php echo site_url('search') . '?loc=3275' ?>">Bekasi</a></li>
 								</ul>
 							</div>
 							<div class="col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=1671' ?>">Palembang</a>
+									<li><a href="<?php echo site_url('search') . '?loc=1671' ?>">Palembang</a>
 									</li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=7371' ?>">Makassar</a>
+									<li><a href="<?php echo site_url('search') . '?loc=7371' ?>">Makassar</a>
 									</li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=3671' ?>">Tangerang</a>
+									<li><a href="<?php echo site_url('search') . '?loc=3671' ?>">Tangerang</a>
 									</li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=3674' ?>">Tangerang
+									<li><a href="<?php echo site_url('search') . '?loc=3674' ?>">Tangerang
 											Selatan</a></li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=3374' ?>">Semarang</a>
+									<li><a href="<?php echo site_url('search') . '?loc=3374' ?>">Semarang</a>
 									</li>
 								</ul>
 							</div>
 							<div class="col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=3276' ?>">Depok</a></li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=3509' ?>">Jember</a></li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=1371' ?>">Padang</a></li>
-									<li><a href="<?php echo site_url('search') . '?f=true&loc=5171' ?>">Denpasar</a>
+									<li><a href="<?php echo site_url('search') . '?loc=3276' ?>">Depok</a></li>
+									<li><a href="<?php echo site_url('search') . '?loc=3509' ?>">Jember</a></li>
+									<li><a href="<?php echo site_url('search') . '?loc=1371' ?>">Padang</a></li>
+									<li><a href="<?php echo site_url('search') . '?loc=5171' ?>">Denpasar</a>
 									</li>
 									<li><a href="" data-toggle="modal" data-target="#moreCity">Kota Lainnya</a></li>
 								</ul>
@@ -268,7 +268,7 @@
 			</div>
 
 			<div class="d-flex justify-content-center">
-				<button class="btn btn-outline-primary">Semua Iklan <i class="bi-caret-right-fill ml-2"></i></button>
+				<a href="<?php echo site_url('search').'?all=true' ?>" class="btn btn-outline-primary">Semua Iklan <i class="bi-caret-right-fill ml-2"></i></a>
 			</div>
 		</div> <!-- /Card Body -->
 	</div> <!-- /Card -->
@@ -286,10 +286,10 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="<?php echo site_url('search') . '?f=true' ?>" method="GET" onfocusout="cityCheck()">
+				<form action="<?php echo site_url('search') ?>" method="GET" onfocusout="cityCheck()">
 					<div class="form-group row">
 						<div class="col-9 pr-1">
-							<select class="selectpicker form-control" name="kota" id="daerah" data-live-search="true"
+							<select class="selectpicker form-control" name="loc" id="loc" data-live-search="true"
 									required>
 								<option value="#" id="select_kota_default">-- Pilih Kota/Kabupaten --</option>
 								<?php
