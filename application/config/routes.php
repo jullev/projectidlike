@@ -74,6 +74,7 @@ $route['kategoriupdate'] = 'C_SetKategori/UpdateKategori';
 $route['wilayahset'] = 'C_Overview/setWilayah';
 // $route['updateadmin'] = 'C_Overview/updateadmin';
 $route['editadmin/(:any)'] = 'C_Overview/editAdmin/$1';
+$route['update-admin'] = 'C_Overview/UpdateAdminTest';
 $route['updateadmin'] = 'C_ManagementAdmin/updateAdmin';
 $route['login'] = 'C_Register/loginData';
 $route['logout'] = 'C_Register/logout';

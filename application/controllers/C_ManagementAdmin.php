@@ -21,6 +21,21 @@ class C_ManagementAdmin extends CI_Controller
     {
         $input = $this->input->post();
         $input['id'] = $this->session->userdata('id');
+        // var_dump($input);
+        if ($_FILES['profil']['error'] == UPLOAD_ERR_NO_FILE) {
+            $data = $this->M_ManageAdmin->checkImage();
+            $input['profil'] = $data->foto_profil;
+        } else {
+            $img_upload = $this->uploadImage();
+            if ($img_upload['status'] != 'success') {
+                $this->session->set_userdata('status', 'error');
+                $this->session->set_userdata('msg', $img_upload['msg']);
+                redirect('adminlist', 'refresh');
+            } else {
+                $input['profil'] = $img_upload['filename'];
+            }
+        }
+
         $result = $this->M_ManageAdmin->updateAdmin($input);
         if ($result > 0) {
             $this->session->set_userdata('status', 'success');
@@ -32,35 +47,6 @@ class C_ManagementAdmin extends CI_Controller
         redirect("adminlist", "refresh");
     }
 
-    public function updateProfileAdmin()
-    {
-        $input = $this->input->post();
-        $input['id'] = $this->session->userdata('id');
-        if ($_FILES['avatar']['error'] == UPLOAD_ERR_NO_FILE) {
-            $temp = $this->M_ManageAdmin->checkImage();
-            $input['avatar'] = $temp->foto_profil;
-        } else {
-            $img_upload = $this->uploadImage();
-            if ($img_upload['status'] != 'success') {
-                $this->session->set_userdata('status', 'error');
-                $this->session->set_userdata('msg', $img_upload['msg']);
-                redirect('/', 'refresh');
-            } else {
-                $input['avatar'] = $img_upload['filename'];
-            }
-        }
-
-
-        $result = $this->M_manageAdmin->updateAdmin($input);
-        if ($result > 0) {
-            $this->session->set_userdata('status', 'success');
-            $this->session->set_userdata('msg', 'Data berhasil diperbarui.');
-        } else {
-            $this->session->set_userdata('status', 'error');
-            $this->session->set_userdata('msg', 'Periksa kembali data anda.');
-        }
-        redirect("/", "refresh");
-    }
 
     private function uploadImage()
     {
@@ -69,7 +55,7 @@ class C_ManagementAdmin extends CI_Controller
 
             $this->load->helper('string');
 
-            $image_ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+            $image_ext = pathinfo($_FILES['profil']['name'], PATHINFO_EXTENSION);
             $image_name = random_string('alnum', 10);
 
             $image = $image_name . '.' . $image_ext;
@@ -85,7 +71,7 @@ class C_ManagementAdmin extends CI_Controller
         $config['max_size'] = 4096;
 
         $this->load->library('upload', $config);
-        if ($this->upload->do_upload('avatar')) {
+        if ($this->upload->do_upload('profil')) {
             $this->upload->data();
             $result['status'] = 'success';
             $result['filename'] = $image;
