@@ -125,11 +125,11 @@
 		<!-- Search -->
 		<div class="col-12 col-sm-12 col-md-11 col-lg-10 mx-auto mt-2">
 			<div class="card rounded-search mx-auto shadow-sm">
-				<form action="<?php echo site_url('search') ?>" method="POST">
+				<form action="<?php echo site_url('search') ?>" method="GET">
 					<div class="form-row align-items-center mx-2 my-3 my-lg-0 mx-lg-2">
 						<div class="col-lg-4 d-flex form-group align-items-center mb-3 my-lg-3">
 							<div class="input-group">
-								<select name="kategori" id="kategori" class="selectpicker form-control" data-live-search="true">
+								<select name="kategori_get" id="kategori" class="selectpicker form-control" data-live-search="true">
 									<option value="#">-- Kategori --</option>
 									<?php
 									foreach ($kategori as $kat) {
@@ -147,7 +147,7 @@
 							</div>
 						</div>
 						<div class="col-lg-3 d-flex align-items-center form-group my-lg-3" id="kotaSearch">
-							<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
+							<select class="selectpicker form-control" name="kota_get" id="kota" data-live-search="true">
 								<option value="#">Dimana?</option>
 								<?php
 								foreach ($kabupaten as $kab) {
@@ -268,7 +268,7 @@
 			</div>
 
 			<div class="d-flex justify-content-center">
-				<a href="<?php echo site_url('search').'?all=true' ?>" class="btn btn-outline-primary">Semua Iklan <i class="bi-caret-right-fill ml-2"></i></a>
+				<a href="<?php echo site_url('search/1').'?all=true' ?>" class="btn btn-outline-primary">Semua Iklan <i class="bi-caret-right-fill ml-2"></i></a>
 			</div>
 		</div> <!-- /Card Body -->
 	</div> <!-- /Card -->

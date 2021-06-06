@@ -44,10 +44,10 @@
 	<div class="row">
 		<div class="col-md-10 col-lg-12 col-xl-12 mx-auto">
 			<div class="search-bar">
-				<form action="<?php echo site_url('search') ?>" method="POST">
+				<form action="<?php echo site_url('search') ?>" method="GET">
 					<div class="input-group">
 						<div class="input-group-prepend"></div>
-						<select class="custom-select" id="kategoriCari" name="kategori">
+						<select class="custom-select" id="kategoriCari" name="kategori_get">
 							<option value="#">Semua Kategori</option>
 							<?php
 							foreach ($kategori as $kat) {
@@ -57,8 +57,8 @@
 							}
 							?>
 						</select>
-						<input class="form-control" type="text" placeholder="Apa ?" id="apaCari" name="konten">
-						<select class="selectpicker form-control" name="kota" id="kota" data-live-search="true">
+						<input class="form-control" type="text" placeholder="Apa ?" id="apaCari" name="konten_get">
+						<select class="selectpicker form-control" name="kota_get" id="kota" data-live-search="true">
 							<option value="#">Dimana?</option>
 							<?php
 							foreach ($kabupaten as $kab) {
@@ -171,33 +171,7 @@
 				</div>
 			</div>
 			<!-- End of Search Result -->
-
 		</div> <!-- Row -->
-
-		<!-- Pagination -->
-		<div class="d-flex justify-content-center align-items-center">
-			<nav aria-label="Search results pages">
-				<ul class="pagination">
-					<li class="page-item disabled">
-						<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-					</li>
-					<li class="page-item active" aria-current="page">
-						<a class="page-link" href="#">1</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">2</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">3</a>
-					</li>
-					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-		<!-- Pagination end -->
-
 	</div> <!-- Container -->
 	<!-- End of Content -->
 

@@ -212,68 +212,110 @@ class M_Iklan extends CI_Model
 		return $this->db->affected_rows();
 	}
 
-	public function searchIklanPost($data)
+	public function searchIklanPost($data, $offset)
 	{
-		$data['kategori'] = $data['kategori'] == '#' ? '0' : $data['kategori'];
-		$data['kota'] = $data['kota'] == '#' ? '0' : $data['kota'];
-		$extra_sql = $data['konten'] == '' ? '' : " OR judul_kerjaan LIKE '%" . $data['konten'] . "%' OR deskripsi LIKE '%" . $data['konten'] . "%'";
+		$filter = array();
+		if (isset($data['kategori']) && $data['kategori'] != '#') {
+			array_push($filter, ' kategori_idkategori=' . $data['kategori'] . ' ');
+		}
+		if (isset($data['kota']) && $data['kota'] != '#') {
+			array_push($filter, 'kabupaten_idkabupaten=' . $data['kota'] . ' ');
+		}
+		if (isset($data['konten']) && trim($data['konten']) != '') {
+			array_push($filter, ' judul_kerjaaan LIKE "%' . $data['konten'] . '%" OR deskripsi LIKE "%' . $data['konten'] . '%"');
+		}
 
-		$sql = "SELECT * FROM kerjaan WHERE kategori_idkategori=" . $data['kategori'] . " OR kabupaten_idkabupaten=" . $data['kota'] . $extra_sql;
-		$query = $this->db->query($sql);
-		return $query->result();
+
+		$sql = 'SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten';
+
+		if (count($filter) != 0) {
+			$sql_query = $sql . ' WHERE ' . implode('AND', $filter) . ' LIMIT 15 OFFSET ' . $offset;
+			$sql_count = $sql . ' WHERE ' . implode('AND', $filter);
+		} else {
+			$sql_query = $sql . ' LIMIT 15 OFFSET ' . $offset;
+			$sql_count = $sql;
+		}
+
+		$data['query'] = $this->db->query($sql_query)->result();
+		$data['query_count'] = $this->db->query($sql_count)->num_rows();
+		return $data;
+
 	}
 
-	public function searchIklanGet($data)
+	public function searchIklanGet($data, $offset)
 	{
 		$filter = array();
 		// Kategori
-		if(isset($data['kategori_get'])){
-			array_push($filter, ' kategori_idkategori='.$data['kategori_get'].' ');
+		if (isset($data['kategori_get']) && $data['kategori_get'] != '#') {
+			array_push($filter, ' kategori_idkategori=' . $data['kategori_get'] . ' ');
 		}
 		// Lokasi
-		if($data['kota_get'] != '#'){
-			array_push($filter,' kabupaten_idkabupaten='.$data['kota_get'].' ');
+		if (isset($data['kota_get']) && $data['kota_get'] != '#') {
+			array_push($filter, ' kabupaten_idkabupaten=' . $data['kota_get'] . ' ');
 		}
 		// Harga
-		if($data['harga_min'] != ''){
-			array_push($filter,' harga>='.$data['harga_min'].' ');
+		if (isset($data['harga_min']) && $data['harga_min'] != '') {
+			array_push($filter, ' harga>=' . $data['harga_min'] . ' ');
 		}
-		if($data['harga_max'] != ''){
-			array_push($filter,' harga<='.$data['harga_max'].' ');
+		if (isset($data['harga_max']) && $data['harga_max'] != '') {
+			array_push($filter, ' harga<=' . $data['harga_max'] . ' ');
 		}
 		// Tanggal deadline
-		if($data['start_date'] != ''){
-			array_push($filter," deadline>='".$data['start_date']."' ");
+		if (isset($data['start_date']) && $data['start_date'] != '') {
+			array_push($filter, " deadline>='" . $data['start_date'] . "' ");
 		}
-		if($data['end_date'] != ''){
-			array_push($filter," deadline<='".$data['end_date']."' ");
+		if (isset($data['end_date']) && $data['end_date'] != '') {
+			array_push($filter, " deadline<='" . $data['end_date'] . "' ");
+		}
+		if (isset($data['konten']) && trim($data['konten']) != '') {
+			array_push($filter, ' judul_kerjaan LIKE "%' . $data['konten'] . '%" OR deskripsi LIKE "%' . $data['konten'] . '%"');
 		}
 
+		$sql = 'SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten';
 		// If no filter
-		if(count($filter) == 0){
-			$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten";
-		}else{
-			$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten WHERE ".implode("AND", $filter);
+		if (count($filter) == 0) {
+			$sql_query = $sql . ' LIMIT 15 OFFSET ' . $offset;
+			$sql_count = $sql;
+		} else {
+			$sql_query = $sql . ' WHERE ' . implode("AND", $filter) . " LIMIT 15 OFFSET " . $offset;
+			$sql_count = $sql . ' WHERE ' . implode("AND", $filter);
 		}
 
-		$query = $this->db->query($sql);
-		return $query->result();
+		$data['query'] = $this->db->query($sql_query)->result();
+		$data['query_count'] = $this->db->query($sql_count)->num_rows();
+		return $data;
 	}
-	public function searchIklanLink($id){
-		$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten WHERE kabupaten_idkabupaten=".$id;
-		$query = $this->db->query($sql);
-		return $query->result();
+
+	public function searchIklanLink($id, $offset)
+	{
+		$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten WHERE kabupaten_idkabupaten=" . $id;
+		$sql_query = $sql . ' LIMIT 15 OFFSET ' . $offset;
+		$sql_count = $sql;
+		$data['query'] = $this->db->query($sql_query)->result();
+		$data['query_count'] = $this->db->query($sql_count)->num_rows();
+		return $data;
 	}
-	public function searchIklanCat($id){
-		$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten WHERE kategori_idkategori=".$id;
-		$query = $this->db->query($sql);
-		return $query->result();
+
+	public function searchIklanCat($id, $offset)
+	{
+		$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten WHERE kategori_idkategori=" . $id;
+		$sql_query = $sql . ' LIMIT 15 OFFSET ' . $offset;
+		$sql_count = $sql;
+		$data['query'] = $this->db->query($sql_query)->result();
+		$data['query_count'] = $this->db->query($sql_count)->num_rows();
+		return $data;
 	}
-	public function searchIklanAll(){
-		$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten";
-		$query = $this->db->query($sql);
-		return $query->result();
+
+	public function searchIklanAll($offset)
+	{
+		$sql = "SELECT kerjaan.*, kategori.nama_kategori as nama_kategori, wilayah_kabupaten.nama_kabupaten as nama_kabupaten FROM kerjaan INNER JOIN kategori ON kerjaan.kategori_idkategori = kategori.idkategori INNER JOIN wilayah_kabupaten ON kerjaan.kabupaten_idkabupaten = wilayah_kabupaten.id_kabupaten ";
+		$sql_query = $sql . ' LIMIT 15 OFFSET ' . $offset;
+		$sql_count = $sql;
+		$data['query'] = $this->db->query($sql_query)->result();
+		$data['query_count'] = $this->db->query($sql_count)->num_rows();
+		return $data;
 	}
+
 	public function getCategoryCount($id)
 	{
 		$sql = "SELECT COUNT(idkerjaan) as jml FROM kerjaan WHERE kategori_idkategori=" . $id;
