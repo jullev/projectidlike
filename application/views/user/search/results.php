@@ -21,12 +21,12 @@
 		transform: scale(1.25);
 	}
 </style>
-
+<script src="<?php echo base_url('assets/assets/js/pagination.min.js') ?>"></script>
 <!--View Hasil Pencarian Ada -->
 <div class="row">
 	<?php
 	//var_dump(@$dataIklan);
-	foreach (@$dataIklan as $value) {
+	foreach ($dataIklan['query'] as $value) {
 		?>
 		<div class="col-lg-4 col-md-6 col-sm-10 px-2 mb-3">
 			<div class="card" id="cardHover">
@@ -56,3 +56,29 @@
 	}
 	?>
 </div>
+<div id="pagination_" class="mt-4">
+	<?php echo $this->pagination->create_links(); ?>
+</div>
+<!-- Pagination -->
+<!--<div class="d-flex justify-content-center align-items-center">-->
+<!--	<nav aria-label="Search results pages">-->
+<!--		<ul class="pagination">-->
+<!--			<li class="page-item disabled">-->
+<!--				<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>-->
+<!--			</li>-->
+<!--			<li class="page-item active" aria-current="page">-->
+<!--				<a class="page-link" href="#">1</a>-->
+<!--			</li>-->
+<!--			<li class="page-item">-->
+<!--				<a class="page-link" href="#">2</a>-->
+<!--			</li>-->
+<!--			<li class="page-item">-->
+<!--				<a class="page-link" href="#">3</a>-->
+<!--			</li>-->
+<!--			<li class="page-item">-->
+<!--				<a class="page-link" href="#">Next</a>-->
+<!--			</li>-->
+<!--		</ul>-->
+<!--	</nav>-->
+<!--</div>-->
+<!-- Pagination end -->

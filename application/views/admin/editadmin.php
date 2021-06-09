@@ -53,7 +53,7 @@
                                 </span>
                             </div>
                             <div class="card-body p-5 bg-light">
-                                <form action="<?php echo site_url('updateadminproses') ?>" onsubmit=" return validation()" method="POST" id="admin_form">
+                                <form action="<?php echo site_url('updateadminproses') ?>" onsubmit=" return validation()" method="POST" id="admin_form" enctype="multipart/form-data">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Id Admin</label>
                                         <div class="col-sm-8">
@@ -138,8 +138,8 @@
                                         <label for="deskripsi" class="col-sm-3 col-form-label">Upload Foto Profil</label>
                                         <div class="input-group col-sm-8">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                <input type="file" class="custom-file-input" name="profil" id="avatar" accept="image/jpeg, image/png">
+                                                <label for="avatar" class="custom-file-label">Photo or Avatar</label>
                                             </div>
                                         </div>
                                     </div>

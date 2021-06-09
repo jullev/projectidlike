@@ -19,6 +19,7 @@ class C_Overview extends CI_Controller
   {
     $data['alluser'] = $this->M_ManageUser->totalUser();
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view("admin/overview", $data);
   }
 
@@ -38,6 +39,7 @@ class C_Overview extends CI_Controller
     }
     $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/adminlist', $data);
   }
 
@@ -51,6 +53,7 @@ class C_Overview extends CI_Controller
     }
     $data['alluser'] = $this->M_ManageUser->select_all_user();
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/userlist', $data);
   }
 
@@ -76,6 +79,7 @@ class C_Overview extends CI_Controller
     //		$result = $this->M_ManageAdmin->update_admin($data);
     $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/adminlist', $data);
 
     /*
@@ -104,6 +108,7 @@ class C_Overview extends CI_Controller
       $this->session->set_flashdata('gender', '');
     }
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/tambahadmin', $data);
   }
 
@@ -113,6 +118,7 @@ class C_Overview extends CI_Controller
     //  	var_dump("data ",$id);
     $data['detailuser'] = $this->M_ManageAdmin->select_admin_id($id);
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     //  	var_dump($data);
     $this->load->view('admin/editadmin', $data);
   }
@@ -123,17 +129,20 @@ class C_Overview extends CI_Controller
   public function searchtest()
   {
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/searchtest', $data);
   }
   public function tambahuser()
   {
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/tambahuser', $data);
   }
 
   public function updateadmin()
   {
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/editadmin', $data);
   }
 
@@ -145,6 +154,7 @@ class C_Overview extends CI_Controller
     $data['userdata'] = $this->M_ManageUser->select_user_id($id);
     // error pada sidebar allcount
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/detailuser', $data);
   }
 
@@ -157,6 +167,7 @@ class C_Overview extends CI_Controller
       $data['msg'] = $msg == 'success' ? 'Data berhasil di buang ' : 'Data gagal di buang';
     }
     $data['allkat'] = $this->M_Setkategori->select_all_kategori();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $data['allcount'] = $this->M_Iklan->show_allcount();
     $this->load->view('admin/setkategori', $data);
   }
@@ -165,6 +176,7 @@ class C_Overview extends CI_Controller
   {
     // $data['alladmin'] = $this->M_ManageAdmin->select_all_admin();
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/tambahkategori', $data);
   }
 
@@ -186,6 +198,7 @@ class C_Overview extends CI_Controller
 
     $data['editKatgor'] = $this->M_Setkategori->select_kategori_id($id);
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     //  	var_dump($data);
     $this->load->view('admin/editkategori', $data);
   }
@@ -194,6 +207,7 @@ class C_Overview extends CI_Controller
   {
     $data['allwil'] = $this->M_Setwilayah->select_all_wilayah();
     $data['allcount'] = $this->M_Iklan->show_allcount();
+    // $data['datauser'] = $this->M_ManageAdmin->select_admin_id();
     $this->load->view('admin/setwilayah', $data);
   }
 }

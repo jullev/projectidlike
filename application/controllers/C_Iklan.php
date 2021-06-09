@@ -298,28 +298,61 @@ class C_Iklan extends CI_Controller
 		foreach ($data['kategori'] as $kat) {
 			array_push($data['kategori_jml'], $this->M_Iklan->getCategoryCount($kat->idkategori));
 		}
-		if(isset($input_get['kota_get'])){
+
+		// Current page
+		$page = $this->uri->segment(2) !== null ? (intval($this->uri->segment(2) - 1)) : 0;
+
+		if (isset($input_get['loc'])) {
+			$data['kota_badge'] = $input_get['loc'] != '#' ? $this->M_Iklan->getCityName($input_get['loc']) : '';
+			// Data iklan
+			$data['dataIklan'] = $this->M_Iklan->searchIklanLink($input_get['loc'], $page);
+			$data['jmlIklan'] = count($data['dataIklan']);
+		} elseif (isset($input_get['kota_get'])) {
 			// Ambil data input untuk ditampilkan di badge
-			if(isset($input_get['kategori_get'])){
+			if (isset($input_get['kategori_get'])) {
 				// Get category name
-				$data['kat_badge'] = $input_get['kategori_get'] != '' ? $this->M_Iklan->getCategoryName($input_get['kategori_get']) : '';
+				$data['kat_badge'] = $input_get['kategori_get'] != '' && $input_get['kategori_get'] != '#' ? $this->M_Iklan->getCategoryName($input_get['kategori_get']) : '';
 			}
-			$data['kota_badge'] = $input_get['kota_get'] != '#' ? $this->M_Iklan->getCityName($input_get['kota_get']) : '';
-			$data['hargamin_badge'] = $input_get['harga_min'] != '' ? $input_get['harga_min'] : '';
-			$data['hargamax_badge'] = $input_get['harga_max'] != '' ? $input_get['harga_max'] : '';
-			$data['startdate_badge'] = $input_get['start_date'] != '' ? $input_get['start_date'] : '';
-			$data['enddate_badge'] = $input_get['end_date'] != '' ? $input_get['end_date'] : '';
+			$data['kota_badge'] = isset($data['kota_get']) && $input_get['kota_get'] != '#' ? $this->M_Iklan->getCityName($input_get['kota_get']) : '';
+			$data['hargamin_badge'] = isset($data['harga_min']) && $input_get['harga_min'] != '' ? $input_get['harga_min'] : '';
+			$data['hargamax_badge'] = isset($data['harga_max']) && $input_get['harga_max'] != '' ? $input_get['harga_max'] : '';
+			$data['startdate_badge'] = isset($data['start_date']) && $input_get['start_date'] != '' ? $input_get['start_date'] : '';
+			$data['enddate_badge'] = isset($data['end_date']) && $input_get['end_date'] != '' ? $input_get['end_date'] : '';
 
 			// Data iklan
-			$data['dataIklan'] = $this->M_Iklan->searchIklanGet($input_get);
-			$data['jmlIklan'] = count($data['dataIklan']);
-		}else{
-			// Ambil data input untuk ditampilkan di badge
-			$data['kat_badge'] = $input_post['kategori'] != '#' ? $this->M_Iklan->getCategoryName($input_post['kategori']) : '';
-			$data['kota_badge'] = $input_post['kota'] != '#' ? $this->M_Iklan->getCityName($input_post['kota']) : '';
-			$data['dataIklan'] = $this->M_Iklan->searchIklanPost($input_post);
-			$data['jmlIklan'] = count($data['dataIklan']);
+			$data['dataIklan'] = $this->M_Iklan->searchIklanGet($input_get, $page);
+//			$data['totalIklan'] = $this->M_Iklan->searchIklanGet($input_get, 'default');
+		}elseif(isset($input_get['all'])) {
+			// Data iklan
+			$data['dataIklan'] = $this->M_Iklan->searchIklanAll($page);
+		} elseif (isset($input_get['cat'])) {
+			$data['kat_badge'] = $input_get['cat'] != '' || $input_get['cat'] != '#' ? $this->M_Iklan->getCategoryName($input_get['cat']) : '';
+			// Data iklan
+			$data['dataIklan'] = $this->M_Iklan->searchIklanCat($input_get['cat'], $page);
 		}
+
+		$data['jmlIklan'] = $data['dataIklan']['query_count'];
+
+		// Pagination
+		$config['base_url'] = 'http://localhost/projectidlike/search/';
+		$config['total_rows'] = $data['dataIklan']['query_count'];
+		$config['per_page'] = 15;
+		$config['num_links'] = 2;
+		$config['reuse_query_string'] = true;
+		$config['use_page_numbers'] = true;
+		// UI
+		$config['full_tag_open'] = '<nav aria-label="Page navigation example"><ul class="pagination justify-content-end">';
+		$config['full_tag_close'] = '</ul></nav>';
+		$config['first_tag_open'] = '<li class="page-item">';
+		$config['first_tag_close'] = '</li>';
+		$config['last_tag_open'] = '<li class="page-item">';
+		$config['last_tag_close'] = '</li>';
+		$config['cur_tag_open'] = ' <li class="page-item active"><a class="page-link" href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		$config['attributes'] = array('class' => 'page-link');
+
+		$this->load->library('pagination');
+		$this->pagination->initialize($config);
 
 		$this->load->view('user/search/index', $data);
 	}

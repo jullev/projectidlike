@@ -137,16 +137,16 @@
                                         </div>
                                     </div>
                                     <!-- Foto Profile -->
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label for="deskripsi" class="col-sm-3 col-form-label">Upload Foto Profil</label>
                                         <div class="input-group col-sm-8">
                                             <div class="custom-file">
-                                                <input type="file" name="foto_profil" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                                <input type="file" name="avatar" id="avatar" class="custom-file-input" accept="image/jpeg, image/png" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                             </div>
 
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- button -->
                                     <div class="form-group row">
                                         <div class="input-group col-sm-12 ">
