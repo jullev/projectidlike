@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $this->load->view("admin/_partials/head.php") ?>
-
+<?php $this->load->view("admin/_partials/head.php"); ?>
 <body class="hold-transition sidebar-collapse sidebar-mini layout-fixed">
 	<div class="wrapper">
 
@@ -9,7 +8,6 @@
 
 		<!-- Main Sidebar Container -->
 		<?php $this->load->view("admin/_partials/sidebar.php") ?>
-
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
