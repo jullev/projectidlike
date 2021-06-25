@@ -135,8 +135,8 @@ class C_Register extends CI_Controller
 		$config = array(
 			'protocol' => 'smtp',
 			'smtp_host' => 'smtp.gmail.com',
-			'smtp_user' => '110011dummy@gmail.com',
-			'smtp_pass' => 'Dummy110011',
+			'smtp_user' => 'temantumbuh123@gmail.com',
+			'smtp_pass' => 'temantum123',
 			'smtp_port' => '465',
 			'smtp_crypto' => 'ssl',
 			'mailtype' => 'html',
@@ -181,6 +181,7 @@ class C_Register extends CI_Controller
 		$validation->set_rules("gender", "gender", "required");
 		$validation->set_rules("no_hp", "phone", "required");
 		$validation->set_rules("password", "password_register", "required");
+
 
 		// $this->session->set_flashdata('name', $data['name']);
 		// $this->session->set_flashdata('username_register', $data['username_register']);

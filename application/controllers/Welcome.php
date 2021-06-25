@@ -30,25 +30,21 @@ class Welcome extends CI_Controller
 	}
 	public function index()
 	{
-//		echo $this->session->userdata('role');
-		if ($this->session->userdata('role')==1) {
+		// var_dump($_SERVER['HTTP_HOST']);
+		//		echo $this->session->userdata('role');
+		if ($this->session->userdata('role') == 1) {
 			$data['allcount'] = $this->M_Iklan->show_allcount();
-			$this->load->view('admin/overview',$data);
-		}
-		else if($this->session->userdata('role')==2){
+			$this->load->view('admin/overview', $data);
+		} else if ($this->session->userdata('role') == 2) {
 			$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
 			$data['kategori'] = $this->M_Iklan->getAllCategory();
 			$data['kabupaten'] = $this->M_Iklan->getAllKab();
-			$this->load->view('user/overview',$data);
-		}
-		else{
+			$this->load->view('user/overview', $data);
+		} else {
 			$data['dataIklan'] = $this->M_Iklan->select_all_iklan_disetujui();
 			$data['kategori'] = $this->M_Iklan->getAllCategory();
 			$data['kabupaten'] = $this->M_Iklan->getAllKab();
-			$this->load->view('user/overview',$data);
+			$this->load->view('user/overview', $data);
 		}
 	}
-
-	
-
 }
